@@ -61,3 +61,6 @@
  ; (load-shared-object "libsqlite3.so.0")
 
 ) ; library sqlite3
+
+  
+(warning 'sqlite3 "remember to load the dynamic library: Example:  (load-shared-object \"libsqlite3.so.0\")")
