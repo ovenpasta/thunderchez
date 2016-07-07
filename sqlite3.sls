@@ -58,6 +58,6 @@
 
   (include "sqlite3.scm")
 
-  (load-shared-object "libsqlite3.so.0")
+ ; (load-shared-object "libsqlite3.so.0")
 
 ) ; library sqlite3
