@@ -1,0 +1,69 @@
+body {
+color: black;
+background-color: white;
+margin-top: 2em;
+margin-left: 10%;
+width: 400pt;
+}
+
+pre {
+  background-color: beige;
+}
+
+pre.scheme {
+  background-color: white;
+}
+
+.subject {
+}
+
+h1 {
+margin-left: -5%;
+margin-top: 2em;
+font-size: large;
+}
+
+h2 {
+margin-left: -4%;
+margin-top: 1em;
+font-size: large;
+}
+
+h3,h4,h5,h6 {
+margin-left: -3%;
+margin-top: .5em;
+font-size: small;
+}
+
+.navigation {
+color: red;
+background-color: beige;
+text-align: right;
+font-style: italic;
+}
+
+
+.scheme {
+color: brown;
+}
+
+.scheme .keyword {
+color: #cc0000;
+font-weight: bold;
+}
+
+.scheme .variable {
+color: navy;
+}
+
+.scheme .global {
+color: purple;
+}
+
+.scheme .constant,.number,.char,.string,.boolean {
+color: green;
+}
+
+.scheme .comment {
+color: teal;
+}

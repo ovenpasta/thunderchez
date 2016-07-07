@@ -1,0 +1,14 @@
+
+                                 fmt
+                                 ---
+
+                    Combinator Formatting Library
+
+                   http://synthcode.com/scheme/fmt/
+
+
+This directory contains a portable combinator-based formatting library
+for Scheme.  It has been tested on Chicken, Gauche, MzScheme 3.x and
+Scheme48.
+
+Documentation is in the file fmt.html.

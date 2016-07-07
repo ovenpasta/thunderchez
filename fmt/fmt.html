@@ -1,0 +1,1751 @@
+<html><head><title>Combinator Formatting</title>
+</head><body bgcolor=white>
+
+<h1><span class=subject>Combinator Formatting</span></h1>
+
+<style>
+body {
+color: black;
+background-color: white;
+margin-top: 2em;
+margin-left: 10%;
+width: 400pt;
+}
+
+pre {
+  background-color: beige;
+}
+
+pre.scheme {
+  background-color: white;
+}
+
+.subject {
+}
+
+h1 {
+margin-left: -5%;
+margin-top: 2em;
+font-size: large;
+}
+
+h2 {
+margin-left: -4%;
+margin-top: 1em;
+font-size: large;
+}
+
+h3,h4,h5,h6 {
+margin-left: -3%;
+margin-top: .5em;
+font-size: small;
+}
+
+.navigation {
+color: red;
+background-color: beige;
+text-align: right;
+font-style: italic;
+}
+
+
+.scheme {
+color: brown;
+}
+
+.scheme .keyword {
+color: #cc0000;
+font-weight: bold;
+}
+
+.scheme .variable {
+color: navy;
+}
+
+.scheme .global {
+color: purple;
+}
+
+.scheme .constant,.number,.char,.string,.boolean {
+color: green;
+}
+
+.scheme .comment {
+color: teal;
+}
+</style>
+<div align=right><a href="http://synthcode.com/">Alex Shinn</a></div>
+<div align=right><a href="http://synthcode.com/scheme/fmt/fmt-0.8.4.tar.gz">Download Version 0.8.4</a></div>
+<p>
+
+<br /><br />
+
+A library of procedures for formatting Scheme objects to text in
+various ways, and for easily concatenating, composing and extending
+these formatters efficiently without resorting to capturing and
+manipulating intermediate strings.
+<p>
+
+<br /><br />
+
+<a name="SECTION_1"><h1>1&nbsp;&nbsp;Table of Contents</h1>
+
+
+
+<ol>
+<li><a href="#SECTION_1">Table of Contents</a>
+<li><a href="#SECTION_2">Installation</a>
+<li><a href="#SECTION_3">Background</a>
+<li><a href="#SECTION_4">Usage</a>
+<li><a href="#SECTION_5">Specification</a>
+<ol>
+<li><a href="#SECTION_5.1">Formatting Objects</a>
+<li><a href="#SECTION_5.2">Formatting Numbers</a>
+<li><a href="#SECTION_5.3">Formatting Space</a>
+<li><a href="#SECTION_5.4">Concatenation</a>
+<li><a href="#SECTION_5.5">Padding and Trimming</a>
+<li><a href="#SECTION_5.6">Format Variables</a>
+<li><a href="#SECTION_5.7">Columnar Formatting</a>
+</ol>
+<li><a href="#SECTION_6">C Formatting</a>
+<ol>
+<li><a href="#SECTION_6.1">C Formatting Basics</a>
+<li><a href="#SECTION_6.2">C Preprocessor Formatting</a>
+<li><a href="#SECTION_6.3">Customizing C Style</a>
+<li><a href="#SECTION_6.4">C Formatter Index</a>
+<li><a href="#SECTION_6.5">C Preprocessor Formatter Index</a>
+<li><a href="#SECTION_6.6">C Types</a>
+<li><a href="#SECTION_6.7">C as S-Expressions</a>
+</ol>
+<li><a href="#SECTION_7">JavaScript Formatting</a>
+<li><a href="#SECTION_8">Formatting with Color</a>
+<li><a href="#SECTION_9">Unicode</a>
+<li><a href="#SECTION_10">Optimizing</a>
+<li><a href="#SECTION_11">Common Lisp Format Cheat Sheet</a>
+<li><a href="#SECTION_12">References</a>
+</ol>
+
+<br /><br />
+
+<a name="SECTION_2"><h1>2&nbsp;&nbsp;Installation</h1>
+
+Available for Chicken as the <code>fmt</code> egg, providing the <code class=scheme><span class=variable>fmt</span></code>,
+<code class=scheme><span class=variable>fmt-c</span></code>, <code class=scheme><span class=variable>fmt-color</span></code> and <code class=scheme><span class=variable>fmt-unicode</span></code> extensions.  To install
+manually for Chicken just run <code>&quot;chicken-setup&quot;</code> in the fmt
+directory.
+<p>
+
+For Gauche run <code>&quot;make gauche &amp;&amp; make install-gauche&quot;</code>.  The modules
+are installed as <code class=scheme><span class=variable>text.fmt</span></code>, <code class=scheme><span class=variable>text.fmt.c</span></code>, <code class=scheme><span class=variable>text.fmt.color</span></code> and
+<code class=scheme><span class=variable>text.fmt.unicode</span></code>.
+<p>
+
+For MzScheme you can download and install the latest <code>fmt.plt</code> yourself
+from:
+<p>
+
+<a href="http://synthcode.com/scheme/fmt/fmt.plt">http://synthcode.com/scheme/fmt/fmt.plt</a>
+<p>
+
+To build the <code>fmt.plt</code> for yourself you can run <code>&quot;make mzscheme&quot;</code>.
+<p>
+
+For Scheme48 the package descriptions are in <code>fmt-scheme48.scm</code>:
+<p>
+
+<pre class=scheme>
+<span class=variable>&gt;</span> ,<span class=variable>config</span> ,<span class=variable>load</span> <span class=variable>fmt-scheme48.scm</span>
+<span class=variable>&gt;</span> ,<span class=variable>open</span> <span class=variable>fmt</span>
+</pre>
+<p>
+
+For other implementations you'll need to load SRFI's 1, 6, 13, 33
+(sample provided) and 69 (also provided), and then load the following
+files:
+<p>
+
+<pre class=scheme>
+  (<span class=variable>load</span> <span class=string>&quot;let-optionals.scm&quot;</span>)  <span class=comment>; if you don't have LET-OPTIONALS*</span>
+  (<span class=variable>load</span> <span class=string>&quot;read-line.scm&quot;</span>)      <span class=comment>; if you don't have READ-LINE</span>
+  (<span class=variable>load</span> <span class=string>&quot;string-ports.scm&quot;</span>)   <span class=comment>; if you don't have CALL-WITH-OUTPUT-STRING</span>
+  (<span class=variable>load</span> <span class=string>&quot;make-eq-table.scm&quot;</span>)
+  (<span class=variable>load</span> <span class=string>&quot;mantissa.scm&quot;</span>)
+  (<span class=variable>load</span> <span class=string>&quot;fmt.scm&quot;</span>)
+  (<span class=variable>load</span> <span class=string>&quot;fmt-pretty.scm&quot;</span>)     <span class=comment>; optional pretty printing</span>
+  (<span class=variable>load</span> <span class=string>&quot;fmt-column.scm&quot;</span>)     <span class=comment>; optional columnar output</span>
+  (<span class=variable>load</span> <span class=string>&quot;fmt-c.scm&quot;</span>)          <span class=comment>; optional C formatting utilities</span>
+  (<span class=variable>load</span> <span class=string>&quot;fmt-color.scm&quot;</span>)      <span class=comment>; optional color utilities</span>
+  (<span class=variable>load</span> <span class=string>&quot;fmt-unicode.scm&quot;</span>)    <span class=comment>; optional Unicode-aware formatting,</span>
+                              <span class=comment>;   also requires SRFI-4 or SRFI-66</span>
+</pre>
+<p>
+
+<a name="SECTION_3"><h1>3&nbsp;&nbsp;Background</h1>
+
+There are several approaches to text formatting.  Building strings to
+<code class=scheme><span class=variable>display</span></code> is not acceptable, since it doesn't scale to very large
+output.  The simplest realistic idea, and what people resort to in
+typical portable Scheme, is to interleave <code class=scheme><span class=variable>display</span></code> and <code class=scheme><span class=variable>write</span></code>
+and manual loops, but this is both extremely verbose and doesn't
+compose well.  A simple concept such as padding space can't be
+achieved directly without somehow capturing intermediate output.
+<p>
+
+The traditional approach is to use templates - typically strings,
+though in theory any object could be used and indeed Emacs' mode-line
+format templates allow arbitrary sexps.  Templates can use either
+escape sequences (as in C's <code class=scheme><span class=variable>printf</span></code> and <a href="#BIBITEM_2">CL's</a>
+<code class=scheme><span class=variable>format</span></code>) or pattern matching (as in Visual Basic's <code class=scheme><span class=variable>Format</span></code>,
+<a href="#BIBITEM_6">Perl6's</a> <code class=scheme><span class=variable>form</span></code>, and SQL date formats).  The
+primary disadvantage of templates is the relative difficulty (usually
+impossibility) of extending them, their opaqueness, and the
+unreadability that arises with complex formats.  Templates are not
+without their advantages, but they are already addressed by other
+libraries such as <a href="#BIBITEM_3">SRFI-28</a> and
+<a href="#BIBITEM_4">SRFI-48</a>.
+<p>
+
+This library takes a combinator approach.  Formats are nested chains
+of closures, which are called to produce their output as needed.
+The primary goal of this library is to have, first and foremost, a
+maximally expressive and extensible formatting library.  The next
+most important goal is scalability - to be able to handle
+arbitrarily large output and not build intermediate results except
+where necessary.  The third goal is brevity and ease of use.
+<p>
+
+<a name="SECTION_4"><h1>4&nbsp;&nbsp;Usage</h1>
+
+The primary interface is the <code class=scheme><span class=variable>fmt</span></code> procedure:
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=variable>&lt;output-dest&gt;</span> <span class=variable>&lt;format&gt;</span> ...)</code>
+<p>
+
+where <code class=scheme><span class=variable>&lt;output-dest&gt;</span></code> has the same semantics as with <code class=scheme><span class=variable>format</span></code> -
+specifically it can be an output-port, <code class=scheme><span class=boolean>#t</span></code> to indicate the current
+output port, or <code class=scheme><span class=boolean>#f</span></code> to accumulate output into a string.
+<p>
+
+Each <code class=scheme><span class=variable>&lt;format&gt;</span></code> should be a format closure as discussed below.  As a
+convenience, non-procedure arguments are also allowed and are
+formatted similar to <code class=scheme><span class=variable>display</span></code>, so that
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> <span class=string>&quot;Result: &quot;</span> <span class=variable>res</span> <span class=variable>nl</span>)</code>
+<p>
+
+would return the string <code class=scheme><span class=string>&quot;Result: 42n&quot;</span></code>, assuming <code class=scheme><span class=variable>RES</span></code> is bound
+to <code class=scheme><span class=number>42</span></code>.
+<p>
+
+<code class=scheme><span class=variable>nl</span></code> is the newline format combinator.
+<p>
+
+<a name="SECTION_5"><h1>5&nbsp;&nbsp;Specification</h1>
+
+The procedure names have gone through several variations, and I'm
+still open to new suggestions.  The current approach is to use
+abbreviated forms of standard output procedures when defining an
+equivalent format combinator (thus <code class=scheme><span class=variable>display</span></code> becomes <code class=scheme><span class=variable>dsp</span></code> and
+<code class=scheme><span class=variable>write</span></code> becomes <code class=scheme><span class=variable>wrt</span></code>), and to use an <code class=scheme><span class=variable>fmt-</span></code> prefix for
+utilities and less common combinators.  Variants of the same formatter
+get a <code class=scheme><span class=variable>/&lt;variant&gt;</span></code> suffix.
+<p>
+
+<a name="SECTION_5.1"><h2>5.1&nbsp;&nbsp;Formatting Objects</h2>
+
+<h3>(dsp &lt;obj&gt;)</h3>
+
+Outputs <code class=scheme><span class=variable>&lt;obj&gt;</span></code> using <code class=scheme><span class=variable>display</span></code> semantics.  Specifically, strings
+are output without surrounding quotes or escaping and characters are
+written as if by <code class=scheme><span class=variable>write-char</span></code>.  Other objects are written as with
+<code class=scheme><span class=variable>write</span></code> (including nested strings and chars inside <code class=scheme><span class=variable>&lt;obj&gt;</span></code>).  This
+is the default behavior for top-level formats in <code class=scheme><span class=variable>fmt</span></code>, <code class=scheme><span class=variable>cat</span></code> and
+most other higher-order combinators.
+<p>
+
+<h3>(wrt &lt;obj&gt;)</h3>
+
+Outputs <code class=scheme><span class=variable>&lt;obj&gt;</span></code> using <code class=scheme><span class=variable>write</span></code> semantics.  Handles shared
+structures as in <a href="#BIBITEM_5">SRFI-38</a>.
+<p>
+
+<h3>(wrt/unshared &lt;obj&gt;)</h3>
+
+As above, but doesn't handle shared structures.  Infinite loops can
+still be avoided if used inside a combinator that truncates data (see
+<code class=scheme><span class=variable>trim</span></code> and <code class=scheme><span class=variable>fit</span></code> below).
+<p>
+
+<h3>(pretty &lt;obj&gt;)</h3>
+
+Pretty-prints <code class=scheme><span class=variable>&lt;obj&gt;</span></code>.  Also handles shared structures.  Unlike many
+other pretty printers, vectors and data lists (lists that don't begin
+with a (nested) symbol), are printed in tabular format when there's
+room, greatly saving vertical space.
+<p>
+
+<h3>(pretty/unshared &lt;obj&gt;)</h3>
+
+As above but without sharing.
+<p>
+
+<h3>(slashified &lt;str&gt; [&lt;quote-ch&gt; &lt;esc-ch&gt; &lt;renamer&gt;])</h3>
+
+Outputs the string <code class=scheme><span class=variable>&lt;str&gt;</span></code>, escaping any quote or escape characters.
+If <code class=scheme><span class=variable>&lt;esc-ch&gt;</span></code> is <code class=scheme><span class=boolean>#f</span></code> escapes only the <code class=scheme><span class=variable>&lt;quote-ch&gt;</span></code> by
+doubling it, as in SQL strings and CSV values.  If <code class=scheme><span class=variable>&lt;renamer&gt;</span></code> is
+provided, it should be a procedure of one character which maps that
+character to its escape value, e.g. <code class=scheme><span class=char>#\newline</span> <span class=keyword>=&gt;</span> <span class=char>#\n</span></code>, or <code class=scheme><span class=boolean>#f</span></code> if
+there is no escape value.
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>slashified</span> <span class=string>&quot;hi, &quot;bob!&quot;&quot;</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;hi, &quot;bob!&quot;&quot;</span></code>
+<p>
+
+<h3>(maybe-slashified &lt;str&gt; &lt;pred&gt; [&lt;quote-ch&gt; &lt;esc-ch&gt; &lt;renamer&gt;])</h3>
+
+Like <code class=scheme><span class=variable>slashified</span></code>, but first checks if any quoting is required (by
+the existence of either any quote or escape characters, or any
+character matching <code class=scheme><span class=variable>&lt;pred&gt;</span></code>), and if so outputs the string in quotes
+and with escapes.  Otherwise outputs the string as is.
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>maybe-slashified</span> <span class=string>&quot;foo&quot;</span> <span class=variable>char-whitespace?</span> <span class=char>#\&quot;</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;foo&quot;</span></code>
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>maybe-slashified</span> <span class=string>&quot;foo bar&quot;</span> <span class=variable>char-whitespace?</span> <span class=char>#\&quot;</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;&quot;foo bar&quot;&quot;</span></code>
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>maybe-slashified</span> <span class=string>&quot;foo&quot;bar&quot;baz&quot;</span> <span class=variable>char-whitespace?</span> <span class=char>#\&quot;</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;&quot;foo&quot;bar&quot;baz&quot;&quot;</span></code>
+<p>
+
+<a name="SECTION_5.2"><h2>5.2&nbsp;&nbsp;Formatting Numbers</h2>
+
+<h3>(num &lt;n&gt; [&lt;radix&gt; &lt;precision&gt; &lt;sign&gt; &lt;comma&gt; &lt;comma-sep&gt; &lt;decimal-sep&gt;])</h3>
+
+Formats a single number <code class=scheme><span class=variable>&lt;n&gt;</span></code>.  You can optionally specify any
+<code class=scheme><span class=variable>&lt;radix&gt;</span></code> from 2 to 36 (even if <code class=scheme><span class=variable>&lt;n&gt;</span></code> isn't an integer).
+<code class=scheme><span class=variable>&lt;precision&gt;</span></code> forces a fixed-point format.
+<p>
+
+A <code class=scheme><span class=variable>&lt;sign&gt;</span></code> of <code class=scheme><span class=boolean>#t</span></code> indicates to output a plus sign (+) for positive
+integers.  However, if <code class=scheme><span class=variable>&lt;sign&gt;</span></code> is a character, it means to wrap the
+number with that character and its mirror opposite if the number is
+negative.  For example, <code class=scheme><span class=char>#\(</span></code> prints negative numbers in parenthesis,
+financial style: <code class=scheme><span class=number>-3.14</span> <span class=keyword>=&gt;</span> (<span class=number>3.14</span>)</code>
+<p>
+
+<code class=scheme><span class=variable>&lt;comma&gt;</span></code> is an integer specifying the number of digits between
+commas.  Variable length, as in subcontinental-style, is not yet
+supported.
+<p>
+
+<code class=scheme><span class=variable>&lt;comma-sep&gt;</span></code> is the character to use for commas, defaulting to <code class=scheme><span class=char>#\,</span></code>.
+<p>
+
+<code class=scheme><span class=variable>&lt;decimal-sep&gt;</span></code> is the character to use for decimals, defaulting to
+<code class=scheme><span class=char>#\.</span></code>, or to <code class=scheme><span class=char>#\,</span></code> (European style) if <code class=scheme><span class=variable>&lt;comma-sep&gt;</span></code> is already
+<code class=scheme><span class=char>#\.</span></code>.
+<p>
+
+These parameters may seem unwieldy, but they can also take their
+defaults from state variables, described below.
+<p>
+
+<h3>(num/comma &lt;n&gt; [&lt;base&gt; &lt;precision&gt; &lt;sign&gt;])</h3>
+
+Shortcut for <code class=scheme><span class=variable>num</span></code> to print with commas.
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>num/comma</span> <span class=number>1234567</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;1,234,567&quot;</span></code>
+<p>
+
+<h3>(num/si &lt;n&gt; [&lt;base&gt; &lt;suffix&gt;])</h3>
+
+Abbreviates <code class=scheme><span class=variable>&lt;n&gt;</span></code> with an SI suffix as in the -h or --si option to
+many GNU commands.  The base defaults to 1024, using suffix names
+like Ki, Mi, Gi, etc.  Other bases (e.g. the standard 1000) have the
+suffixes k, M, G, etc.
+<p>
+
+The <code class=scheme><span class=variable>&lt;suffix&gt;</span></code> argument is appended only if an abbreviation is used.
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>num/si</span> <span class=number>608</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;608&quot;</span></code>
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>num/si</span> <span class=number>3986</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;3.9Ki&quot;</span></code>
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>num/si</span> <span class=number>3986</span> <span class=number>1000</span> <span class=string>&quot;B&quot;</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;4kB&quot;</span></code>
+<p>
+
+See <a href="http://www.bipm.org/en/si/si_brochure/chapter3/prefixes.html">http://www.bipm.org/en/si/si_brochure/chapter3/prefixes.html</a>.
+<p>
+
+<h3>(num/fit &lt;width&gt; &lt;n&gt; . &lt;ARGS&gt;)</h3>
+
+Like <code class=scheme><span class=variable>num</span></code>, but if the result doesn't fit in <code class=scheme><span class=variable>&lt;width&gt;</span></code>, output
+instead a string of hashes (with the current <code class=scheme><span class=variable>&lt;precision&gt;</span></code>) rather
+than showing an incorrectly truncated number.  For example
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>fix</span> <span class=number>2</span> (<span class=variable>num/fit</span> <span class=number>4</span> <span class=number>12.345</span>)))</code>
+  <code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;#.##&quot;</span></code>
+<p>
+
+<h3>(num/roman &lt;n&gt;)</h3>
+
+Formats the number as a Roman numeral:
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>num/roman</span> <span class=number>1989</span>))</code>
+  <code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;MCMLXXXIX&quot;</span></code>
+<p>
+
+<h3>(num/old-roman &lt;n&gt;)</h3>
+
+Formats the number as an old-style Roman numeral, without the
+subtraction abbreviation rule:
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>num/old-roman</span> <span class=number>1989</span>))</code>
+  <code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;MDCCCCLXXXVIIII&quot;</span></code>
+<p>
+
+<a name="SECTION_5.3"><h2>5.3&nbsp;&nbsp;Formatting Space</h2>
+
+<h3>nl</h3>
+
+Outputs a newline.
+<p>
+
+<h3>fl</h3>
+
+Short for &quot;fresh line,&quot; outputs a newline only if we're not already
+at the start of a line.
+<p>
+
+<h3>(space-to &lt;column&gt;)</h3>
+
+Outputs spaces up to the given <code class=scheme><span class=variable>&lt;column&gt;</span></code>.  If the current column is
+already &gt;= <code class=scheme><span class=variable>&lt;column&gt;</span></code>, does nothing.
+<p>
+
+<h3>(tab-to [&lt;tab-width&gt;])</h3>
+
+Outputs spaces up to the next tab stop, using tab stops of width
+<code class=scheme><span class=variable>&lt;tab-width&gt;</span></code>, which defaults to 8.  If already on a tab stop, does
+nothing.  If you want to ensure you always tab at least one space, you
+can use <code class=scheme>(<span class=variable>cat</span> <span class=string>&quot; &quot;</span> (<span class=variable>tab-to</span> <span class=variable>width</span>))</code>.
+<p>
+
+<h3>fmt-null</h3>
+
+Outputs nothing (useful in combinators and as a default noop in
+conditionals).
+<p>
+
+<a name="SECTION_5.4"><h2>5.4&nbsp;&nbsp;Concatenation</h2>
+
+<h3>(cat &lt;format&gt; ...)</h3>
+
+Concatenates the output of each <code class=scheme><span class=variable>&lt;format&gt;</span></code>.
+<p>
+
+<h3>(apply-cat &lt;list&gt;)</h3>
+
+Equivalent to <code class=scheme>(<span class=variable>apply</span> <span class=variable>cat</span> <span class=variable>&lt;list&gt;</span>)</code> but may be more efficient.
+<p>
+
+<h3>(fmt-join &lt;formatter&gt; &lt;list&gt; [&lt;sep&gt;])</h3>
+
+Formats each element <code class=scheme><span class=variable>&lt;elt&gt;</span></code> of <code class=scheme><span class=variable>&lt;list&gt;</span></code> with <code class=scheme>(<span class=variable>&lt;formatter&gt;</span>
+<span class=variable>&lt;elt&gt;</span>)</code>, inserting <code class=scheme><span class=variable>&lt;sep&gt;</span></code> in between.  <code class=scheme><span class=variable>&lt;sep&gt;</span></code> defaults to the
+empty string, but can be any format.
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>fmt-join</span> <span class=variable>dsp</span> '(<span class=variable>a</span> <span class=variable>b</span> <span class=variable>c</span>) <span class=string>&quot;, &quot;</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;a, b, c&quot;</span></code>
+<p>
+
+<h3>(fmt-join/prefix &lt;formatter&gt; &lt;list&gt; [&lt;sep&gt;])</h3>
+
+<h3>(fmt-join/suffix &lt;formatter&gt; &lt;list&gt; [&lt;sep&gt;])</h3>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>fmt-join/prefix</span> <span class=variable>dsp</span> '(<span class=variable>usr</span> <span class=variable>local</span> <span class=variable>bin</span>) <span class=string>&quot;/&quot;</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;/usr/local/bin&quot;</span></code>
+<p>
+
+As <code class=scheme><span class=variable>fmt-join</span></code>, but inserts <code class=scheme><span class=variable>&lt;sep&gt;</span></code> before/after every element.
+<p>
+
+<h3>(fmt-join/last &lt;formatter&gt; &lt;last-formatter&gt; &lt;list&gt; [&lt;sep&gt;])</h3>
+
+As <code class=scheme><span class=variable>fmt-join</span></code>, but the last element of the list is formatted with
+<code class=scheme><span class=variable>&lt;last-formatter&gt;</span></code> instead.
+<p>
+
+<h3>(fmt-join/dot &lt;formatter&gt; &lt;dot-formatter&gt; &lt;list&gt; [&lt;sep&gt;])</h3>
+
+As <code class=scheme><span class=variable>fmt-join</span></code>, but if the list is a dotted list, then formats the dotted
+value with <code class=scheme><span class=variable>&lt;dot-formatter&gt;</span></code> instead.
+<p>
+
+<a name="SECTION_5.5"><h2>5.5&nbsp;&nbsp;Padding and Trimming</h2>
+
+<h3>(pad &lt;width&gt; &lt;format&gt; ...)</h3>
+
+<h3>(pad/left &lt;width&gt; &lt;format&gt; ...)</h3>
+
+<h3>(pad/both &lt;width&gt; &lt;format&gt; ...)</h3>
+
+Analogs of SRFI-13 <code class=scheme><span class=variable>string-pad</span></code>, these add extra space to the left,
+right or both sides of the output generated by the <code class=scheme><span class=variable>&lt;format&gt;</span></code>s to
+pad it to <code class=scheme><span class=variable>&lt;width&gt;</span></code>.  If <code class=scheme><span class=variable>&lt;width&gt;</span></code> is exceeded has no effect.
+<code class=scheme><span class=variable>pad/both</span></code> will include an extra space on the right side of the
+output if the difference is odd.
+<p>
+
+<code class=scheme><span class=variable>pad</span></code> does not accumulate any intermediate data.
+<p>
+
+Note these are column-oriented padders, so won't necessarily work
+with multi-line output (padding doesn't seem a likely operation for
+multi-line output).
+<p>
+
+<h3>(trim &lt;width&gt; &lt;format&gt; ...)</h3>
+
+<h3>(trim/left &lt;width&gt; &lt;format&gt; ...)</h3>
+
+<h3>(trim/both &lt;width&gt; &lt;format&gt; ...)</h3>
+
+Analogs of SRFI-13 <code class=scheme><span class=variable>string-trim</span></code>, truncates the output of the
+<code class=scheme><span class=variable>&lt;format&gt;</span></code>s to force it in under <code class=scheme><span class=variable>&lt;width&gt;</span></code> columns.  As soon as
+any of the <code class=scheme><span class=variable>&lt;format&gt;</span></code>s exceed <code class=scheme><span class=variable>&lt;width&gt;</span></code>, stop formatting and
+truncate the result, returning control to whoever called <code class=scheme><span class=variable>trim</span></code>.  If
+<code class=scheme><span class=variable>&lt;width&gt;</span></code> is not exceeded has no effect.
+<p>
+
+If a truncation ellipse is set (e.g. with the <code class=scheme><span class=variable>ellipses</span></code> procedure
+below), then when any truncation occurs <code class=scheme><span class=variable>trim</span></code> and <code class=scheme><span class=variable>trim/left</span></code>
+will append and prepend the ellipse, respectively.  <code class=scheme><span class=variable>trim/both</span></code> will
+both prepend and append.  The length of the ellipse will be considered
+when truncating the original string, so that the total width will
+never be longer than <code class=scheme><span class=variable>&lt;width&gt;</span></code>.
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>ellipses</span> <span class=string>&quot;...&quot;</span> (<span class=variable>trim</span> <span class=number>5</span> <span class=string>&quot;abcde&quot;</span>)))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span>  <span class=string>&quot;abcde&quot;</span></code>
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>ellipses</span> <span class=string>&quot;...&quot;</span> (<span class=variable>trim</span> <span class=number>5</span> <span class=string>&quot;abcdef&quot;</span>)))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span>  <span class=string>&quot;ab...&quot;</span></code>
+<p>
+
+<h3>(trim/length &lt;width&gt; &lt;format&gt; ...)</h3>
+
+A variant of <code class=scheme><span class=variable>trim</span></code> which acts on the actual character count rather
+than columns, useful for truncating potentially cyclic data.
+<p>
+
+<h3>(fit &lt;width&gt; &lt;format&gt; ...)</h3>
+
+<h3>(fit/left &lt;width&gt; &lt;format&gt; ...)</h3>
+
+<h3>(fit/both &lt;width&gt; &lt;format&gt; ...)</h3>
+
+A combination of <code class=scheme><span class=variable>pad</span></code> and <code class=scheme><span class=variable>trunc</span></code>, ensures the output width is
+exactly <code class=scheme><span class=variable>&lt;width&gt;</span></code>, truncating if it goes over and padding if it goes
+under.
+<p>
+
+<a name="SECTION_5.6"><h2>5.6&nbsp;&nbsp;Format Variables</h2>
+
+You may have noticed many of the formatters are aware of the current
+column.  This is because each combinator is actually a procedure of
+one argument, the current format state, which holds basic
+information such as the row, column, and any other information that
+a format combinator may want to keep track of.  The basic interface
+is:
+<p>
+
+<h3>(fmt-let &lt;name&gt; &lt;value&gt; &lt;format&gt; ...)</h3>
+
+<h3>(fmt-bind &lt;name&gt; &lt;value&gt; &lt;format&gt; ...)</h3>
+
+<code class=scheme><span class=variable>fmt-let</span></code> sets the name for the duration of the <code class=scheme><span class=variable>&lt;format&gt;</span></code>s, and
+restores it on return.  <code class=scheme><span class=variable>fmt-bind</span></code> sets it without restoring it.
+<p>
+
+A convenience control structure can be useful in combination with
+these states:
+<p>
+
+<h3>(fmt-if &lt;pred&gt; &lt;pass&gt; [&lt;fail&gt;])</h3>
+
+<code class=scheme><span class=variable>&lt;pred&gt;</span></code> takes one argument (the format state) and returns a boolean
+result.  If true, the <code class=scheme><span class=variable>&lt;pass&gt;</span></code> format is applied to the state,
+otherwise <code class=scheme><span class=variable>&lt;fail&gt;</span></code> (defaulting to the identity) is applied.
+<p>
+
+Many of the previously mentioned combinators have behavior which can
+be altered with state variables.  Although <code class=scheme><span class=variable>fmt-let</span></code> and <code class=scheme><span class=variable>fmt-bind</span></code>
+could be used, these common variables have shortcuts:
+<p>
+
+<h3>(radix &lt;k&gt; &lt;format&gt; ...)</h3>
+
+<h3>(fix &lt;k&gt; &lt;format&gt; ...)</h3>
+
+These alter the radix and fixed point precision of numbers output with
+<code class=scheme><span class=variable>dsp</span></code>, <code class=scheme><span class=variable>wrt</span></code>, <code class=scheme><span class=variable>pretty</span></code> or <code class=scheme><span class=variable>num</span></code>.  These settings apply
+recursively to all output data structures, so that
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>radix</span> <span class=number>16</span> '(<span class=number>70</span> <span class=number>80</span> <span class=number>90</span>)))</code>
+<p>
+
+will return the string <code class=scheme><span class=string>&quot;(#x46 #x50 #x5a)&quot;</span></code>.  Note that read/write
+invariance is essential, so for <code class=scheme><span class=variable>dsp</span></code>, <code class=scheme><span class=variable>wrt</span></code> and <code class=scheme><span class=variable>pretty</span></code> the
+radix prefix is always included when not decimal.  Use <code class=scheme><span class=variable>num</span></code> if you
+want to format numbers in alternate bases without this prefix.  For
+example,
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>radix</span> <span class=number>16</span> <span class=string>&quot;(&quot;</span> (<span class=variable>fmt-join</span> <span class=variable>num</span> '(<span class=number>70</span> <span class=number>80</span> <span class=number>90</span>) <span class=string>&quot; &quot;</span>) <span class=string>&quot;)&quot;</span>))</code>
+<p>
+
+would return <code class=scheme><span class=string>&quot;(46 50 5a)&quot;</span></code>, the same output as above without the
+&quot;#x&quot; radix prefix.
+<p>
+
+Note that fixed point formatting supports arbitrary precision in
+implementations with exact non-integral rationals.  When trying to
+print inexact numbers more than the machine precision you will
+typically get results like
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>fix</span> <span class=number>30</span> <span class=constant>#i2/3</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;0.666666666666666600000000000000&quot;</span></code>
+<p>
+
+but with an exact rational it will give you as many digits as you
+request:
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>fix</span> <span class=number>30</span> <span class=number>2/3</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;0.666666666666666666666666666667&quot;</span></code>
+<p>
+
+<h3>(decimal-align &lt;k&gt; &lt;format&gt; ...)</h3>
+
+Specifies an alignment for the decimal place when formatting numbers,
+useful for outputting tables of numbers.
+<p>
+
+<pre class=scheme>
+  (<span class=keyword>define</span> (<span class=variable>print-angles</span> <span class=variable>x</span>)
+     (<span class=variable>fmt-join</span> <span class=variable>num</span> (<span class=variable>list</span> <span class=variable>x</span> (<span class=variable>sin</span> <span class=variable>x</span>) (<span class=variable>cos</span> <span class=variable>x</span>) (<span class=variable>tan</span> <span class=variable>x</span>)) <span class=string>&quot; &quot;</span>))
+
+  (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>decimal-align</span> <span class=number>5</span> (<span class=variable>fix</span> <span class=number>3</span> (<span class=variable>fmt-join/suffix</span> <span class=variable>print-angles</span> (<span class=variable>iota</span> <span class=number>5</span>) <span class=variable>nl</span>))))
+</pre>
+<p>
+
+would output
+<p>
+
+<pre>
+   0.000    0.000    1.000    0.000
+   1.000    0.842    0.540    1.557
+   2.000    0.909   -0.416   -2.185
+   3.000    0.141   -0.990   -0.142
+   4.000   -0.757   -0.654    1.158
+</pre>
+<p>
+
+<h3>(comma-char &lt;k&gt; &lt;format&gt; ...)</h3>
+
+<h3>(decimal-char &lt;k&gt; &lt;format&gt; ...)</h3>
+
+<code class=scheme><span class=variable>comma-char</span></code> and <code class=scheme><span class=variable>decimal-char</span></code> set the defaults for number
+formatting.
+<p>
+
+<h3>(pad-char &lt;k&gt; &lt;format&gt; ...)</h3>
+
+The <code class=scheme><span class=variable>pad-char</span></code> sets the character used by <code class=scheme><span class=variable>space-to</span></code>, <code class=scheme><span class=variable>tab-to</span></code>,
+<code class=scheme><span class=variable>pad/*</span></code>, and <code class=scheme><span class=variable>fit/*</span></code>, and defaults to <code class=scheme><span class=char>#\space</span></code>.
+<p>
+
+<pre class=scheme>
+  (<span class=keyword>define</span> (<span class=variable>print-table-of-contents</span> <span class=variable>alist</span>)
+    (<span class=keyword>define</span> (<span class=variable>print-line</span> <span class=variable>x</span>)
+      (<span class=variable>cat</span> (<span class=variable>car</span> <span class=variable>x</span>) (<span class=variable>space-to</span> <span class=number>72</span>) (<span class=variable>pad/left</span> <span class=number>3</span> (<span class=variable>cdr</span> <span class=variable>x</span>))))
+    (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>pad-char</span> <span class=char>#\.</span> (<span class=variable>fmt-join/suffix</span> <span class=variable>print-line</span> <span class=variable>alist</span> <span class=variable>nl</span>))))
+
+  (<span class=variable>print-table-of-contents</span>
+   '((<span class=string>&quot;An Unexpected Party&quot;</span> . <span class=number>29</span>)
+     (<span class=string>&quot;Roast Mutton&quot;</span> . <span class=number>60</span>)
+     (<span class=string>&quot;A Short Rest&quot;</span> . <span class=number>87</span>)
+     (<span class=string>&quot;Over Hill and Under Hill&quot;</span> . <span class=number>100</span>)
+     (<span class=string>&quot;Riddles in the Dark&quot;</span> . <span class=number>115</span>)))
+</pre>
+<p>
+
+would output
+<p>
+
+<pre>
+  An Unexpected Party.....................................................29
+  Roast Mutton............................................................60
+  A Short Rest............................................................87
+  Over Hill and Under Hill...............................................100
+  Riddles in the Dark....................................................115
+</pre>
+<p>
+
+<h3>(ellipse &lt;ell&gt; &lt;format&gt; ...)</h3>
+
+Sets the truncation ellipse to <code class=scheme><span class=variable>&lt;ell&gt;</span></code>, would should be a string or
+character.
+<p>
+
+<h3>(with-width &lt;width&gt; &lt;format&gt; ...)</h3>
+
+Sets the maximum column width used by some formatters.  The default
+is 78.
+<p>
+
+<a name="SECTION_5.7"><h2>5.7&nbsp;&nbsp;Columnar Formatting</h2>
+
+Although <code class=scheme><span class=variable>tab-to</span></code>, <code class=scheme><span class=variable>space-to</span></code> and padding can be used to manually
+align columns to produce table-like output, these can be awkward to
+use.  The optional extensions in this section make this easier.
+<p>
+
+<h3>(columnar &lt;column&gt; ...)</h3>
+
+Formats each <code class=scheme><span class=variable>&lt;column&gt;</span></code> side-by-side, i.e. as though each were
+formatted separately and then the individual lines concatenated
+together.  The current column width is divided evenly among the
+columns, and all but the last column are right-padded.  For example
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>columnar</span> (<span class=variable>dsp</span> <span class=string>&quot;abcndefn&quot;</span>) (<span class=variable>dsp</span> <span class=string>&quot;123n456n&quot;</span>)))</code>
+<p>
+
+outputs
+<p>
+
+<pre>
+     abc     123
+     def     456
+</pre>
+<p>
+
+assuming a 16-char width (the left side gets half the width, or 8
+spaces, and is left aligned).  Note that we explicitly use DSP instead
+of the strings directly.  This is because <code class=scheme><span class=variable>columnar</span></code> treats raw
+strings as literals inserted into the given location on every line, to
+be used as borders, for example:
+<p>
+
+<pre class=scheme>
+  (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>columnar</span> <span class=string>&quot;/* &quot;</span> (<span class=variable>dsp</span> <span class=string>&quot;abcndefn&quot;</span>)
+                    <span class=string>&quot; | &quot;</span> (<span class=variable>dsp</span> <span class=string>&quot;123n456n&quot;</span>)
+                    <span class=string>&quot; */&quot;</span>))
+</pre>
+<p>
+
+would output
+<p>
+
+<pre>
+  /* abc | 123 */
+  /* def | 456 */
+</pre>
+<p>
+
+You may also prefix any column with any of the symbols <code class=scheme>'<span class=variable>left</span></code>,
+<code class=scheme>'<span class=variable>right</span></code> or <code class=scheme>'<span class=variable>center</span></code> to control the justification.  The symbol
+<code class=scheme>'<span class=variable>infinite</span></code> can be used to indicate the column generates an infinite
+stream of output.
+<p>
+
+You can further prefix any column with a width modifier.  Any
+positive integer is treated as a fixed width, ignoring the available
+width.  Any real number between 0 and 1 indicates a fraction of the
+available width (after subtracting out any fixed widths).  Columns
+with unspecified width divide up the remaining width evenly.
+<p>
+
+Note that <code class=scheme><span class=variable>columnar</span></code> builds its output incrementally, interleaving
+calls to the generators until each has produced a line, then
+concatenating that line together and outputting it.  This is important
+because as noted above, some columns may produce an infinite stream of
+output, and in general you may want to format data larger than can fit
+into memory.  Thus columnar would be suitable for line numbering a
+file of arbitrary size, or implementing the Unix <code class=scheme><span class=variable>yes</span>(<span class=number>1</span>)</code> command,
+etc.
+<p>
+
+As an implementation detail, <code class=scheme><span class=variable>columnar</span></code> uses first-class
+continuations to interleave the column output.  The core <code class=scheme><span class=variable>fmt</span></code>
+itself has no knowledge of or special support for <code class=scheme><span class=variable>columnar</span></code>, which
+could complicate and potentially slow down simpler <code class=scheme><span class=variable>fmt</span></code> operations.
+This is a testament to the power of <code class=scheme><span class=variable>call/cc</span></code> - it can be used to
+implement coroutines or arbitrary control structures even where they
+were not planned for.
+<p>
+
+<h3>(tabular &lt;column&gt; ...)</h3>
+
+Equivalent to <code class=scheme><span class=variable>columnar</span></code> except that each column is padded at least
+to the minimum width required on any of its lines.  Thus
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>tabular</span> <span class=string>&quot;|" (dsp &quot;</span><span class=variable>a\\nbc\\ndef\\n</span><span class=string>&quot;) &quot;</span>|" (<span class=variable>dsp</span> <span class=string>&quot;123n45n6n&quot;</span>) <span class=string>&quot;|"))</span></code>
+<p>
+
+outputs
+<p>
+
+<pre>
+|a  |123|
+|bc |45 |
+|def|6  |
+</pre>
+<p>
+
+This makes it easier to generate tables without knowing widths in
+advance.  However, because it requires generating the entire output in
+advance to determine the correct column widths, <code class=scheme><span class=variable>tabular</span></code> cannot
+format a table larger than would fit in memory.
+<p>
+
+<h3>(fmt-columns &lt;column&gt; ...)</h3>
+
+The low-level formatter on which <code class=scheme><span class=variable>columnar</span></code> is based.  Each <code class=scheme><span class=variable>&lt;column&gt;</span></code>
+must be a list of 2-3 elements:
+<p>
+
+<code class=scheme>(<span class=variable>&lt;line-formatter&gt;</span> <span class=variable>&lt;line-generator&gt;</span> [<span class=variable>&lt;infinite?&gt;</span>])</code>
+<p>
+
+where <code class=scheme><span class=variable>&lt;line-generator&gt;</span></code> is the column generator as above, and the
+<code class=scheme><span class=variable>&lt;line-formatter&gt;</span></code> is how each line is formatted.  Raw concatenation
+of each line is performed, without any spacing or width adjustment.
+<code class=scheme><span class=variable>&lt;infinite?&gt;</span></code>, if true, indicates this generator produces an
+infinite number of lines and termination should be determined without
+it.
+<p>
+
+<h3>(wrap-lines &lt;format&gt; ...)</h3>
+
+Behaves like <code class=scheme><span class=variable>cat</span></code>, except text is accumulated and lines are optimally
+wrapped to fit in the current width as in the Unix <code>fmt(1)</code> command.
+<p>
+
+<h3>(justify &lt;format&gt; ...)</h3>
+
+Like <code class=scheme><span class=variable>wrap-lines</span></code> except the lines are full-justified.
+<p>
+
+<pre class=scheme>
+  (<span class=keyword>define</span> <span class=variable>func</span>
+    '(<span class=keyword>define</span> (<span class=variable>fold</span> <span class=variable>kons</span> <span class=variable>knil</span> <span class=variable>ls</span>)
+       (<span class=keyword>let</span> <span class=variable>lp</span> ((<span class=variable>ls</span> <span class=variable>ls</span>) (<span class=variable>acc</span> <span class=variable>knil</span>))
+         (<span class=keyword>if</span> (<span class=variable>null?</span> <span class=variable>ls</span>) <span class=variable>acc</span> (<span class=variable>lp</span> (<span class=variable>cdr</span> <span class=variable>ls</span>) (<span class=variable>kons</span> (<span class=variable>car</span> <span class=variable>ls</span>) <span class=variable>acc</span>))))))
+
+  (<span class=keyword>define</span> <span class=variable>doc</span>
+    (<span class=variable>string-append</span>
+      <span class=string>&quot;The fundamental list iterator.  Applies KONS to each element &quot;</span>
+      <span class=string>&quot;of LS and the result of the previous application, beginning &quot;</span>
+      <span class=string>&quot;with KNIL.  With KONS as CONS and KNIL as '(), equivalent to REVERSE.&quot;</span>))
+
+  (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>columnar</span> (<span class=variable>pretty</span> <span class=variable>func</span>) <span class=string>&quot; ; &quot;</span> (<span class=variable>justify</span> <span class=variable>doc</span>)))
+</pre>
+<p>
+
+outputs
+<p>
+
+<pre>
+  (define (fold kons knil ls)          ; The   fundamental   list   iterator.
+    (let lp ((ls ls) (acc knil))       ; Applies  KONS  to  each  element  of
+      (if (null? ls)                   ; LS  and  the  result of the previous
+          acc                          ; application,  beginning  with  KNIL.
+          (lp (cdr ls)                 ; With  KONS  as CONS and KNIL as '(),
+              (kons (car ls) acc)))))  ; equivalent to REVERSE.
+</pre>
+<p>
+
+<h3>(fmt-file &lt;pathname&gt;)</h3>
+
+Simply displayes the contents of the file <code class=scheme><span class=variable>&lt;pathname&gt;</span></code> a line at a
+time, so that in typical formatters such as <code class=scheme><span class=variable>columnar</span></code> only constant
+memory is consumed, making this suitable for formatting files of
+arbitrary size.
+<p>
+
+<h3>(line-numbers [&lt;start&gt;])</h3>
+
+A convenience utility, just formats an infinite stream of numbers (in
+the current radix) beginning with <code class=scheme><span class=variable>&lt;start&gt;</span></code>, which defaults to <code class=scheme><span class=number>1</span></code>.
+<p>
+
+The Unix <code class=scheme><span class=variable>nl</span>(<span class=number>1</span>)</code> utility could be implemented as:
+<p>
+
+<pre class=scheme>
+  (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>columnar</span> <span class=number>6</span> '<span class=variable>right</span> '<span class=variable>infinite</span> (<span class=variable>line-numbers</span>)
+                    <span class=string>&quot; &quot;</span> (<span class=variable>fmt-file</span> <span class=string>&quot;read-line.scm&quot;</span>)))
+</pre>
+<p>
+
+<pre>
+     1 
+     2 (define (read-line . o)
+     3   (let ((port (if (pair? o) (car o) (current-input-port))))
+     4     (let lp ((res '()))
+     5       (let ((c (read-char port)))
+     6         (if (or (eof-object? c) (eqv? c #\newline))
+     7             (list-&gt;string (reverse res))
+     8             (lp (cons c res)))))))
+</pre>
+<p>
+
+<a name="SECTION_6"><h1>6&nbsp;&nbsp;C Formatting</h1>
+
+<a name="SECTION_6.1"><h2>6.1&nbsp;&nbsp;C Formatting Basics</h2>
+
+For purposes such as writing wrappers, code-generators, compilers or
+other language tools, people often need to generate or emit C code.
+Without a decent library framework it's difficult to maintain proper
+indentation.  In addition, for the Scheme programmer it's tedious to
+work with all the context sensitivities of C, such as the expression
+vs. statement distinction, special rules for writing preprocessor
+macros, and when precedence rules require parenthesis.  Fortunately,
+context is one thing this formatting library is good at keeping
+track of.  The C formatting interface tries to make it as easy as
+possible to generate C code without getting in your way.
+<p>
+
+There are two approaches to using the C formatting extensions -
+procedural and sexp-oriented (described in <a href="#SECTION_6.7">6.7</a>).  In the
+procedural interface, C operators are made available as formatters
+with a &quot;c-&quot; prefix, literals are converted to their C equivalents and
+symbols are output as-is (you're responsible for making sure they are
+valid C identifiers).  Indentation is handled automatically.
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-if</span> <span class=number>1</span> <span class=number>2</span> <span class=number>3</span>))</code>
+<p>
+
+outputs
+<p>
+
+<pre>
+  if (1) {
+      2;
+  } else {
+      3;
+  }
+</pre>
+<p>
+
+In addition, the formatter knows when you're in an expression and
+when you're in a statement, and behaves accordingly, so that
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-if</span> (<span class=variable>c-if</span> <span class=number>1</span> <span class=number>2</span> <span class=number>3</span>) <span class=number>4</span> <span class=number>5</span>))</code>
+<p>
+
+outputs
+<p>
+
+<pre>
+  if (1 ? 2 : 3) {
+      4;
+  } else {
+      5;
+  }
+</pre>
+<p>
+
+Similary, <code class=scheme><span class=variable>c-begin</span></code>, used for sequencing, will separate with
+semi-colons in a statement and commas in an expression.
+<p>
+
+Moreover, we also keep track of the final expression in a function
+and insert returns for you:
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-fun</span> '<span class=variable>int</span> '<span class=variable>foo</span> '() (<span class=variable>c-if</span> (<span class=variable>c-if</span> <span class=number>1</span> <span class=number>2</span> <span class=number>3</span>) <span class=number>4</span> <span class=number>5</span>)))</code>
+<p>
+
+outputs
+<p>
+
+<pre>
+  int foo () {
+      if (1 ? 2 : 3) {
+          return 4;
+      } else {
+          return 5;
+      }
+  }
+</pre>
+<p>
+
+although it knows that void functions don't return.
+<p>
+
+Switch statements insert breaks by default if they don't return:
+<p>
+
+<pre class=scheme>
+  (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-switch</span> '<span class=variable>y</span>
+            (<span class=variable>c-case</span> <span class=number>1</span> (<span class=variable>c+=</span> '<span class=variable>x</span> <span class=number>1</span>))
+            (<span class=variable>c-default</span> (<span class=variable>c+=</span> '<span class=variable>x</span> <span class=number>2</span>))))
+</pre>
+<p>
+
+<pre>
+  switch (y) {
+      case 1:
+          x += 1;
+          break;
+      default:
+          x += 2;
+          break;
+  }
+</pre>
+<p>
+
+though you can explicitly fallthrough if you want:
+<p>
+
+<pre class=scheme>
+  (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-switch</span> '<span class=variable>y</span>
+            (<span class=variable>c-case/fallthrough</span> <span class=number>1</span> (<span class=variable>c+=</span> '<span class=variable>x</span> <span class=number>1</span>))
+            (<span class=variable>c-default</span> (<span class=variable>c+=</span> '<span class=variable>x</span> <span class=number>2</span>))))
+</pre>
+<p>
+
+<pre>
+  switch (y) {
+      case 1:
+          x += 1;
+      default:
+          x += 2;
+          break;
+  }
+</pre>
+<p>
+
+Operators are available with just a &quot;c&quot; prefix, e.g. c+, c-, c*, c/,
+etc.  <code class=scheme><span class=variable>c++</span></code> is a prefix operator, <code class=scheme><span class=variable>c++/post</span></code> is postfix.  ||, | and
+|= are written as <code class=scheme><span class=variable>c-or</span></code>, <code class=scheme><span class=variable>c-bit-or</span></code> and <code class=scheme><span class=variable>c-bit-or=</span></code> respectively.
+<p>
+
+Function applications are written with <code class=scheme><span class=variable>c-apply</span></code>.  Other control
+structures such as <code class=scheme><span class=variable>c-for</span></code> and <code class=scheme><span class=variable>c-while</span></code> work as expected.  The full
+list is in the procedure index below.
+<p>
+
+When a C formatter encounters an object it doesn't know how to write
+(including lists and records), it outputs them according to the
+format state's current <code class=scheme>'<span class=variable>gen</span></code> variable.  This allows you to specify
+generators for your own types, e.g. if you are using your own AST
+records in a compiler.
+<p>
+
+If the <code class=scheme>'<span class=variable>gen</span></code> variable isn't set it defaults to the <code class=scheme><span class=variable>c-expr/sexp</span></code>
+procedure, which formats an s-expression as if it were C code.  Thus
+instead of <code class=scheme><span class=variable>c-apply</span></code> you can just use a list.  The full API is
+available via normal s-expressions - formatters that aren't keywords
+in C are prefixed with a % or otherwise made invalid C identifiers so
+that they can't be confused with function application.
+<p>
+
+<a name="SECTION_6.2"><h2>6.2&nbsp;&nbsp;C Preprocessor Formatting</h2>
+
+C preprocessor formatters also properly handle their surrounding
+context, so you can safely intermix them in the normal flow of C
+code.
+<p>
+
+<pre class=scheme>
+  (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-switch</span> '<span class=variable>y</span>
+            (<span class=variable>c-case</span> <span class=number>1</span> (<span class=variable>c=</span> '<span class=variable>x</span> <span class=number>1</span>))
+            (<span class=variable>cpp-ifdef</span> '<span class=variable>H_TWO</span> (<span class=variable>c-case</span> <span class=number>2</span> (<span class=variable>c=</span> '<span class=variable>x</span> <span class=number>4</span>)))
+            (<span class=variable>c-default</span> (<span class=variable>c=</span> '<span class=variable>x</span> <span class=number>5</span>))))
+</pre>
+<p>
+
+<pre>
+  switch (y) {
+      case 1:
+          x = 1;
+          break;
+
+  #ifdef H_TWO
+      case 2:
+          x = 4;
+          break;
+  #endif /* H_TWO */
+      default:
+          x = 5;
+          break;
+  }
+</pre>
+<p>
+
+Macros can be handled with <code class=scheme><span class=variable>cpp-define</span></code>, which knows to wrap
+individual variable references in parenthesis:
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>cpp-define</span> '(<span class=variable>min</span> <span class=variable>x</span> <span class=variable>y</span>) (<span class=variable>c-if</span> (<span class=variable>c&lt;</span> '<span class=variable>x</span> '<span class=variable>y</span>) '<span class=variable>x</span> '<span class=variable>y</span>)))</code>
+<p>
+
+<pre>
+  #define min(x, y) (((x) &lt; (y)) ? (x) : (y))
+</pre>
+<p>
+
+As with all C formatters, the CPP output is pretty printed as
+needed, and if it wraps over several lines the lines are terminated
+with a backslash.
+<p>
+
+To write a C header file that is included at most once, you can wrap
+the entire body in <code class=scheme><span class=variable>cpp-wrap-header</span></code>:
+<p>
+
+<pre class=scheme>
+  (<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>cpp-wrap-header</span> <span class=string>&quot;FOO_H&quot;</span>
+            (<span class=variable>c-extern</span> (<span class=variable>c-prototype</span> '<span class=variable>int</span> '<span class=variable>foo</span> '()))))
+</pre>
+<p>
+
+<pre>
+  #ifndef FOO_H
+  #define FOO_H
+
+  extern int foo ();
+
+  #endif /* ! FOO_H */
+</pre>
+<p>
+
+<a name="SECTION_6.3"><h2>6.3&nbsp;&nbsp;Customizing C Style</h2>
+
+The output uses a simplified K&amp;R style with 4 spaces for indentation
+by default.  The following state variables let you override the
+style:
+<p>
+
+<h3>'indent-space</h3>
+
+how many spaces to indent bodies, default <code class=scheme><span class=number>4</span></code>
+<p>
+
+<h3>'switch-indent-space</h3>
+
+how many spaces to indent switch clauses, also defaults to <code class=scheme><span class=number>4</span></code>
+<p>
+
+<h3>'newline-before-brace?</h3>
+
+insert a newline before an open brace (non-K&amp;R), defaults  to <code class=scheme><span class=boolean>#f</span></code>
+<p>
+
+<h3>'braceless-bodies?</h3>
+
+omit braces when we can prove they aren't needed
+<p>
+
+<h3>'non-spaced-ops?</h3>
+
+omit spaces between operators and operands for groups of variables and
+literals (e.g. &quot;a+b+3&quot; instead of &quot;a + b + 3&quot;}
+<p>
+
+<h3>'no-wrap?</h3>
+
+Don't wrap function calls and long operator groups over mulitple
+lines.  Functions and control structures will still use multiple
+lines.
+<p>
+
+The C formatters also respect the <code class=scheme>'<span class=variable>radix</span></code> and <code class=scheme>'<span class=variable>precision</span></code> settings.
+<p>
+
+<a name="SECTION_6.4"><h2>6.4&nbsp;&nbsp;C Formatter Index</h2>
+
+<h3>(c-if &lt;condition&gt; &lt;pass&gt; [&lt;fail&gt; [&lt;condition2&gt; &lt;pass2&gt; ...]])</h3>
+
+Print a chain of if/else conditions.  Use a final condition of <code class=scheme>'<span class=keyword>else</span></code>
+for a final else clause.
+<p>
+
+<h3>(c-for &lt;init&gt; &lt;condition&gt; &lt;update&gt; &lt;body&gt; ...)</h3>
+
+<h3>(c-while &lt;condition&gt; &lt;body&gt; ...)</h3>
+
+Basic loop constructs.
+<p>
+
+<h3>(c-fun &lt;type&gt; &lt;name&gt; &lt;params&gt; &lt;body&gt; ...)</h3>
+
+<h3>(c-prototype &lt;type&gt; &lt;name&gt; &lt;params&gt;)</h3>
+
+Output a function or function prototype.  The parameters should be a
+list 2-element lists of the form <code class=scheme>(<span class=variable>&lt;param-type&gt;</span> <span class=variable>&lt;param-name&gt;</span>)</code>,
+which are output with DSP.  A parameter can be abbreviated as just the
+symbol name, or <code class=scheme><span class=boolean>#f</span></code> can be passed as the type, in which case the
+<code class=scheme>'<span class=variable>default-type</span></code> state variable is used.  The parameters may be a
+dotted list, in which case ellipses for a C variadic are inserted -
+the actual name of the dotted value is ignored.
+<p>
+
+Types are just typically just symbols, or lists of symbols such as
+<code class=scheme>'(<span class=variable>const</span> <span class=variable>char</span>)</code>.  A complete description is given below in section
+<a href="#SECTION_6.6">6.6</a>.
+<p>
+
+These can also accessed as %fun and %prototype at the head of a list.
+<p>
+
+<h3>(c-var &lt;type&gt; &lt;name&gt; [&lt;init-value&gt;])</h3>
+
+Declares and optionally initializes a variable.  Also accessed as %var
+at the head of a list.
+<p>
+
+<h3>(c-begin &lt;expr&gt; ...)</h3>
+
+Outputs each of the &lt;expr&gt;s, separated by semi-colons if in a
+statement or commas if in an expression.
+<p>
+
+<h3>(c-switch &lt;clause&gt; ...)</h3>
+
+<h3>(c-case &lt;values&gt; &lt;body&gt; ...)</h3>
+
+<h3>(c-case/fallthrough &lt;values&gt; &lt;body&gt; ...)</h3>
+
+<h3>(c-default &lt;body&gt; ...)</h3>
+
+Switch statements.  In addition to using the clause formatters,
+clauses inside a switch may be handled with a Scheme CASE-like list,
+with the car a list of case values and the cdr the body.
+<p>
+
+<h3>(c-label &lt;name&gt;)</h3>
+
+<h3>(c-goto &lt;name&gt;)</h3>
+
+<h3>(c-return [&lt;result&gt;])</h3>
+
+<h3>c-break</h3>
+
+<h3>c-continue</h3>
+
+Manual labels and jumps.  Labels can also be accessed as a list
+beginning with a colon, e.g. <code class=scheme>'(<span class=constant>:</span> <span class=variable>label1</span>)</code>.
+<p>
+
+<h3>(c-const &lt;expr&gt;)</h3>
+
+<h3>(c-static &lt;expr&gt;)</h3>
+
+<h3>(c-volatile &lt;expr&gt;)</h3>
+
+<h3>(c-restrict &lt;expr&gt;)</h3>
+
+<h3>(c-register &lt;expr&gt;)</h3>
+
+<h3>(c-auto &lt;expr&gt;)</h3>
+
+<h3>(c-inline &lt;expr&gt;)</h3>
+
+<h3>(c-extern &lt;expr&gt;)</h3>
+
+Declaration modifiers.  May be nested.
+<p>
+
+<h3>(c-extern/C &lt;body&gt; ...)</h3>
+
+Wraps body in an extern &quot;C&quot; { ... } for use with C++.
+<p>
+
+<h3>(c-cast &lt;type&gt; &lt;expr&gt;)</h3>
+
+Casts an expression to a type.  Also %cast at the head of a list.
+<p>
+
+<h3>(c-typedef &lt;type&gt; &lt;new-name&gt; ...)</h3>
+
+Creates a new type definition with one or more names.
+<p>
+
+<h3>(c-struct [&lt;name&gt;] &lt;field-list&gt; [&lt;attributes&gt;])</h3>
+
+<h3>(c-union [&lt;name&gt;] &lt;field-list&gt; [&lt;attributes&gt;])</h3>
+
+<h3>(c-class [&lt;name&gt;] &lt;field-list&gt; [&lt;attributes&gt;])</h3>
+
+<h3>(c-attribute &lt;values&gt; ...)</h3>
+
+Composite type constructors.  Attributes may be accessed as
+%attribute at the head of a list.
+<p>
+
+<pre class=scheme>
+  (<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>c-struct</span> '<span class=variable>employee</span>
+                      '((<span class=variable>short</span> <span class=variable>age</span>)
+                        ((<span class=variable>char</span> <span class=global>*</span>) <span class=variable>name</span>)
+                        ((<span class=variable>struct</span> (<span class=variable>year</span> <span class=variable>month</span> <span class=variable>day</span>)) <span class=variable>dob</span>))
+                      (<span class=variable>c-attribute</span> '<span class=variable>packed</span>)))
+</pre>
+<p>
+
+<pre>
+  struct employee {
+      short age;
+      char* name;
+      struct {
+          int year;
+          int month;
+          int day;
+      } dob;
+  } __attribute__ ((packed));
+</pre>
+<p>
+
+<h3>(c-enum [&lt;name&gt;] &lt;enum-list&gt;)</h3>
+
+Enumerated types.  <code class=scheme><span class=variable>&lt;enum-list&gt;</span></code> may be strings, symbols, or lists of
+string or symbol followed by the enum's value.
+<p>
+
+<h3>(c-comment &lt;formatter&gt; ...)</h3>
+
+Outputs the <code class=scheme><span class=variable>&lt;formatter&gt;</span></code>s wrapped in C's /* ... */ comment.  Properly
+escapes nested comments inside in an Emacs-friendly style.
+<p>
+
+<a name="SECTION_6.5"><h2>6.5&nbsp;&nbsp;C Preprocessor Formatter Index</h2>
+
+<h3>(cpp-include &lt;file&gt;)</h3>
+
+If file is a string, outputs in it &quot;quotes&quot;, otherwise (as a symbol
+or arbitrary formatter) it outputs it in brackets.
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>cpp-include</span> '<span class=variable>stdio.h</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;#include &lt;stdio.h&gt;n&quot;</span></code>
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#f</span> (<span class=variable>cpp-include</span> <span class=string>&quot;config.h&quot;</span>))</code>
+<p>
+
+<code class=scheme><span class=keyword>=&gt;</span> <span class=string>&quot;#include &quot;config.h&quot;n&quot;</span></code>
+<p>
+
+<h3>(cpp-define &lt;macro&gt; [&lt;value&gt;])</h3>
+
+Defines a preprocessor macro, which may be just a name or a list of
+name and parameters.  Properly wraps the value in parenthesis and
+escapes newlines.  A dotted parameter list will use the C99 variadic
+macro syntax, and will also substitute any references to the dotted
+name with <code>__VA_ARGS__</code>:
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>cpp-define</span> '(<span class=variable>eprintf</span> . <span class=variable>args</span>) '(<span class=variable>fprintf</span> <span class=variable>stderr</span> <span class=variable>args</span>)))</code>
+<p>
+
+<pre>
+  #define eprintf(...) (fprintf(stderr, __VA_ARGS__))
+</pre>
+<p>
+
+<h3>(cpp-if &lt;condition&gt; &lt;pass&gt; [&lt;fail&gt; ...])</h3>
+
+<h3>(cpp-ifdef &lt;condition&gt; &lt;pass&gt; [&lt;fail&gt; ...])</h3>
+
+<h3>(cpp-ifndef &lt;condition&gt; &lt;pass&gt; [&lt;fail&gt; ...])</h3>
+
+<h3>(cpp-elif &lt;condition&gt; &lt;pass&gt; [&lt;fail&gt; ...])</h3>
+
+<h3>(cpp-else &lt;body&gt; ...)</h3>
+
+Conditional compilation.
+<p>
+
+<h3>(cpp-line &lt;num&gt; [&lt;file&gt;])</h3>
+
+Line number information.
+<p>
+
+<h3>(cpp-pragma &lt;args&gt; ...)</h3>
+
+<h3>(cpp-error &lt;args&gt; ...)</h3>
+
+<h3>(cpp-warning &lt;args&gt; ...)</h3>
+
+Additional preprocessor directives.
+<p>
+
+<h3>(cpp-stringify &lt;expr&gt;)</h3>
+
+Stringifies <code class=scheme><span class=variable>&lt;expr&gt;</span></code> by prefixing the # operator.
+<p>
+
+<h3>(cpp-sym-cat &lt;args&gt; ...)</h3>
+
+Joins the <code class=scheme><span class=variable>&lt;args&gt;</span></code> into a single preprocessor token with the ##
+operator.
+<p>
+
+<h3>(cpp-wrap-header &lt;name&gt; &lt;body&gt; ...)</h3>
+
+Wrap an entire header to only be included once.
+<p>
+
+<h3>Operators:</h3>
+
+<pre class=scheme>
+<span class=variable>c++</span> <span class=variable>c--</span> <span class=variable>c+</span> <span class=variable>c-</span> <span class=variable>c*</span> <span class=variable>c/</span> <span class=variable>c%</span> <span class=variable>c&amp;</span> <span class=variable>c^</span> <span class=variable>c~</span> <span class=variable>c!</span> <span class=variable>c&amp;&amp;</span> <span class=variable>c&lt;&lt;</span> <span class=variable>c&gt;&gt;</span> <span class=variable>c==</span> <span class=variable>c!=</span>
+<span class=variable>c&lt;</span> <span class=variable>c&gt;</span> <span class=variable>c&lt;=</span> <span class=variable>c&gt;=</span> <span class=variable>c=</span> <span class=variable>c+=</span> <span class=variable>c-=</span> <span class=variable>c*=</span> <span class=variable>c/=</span> <span class=variable>c%=</span> <span class=variable>c&amp;=</span> <span class=variable>c^=</span> <span class=variable>c&lt;&lt;=</span> <span class=variable>c&gt;&gt;=</span>
+<span class=variable>c++/post</span> <span class=variable>c--/post</span> <span class=variable>c-or</span> <span class=variable>c-bit-or</span> <span class=variable>c-bit-or=</span>
+</pre>
+<p>
+
+<a name="SECTION_6.6"><h2>6.6&nbsp;&nbsp;C Types</h2>
+
+
+<p>
+
+Typically a type is just a symbol such as <code class=scheme>'<span class=variable>char</span></code> or <code class=scheme>'<span class=variable>int</span></code>.  You
+can wrap types with modifiers such as <code class=scheme><span class=variable>c-const</span></code>, but as a
+convenience you can just use a list such as in <code class=scheme>'(<span class=variable>const</span> <span class=variable>unsignedchar</span> <span class=global>*</span>)</code>.
+You can also nest these lists, so the previous example is
+equivalent to <code class=scheme>'(<span class=global>*</span> (<span class=variable>const</span> (<span class=variable>unsigned</span> <span class=variable>char</span>)))</code>.
+<p>
+
+Pointers may be written as <code class=scheme>'(<span class=variable>%pointer</span> <span class=variable>&lt;type&gt;</span>)</code> for readability -
+<code class=scheme><span class=variable>%pointer</span></code> is exactly equivalent to <code class=scheme><span class=global>*</span></code> in types.
+<p>
+
+Unamed structs, classes, unions and enums may be used directly as
+types, using their respective keywords at the head of a list.
+<p>
+
+Two special types are the %array type and function pointer type.  An
+array is written:
+<p>
+
+<code class=scheme>(<span class=variable>%array</span> <span class=variable>&lt;type&gt;</span> [<span class=variable>&lt;size&gt;</span>])</code>
+<p>
+
+where <code class=scheme><span class=variable>&lt;type&gt;</span></code> is any other type (including another array or
+function pointer), and <code class=scheme><span class=variable>&lt;size&gt;</span></code>, if given, will print the array
+size.  For example:
+<p>
+
+<code class=scheme>(<span class=variable>c-var</span> '(<span class=variable>%array</span> (<span class=variable>unsigned</span> <span class=variable>long</span>) <span class=variable>SIZE</span>) '<span class=variable>table</span> '<span class=constant>#</span>(<span class=number>1</span> <span class=number>2</span> <span class=number>3</span> <span class=number>4</span>))</code>
+<p>
+
+<pre>
+unsigned long table[SIZE] = {1, 2, 3, 4};
+</pre>
+<p>
+
+A function pointer is written:
+<p>
+
+<code class=scheme>(<span class=variable>%fun</span> <span class=variable>&lt;return-type&gt;</span> (<span class=variable>&lt;param-types&gt;</span> ...))</code>
+<p>
+
+For example:
+<p>
+
+<code class=scheme>(<span class=variable>c-typedef</span> '(<span class=variable>%fun</span> <span class=variable>double</span> (<span class=variable>double</span> <span class=variable>double</span> <span class=variable>int</span>)) '<span class=variable>f</span>)</code>
+<p>
+
+<pre>
+typedef double (*f)(double, double, int);
+</pre>
+<p>
+
+Wherever a type is expected but not given, the value of the
+<code class=scheme>'<span class=variable>default-type</span></code> formatting state variable is used.  By default this
+is just <code class=scheme>'<span class=variable>int</span></code>.
+<p>
+
+Type declarations work uniformly for variables and parameters, as well
+for casts and typedefs.
+<p>
+
+<a name="SECTION_6.7"><h2>6.7&nbsp;&nbsp;C as S-Expressions</h2>
+
+
+<p>
+
+Rather than building formatting closures by hand, it can be more
+convenient to just build a normal s-expression and ask for it to be
+formatted as C code.  This can be thought of as a simple Scheme-&gt;C
+compiler without any runtime support.
+<p>
+
+In a s-expression, strings and characters are printed as C strings and
+characters, booleans are printed as 0 or 1, symbols are displayed
+as-is, and numbers are printed as C numbers (using the current
+formatting radix if specified).  Vectors are printed as
+comma-separated lists wrapped in braces, which can be used for
+initializing arrays or structs.
+<p>
+
+A list indicates a C expression or statement.  Any of the existing C
+keywords can be used to pretty-print the expression as described with
+the c-keyword formatters above.  Thus, the example above
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-if</span> (<span class=variable>c-if</span> <span class=number>1</span> <span class=number>2</span> <span class=number>3</span>) <span class=number>4</span> <span class=number>5</span>))</code>
+<p>
+
+could also be written
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-expr</span> '(<span class=keyword>if</span> (<span class=keyword>if</span> <span class=number>1</span> <span class=number>2</span> <span class=number>3</span>) <span class=number>4</span> <span class=number>5</span>)))</code>
+<p>
+
+C constructs that are dependent on the underlying syntax and have no
+keyword are written with a % prefix (<code class=scheme><span class=variable>%fun</span></code>, <code class=scheme><span class=variable>%var</span></code>, <code class=scheme><span class=variable>%pointer</span></code>,
+<code class=scheme><span class=variable>%array</span></code>, <code class=scheme><span class=variable>%cast</span></code>), including C preprocessor constructs
+(<code class=scheme><span class=variable>%include</span></code>, <code class=scheme><span class=variable>%define</span></code>, <code class=scheme><span class=variable>%pragma</span></code>, <code class=scheme><span class=variable>%error</span></code>, <code class=scheme><span class=variable>%warning</span></code>,
+<code class=scheme><span class=variable>%if</span></code>, <code class=scheme><span class=variable>%ifdef</span></code>, <code class=scheme><span class=variable>%ifndef</span></code>, <code class=scheme><span class=variable>%elif</span></code>).  Labels are written as
+<code class=scheme>(<span class=constant>:</span> <span class=variable>&lt;label-name&gt;</span>)</code>.  You can write a sequence as <code class=scheme>(<span class=variable>%begin</span> <span class=variable>&lt;expr&gt;</span>
+...)</code>.
+<p>
+
+For example, the following definition of the fibonacci sequence, which
+apart from the return type of <code class=scheme><span class=boolean>#f</span></code> looks like a Lisp definition:
+<p>
+
+<code class=scheme>(<span class=variable>fmt</span> <span class=boolean>#t</span> (<span class=variable>c-expr</span> '(<span class=variable>%fun</span> <span class=boolean>#f</span> <span class=variable>fib</span> (<span class=variable>n</span>)
+                         (<span class=keyword>if</span> (<span class=variable>&lt;=</span> <span class=variable>n</span> <span class=number>1</span>)
+                             <span class=number>1</span>
+                             (<span class=variable>+</span> (<span class=variable>fib</span> (<span class=variable>-</span> <span class=variable>n</span> <span class=number>1</span>)) (<span class=variable>fib</span> (<span class=variable>-</span> <span class=variable>n</span> <span class=number>2</span>)))))))</code>
+<p>
+
+prints the working C definition:
+<p>
+
+<pre>
+int fib (int n) {
+    if (n &lt;= 1) {
+        return 1;
+    } else {
+        return fib((n - 1)) + fib((n - 2));
+    }
+}
+</pre>
+<p>
+
+<a name="SECTION_7"><h1>7&nbsp;&nbsp;JavaScript Formatting</h1>
+
+The experimental fmt-js library extends the fmt-c library with
+functionality for formatting JavaScript code.
+<p>
+
+<h3>(js-expr x)</h3>
+
+Formats a JavaScript expression similarly to <code class=scheme><span class=variable>c-expr</span></code>.  Inside a
+<code class=scheme><span class=variable>js-expr</span></code> formatter, you can use the normal <code class=scheme><span class=variable>c-</span></code> prefixed
+formatters described in the previous section, and they will format
+appropriately for JavaScript.
+<p>
+
+Currently expressions will all be terminated with a semi-colon, but
+that will be made optional in a later release.
+<p>
+
+<h3>(js-function [&lt;name&gt;] (&lt;params&gt;) &lt;body&gt; ...)</h3>
+
+Defines a function (anonymously if no name is provided).
+<p>
+
+<h3>(js-var &lt;name&gt; [&lt;init-value&gt;])</h3>
+
+Declares a JavaScript variable, optionally with an initial value.
+<p>
+
+<h3>(js-comment &lt;formatter&gt; ...)</h3>
+
+Formats a comment prefixing lines with <code class=scheme><span class=string>&quot;// &quot;</span></code>.
+<p>
+
+<a name="SECTION_8"><h1>8&nbsp;&nbsp;Formatting with Color</h1>
+
+The fmt-color library provides the following utilities:
+<p>
+
+<pre class=scheme>
+  (<span class=variable>fmt-red</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-blue</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-green</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-cyan</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-yellow</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-magenta</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-white</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-black</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-bold</span> <span class=variable>&lt;formatter&gt;</span> ...)
+  (<span class=variable>fmt-underline</span> <span class=variable>&lt;formatter&gt;</span> ...)
+</pre>
+<p>
+
+and more generally
+<p>
+
+<code class=scheme>(<span class=variable>fmt-color</span> <span class=variable>&lt;color&gt;</span> <span class=variable>&lt;formatter&gt;</span> ...)</code>
+<p>
+
+where color can be a symbol name or <code class=scheme><span class=constant>#xRRGGBB</span></code> numeric value.
+Outputs the formatters colored with ANSI escapes.  In addition
+<p>
+
+<code class=scheme>(<span class=variable>fmt-in-html</span> <span class=variable>&lt;formatter&gt;</span> ...)</code>
+<p>
+
+can be used to mark the format state as being inside HTML, which the
+above color formats will understand and output HTML <code class=scheme><span class=variable>&lt;span&gt;</span></code> tags with
+the appropriate style colors, instead of ANSI escapes.
+<p>
+
+<a name="SECTION_9"><h1>9&nbsp;&nbsp;Unicode</h1>
+
+The fmt-unicode library provides the <code class=scheme><span class=variable>fmt-unicode</span></code> formatter, which
+just takes a list of formatters and overrides the string-length for
+padding and trimming, such that Unicode double or full width
+characters are considered 2 characters wide (as they typically are in
+fixed-width terminals), while treating combining and non-spacing
+characters as 0 characters wide.
+<p>
+
+It also recognizes and ignores ANSI escapes, in particular useful if
+you want to combine this with the fmt-color utilities.
+<p>
+
+<a name="SECTION_10"><h1>10&nbsp;&nbsp;Optimizing</h1>
+
+The library is designed for scalability and flexibility, not speed,
+and I'm not going to think about any fine tuning until it's more
+stabilised.  One aspect of the design, however, was influenced for the
+sake of future optimizations, which is that none of the default format
+variables are initialized by global parameters, which leaves room for
+inlining and subsequent simplification of format calls.
+<p>
+
+If you don't have an aggressively optimizing compiler, you can easily
+achieve large speedups on common cases with CL-style compiler macros.
+<p>
+
+<a name="SECTION_11"><h1>11&nbsp;&nbsp;Common Lisp Format Cheat Sheet</h1>
+
+A quick reference for those of you switching over from Common Lisp's
+format.
+<p>
+
+<table>
+<tr><td><strong>format</strong> </td><td> <strong>fmt</strong></td></tr>
+<tr><td>~a </td><td> <code class=scheme><span class=variable>dsp</span></code></td></tr>
+<tr><td>~c </td><td> <code class=scheme><span class=variable>dsp</span></code></td></tr>
+<tr><td>~s </td><td> <code class=scheme><span class=variable>wrt/unshared</span></code></td></tr>
+<tr><td>~w </td><td> <code class=scheme><span class=variable>wrt</span></code></td></tr>
+<tr><td>~y </td><td> <code class=scheme><span class=variable>pretty</span></code></td></tr>
+<tr><td>~x </td><td> <code class=scheme>(<span class=variable>radix</span> <span class=number>16</span> ...)</code> or <code class=scheme>(<span class=variable>num</span> <span class=variable>&lt;n&gt;</span> <span class=number>16</span>)</code></td></tr>
+<tr><td>~o </td><td> <code class=scheme>(<span class=variable>radix</span> <span class=number>8</span> ...)</code> or <code class=scheme>(<span class=variable>num</span> <span class=variable>&lt;n&gt;</span> <span class=number>8</span>)</code></td></tr>
+<tr><td>~b </td><td> <code class=scheme>(<span class=variable>radix</span> <span class=number>2</span> ...)</code> or <code class=scheme>(<span class=variable>num</span> <span class=variable>&lt;n&gt;</span> <span class=number>2</span>)</code></td></tr>
+<tr><td>~f </td><td> <code class=scheme>(<span class=variable>fix</span> <span class=variable>&lt;digits&gt;</span> ...)</code> or <code class=scheme>(<span class=variable>num</span> <span class=variable>&lt;n&gt;</span> <span class=variable>&lt;radix&gt;</span> <span class=variable>&lt;digits&gt;</span>)</code></td></tr>
+<tr><td>~% </td><td> <code class=scheme><span class=variable>nl</span></code></td></tr>
+<tr><td>~&amp; </td><td> <code class=scheme><span class=variable>fl</span></code></td></tr>
+<tr><td>~[...~] </td><td> normal <code class=scheme><span class=keyword>if</span></code> or <code class=scheme><span class=variable>fmt-if</span></code> (delayed test)</td></tr>
+<tr><td>~{...~} </td><td> <code class=scheme>(<span class=variable>fmt-join</span> ... <span class=variable>&lt;list&gt;</span> [<span class=variable>&lt;sep&gt;</span>])</code></td></tr>
+</table>
+<p>
+
+<a name="SECTION_12"><h1>12&nbsp;&nbsp;References</h1>
+
+<a name="BIBITEM_1">[1]&nbsp; R. Kelsey, W. Clinger, J. Rees (eds.)
+<a href="http://www.schemers.org/Documents/Standards/R5RS/">Revised^5 Report on the Algorithmic Language Scheme</a>
+<p>
+
+<a name="BIBITEM_2">[2]&nbsp; Guy L. Steele Jr. (editor)
+<a href="http://www.harlequin.com/education/books/HyperSpec/">Common Lisp Hyperspec</a>
+<p>
+
+<a name="BIBITEM_3">[3]&nbsp; Scott G. Miller
+<a href="http://srfi.schemers.org/srfi-28/">SRFI-28 Basic Format Strings</a>
+<p>
+
+<a name="BIBITEM_4">[4]&nbsp; Ken Dickey
+<a href="http://srfi.schemers.org/srfi-48/">SRFI-48 Intermediate Format Strings</a>
+<p>
+
+<a name="BIBITEM_5">[5]&nbsp; Ray Dillinger
+<a href="http://srfi.schemers.org/srfi-38/">SRFI-38 External Representation for Data With Shared Structure</a>
+<p>
+
+<a name="BIBITEM_6">[6]&nbsp; Damian Conway
+<a href="http://www.perl.com/lpt/a/819">Perl6 Exegesis 7 - formatting</a>
+<p>
+
+<br /><br /><br /><br />
+<!-- page created by Mistie, http://www.cs.rice.edu/~dorai/mistie/ -->
+</body></html>
