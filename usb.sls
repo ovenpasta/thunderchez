@@ -25,7 +25,11 @@
   ) ;export
 
  (import (chezscheme))
- 
+
+ (define library-init 
+   (begin
+     (load-shared-object "libusb-1.0.so.0")))
+
  (define-ftype usb-device* void*)
  (define-ftype usb-device*-array (array 0 usb-device*))
  (define-ftype usb-device*** (* usb-device*-array))
@@ -221,7 +225,7 @@
 		  (foreign-procedure "libusb_interrupt_transfer" 
 				     (void* unsigned-8 u8* int void* unsigned-int) int)))
 
+
 ) ;library usb
 
-(warning 'usb "remember to load the dynamic library: Example: (load-shared-object \"libusb-1.0.so.0\")")
- 
+
