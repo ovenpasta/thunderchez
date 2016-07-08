@@ -1,7 +1,6 @@
 
 #!chezscheme
-(library 
- (usb)
+(library (usb)
  (export 
   usb-device-descriptor
   usb-device
@@ -51,12 +50,18 @@
        [num-configurations unsigned-8]
      ))
 
- (define-record-type usb-device
+ (define-record-type (usb-device make-usb-device% usb-device?)
    (fields
     (mutable ptr)))
  (define-record-type usb-device-handle
    (fields
     (mutable ptr)))
+
+ (define usb-guardian (make-guardian))
+
+ (define (make-usb-device ptr)
+   (usb-guardian ptr)
+   (make-usb-device% ptr))
 
  (define (usb-device-addr dev)
    (ftype-pointer-address (usb-device-ptr dev)))
@@ -64,13 +69,20 @@
  (define (usb-device-handle-addr dev)
    (ftype-pointer-address (usb-device-handle-ptr dev)))
 
- (define usb-guardian (make-guardian))
  (define (usb-free-garbage)
    (let loop ([p (usb-guardian)])
      (when p
        (when (ftype-pointer? p)
-	 ;(printf "freeing memory at ~x\n" p)
-	 (foreign-free (ftype-pointer-address p)))
+	 (printf "freeing memory at ~x\n" p)
+	 (cond [(ftype-pointer? usb-device*-array p)
+		; FIXME THIS HANGS IF ENABLED
+		#;((foreign-procedure "libusb_free_device_list" (void* int) void)
+		 (ftype-pointer-address p) 0)]
+	       [(ftype-pointer? usb-device* p)
+		((foreign-procedure "libusb_unref_device" (void*) void) 
+		 (ftype-pointer-address p))]
+	       [else
+		(foreign-free (ftype-pointer-address p))]))
        (loop (usb-guardian)))))
    
  (define (usb-get-device-list)
@@ -82,10 +94,14 @@
      (if (< e 0)
 	 (error 'usb-get-device-list "error" e))
      (let ((devices (ftype-&ref usb-device*** (*) ptr)))
+       (usb-guardian devices)
        (let loop ((i 0) (l '()))
 	 (if (>= i e) l
 	     (loop (fx+ i 1) 
-		   (cons (make-usb-device (make-ftype-pointer usb-device* (ftype-ref usb-device*-array (i) devices))) l)))))))
+		   (cons (make-usb-device 
+			  (make-ftype-pointer 
+			   usb-device* 
+			   (ftype-ref usb-device*-array (i) devices))) l)))))))
 
  (define (usb-get-device-descriptor dev)
    (usb-free-garbage)
@@ -116,9 +132,9 @@
  (define (usb-log-level-ref index)
    (list-ref (enum-set->list usb-log-level-enum) index))
 
- (define (usb-set-debug ctx level) 
+ (define (usb-set-debug level) 
    (let ([e ((foreign-procedure "libusb_set_debug" (void* int) int) 
-	     0 
+	     0 ; FIXME: ctx NULL, allow multiple contexts?
 	     (usb-log-level-index level))])
      (when (< e 0)
        (error 'usb-exit "error" e))
@@ -160,9 +176,9 @@
  
  (define-ftype int* (* int))
  (define (alloc-int*) 
-   (define ptr (make-ftype-pointer int* (foreign-alloc (ftype-sizeof int*))))
-   (usb-guardian ptr)
-   ptr)
+   (let ([ptr (make-ftype-pointer int* (foreign-alloc (ftype-sizeof int*)))])
+     (usb-guardian ptr)
+     ptr))
  
  (define (usb-control-transfer handle type request value index data timeout)
    (assert (and 'usb-control-transfer (usb-device-handle? handle)))
