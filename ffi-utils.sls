@@ -40,25 +40,90 @@
 							x)))))
 			 (define ref-name
 			   (lambda (index)
-			     (list-ref (enum-set->list enum-name) index)))))])))
+			     (list-ref (enum-set->list enum-name) index)))
+			 (indirect-export base-name enum-name ref-name)))])))
 
-;; TODO: WRITE SOME AUTOMATED TYPE CHECKS/CONVERSIONS
+;; ;; TODO: WRITE SOME AUTOMATED TYPE CHECKS/CONVERSIONS
+
+;;  (define ffi-types-conversion-list (make-parameter '()))
+;;  (define-record ffi-type (name >scheme >c ffi-name))
+
+;;  (define (find-ffi-type t)
+;;    (find (lambda (x) (equal? (ffi-type-name x) t)) (ffi-types-conversion-list)))
+   
+;;  (define-syntax define-function
+;;    (lambda (x)
+;;      (define (rename-type t) (datum->syntax t (cond [(find-ffi-type (syntax->datum t)) 
+;; 						       => (lambda (ft) (ffi-type-ffi-name ft))]
+;; 						      [else (syntax->datum t)])))
+;;      (define (rename-types ls)
+;;        (let loop ([ls ls] [collect '()])
+;; 	 (if (null? ls) (reverse collect)
+;; 	     (loop (cdr ls) (cons (rename-type (car ls)) collect)))))
+
+;;      (define (value->c x)
+;;        (let ([type (syntax->datum (cadr x))] [name (syntax->datum (car x))])
+;; 	 (let ([t (find-ffi-type type)])
+;; 	   (if t ((ffi-type->c t) name)
+;; 	       name))))
+      
+;;      (syntax-case x ()
+;;        ; WITH NAME+TYPE ARGUMENTS , this is nice because you can catch the argument name if some error happens
+;;        ; In any case it is handy to have the argument names also in the scheme declarations for quick reference.
+;;        ; We could also ignore them in expansion time
+;;        [(_ name ((arg-name arg-type) ...) ret)
+;; 	(with-syntax ([args/types #'((arg-name arg-type) ...)]
+;; 		      [types-list #'(arg-type ...)]
+;; 		      [renamed-types (rename-types #'(arg-type ...))]
+;; 		      [renamed-ret (rename-type #'ret)]
+;; 		      [name/string (symbol->string (syntax->datum #'name))])
+;; 		     (with-syntax ([(values ...) 
+;; 				    (map (lambda (x)
+;; 					   (let ([ft (datum->syntax #'x (value->c x )) ])
+;; 					     ft))
+;; 					     #'args/types)])
+;; 				  #'(define (name arg-name ...)
+				      
+;; 				      ((foreign-procedure name/string renamed-types renamed-ret) 
+;; 				       values ...))))])))
+;;        ; WITH ONLY ARGUMENT TYPES
+;;        [(_ name (args ...) ret)
+;; 	#'(define name
+;; 	    (foreign-procedure (symbol->string 'name) (args ...) ret))])))
 
  (define-syntax define-function
    (lambda (x)
      (syntax-case x ()
-       ; WITH NAME+TYPE ARGUMENTS , this is nice because you can catch the argument name if some error happens
-       ; In any case it is handy to have the argument names also in the scheme declarations for quick reference.
-       ; We could also ignore them in expansion time
        [(_ name ((arg-name arg-type) ...) ret)
-	#'(define (name arg-name ...)
-	      (foreign-procedure (symbol->string name) (arg-type ...) ret))]
-
-       ; WITH ONLY ARGUMENT TYPES
+	#'(define name 
+	    (lambda (arg-name ...)
+	      (foreign-procedure (symbol->string name) (arg-type ...) ret)))]
+       ;; WITH ONLY ARGUMENT TYPES
        [(_ name (args ...) ret)
 	#'(define name
 	    (foreign-procedure (symbol->string 'name) (args ...) ret))])))
 
+(define-syntax define-function*
+  (lambda (x)
+    (define (rename-scheme->c type)
+      type)
+    (define (convert-scheme->c name type)
+      name)
+    (syntax-case x ()
+      [(_ name ((arg-name arg-type) ...) ret-type) 
+       (with-syntax ([name/string (symbol->string (syntax->datum #'name))]
+		     [(renamed-type ...) (map rename-scheme->c #'(arg-type ...))]
+		     [renamed-ret #'ret-type]
+		     [((arg-name arg-convert) ...) (map (lambda (n t) 
+							  (list n (convert-scheme->c n t))) 
+							#'(arg-name ...) #'(arg-type ...))])
+		    #`(begin
+		       (define (name arg-name ...) 
+			 (let ([p (foreign-procedure name/string (renamed-type ...) renamed-ret)]
+			       [arg-name arg-convert] ...)
+			   (p arg-name ...)))))])))
+
+;(sc-expand '(define-function memcpy ((dest void*) (from void*) (n int)) void*))
 
 ;DEFINE FLAGS:
 ;USAGE: (define-flags flags-name (name value) ...)
@@ -110,7 +175,8 @@
 			 (define flags-name (make-flags 'name (list (cons 'k v) ...)))
 			 (define base-name (flags-indexer flags-name))
 			 (define ref-name (flags-ref-maker flags-name))
-			 (define decode-name (flags-decode-maker flags-name))))])))
+			 (define decode-name (flags-decode-maker flags-name))
+			 (indirect-export base-name flags-name ref-name decode-name flags-indexer flags-ref-maker flags-decode-maker)))])))
 
  (define-record flags (name alist))
  
