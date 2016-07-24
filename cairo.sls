@@ -206,6 +206,7 @@
 	 cairo-line-cap-t
 	 cairo-line-join-t
 	 double*
+	 double-array
 	 cairo-rectangle-t
 	 cairo-rectangle-t*
 	 cairo-rectangle-list-t
@@ -298,12 +299,14 @@
 	  cairo-text-extents-create
 	  cairo-font-extents-create
 	  cairo-path-create
+	  double-array-create 
+	  double-array-create-from-vector
 
-	 cairo-guardian
-	 cairo-free-garbage
-	 cairo-guard-pointer
+	  cairo-matrix-create
 
-
+	  cairo-guardian
+	  cairo-free-garbage
+	  cairo-guard-pointer
 	 )
  (import (chezscheme) (ffi-utils))
 
@@ -360,8 +363,13 @@
        (define (remove-* x)
 	 (string->symbol (string-delete #\* (symbol->string x))))
        
-       (let ([t (syntax->datum (rename-scheme->c type))])
+       (let ([t (syntax->datum (rename-scheme->c type))]
+	     [t* (syntax->datum type)])
 	 (cond 
+	  [(eq? t* 'const-double*) 
+	   #`(ftype-pointer-address 
+	      (double-array-create-from-vector #,name))]
+	  [(eq? t* 'double) #`(real->flonum #,name)]
 	  [(and (string-prefix? "cairo-" (symbol->string t))
 		(string-suffix? "*" (symbol->string t)))
 	   #`(if (ftype-pointer? #,(datum->syntax type (remove-* t)) #,name) 
@@ -409,7 +417,16 @@
  (define-syntax define-ftype-allocator 
    (lambda (x)
      (syntax-case x () 
-       [(_ name type) #'(define (name) (cairo-guard-pointer (make-ftype-pointer type (foreign-alloc (ftype-sizeof type)))))])))
+       [(_ name type) 
+	#'(define (name) 
+	    (cairo-guard-pointer (make-ftype-pointer type (foreign-alloc (ftype-sizeof type)))))])))
+
+ (define-syntax define-ftype-array-allocator 
+   (lambda (x)
+     (syntax-case x () 
+       [(_ name type element-type) 
+	#'(define (name size) 
+	    (cairo-guard-pointer (make-ftype-pointer type (foreign-alloc (* (ftype-sizeof element-type) size)))))])))
 
 
  (define (cairo-library-init . t) (load-shared-object (if (null? t) "libcairo.so" (car t))))
@@ -442,7 +459,7 @@
     [y0 double]))
 
  (define-ftype cairo-matrix-t* void*)
-
+ (define-ftype-allocator cairo-matrix-create cairo-matrix-t)
 
  (define-ftype cairo-pattern-t (struct))
  (define-ftype cairo-pattern-t* void*)
@@ -496,7 +513,7 @@
  (define-ftype cairo-rectangle-int-t
    (struct [x int] [y int] [width int] [height int]))
 
- (define-ftype-allocator make-cairo-rectangle-int cairo-rectangle-int-t)
+ (define-ftype-allocator cairo-rectangle-int-create cairo-rectangle-int-t)
 
  (define-ftype cairo-rectangle-int-t* void*)
 
@@ -530,6 +547,19 @@
  (define-ftype cairo-line-join-t int)
 
  (define-ftype double* void*)
+ (define-ftype double-array (array 0 double))
+ (define-ftype-array-allocator double-array-create double-array double)
+
+ (define (double-array-create-from-vector l)
+   (let* ([ls (vector->list l)]
+	  [size (vector-length l)]
+	  [array (double-array-create size)]) 
+     (do ([i 0 (fx1+ i)]) 
+	 ((fx>= i size))
+       (let ([x (vector-ref l i)]
+	     [r (ftype-&ref double-array (i) array)])
+	 (ftype-set! double () r x)))
+     array))
 
  (define-ftype cairo-rectangle-t
    (struct
