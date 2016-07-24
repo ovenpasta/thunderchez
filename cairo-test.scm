@@ -421,76 +421,70 @@
 
 (sample-cairo "set-line-cap"
 	      (lambda (surface cr)
+		(cairo-set-line-width cr 30.0)
+		(cairo-set-line-cap cr (cairo-line-cap 'butt)) ;/* default */
+		(cairo-move-to cr 64.0 50.0) (cairo-line-to cr 64.0 200.0)
+		(cairo-stroke cr)
+		(cairo-set-line-cap cr (cairo-line-cap 'round))
+		(cairo-move-to cr 128.0 50.0) (cairo-line-to cr 128.0 200.0)
+		(cairo-stroke cr)
+		(cairo-set-line-cap cr (cairo-line-cap 'square))
+		(cairo-move-to cr 192.0 50.0) (cairo-line-to cr 192.0 200.0)
+		(cairo-stroke cr)
 
-
-(cairo-set-line-width cr 30.0)
-(cairo-set-line-cap  cr (CAIRO-LINE-CAP-BUTT) /* default */
-(cairo-move-to cr 64.0 50.0) (cairo-line-to cr 64.0 200.0)
-(cairo-stroke cr)
-(cairo-set-line-cap  cr (CAIRO-LINE-CAP-ROUND)
-(cairo-move-to cr 128.0 50.0) (cairo-line-to cr 128.0 200.0)
-(cairo-stroke cr)
-(cairo-set-line-cap  cr (CAIRO-LINE-CAP-SQUARE)
-(cairo-move-to cr 192.0 50.0) (cairo-line-to cr 192.0 200.0)
-(cairo-stroke cr)
-
-/* draw helping lines */
-(cairo-set-source-rgb cr 1 0.2 0.2)
-(cairo-set-line-width cr 2.56)
-(cairo-move-to cr 64.0 50.0) (cairo-line-to cr 64.0 200.0)
-(cairo-move-to cr 128.0 50.0)  (cairo-line-to cr 128.0 200.0)
-(cairo-move-to cr 192.0 50.0) (cairo-line-to cr 192.0 200.0)
-(cairo-stroke cr)
+		;/* draw helping lines */
+		(cairo-set-source-rgb cr 1 0.2 0.2)
+		(cairo-set-line-width cr 2.56)
+		(cairo-move-to cr 64.0 50.0) (cairo-line-to cr 64.0 200.0)
+		(cairo-move-to cr 128.0 50.0)  (cairo-line-to cr 128.0 200.0)
+		(cairo-move-to cr 192.0 50.0) (cairo-line-to cr 192.0 200.0)
+		(cairo-stroke cr)))
 
 (sample-cairo "set-line-join"
 	      (lambda (surface cr)
+		(cairo-set-line-width cr 40.96)
+		(cairo-move-to cr 76.8 84.48)
+		(cairo-rel-line-to cr 51.2 -51.2)
+		(cairo-rel-line-to cr 51.2 51.2)
+		(cairo-set-line-join cr (cairo-line-join 'miter)); /* default */
+		(cairo-stroke cr)
 
+		(cairo-move-to cr 76.8 161.28)
+		(cairo-rel-line-to cr 51.2 -51.2)
+		(cairo-rel-line-to cr 51.2 51.2)
+		(cairo-set-line-join cr (cairo-line-join 'bevel))
+		(cairo-stroke cr)
 
-(cairo-set-line-width cr 40.96)
-(cairo-move-to cr 76.8 84.48)
-(cairo-rel-line-to cr 51.2 -51.2)
-(cairo-rel-line-to cr 51.2 51.2)
-(cairo-set-line-join cr (CAIRO-LINE-JOIN-MITER) /* default */
-(cairo-stroke cr)
-
-(cairo-move-to cr 76.8 161.28)
-(cairo-rel-line-to cr 51.2 -51.2)
-(cairo-rel-line-to cr 51.2 51.2)
-(cairo-set-line-join cr (CAIRO-LINE-JOIN-BEVEL)
-(cairo-stroke cr)
-
-(cairo-move-to cr 76.8 238.08)
-(cairo-rel-line-to cr 51.2 -51.2)
-(cairo-rel-line-to cr 51.2 51.2)
-(cairo-set-line-join cr (CAIRO-LINE-JOIN-ROUND)
-(cairo-stroke cr)
+		(cairo-move-to cr 76.8 238.08)
+		(cairo-rel-line-to cr 51.2 -51.2)
+		(cairo-rel-line-to cr 51.2 51.2)
+		(cairo-set-line-join cr (cairo-line-join 'round))
+		(cairo-stroke cr)))
 
 
 (sample-cairo "text"
 	      (lambda (surface cr)
+		(cairo-select-font-face cr "Sans" (cairo-font-slant 'normal)
+						   (cairo-font-weight 'bold))
+		(cairo-set-font-size cr 90.0)
 
+		(cairo-move-to cr 10.0 135.0)
+		(cairo-show-text cr "Hello")
 
-(cairo-select-font-face cr "Sans" (CAIRO-FONT-SLANT-NORMAL
-                               (CAIRO-FONT-WEIGHT-BOLD)
-(cairo-set-font-size cr 90.0)
-
-(cairo-move-to cr 10.0 135.0)
-(cairo-show-text cr "Hello")
-
-(cairo-move-to cr 70.0 165.0)
-(cairo-text-path cr "void")
-(cairo-set-source-rgb cr 0.5 0.5 1)
-(cairo-fill-preserve cr)
-(cairo-set-source-rgb cr 0 0 0)
-(cairo-set-line-width cr 2.56)
-(cairo-stroke cr)
-
-/* draw helping lines */
-(cairo-set-source-rgba cr 1 0.2 0.2 0.6)
-(cairo-arc cr 10.0 135.0 5.12 0 2*M-PI)
-(cairo-close-path cr)
-(cairo-arc cr 70.0 165.0 5.12 0 2*M-PI)
-(cairo-fill cr)
+		(cairo-move-to cr 70.0 165.0)
+		(cairo-text-path cr "void")
+		(cairo-set-source-rgb cr 0.5 0.5 1)
+		(cairo-fill-preserve cr)
+		(cairo-set-source-rgb cr 0 0 0)
+		(cairo-set-line-width cr 2.56)
+		(cairo-stroke cr)
+		
+		;/* draw helping lines */
+		(cairo-set-source-rgba cr 1 0.2 0.2 0.6)
+		(cairo-arc cr 10.0 135.0 5.12 0 (* 2 pi))
+		(cairo-close-path cr)
+		(cairo-arc cr 70.0 165.0 5.12 0 (* 2 pi))
+		(cairo-fill cr)))
 
 
 
