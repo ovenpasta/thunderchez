@@ -1,12 +1,49 @@
 # thunderchez
 Libraries for [Chez Scheme](https://github.com/cisco/ChezScheme) productivity
 
-  (import (fmt fmt)) 
-  
-  (import (matchable))
-  
-  ; based on chicken sqlite3 egg
-  
-  (import (sqlite3))
+Be sure to put thunderchez path on your library path,
 
-  (import (usb))
+By example:
+
+
+	(library-directories "/path/to/thunderchez")
+
+or set the CHEZSCHEMELIBDIRS environment variable:
+	
+	CHEZSCHEMELIBDIRS=/home/aldo/thunderchez
+
+## Fmt
+	(import (fmt fmt)) 
+
+## Matchable
+
+	(import (matchable))
+  
+  
+## Sqlite3
+  _based on chicken sqlite3 egg_
+
+	(import (sqlite3))
+
+## USB
+ Bindings for libusb-1.0
+
+	(import (usb))
+  
+## SDL2
+  
+	(import (sdl2))	
+
+## Cairo
+  
+	(import (cairo))
+
+## Json parser
+ 
+	(import (json))
+
+## NanoMsg
+  
+	(import (nanomsg))
+  	  
+	
