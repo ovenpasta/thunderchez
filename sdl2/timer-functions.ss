@@ -1,0 +1,6 @@
+(define-sdl-func uint32 sdl-get-ticks () "SDL_GetTicks")
+(define-sdl-func uint64 sdl-get-performance-counter () "SDL_GetPerformanceCounter")
+(define-sdl-func uint64 sdl-get-performance-frequency () "SDL_GetPerformanceFrequency")
+(define-sdl-func void sdl-delay ((ms uint32)) "SDL_Delay")
+(define-sdl-func sdl-timer-id-t sdl-add-timer ((interval uint32) (callback sdl-timer-callback-t) (param void*)) "SDL_AddTimer")
+(define-sdl-func sdl-bool-t sdl-remove-timer ((id sdl-timer-id-t)) "SDL_RemoveTimer")

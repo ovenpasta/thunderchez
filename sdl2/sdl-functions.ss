@@ -1,0 +1,5 @@
+(define-sdl-func int sdl-init ((flags uint32)) "SDL_Init")
+(define-sdl-func int sdl-init-sub-system ((flags uint32)) "SDL_InitSubSystem")
+(define-sdl-func void sdl-quit-sub-system ((flags uint32)) "SDL_QuitSubSystem")
+(define-sdl-func uint32 sdl-was-init ((flags uint32)) "SDL_WasInit")
+(define-sdl-func void sdl-quit () "SDL_Quit")

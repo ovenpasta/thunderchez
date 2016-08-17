@@ -1,0 +1,7 @@
+(define-sdl-func sdl-bool-t sdl-rect-empty ((r (* sdl-rect-t))) "SDL_RectEmpty")
+(define-sdl-func sdl-bool-t sdl-rect-equals ((a (* sdl-rect-t)) (b (* sdl-rect-t))) "SDL_RectEquals")
+(define-sdl-func sdl-bool-t sdl-has-intersection ((A (* sdl-rect-t)) (B (* sdl-rect-t))) "SDL_HasIntersection")
+(define-sdl-func sdl-bool-t sdl-intersect-rect ((A (* sdl-rect-t)) (B (* sdl-rect-t)) (result (* sdl-rect-t))) "SDL_IntersectRect")
+(define-sdl-func void sdl-union-rect ((A (* sdl-rect-t)) (B (* sdl-rect-t)) (result (* sdl-rect-t))) "SDL_UnionRect")
+(define-sdl-func sdl-bool-t sdl-enclose-points ((points (* sdl-point-t)) (count int) (clip (* sdl-rect-t)) (result (* sdl-rect-t))) "SDL_EnclosePoints")
+(define-sdl-func sdl-bool-t sdl-intersect-rect-and-line ((rect (* sdl-rect-t)) (X1 (* int)) (Y1 (* int)) (X2 (* int)) (Y2 (* int))) "SDL_IntersectRectAndLine")

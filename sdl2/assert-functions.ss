@@ -1,0 +1,6 @@
+(define-sdl-func sdl-assert-state-t sdl-report-assertion ((data (* sdl-assert-data-t)) (a string) (b string) (c int)) "SDL_ReportAssertion")
+(define-sdl-func void sdl-set-assertion-handler ((handler sdl-assertion-handler-t) (userdata void*)) "SDL_SetAssertionHandler")
+(define-sdl-func sdl-assertion-handler-t sdl-get-default-assertion-handler () "SDL_GetDefaultAssertionHandler")
+(define-sdl-func sdl-assertion-handler-t sdl-get-assertion-handler ((puserdata (* void*))) "SDL_GetAssertionHandler")
+(define-sdl-func (* sdl-assert-data-t) sdl-get-assertion-report () "SDL_GetAssertionReport")
+(define-sdl-func void sdl-reset-assertion-report () "SDL_ResetAssertionReport")
