@@ -10,7 +10,7 @@ By example:
 
 or set the CHEZSCHEMELIBDIRS environment variable:
 	
-	CHEZSCHEMELIBDIRS=/home/aldo/thunderchez
+	CHEZSCHEMELIBDIRS=/path/to/thunderchez
 
 ## Fmt
 	(import (fmt fmt)) 
