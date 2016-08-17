@@ -21,52 +21,48 @@
 
 (define (server url)
   (define sock #f)
-  (define r #f)
+  (define eid #f)
   (dynamic-wind 
       (lambda ()
-	(set! sock (nn-socket AF_SP NN_SURVEYOR))
-	(assert (>= sock 0)))
+	(set! sock (nn-socket AF_SP NN_SURVEYOR)))
       (lambda ()
-	(assert (>= (nn-bind sock url) 0))
+	(set! eid (nn-bind sock url))
 	(sleep-s 1)
-	(let* ([sz-d (string-length date-name)])
-	  (printf "SERVER: SENDING DATE SURVEY REQUEST~n")
-	  (assert (= (nn-send sock (string->utf8 date-name) sz-d 0) sz-d)))
+	
+	(printf "SERVER: SENDING DATE SURVEY REQUEST~n")
+	(nn-send sock (string->utf8 date-name) 0)
 	(let loop ()
 	  (let* ([buf (box #t)]
-		 [bytes (nn-recv sock buf NN_MSG 0)])
-	    (unless (= bytes NN_ETIMEDOUT)
-		    (when (>= bytes 0)
-			  (printf "SERVER: RECEIVED ~d SURVEY RESPONSE~n" 
-				  (utf8->string (unbox buf))))
+		 [bytes (guard (x [(= (nn-errno) ETIMEDOUT) #f])
+			       (nn-recv sock buf NN_MSG 0))])
+	    (unless bytes
+		    (printf "SERVER: RECEIVED ~d SURVEY RESPONSE~n" 
+			    (utf8->string (unbox buf)))
 		    (loop)))))
       (lambda ()
-	(set! r (nn-shutdown sock 0))))
-  r)
+	(if eid (nn-shutdown sock eid)))))
 
 (define (client url name)
   (define sock #f)
-  (define r #f)
+  (define eid #f)
   (dynamic-wind 
       (lambda ()
-	(set! sock (nn-socket AF_SP NN_RESPONDENT))
-	(assert (>= sock 0)))
+	(set! sock (nn-socket AF_SP NN_RESPONDENT)))
       (lambda ()
-	(assert (>= (nn-connect sock url) 0))
+	(set! eid (nn-connect sock url))
 	(let loop ()
 	  (let* ([buf (box #t)]
-		 [bytes (nn-recv sock buf NN_MSG 0)])
-	    (when (>= bytes 0)
+		 [bytes (guard (x [else #f])
+			       (nn-recv sock buf NN_MSG 0))])
+	    (when bytes
 		  (printf "CLIENT (~d): RECEIVED ~d SURVEY REQUEST~n" 
 			  name (utf8->string (unbox buf)))
 		  (printf "CLIENT (~d): SENDING DATE SURVEY RESPONSE~n" 
 			  name)
-		  (let* ([d (date)] [sz-d (string-length d)])
-		    (assert (= (nn-send sock (string->utf8 d) sz-d 0))))
+		  (nn-send sock (string->utf8 (date)) 0)
 		  (loop)))))
       (lambda ()
-	(set! r (nn-shutdown sock 0))))
-    r)
+	(if eid (nn-shutdown sock eid)))))
 
 (define argv (command-line-arguments))
 (define argc (length argv))
