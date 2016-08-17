@@ -1,0 +1,69 @@
+#! /usr/bin/env scheme-script
+; -*- mode: scheme -*-
+
+; Getting Started with 'nanomsg'
+; Request/Reply (I ask, you answer)
+; from https://github.com/dysinger/nanomsg-examples#requestreply
+
+#!chezscheme
+
+(import (nanomsg) (chezscheme))
+
+(nanomsg-library-init)
+
+(define node0-name "node0")
+(define node1-name "node1")
+(define date-name "DATE")
+
+(define date date-and-time)
+
+(define (node0 url)
+  (define sz-date (string-length date-name))
+  (define sock (nn-socket AF_SP NN_REP))
+  (assert (>= sock 0))
+  (assert (>= (nn-bind sock url) 0))
+  (let loop ()
+    (let ([buf (box #t)])
+      (define bytes (nn-recv sock buf NN_MSG 0))
+      (assert (>= bytes 0))
+      (when (string=? date-name (utf8->string (unbox buf)))
+	    (let* ([d (date)]
+		   [sz-d (string-length d)])
+	      (printf "NODE0: RECEIVED DATE REQUEST~n")
+	      (printf "NODE0: SENDING DATE ~d~n" d)
+	      (assert (= (nn-send sock (string->utf8 d) sz-d 0)
+			 sz-d))))
+      (loop)))
+  (nn-shutdown sock 0))
+
+(define (node1 url)
+  (define sz-date (string-length date-name))
+  (define sock (nn-socket AF_SP NN_REQ))
+  (assert (>= sock 0))
+  (assert (>= (nn-connect sock url) 0))
+  (printf "NODE1: SENDING DATE REQUEST '~d'~n" date-name)
+  (let ([bytes (nn-send sock (string->utf8 date-name) sz-date 0)]
+	[buf (box #t)])
+    (assert (= bytes sz-date))
+    (let ([bytes (nn-recv sock buf NN_MSG 0)])
+      (assert (>= bytes 0))
+      (printf "NODE1: RECEIVED DATE ~d~n" (utf8->string (unbox buf)))))
+  (nn-shutdown sock 0))
+
+(define argv (command-line-arguments))
+(define argc (length argv))
+
+(cond
+ [(and (> argc 1) (string=? node0-name (car argv)))
+  (node0 (cadr argv))]
+ [(and (> argc 1) (string=? node1-name (car argv)))
+  (node1 (cadr argv))]
+ [else
+  (printf "Usage: reqrep ~d|~d <URL> <ARG> ...'~n" node0-name node1-name)])
+
+
+#!eof
+
+./reqrep node0 ipc:///tmp/reqrep.ipc & node0=$! && sleep 1
+./reqrep node1 ipc:///tmp/reqrep.ipc
+kill $node0

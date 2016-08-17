@@ -1,0 +1,90 @@
+#! /usr/bin/env scheme-script
+; -*- mode: scheme -*-
+
+; Getting Started with 'nanomsg'
+; Survey
+; from https://github.com/dysinger/nanomsg-examples#survey
+#!chezscheme
+
+(import (nanomsg) (chezscheme))
+
+(nanomsg-library-init)
+
+(define server-name "server")
+(define client-name "client")
+(define date-name "DATE")
+
+(define date date-and-time)
+
+(define (sleep-s sec)
+  (sleep (make-time 'time-duration 0 sec)))
+
+(define (server url)
+  (define sock #f)
+  (define r #f)
+  (dynamic-wind 
+      (lambda ()
+	(set! sock (nn-socket AF_SP NN_SURVEYOR))
+	(assert (>= sock 0)))
+      (lambda ()
+	(assert (>= (nn-bind sock url) 0))
+	(sleep-s 1)
+	(let* ([sz-d (string-length date-name)])
+	  (printf "SERVER: SENDING DATE SURVEY REQUEST~n")
+	  (assert (= (nn-send sock (string->utf8 date-name) sz-d 0) sz-d)))
+	(let loop ()
+	  (let* ([buf (box #t)]
+		 [bytes (nn-recv sock buf NN_MSG 0)])
+	    (unless (= bytes NN_ETIMEDOUT)
+		    (when (>= bytes 0)
+			  (printf "SERVER: RECEIVED ~d SURVEY RESPONSE~n" 
+				  (utf8->string (unbox buf))))
+		    (loop)))))
+      (lambda ()
+	(set! r (nn-shutdown sock 0))))
+  r)
+
+(define (client url name)
+  (define sock #f)
+  (define r #f)
+  (dynamic-wind 
+      (lambda ()
+	(set! sock (nn-socket AF_SP NN_RESPONDENT))
+	(assert (>= sock 0)))
+      (lambda ()
+	(assert (>= (nn-connect sock url) 0))
+	(let loop ()
+	  (let* ([buf (box #t)]
+		 [bytes (nn-recv sock buf NN_MSG 0)])
+	    (when (>= bytes 0)
+		  (printf "CLIENT (~d): RECEIVED ~d SURVEY REQUEST~n" 
+			  name (utf8->string (unbox buf)))
+		  (printf "CLIENT (~d): SENDING DATE SURVEY RESPONSE~n" 
+			  name)
+		  (let* ([d (date)] [sz-d (string-length d)])
+		    (assert (= (nn-send sock (string->utf8 d) sz-d 0))))
+		  (loop)))))
+      (lambda ()
+	(set! r (nn-shutdown sock 0))))
+    r)
+
+(define argv (command-line-arguments))
+(define argc (length argv))
+
+(cond
+ [(and (> argc 1) (string=? server-name (car argv)))
+  (server (cadr argv))]
+ [(and (> argc 2) (string=? client-name (car argv)))
+  (client (cadr argv) (caddr argv))]
+ [else
+  (printf "Usage: survey ~d|~d <URL> <ARG> ...'~n" server-name client-name)])
+
+
+#!eof
+
+./survey server ipc:///tmp/survey.ipc & server=$!
+./survey client ipc:///tmp/survey.ipc client0 & client0=$!
+./survey client ipc:///tmp/survey.ipc client1 & client1=$!
+./survey client ipc:///tmp/survey.ipc client2 & client2=$!
+sleep 3
+kill $server $client0 $client1 $client2

@@ -1,0 +1,73 @@
+#! /usr/bin/env scheme-script
+; -*- mode: scheme -*-
+
+; Getting Started with 'nanomsg'
+; Pair
+; from https://github.com/dysinger/nanomsg-examples#pair
+
+#!chezscheme
+
+(import (nanomsg) (chezscheme))
+
+(nanomsg-library-init)
+
+(define node0-name "node0")
+(define node1-name "node1")
+
+(define (send-name sock name)
+ (define sz-n (string-length name))
+ (printf "~s: SENDING '~s'~n" name name)
+ (nn-send sock (string->utf8 name) sz-n 0))
+
+(define (recv-name sock name)
+  (let*  ([buf (box #t)]
+	  [result (nn-recv sock buf NN_MSG 0)])
+    (when (> result 0)
+	  (printf "~d: RECEIVED '~d'~n" name (utf8->string (unbox buf))))
+    result))
+
+(define (sleep-s sec)
+  (sleep (make-time 'time-duration 0 sec)))
+	
+
+(define (send-recv sock name)
+  (assert (>= (nn-setsockopt/int sock NN_SOL_SOCKET NN_RCVTIMEO 100) 0))
+ 
+  (let loop ()
+    (recv-name sock name)
+    (sleep-s 1)
+    (send-name sock name)
+    (loop)))
+	
+(define (node0 url)
+  (define sock (nn-socket AF_SP NN_PAIR))
+  (assert (>= sock 0))
+  (assert (>= (nn-bind sock url) 0))
+  (send-recv sock node0-name)
+  (nn-shutdown sock 0))
+
+(define (node1 url)
+  (define sock (nn-socket AF_SP NN_PAIR))
+  (assert (>= sock 0))
+  (assert (>= (nn-connect sock url) 0))
+  (send-recv sock node1-name)
+  (nn-shutdown sock 0))
+
+(define argv (command-line-arguments))
+(define argc (length argv))
+
+(cond
+ [(and (> argc 1) (string=? node0-name (car argv)))
+  (node0 (cadr argv))]
+ [(and (> argc 1) (string=? node1-name (car argv)))
+  (node1 (cadr argv))]
+ [else
+  (printf "Usage: pair ~d|~d <URL> <ARG> ...'~n" node0-name node1-name)])
+
+
+#!eof
+
+./pair node0 ipc:///tmp/pair.ipc & node0=$!
+./pair node1 ipc:///tmp/pair.ipc & node1=$!
+sleep 3
+kill $node0 $node1

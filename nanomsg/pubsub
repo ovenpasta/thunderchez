@@ -1,0 +1,66 @@
+#! /usr/bin/env scheme-script
+; -*- mode: scheme -*-
+
+; Getting Started with 'nanomsg'
+; Pub/Sub
+; from https://github.com/dysinger/nanomsg-examples#code-3
+#!chezscheme
+
+(import (nanomsg) (chezscheme))
+
+(nanomsg-library-init)
+
+(define server-name "server")
+(define client-name "client")
+
+(define date date-and-time)
+
+(define (sleep-s sec)
+  (sleep (make-time 'time-duration 0 sec)))
+
+(define (server url)
+  (define sock (nn-socket AF_SP NN_PUB))
+  (assert (>= sock 0))
+  (assert (>= (nn-bind sock url) 0))
+  (let loop ()
+    (let* ([d (date)]
+	   [sz-d (string-length d)])
+      (printf "SERVER: PUBLISHING DATE ~d~n" d)
+      (assert (= (nn-send sock (string->utf8 d) sz-d 0) sz-d))
+      (sleep-s 1)
+      (loop)))
+  (nn-shutdown sock 0))
+
+(define (client url name)
+  (define sock (nn-socket AF_SP NN_SUB))
+  (assert (>= sock 0))
+  (assert (>= (nn-setsockopt sock NN_SUB NN_SUB_SUBSCRIBE 0 0)))
+  (assert (>= (nn-connect sock url) 0))
+  (let loop ()
+    (let* ([buf (box #t)]
+	   [bytes (nn-recv sock buf NN_MSG 0)])
+      (assert (>= bytes 0))
+      (printf "CLIENT (~d): RECEIVED ~d~n" name (utf8->string (unbox buf)))
+      (loop)))
+  (nn-shutdown sock 0))
+
+(define argv (command-line-arguments))
+(define argc (length argv))
+
+(cond
+ [(and (> argc 1) (string=? server-name (car argv)))
+  (server (cadr argv))]
+ [(and (> argc 2) (string=? client-name (car argv)))
+  (client (cadr argv) (caddr argv))]
+ [else
+  (printf "Usage: pubsub ~d|~d <URL> <ARG> ...'~n" server-name client-name)])
+
+
+#!eof
+
+./pubsub server ipc:///tmp/pubsub.ipc & server=$! && sleep 1
+./pubsub client ipc:///tmp/pubsub.ipc client0 & client0=$!
+./pubsub client ipc:///tmp/pubsub.ipc client1 & client1=$!
+./pubsub client ipc:///tmp/pubsub.ipc client2 & client2=$!
+sleep 5
+kill $server $client0 $client1 $client2

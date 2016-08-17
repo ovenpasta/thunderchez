@@ -1,0 +1,71 @@
+#! /usr/bin/env scheme-script
+; -*- mode: scheme -*-
+
+; Getting Started with 'nanomsg'
+; Survey
+; from https://github.com/dysinger/nanomsg-examples#bus
+#!chezscheme
+
+(import (nanomsg) (chezscheme))
+
+(nanomsg-library-init)
+
+(define (sleep-s sec)
+  (sleep (make-time 'time-duration 0 sec)))
+
+
+(define (node argc argv)
+  (define sock #f)
+  (define r #f)
+  (dynamic-wind 
+      (lambda ()
+	(set! sock (nn-socket AF_SP NN_BUS))
+	(assert (>= sock 0)))
+      (lambda ()
+	(assert (>= (nn-bind sock (cadr argv)) 0))
+	(sleep-s 1)
+	(when (>= argc 2)
+	      (let loop ([x 2])
+		(define n (nn-connect sock (list-ref argv x)))
+		(assert (>= n 0))
+		(if (< (+ x 1) argc)
+		    (loop (+ x 1)))))
+	(sleep-s 1)
+	
+	(assert (>= (nn-setsockopt/int sock NN_SOL_SOCKET NN_RCVTIMEO 100) 0))
+
+	(let* ([sz-n (string-length (car argv))]
+	       [n (car argv)])
+	  (printf "~d: SENDING ~d ONTO BUS~n" n n)
+	  (assert (= (nn-send sock (string->utf8 n) sz-n 0) sz-n)))
+	(let loop ()
+	  (let* ([buf (box #t)]
+		 [recv (nn-recv sock buf NN_MSG 0)])
+	    (when (>= recv 0)
+		  (printf "~d RECEIVED ~d FROM BUS~n" 
+			  (car argv) (utf8->string (unbox buf))))
+	    (loop))))
+      (lambda ()
+	(if sock (set! r (nn-shutdown sock 0))))
+  r)
+
+(define argv (command-line-arguments))
+(define argc (length argv))
+
+(cond
+ [(and (>= argc 2) 
+       (node argc argv))]
+ [else
+  (printf "Usage: bus <NODE_NAME> <URL> <URL> ...'~n")])
+
+
+
+#!eof
+
+./bus node0 ipc:///tmp/node0.ipc ipc:///tmp/node1.ipc ipc:///tmp/node2.ipc & node0=$!
+./bus node1 ipc:///tmp/node1.ipc ipc:///tmp/node2.ipc ipc:///tmp/node3.ipc & node1=$!
+./bus node2 ipc:///tmp/node2.ipc ipc:///tmp/node3.ipc & node2=$!
+./bus node3 ipc:///tmp/node3.ipc ipc:///tmp/node0.ipc & node3=$!
+sleep 5
+kill $node0 $node1 $node2 $node3
+
