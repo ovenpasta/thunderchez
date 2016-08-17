@@ -3,7 +3,7 @@
  (nanomsg) 
  (export 
   nanomsg-library-init
-  nn-error nn-bind nn-send nn-recv nn-connect nn-poll nn-close
+  nn-errno nn-strerror  nn-bind nn-send nn-recv nn-connect nn-poll nn-close
   nn-socket nn-assert nn-shutdown nn-freemsg nn-recvmsg nn-sendmsg
   nn-strerror nn-setsockopt nn-setsockopt/int
   nn-getsockopt nn-get-statistic nn-device nn-symbol
@@ -199,7 +199,16 @@
 	       (let* ([function-fptr  (make-ftype-pointer function-ftype c-name)]
 		      [function       (ftype-ref function-ftype () function-fptr)])
 		 (let ([result (function arg-name ...)])
-		   result)))))])))
+		   #,(if (and (eq? (datum ret-type) 'int) 
+			      (not (eq? (datum name) 'nn-errno)))
+			 #'(if (< result 0)
+			       (let ([errno (nn-errno)])
+				 (if (= errno EAGAIN) 
+				     #f 
+				     (errorf 'name "returned error ~d: ~d"
+					     errno (nn-strerror errno))))
+			       result)
+			 #'result))))))])))
  
  
  (define-syntax nn-error
@@ -301,20 +310,27 @@
 
  (define-nn-func int nn-shutdown ((s int) (how int)) "nn_shutdown")
 
- (define-nn-func int nn-send ((s int) (buf u8*) (len size_t) (flags int))
+ (define-nn-func int nn-send% ((s int) (buf u8*) (len size_t) (flags int))
    "nn_send")
+
+ (define (nn-send s buf flags)
+   (let* ([len (bytevector-length buf)]
+	  [r (nn-send% s buf len flags)])
+     (if (not (= r len))
+	 (errorf 'nn-send "bytes sent ~d/~d" r len)
+	 r)))
 
  (define-nn-func int nn-recv% ((s int) (buf void*) (len size_t) (flags int))
    "nn_recv")
 
- (define (char*->string fptr . bytes)
-   (let f ([i 0])
-     (let ([c (ftype-ref char () fptr i)])
-       (if (or (char=? c #\nul) (and bytes (>= (+ 1 i) (car bytes))))
-	   (make-string i)
-	   (let ([str (f (fx+ i 1))])
-	     (string-set! str i c)
-	     str)))))
+ ;; (define (char*->string fptr . bytes)
+ ;;   (let f ([i 0])
+ ;;     (let ([c (ftype-ref char () fptr i)])
+ ;;       (if (or (char=? c #\nul) (and bytes (>= (+ 1 i) (car bytes))))
+ ;; 	   (make-string i)
+ ;; 	   (let ([str (f (fx+ i 1))])
+ ;; 	     (string-set! str i c)
+ ;; 	     str)))))
 
  (define (char*->bytevector fptr bytes)
    (let f ([i 0])

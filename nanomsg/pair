@@ -15,13 +15,13 @@
 (define node1-name "node1")
 
 (define (send-name sock name)
- (define sz-n (string-length name))
  (printf "~s: SENDING '~s'~n" name name)
- (nn-send sock (string->utf8 name) sz-n 0))
+ (nn-send sock (string->utf8 name) 0))
 
 (define (recv-name sock name)
   (let*  ([buf (box #t)]
-	  [result (nn-recv sock buf NN_MSG 0)])
+	  [result (guard (x [(= (nn-errno) ETIMEDOUT) -1])
+			 (nn-recv sock buf NN_MSG 0))])
     (when (> result 0)
 	  (printf "~d: RECEIVED '~d'~n" name (utf8->string (unbox buf))))
     result))
@@ -29,10 +29,8 @@
 (define (sleep-s sec)
   (sleep (make-time 'time-duration 0 sec)))
 	
-
 (define (send-recv sock name)
-  (assert (>= (nn-setsockopt/int sock NN_SOL_SOCKET NN_RCVTIMEO 100) 0))
- 
+  (nn-setsockopt/int sock NN_SOL_SOCKET NN_RCVTIMEO 100)
   (let loop ()
     (recv-name sock name)
     (sleep-s 1)
@@ -41,17 +39,15 @@
 	
 (define (node0 url)
   (define sock (nn-socket AF_SP NN_PAIR))
-  (assert (>= sock 0))
-  (assert (>= (nn-bind sock url) 0))
+  (define eid (nn-bind sock url))
   (send-recv sock node0-name)
-  (nn-shutdown sock 0))
+  (nn-shutdown sock eid))
 
 (define (node1 url)
   (define sock (nn-socket AF_SP NN_PAIR))
-  (assert (>= sock 0))
-  (assert (>= (nn-connect sock url) 0))
+  (define eid (nn-connect sock url))
   (send-recv sock node1-name)
-  (nn-shutdown sock 0))
+  (nn-shutdown sock eid))
 
 (define argv (command-line-arguments))
 (define argc (length argv))
