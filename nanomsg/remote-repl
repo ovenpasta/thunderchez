@@ -1,0 +1,48 @@
+#! /usr/bin/env scheme-script
+; -*- mode: scheme -*-
+; example of remote REPL
+; you can use any transport, tcp:// ipc:// websocket inproc
+; see http://nanomsg.org/v1.0.0/nanomsg.7.html
+; and nanomsg.sls for details
+;
+; ./local-repl tcp://127.0.0.1:12345
+; ABC
+;
+; meanwhile in another terminal...
+; ./remote-repl tcp://127.0.0.1:12345
+; > (+ 1 2)
+; 3
+; > (printf "ABC~n") --> will print ABC on the local repl process
+;
+; The nice thing is that you can scale to any protocol and
+; that it can be integrated in an event/main loop
+; it uses non-blocking (read) and you invoke (my-local-repl) until => #f
+;
+; TODO: add a command for local exit. #!eof object will only close the remote 
+; connection....
+
+#!chezscheme
+
+(import (chezscheme) (nanomsg))
+(nanomsg-library-init)
+
+(define argv (command-line-arguments))
+
+(define sock (nn-socket AF_SP NN_REQ))
+(define eid (nn-connect sock (car argv)))
+
+(call/cc 
+ (lambda (return)
+   (let loop ()
+     (printf "> ")
+     (nn-send sock (string->utf8 
+		    (call-with-string-output-port
+		     (lambda (p)
+		       (let ([token (read)])
+			 (if (eof-object? token)
+			     (return #f)
+			     (write token p)))))) 0)
+     (let ([buf (box #t)])
+       (nn-recv sock buf NN_MSG 0)
+       (printf "~d" (utf8->string (unbox buf))))
+     (loop))))
