@@ -1,3 +1,18 @@
+;;
+;; Copyright 2016 Aldo Nicolas Bruno
+;;
+;; Licensed under the Apache License, Version 2.0 (the "License");
+;; you may not use this file except in compliance with the License.
+;; You may obtain a copy of the License at
+;;
+;;     http://www.apache.org/licenses/LICENSE-2.0
+;;
+;; Unless required by applicable law or agreed to in writing, software
+;; distributed under the License is distributed on an "AS IS" BASIS,
+;; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;; See the License for the specific language governing permissions and
+;; limitations under the License.
+
 #!chezscheme
 
 (library
@@ -174,6 +189,11 @@
   cairo-pdf-surface-create cairo-pdf-surface-create-for-stream
   cairo-pdf-surface-restrict-to-version cairo-pdf-get-versions
   cairo-pdf-version-to-string cairo-pdf-surface-set-size
+
+  cairo-set-source-color
+  color-r color-g color-b color-a
+  make-color color?
+
   cairo-bool-t
   cairo-t
   cairo-surface-t
@@ -314,6 +334,18 @@
 	   (loop (cairo-guardian)))))		
 
 (include "cairo/cairo-functions.ss")
+
 (include "cairo/cairo-pdf-functions.ss")
+
+(define-record-type (color mkcolor color?) 
+  (fields r g b a))
+
+(define make-color
+  (case-lambda
+   [(r g b) (mkcolor r g b 1.0)]
+   [(r g b a) (mkcolor r g b a)]))
+  
+(define (cairo-set-source-color ctx c)
+  (cairo-set-source-rgba ctx (color-r c) (color-g c) (color-b c) (color-a c)))
 
 ) ; library cairo

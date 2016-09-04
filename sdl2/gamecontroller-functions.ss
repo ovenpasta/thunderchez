@@ -1,10 +1,12 @@
 (define-sdl-func int sdl-game-controller-add-mappings-from-rw ((rw (* sdl-rw-ops-t)) (freerw int)) "SDL_GameControllerAddMappingsFromRW")
 (define-sdl-func int sdl-game-controller-add-mapping ((mappingString string)) "SDL_GameControllerAddMapping")
-;(define-sdl-func string sdl-game-controller-mapping-for-guid ((guid sdl-joystick-guid-t)) "SDL_GameControllerMappingForGUID")
+;;blacklisted probably because it uses a struct as value.
+(define sdl-game-controller-mapping-for-guid #f)
 (define-sdl-func string sdl-game-controller-mapping ((gamecontroller (* sdl-game-controller-t))) "SDL_GameControllerMapping")
 (define-sdl-func sdl-bool-t sdl-is-game-controller ((joystick_index int)) "SDL_IsGameController")
 (define-sdl-func string sdl-game-controller-name-for-index ((joystick_index int)) "SDL_GameControllerNameForIndex")
 (define-sdl-func (* sdl-game-controller-t) sdl-game-controller-open ((joystick_index int)) "SDL_GameControllerOpen")
+(define-sdl-func (* sdl-game-controller-t) sdl-game-controller-from-instance-id ((joyid sdl-joystick-id-t)) "SDL_GameControllerFromInstanceID")
 (define-sdl-func string sdl-game-controller-name ((gamecontroller (* sdl-game-controller-t))) "SDL_GameControllerName")
 (define-sdl-func sdl-bool-t sdl-game-controller-get-attached ((gamecontroller (* sdl-game-controller-t))) "SDL_GameControllerGetAttached")
 (define-sdl-func (* sdl-joystick-t) sdl-game-controller-get-joystick ((gamecontroller (* sdl-game-controller-t))) "SDL_GameControllerGetJoystick")

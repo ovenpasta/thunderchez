@@ -6,8 +6,11 @@
 
 #!r6rs
 (library (srfi s26 cut)
-  (export cut cute)
-  (import (rnrs) (srfi private include))
-  
+  (export cut cute <> <...>)
+  (import (chezscheme) 
+	  (srfi private auxiliary-keyword)
+	  (srfi private include))
+
   (include/resolve ("srfi" "s26") "cut.scm")  
+  (define-auxiliary-keywords <> <...>)
 )

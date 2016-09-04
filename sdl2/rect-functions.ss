@@ -1,3 +1,4 @@
+(define-sdl-func sdl-bool-t sdl-point-in-rect ((p (* sdl-point-t)) (r (* sdl-rect-t))) "SDL_PointInRect")
 (define-sdl-func sdl-bool-t sdl-rect-empty ((r (* sdl-rect-t))) "SDL_RectEmpty")
 (define-sdl-func sdl-bool-t sdl-rect-equals ((a (* sdl-rect-t)) (b (* sdl-rect-t))) "SDL_RectEquals")
 (define-sdl-func sdl-bool-t sdl-has-intersection ((A (* sdl-rect-t)) (B (* sdl-rect-t))) "SDL_HasIntersection")

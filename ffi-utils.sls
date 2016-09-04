@@ -1,14 +1,42 @@
-#!chezscheme
+;;
+;; Copyright 2016 Aldo Nicolas Bruno
+;;
+;; Licensed under the Apache License, Version 2.0 (the "License");
+;; you may not use this file except in compliance with the License.
+;; You may obtain a copy of the License at
+;;
+;;     http://www.apache.org/licenses/LICENSE-2.0
+;;
+;; Unless required by applicable law or agreed to in writing, software
+;; distributed under the License is distributed on an "AS IS" BASIS,
+;; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;; See the License for the specific language governing permissions and
+;; limitations under the License.
 
-(library (ffi-utils)
-	 (export define-enumeration* define-function define-flags make-flags flags flags-name flags-alist flags-indexer flags-ref-maker flags-decode-maker)
-	 (import (chezscheme))
+#!r6rs
 
-	 
+(library
+ (ffi-utils)
+ (export define-enumeration* define-function 
+	 define-flags make-flags flags flags-name flags-alist flags-indexer flags-ref-maker flags-decode-maker
+	 let-struct)
+ (import (chezscheme))
+
+;; TODO: maybe we should support multiple structs?
+;; and maybe also normal let entries? let-struct* also?
+
+ (define-syntax let-struct
+   (lambda (x)
+     (syntax-case x ()
+       [(_ object ftype-name (field ...) body ...)
+	#'(let ([field (ftype-ref ftype-name (field) object)] ...)
+	    body ...)])))
+
  ;; Uses make-enumeration to define an enum with the following:
  ;; function (name x) -> index
  ;; function (name-ref index) -> symbol
  ;; variable name-enum  -> #>enum-set>
+ ;; name-t -> ftype int
  ;; usage: (define-enumeration* NAME (tag1 tag2 tag3 ...))
 
  (define-syntax define-enumeration*
@@ -18,78 +46,30 @@
 	 (datum->syntax
 	  template-id
 	  (string->symbol
-	   (apply
-	    string-append
-	    (map (lambda (x)
-		   (if (string? x) x (symbol->string (syntax->datum x))))
-		 args))))))
+	   (apply string-append
+		  (map (lambda (x)
+			 (if (string? x) x (symbol->string (syntax->datum x))))
+		       args))))))
      (syntax-case x ()
        [(_ name (l ...))
 	(with-syntax ([base-name (gen-id #'name "" #'name)]
 		      [enum-name (gen-id #'name #'name "-enum")]
-		      [ref-name (gen-id #'name #'name "-ref")])
+		      [ref-name (gen-id #'name #'name "-ref")]
+		      [name/t (gen-id #'name #'name "-t")])
+		     (indirect-export base-name enum-name ref-name name/t)
 		     #'(begin
 			 (define enum-name (make-enumeration '(l ...)))
 			 (define base-name
 			   (lambda (x)
 			     (let ([r ((enum-set-indexer enum-name) x)])
-			       (if r
-				   r
+			       (if r r
 				   (assertion-violation 'enum-name
 							"symbol not found"
 							x)))))
 			 (define ref-name
 			   (lambda (index)
 			     (list-ref (enum-set->list enum-name) index)))
-			 (indirect-export base-name enum-name ref-name)))])))
-
-;; ;; TODO: WRITE SOME AUTOMATED TYPE CHECKS/CONVERSIONS
-
-;;  (define ffi-types-conversion-list (make-parameter '()))
-;;  (define-record ffi-type (name >scheme >c ffi-name))
-
-;;  (define (find-ffi-type t)
-;;    (find (lambda (x) (equal? (ffi-type-name x) t)) (ffi-types-conversion-list)))
-   
-;;  (define-syntax define-function
-;;    (lambda (x)
-;;      (define (rename-type t) (datum->syntax t (cond [(find-ffi-type (syntax->datum t)) 
-;; 						       => (lambda (ft) (ffi-type-ffi-name ft))]
-;; 						      [else (syntax->datum t)])))
-;;      (define (rename-types ls)
-;;        (let loop ([ls ls] [collect '()])
-;; 	 (if (null? ls) (reverse collect)
-;; 	     (loop (cdr ls) (cons (rename-type (car ls)) collect)))))
-
-;;      (define (value->c x)
-;;        (let ([type (syntax->datum (cadr x))] [name (syntax->datum (car x))])
-;; 	 (let ([t (find-ffi-type type)])
-;; 	   (if t ((ffi-type->c t) name)
-;; 	       name))))
-      
-;;      (syntax-case x ()
-;;        ; WITH NAME+TYPE ARGUMENTS , this is nice because you can catch the argument name if some error happens
-;;        ; In any case it is handy to have the argument names also in the scheme declarations for quick reference.
-;;        ; We could also ignore them in expansion time
-;;        [(_ name ((arg-name arg-type) ...) ret)
-;; 	(with-syntax ([args/types #'((arg-name arg-type) ...)]
-;; 		      [types-list #'(arg-type ...)]
-;; 		      [renamed-types (rename-types #'(arg-type ...))]
-;; 		      [renamed-ret (rename-type #'ret)]
-;; 		      [name/string (symbol->string (syntax->datum #'name))])
-;; 		     (with-syntax ([(values ...) 
-;; 				    (map (lambda (x)
-;; 					   (let ([ft (datum->syntax #'x (value->c x )) ])
-;; 					     ft))
-;; 					     #'args/types)])
-;; 				  #'(define (name arg-name ...)
-				      
-;; 				      ((foreign-procedure name/string renamed-types renamed-ret) 
-;; 				       values ...))))])))
-;;        ; WITH ONLY ARGUMENT TYPES
-;;        [(_ name (args ...) ret)
-;; 	#'(define name
-;; 	    (foreign-procedure (symbol->string 'name) (args ...) ret))])))
+			 (define-ftype name/t int)))])))
 
  (define-syntax define-function
    (lambda (x)
@@ -98,8 +78,15 @@
 	#'(define name 
 	    (lambda (arg-name ...)
 	      (foreign-procedure (symbol->string name) (arg-type ...) ret)))]
+       [(_ ret name ((arg-name arg-type) ...))
+	#'(define name 
+	    (lambda (arg-name ...)
+	      (foreign-procedure (symbol->string name) (arg-type ...) ret)))]
        ;; WITH ONLY ARGUMENT TYPES
        [(_ name (args ...) ret)
+	#'(define name
+	    (foreign-procedure (symbol->string 'name) (args ...) ret))]
+       [(_ ret name (args ...))
 	#'(define name
 	    (foreign-procedure (symbol->string 'name) (args ...) ret))])))
 
@@ -147,36 +134,11 @@
 ;> (color-ref 5) -> #f
 ;> (color-decode 3) -> (red blue)
 ;> (color-decode 16) -> ()
-;> (color-decode 6) -> (blue green) !!! ATTENTION
+;> (color-decode 6) -> (blue green) !!! ATTENTION should raise exception?
 ;> (flags-alist color-flags) -> ((red . 1) (blue . 2) (green . 4))
 ;> (flags-name color-flags) -> color
 
 ;; TODO, what to do for value 0?
-
- (define-syntax define-flags
-   (lambda (x)
-     (define gen-id
-       (lambda (template-id . args)
-	 (datum->syntax
-	  template-id
-	  (string->symbol
-	   (apply
-	    string-append
-	    (map (lambda (x)
-		   (if (string? x) x (symbol->string (syntax->datum x))))
-		 args))))))
-     (syntax-case x ()
-       [(_ name (k  v) ...)
-	(with-syntax ([base-name (gen-id #'name "" #'name)]
-		      [flags-name (gen-id #'name #'name "-flags")]
-		      [ref-name (gen-id #'name #'name "-ref")]
-		      [decode-name (gen-id #'name #'name "-decode")])
-		     #'(begin
-			 (define flags-name (make-flags 'name (list (cons 'k v) ...)))
-			 (define base-name (flags-indexer flags-name))
-			 (define ref-name (flags-ref-maker flags-name))
-			 (define decode-name (flags-decode-maker flags-name))
-			 (indirect-export base-name flags-name ref-name decode-name flags-indexer flags-ref-maker flags-decode-maker)))])))
 
  (define-record flags (name alist))
  
@@ -207,4 +169,42 @@
 		 (loop (cdr l) result)
 		 (loop (cdr l) (append result (list (car item))))))))))
  
+ (define-syntax define-flags
+   (lambda (x)
+     (define gen-id
+       (lambda (template-id . args)
+	 (datum->syntax
+	  template-id
+	  (string->symbol
+	   (apply
+	    string-append
+	    (map (lambda (x)
+		   (if (string? x) x (symbol->string (syntax->datum x))))
+		 args))))))
+     (syntax-case x ()
+       [(ka name (k  v) ...)
+	#'(ka name int (k v) ...)] 
+       [(y name type (k  v) ...)
+	(with-syntax ([base-name (gen-id #'y "" #'name)]
+		      [flags-name (gen-id #'y #'name "-flags")]
+		      [ref-name (gen-id #'y #'name "-ref")]
+		      [decode-name (gen-id #'y #'name "-decode")]
+		      [name-t (gen-id #'y #'name "-t")]
+		      #;[(v1 ...) (map (lambda (v)  
+					  (if (char? (datum v))
+					       (datum->syntax #'v (char->integer (datum v)))
+					      v))
+				        #'(v ...) )])
+		     
+		     (indirect-export flags-indexer flags-ref-maker flags-decode-maker)
+		     #`(begin 
+		;	 (import (ffi-utils))
+			 (define flags-name (make-flags 'name (list (cons 'k v) ...)))
+			 (define base-name (flags-indexer flags-name))
+			 (define ref-name (flags-ref-maker flags-name))
+			 (define decode-name (flags-decode-maker flags-name))
+			 (define-ftype name-t type)
+			 ;(indirect-export base-name flags-name ref-name decode-name name-t )
+			 ))])))
+
  ); library ffi-utils

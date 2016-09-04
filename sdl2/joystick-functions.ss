@@ -1,6 +1,7 @@
 (define-sdl-func int sdl-num-joysticks () "SDL_NumJoysticks")
 (define-sdl-func string sdl-joystick-name-for-index ((device_index int)) "SDL_JoystickNameForIndex")
 (define-sdl-func (* sdl-joystick-t) sdl-joystick-open ((device_index int)) "SDL_JoystickOpen")
+(define-sdl-func (* sdl-joystick-t) sdl-joystick-from-instance-id ((joyid sdl-joystick-id-t)) "SDL_JoystickFromInstanceID")
 (define-sdl-func string sdl-joystick-name ((joystick (* sdl-joystick-t))) "SDL_JoystickName")
 ;;blacklisted probably because it uses a struct as value.
 (define sdl-joystick-get-device-guid #f)
@@ -24,3 +25,4 @@
 (define-sdl-func int sdl-joystick-get-ball ((joystick (* sdl-joystick-t)) (ball int) (dx (* int)) (dy (* int))) "SDL_JoystickGetBall")
 (define-sdl-func uint8 sdl-joystick-get-button ((joystick (* sdl-joystick-t)) (button int)) "SDL_JoystickGetButton")
 (define-sdl-func void sdl-joystick-close ((joystick (* sdl-joystick-t))) "SDL_JoystickClose")
+(define-sdl-func sdl-joystick-power-level-t sdl-joystick-current-power-level ((joystick (* sdl-joystick-t))) "SDL_JoystickCurrentPowerLevel")

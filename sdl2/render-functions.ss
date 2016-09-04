@@ -28,6 +28,7 @@
 (define-sdl-func void sdl-render-get-viewport ((renderer (* sdl-renderer-t)) (rect (* sdl-rect-t))) "SDL_RenderGetViewport")
 (define-sdl-func int sdl-render-set-clip-rect ((renderer (* sdl-renderer-t)) (rect (* sdl-rect-t))) "SDL_RenderSetClipRect")
 (define-sdl-func void sdl-render-get-clip-rect ((renderer (* sdl-renderer-t)) (rect (* sdl-rect-t))) "SDL_RenderGetClipRect")
+(define-sdl-func sdl-bool-t sdl-render-is-clip-enabled ((renderer (* sdl-renderer-t))) "SDL_RenderIsClipEnabled")
 (define-sdl-func int sdl-render-set-scale ((renderer (* sdl-renderer-t)) (scaleX float) (scaleY float)) "SDL_RenderSetScale")
 (define-sdl-func void sdl-render-get-scale ((renderer (* sdl-renderer-t)) (scaleX (* float)) (scaleY (* float))) "SDL_RenderGetScale")
 (define-sdl-func int sdl-set-render-draw-color ((renderer (* sdl-renderer-t)) (r uint8) (g uint8) (b uint8) (a uint8)) "SDL_SetRenderDrawColor")

@@ -1,3 +1,17 @@
+;;
+;; Copyright 2016 Aldo Nicolas Bruno
+;;
+;; Licensed under the Apache License, Version 2.0 (the "License");
+;; you may not use this file except in compliance with the License.
+;; You may obtain a copy of the License at
+;;
+;;     http://www.apache.org/licenses/LICENSE-2.0
+;;
+;; Unless required by applicable law or agreed to in writing, software
+;; distributed under the License is distributed on an "AS IS" BASIS,
+;; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;; See the License for the specific language governing permissions and
+;; limitations under the License.
 
 #!r6rs
 
@@ -99,12 +113,16 @@
 	  sdl-message-box-data-t
 
 	  ;;MOUSE
-	  sdl-get-mouse-focus
+	 sdl-get-mouse-focus
 	 sdl-get-mouse-state
+         sdl-get-global-mouse-state
 	 sdl-get-relative-mouse-state
 	 sdl-warp-mouse-in-window
+	 sdl-warp-mouse-global
 	 sdl-set-relative-mouse-mode
+	 sdl-capture-mouse
 	 sdl-get-relative-mouse-mode
+	 
 	 sdl-create-cursor
 	 sdl-create-color-cursor
 	 sdl-create-system-cursor
@@ -662,6 +680,13 @@
 	 sdl-get-assertion-handler
 	 sdl-get-assertion-report
 	 sdl-reset-assertion-report
+
+	 ;;EXTRAS
+
+	 event-keyboard-keysym-sym
+	 event-mouse-button
+	 char-array
+	 char*-array->string
 	 )
 
  (import (chezscheme) 
@@ -778,4 +803,5 @@
 
  (include "sdl2/init.ss")
 
+ (include "sdl2/extras.ss")
 )

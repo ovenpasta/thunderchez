@@ -1,5 +1,20 @@
 #! /usr/bin/env scheme-script
-; -*- mode: scheme -*-
+;; -*- mode: scheme -*-
+;;
+;; Copyright 2016 Aldo Nicolas Bruno
+;;
+;; Licensed under the Apache License, Version 2.0 (the "License");
+;; you may not use this file except in compliance with the License.
+;; You may obtain a copy of the License at
+;;
+;;     http://www.apache.org/licenses/LICENSE-2.0
+;;
+;; Unless required by applicable law or agreed to in writing, software
+;; distributed under the License is distributed on an "AS IS" BASIS,
+;; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;; See the License for the specific language governing permissions and
+;; limitations under the License.
+
 ; example of remote REPL
 ; you can use any transport, tcp:// ipc:// websocket inproc
 ; see http://nanomsg.org/v1.0.0/nanomsg.7.html
@@ -34,15 +49,21 @@
 (call/cc 
  (lambda (return)
    (let loop ()
-     (printf "> ")
-     (nn-send sock (string->utf8 
-		    (call-with-string-output-port
-		     (lambda (p)
-		       (let ([token (read)])
-			 (if (eof-object? token)
-			     (return #f)
-			     (write token p)))))) 0)
-     (let ([buf (box #t)])
-       (nn-recv sock buf NN_MSG 0)
-       (printf "~d" (utf8->string (unbox buf))))
+     (guard 
+      (e (else (printf "error in remote-repl: on ~d: ~d with irritants ~d~n" 
+							 (if (who-condition? e) (condition-who e) 'unknown)
+							 (if (message-condition? e) (condition-message e) "")
+							 (if (irritants-condition? e) (condition-irritants e) ""))))
+      (printf "> ")
+      (nn-send sock (string->utf8 
+		     (call-with-string-output-port
+		      (lambda (p)
+			(let ([token (read)])
+			  (if (eof-object? token)
+			      (return #f)
+			      (write token p)))))) 0)
+      (let ([buf (box #t)])
+	(nn-recv sock buf NN_MSG 0)
+	(let ([s (utf8->string (unbox buf))])
+	  (printf "~d" (if (string=? "#<void>\n" s) "" s)))))
      (loop))))
