@@ -96,7 +96,9 @@
 	 sdl-keycode-decode
 	 sdl-keycode-t
 	 sdl-keymod-t
-	 
+	 sdl-keymod-ref
+	 sdl-keymod-decode
+
 	 ;;MAIN
 	 sdl-main sdl-set-main-ready 
 
@@ -683,8 +685,9 @@
 
 	 ;;EXTRAS
 
-	 event-keyboard-keysym-sym
-	 event-mouse-button
+	 sdl-event-keyboard-keysym-sym
+	 sdl-event-keyboard-keysym-mod
+	 sdl-event-mouse-button
 	 char-array
 	 char*-array->string
 	 )
