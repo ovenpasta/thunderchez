@@ -57,10 +57,14 @@
   (srfi s26 cut)
   (sql-null))
 
- (define library-init
+ #;(define (sqlite3-library-init)
    (begin
-     (load-shared-object "libsqlite3.so.0")))
-
+     (case (machine-type)
+       [(i3nt a6nt i3mw a6mw)
+	(load-shared-object "sqlite3.dll")]
+       [else
+	(load-shared-object "libsqlite3.so.0")])))
+ (define libinit (begin (load-shared-object "sqlite3.dll")))
  ;; compatibility functions
  (define (hashtable-walk ht f)
    (vector-for-each (lambda (x)
@@ -281,9 +285,38 @@
      (make-statement (make-ftype-pointer sqlite3:statement* stmt*)
                      db)))
 
- (define (finalize! x)
-   (warning 'finalize! "not implemented!"))
- ;; #;(define finalize!
+ (define finalize!
+   (case-lambda
+    [(x)
+     (finalize! x #f)]
+    [(x finalize-statements?)
+     (define sqlite3_finalize (foreign-procedure "sqlite3_finalize" (sqlite3:statement*) int))
+     (cond
+      [(database? x)
+       (cond
+	[(not (database-ptr x))
+	 (void)]
+	[(let loop ([stmt
+		     (and
+		      finalize-statements?
+		      (sqlite3-next-stmt x))])
+	   (if stmt
+	       (or (sqlite3_finalize (statement-addr x))
+		   (loop (sqlite3-next-stmt (statement-database x))))
+	       (let ([f (foreign-procedure "sqlite3_close" (sqlite3:database*) int)])
+		 (f (database-addr x)))))
+	 => (abort-sqlite3-error 'finalize! x x)])]
+      [(statement? x)
+       (cond
+	[(not (statement-ptr x))
+	 (void)]
+	[ (sqlite3_finalize (statement-addr x))
+	  => (abort-sqlite3-error 'finalize! (statement-database x) x)]
+	[else
+	 (statement-ptr-set! x #f)])]
+      [else
+       (errorf 'finalize! "database or statement ~d" x)])]))
+     ;; #;(define finalize!
  ;;   (match-lambda*
  ;;    [((? database? db) . finalize-statements?)
  ;;      (cond
@@ -410,7 +443,7 @@
     [(real? v)
      (cond [((foreign-procedure "sqlite3_bind_double"
                                 (sqlite3:statement* int double) int)
-             (statement-addr stmt) (fx+ i 1) v)
+             (statement-addr stmt) (fx+ i 1) (exact->inexact v))
             => (abort-sqlite3-error 'bind! (statement-database stmt) stmt i v)])]
     [(string? v)
      (let ([f (foreign-procedure "sqlite3_bind_text"
@@ -501,6 +534,9 @@
  (define sqlite3_column_double
    (foreign-procedure "sqlite3_column_double" (sqlite3:statement* int) double))
 
+ (define sqlite3_column_int64
+   (foreign-procedure "sqlite3_column_int64" (sqlite3:statement* int) integer-64))
+
  (define sqlite3_column_boolean
    (foreign-procedure "sqlite3_column_int" (sqlite3:statement* int) boolean))
 
@@ -540,7 +576,7 @@
       (if (and-let* ([type (column-declared-type stmt i)])
                     (string-contains-ci type "bool"))
           (sqlite3_column_boolean (statement-addr stmt) i)
-          (sqlite3_column_double (statement-addr stmt) i))]
+          (sqlite3_column_int64 (statement-addr stmt) i))]
      [(float)
       (sqlite3_column_double (statement-addr stmt) i)]
      [(text)
