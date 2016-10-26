@@ -11,6 +11,6 @@
 	  (srfi private auxiliary-keyword)
 	  (srfi private include))
 
-  (include/resolve ("srfi" "s26") "cut.scm")  
+  (include/resolve ("srfi" "s26") "cut-impl.scm")  
   (define-auxiliary-keywords <> <...>)
 )
