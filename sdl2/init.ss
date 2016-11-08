@@ -9,7 +9,7 @@
 	   (only (sdl2 pixels) sdl-pixel-format-t sdl-free-format sdl-palette-t sdl-free-palette)
 	   (only (sdl2 rwops) sdl-rw-ops-t sdl-free-rw)	   
 	   (only (sdl2 guardian) sdl-guardian sdl-free-garbage))
-   (load-shared-object (if (null? l) "libSDL2.so" l))
+   (load-shared-object (if (null? l) "libSDL2.so" (car l)))
    (sdl-free-garbage-set-func
 	 (lambda ()
 	   (let loop ([p (sdl-guardian)])
