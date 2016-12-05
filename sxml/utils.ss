@@ -459,3 +459,54 @@
       (match-1st-char)))
 
   (define find-string-from-port? miscio:find-string-from-port?)
+
+
+; make-char-quotator QUOT-RULES
+;
+; Given QUOT-RULES, an assoc list of (char . string) pairs, return
+; a quotation procedure. The returned quotation procedure takes a string
+; and returns either a string or a list of strings. The quotation procedure
+; check to see if its argument string contains any instance of a character
+; that needs to be encoded (quoted). If the argument string is "clean",
+; it is returned unchanged. Otherwise, the quotation procedure will
+; return a list of string fragments. The input straing will be broken
+; at the places where the special characters occur. The special character
+; will be replaced by the corresponding encoding strings.
+;
+; For example, to make a procedure that quotes special HTML characters,
+; do
+;	(make-char-quotator
+;	    '((#\< . "&lt;") (#\> . "&gt;") (#\& . "&amp;") (#\" . "&quot;")))
+
+(define (make-char-quotator char-encoding)
+  (let ((bad-chars (map car char-encoding)))
+
+    ; Check to see if str contains one of the characters in charset,
+    ; from the position i onward. If so, return that character's index.
+    ; otherwise, return #f
+    (define (index-cset str i charset)
+      (let loop ((i i))
+	(and (< i (string-length str))
+	     (if (memv (string-ref str i) charset) i
+		 (loop (inc i))))))
+
+    ; The body of the function
+    (lambda (str)
+      (let ((bad-pos (index-cset str 0 bad-chars)))
+	(if (not bad-pos) str	; str had all good chars
+	    (let loop ((from 0) (to bad-pos))
+	      (cond
+	       ((>= from (string-length str)) '())
+	       ((not to)
+		(cons (substring str from (string-length str)) '()))
+	       (else
+		(let ((quoted-char
+		       (cdr (assv (string-ref str to) char-encoding)))
+		      (new-to 
+		       (index-cset str (inc to) bad-chars)))
+		  (if (< from to)
+		      (cons
+		       (substring str from to)
+		       (cons quoted-char (loop (inc to) new-to)))
+		      (cons quoted-char (loop (inc to) new-to))))))))))
+))
