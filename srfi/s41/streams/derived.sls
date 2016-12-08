@@ -59,6 +59,18 @@
           (error 'port->stream "non-input-port argument")
           (port->stream p))))
 
+  (define (binary-port->stream . port)
+    (define port->stream
+      (stream-lambda (p)
+        (let ((c (get-u8 p)))
+          (if (eof-object? c)
+              stream-null
+              (stream-cons c (port->stream p))))))
+    (let ((p (if (null? port) (current-input-port) (car port))))
+      (if (not (input-port? p))
+          (error 'port->stream "non-input-port argument")
+          (port->stream p))))
+
   (define-syntax stream
     (syntax-rules ()
       ((stream) stream-null)
