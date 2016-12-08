@@ -222,8 +222,6 @@
   cairo-text-cluster-t
   cairo-text-cluster-flags-t
   cairo-text-extents-t
-  cairo-text-extents-t
-  cairo-font-extents-t
   cairo-font-extents-t
   cairo-font-slant-t
   cairo-font-weight-t
@@ -301,7 +299,7 @@
  
  (include "cairo/ffi-utils.ss")
 
- (define (cairo-library-init . t) (load-shared-object (if (null? t) "libcairo.so" (car t))))
+ (define (cairo-library-init . t) (load-shared-object (if (null? t) "libcairo.so.2.11502.0" (car t))))
 
  (include "cairo/types.ss")
 
@@ -315,7 +313,7 @@
    (let loop ([p (cairo-guardian)])
      (when p
 	   (when (ftype-pointer? p)
-		 ;(printf "cairo-free-garbage: freeing memory at ~x\n" p)
+		 (printf "cairo-free-garbage: freeing memory at ~x\n" p)
 		 ;;[(ftype-pointer? usb-device*-array p)
 		 (cond 
 		  [(ftype-pointer? cairo-t p) (cairo-destroy p)]
@@ -325,7 +323,7 @@
 		  [(ftype-pointer? cairo-rectangle-list-t p) (cairo-rectangle-list-destroy p)]
 		  [(ftype-pointer? cairo-font-options-t p) (cairo-font-options-destroy p)]
 		  [(ftype-pointer? cairo-font-face-t p) (cairo-font-face-destroy p)]
-		  [(ftype-pointer? cairo-scaled-font-t p) (cairo-scaled-font-destroy p)]
+		  ;[(ftype-pointer? cairo-scaled-font-t p) (cairo-scaled-font-destroy p)]
 		  [(ftype-pointer? cairo-path-t p) (cairo-path-destroy p)]
 		  [(ftype-pointer? cairo-device-t p) (cairo-device-destroy p)]
 		  [else

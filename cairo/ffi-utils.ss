@@ -51,29 +51,39 @@
 
      (syntax-case x ()
        [(_ ret-type name ((arg-name arg-type) ...) c-name) 
-	(with-syntax ([(renamed-type ...) (map rename-scheme->c #'(arg-type ...))]
-		      [renamed-ret (rename-scheme->c #'ret-type)]
-		      [function-ftype (datum->syntax #'name (string->symbol (string-append (symbol->string (syntax->datum #'name)) "-ft")))]
-		      [((arg-name arg-convert) ...) (map (lambda (n t) 
-							   (list n (convert-scheme->c #'name n t))) 
-							 #'(arg-name ...) #'(arg-type ...))])
-		     (begin
-		      ; (indirect-export cairo-guard-pointer)
-		       #`(begin
-			   (define (name arg-name ...) 
-			     (define-ftype function-ftype (function (renamed-type ...) renamed-ret))
-			     (let* ([function-fptr  (make-ftype-pointer function-ftype c-name)]
-				    [function       (ftype-ref function-ftype () function-fptr)]
-				    [arg-name arg-convert] ...)
-			       (let ([result (function arg-name ...)])
-				 #,(case (syntax->datum #'ret-type)
-				     [(cairo-status-t)          #'(cairo-status-enum-ref result)]
-				     [((* cairo-t) (* cairo-surface-t) (* cairo-pattern-t)
-				       (* cairo-region-t) (* cairo-rectangle-list-t) (* cairo-font-options-t)
-				       (* cairo-font-face-t) (* cairo-scaled-font-t) (* cairo-path-t)
-				       (* cairo-device-t)) 
-				      #'(cairo-guard-pointer result)]
-				     [else #'result])))))))])))
+	(with-syntax
+	 ([(renamed-type ...) (map rename-scheme->c #'(arg-type ...))]
+	  [renamed-ret (rename-scheme->c #'ret-type)]
+	  [function-ftype (datum->syntax #'name (string->symbol (string-append (symbol->string (syntax->datum #'name)) "-ft")))]
+	  [((arg-name arg-convert) ...)
+	   (map (lambda (n t) 
+		  (list n (convert-scheme->c #'name n t))) 
+		#'(arg-name ...) #'(arg-type ...))])
+	 (begin
+					; (indirect-export cairo-guard-pointer)
+	   #`(begin
+	       (define (name arg-name ...) 
+		 (define-ftype function-ftype (function (renamed-type ...) renamed-ret))
+		 (let* ([function-fptr  (make-ftype-pointer function-ftype c-name)]
+			[function       (ftype-ref function-ftype () function-fptr)]
+			[arg-name arg-convert] ...)
+		   (printf "calling ffi ~d ~n" c-name)
+		   (let ([result (function arg-name ...)])
+		     
+		     #,(case (syntax->datum #'ret-type)
+			 [(cairo-status-t)  #'(cairo-status-enum-ref result)]
+			 [((* cairo-t)
+			   (* cairo-surface-t)
+			   (* cairo-pattern-t)
+			   (* cairo-region-t)
+			   (* cairo-rectangle-list-t)
+			   (* cairo-font-options-t)
+			   (* cairo-font-face-t)
+			   (* cairo-scaled-font-t)
+			   (* cairo-path-t)
+			   (* cairo-device-t)) 
+			  #'(cairo-guard-pointer result)]
+			 [else #'result])))))))])))
 
  (define-syntax define-ftype-allocator 
    (lambda (x)
