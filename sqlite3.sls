@@ -57,14 +57,15 @@
   (srfi s26 cut)
   (sql-null))
 
- #;(define (sqlite3-library-init)
+ #;(define (sqlite3-library-init))
+ (define libinit
    (begin
      (case (machine-type)
        [(i3nt a6nt i3mw a6mw)
 	(load-shared-object "sqlite3.dll")]
        [else
 	(load-shared-object "libsqlite3.so.0")])))
- (define libinit (begin (load-shared-object "sqlite3.dll")))
+ ;(define libinit (begin (load-shared-object "sqlite3.dll")))
  ;; compatibility functions
  (define (hashtable-walk ht f)
    (vector-for-each (lambda (x)
