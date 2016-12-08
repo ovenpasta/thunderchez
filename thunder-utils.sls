@@ -18,20 +18,25 @@
 	 (import (scheme) (srfi s14 char-sets))
 
 	 ;; POSSIBLE THAT NOT EXISTS THIS FUNCTION???
-					; s is a string , c is a character-set
-					; null strings are discarded from result
-	 (define (string-split s c)
-	   (define res '())
-	   (let loop ([l (string->list s)] [t '()])
-	     (if (null? l) 
-		 (if (null? t) res (append res (list(list->string t))))
+	 ;; s is a string , c is a character-set
+	 ;; null strings are discarded from result by default unless #f is specified as third argument
+	 (define string-split
+	   (case-lambda
+	    [(s c)
+	     (string-split s c #t)]
+	    [(s c discard-null?)
+	     (define res '())
+	     (let loop ([l (string->list s)] [t '()])
+	       (if (null? l) 
+		   (if (and (null? t) discard-null?)
+		       res (append res (list (list->string t))))
 		 (if (char-set-contains? c (car l))
 		     (begin 
-		       (unless (null? t) 
+		       (unless (and (null? t) discard-null?)
 			       (set! res (append res (list (list->string t)))))
 		       (loop (cdr l) '()))
-		     (loop (cdr l) (append t (list (car l))))))))
-
+		     (loop (cdr l) (append t (list (car l)))))))]))
+	    
 	 ;; POSSIBLE THAT THIS NOT EXIST?
 	 ;; if x is a character: (eq?  s[i] x) => s[i] = y
 	 ;; if x is a list:      (memq s[i] x) => s[i] = y
