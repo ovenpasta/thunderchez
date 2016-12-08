@@ -40,13 +40,12 @@
       s))
 
   (define (with-mktemp template f)
-	  (define file #f)
+	  (define file (mktemp template))
 	  (dynamic-wind
-	      (lambda () (set! file (mktemp template)))
+	      (lambda () (void))
 	      (lambda () (f file))
 	      (lambda () (delete-file file))))
 
-  
   (define (close fd)
     (define close* (foreign-procedure "close" (int) int))
     (if (< (close* fd) 0)
