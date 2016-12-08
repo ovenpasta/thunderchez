@@ -25,6 +25,6 @@
     (let ([x (ftype-ref char-array (i) 
 			(make-ftype-pointer char-array 
 					    (ftype-pointer-address ptr)))])
-      (if (or (eq? x #\nul) (>= i max))
+      (if (or (eqv? x #\nul) (>= i max))
 	  (utf8->string (u8-list->bytevector (reverse r)))
 	  (loop (+ i 1) (cons (char->integer x) r))))))

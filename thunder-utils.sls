@@ -38,12 +38,12 @@
 		     (loop (cdr l) (append t (list (car l)))))))]))
 	    
 	 ;; POSSIBLE THAT THIS NOT EXIST?
-	 ;; if x is a character: (eq?  s[i] x) => s[i] = y
+	 ;; if x is a character: (eqv?  s[i] x) => s[i] = y
 	 ;; if x is a list:      (memq s[i] x) => s[i] = y
 
 	 (define (string-replace s x y)
 	   (list->string  
-	    (let ([cmp (if (list? x) memq eq?)])
+	    (let ([cmp (if (list? x) memq eqv?)])
 	      (map (lambda (z) (if (cmp z x) y z)) (string->list s)))))
 
 

@@ -55,7 +55,7 @@
   (define (wtermsig x)
     (logand x #x7f))
   (define (wifexited x)
-    (eq? (wtermsig x) 0))
+    (zero? (wtermsig x)))
   (define (wifsignaled x)
     (> (logand #xff (bitwise-arithmetic-shift-right
 		     (+ 1 (wtermsig x))
