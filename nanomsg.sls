@@ -347,21 +347,6 @@
  ;; 	     (string-set! str i c)
  ;; 	     str)))))
 
- (define (char*->bytevector fptr bytes)
-   (let f ([i 0])
-     (let ([c (ftype-ref char () fptr i)])
-       (if (>= i  bytes)
-	   (make-bytevector i)
-	   (let ([bb (f (fx+ i 1))])
-	     (bytevector-u8-set! bb i (char->integer c))
-	     bb)))))
-
- (define-syntax cast
-   (syntax-rules ()
-     [(_ ftype fptr)
-      (make-ftype-pointer ftype
-			  (ftype-pointer-address fptr))]))
-
  (define (nn-recv s buf len flags)
    (define b #f)
    (define r #f)

@@ -19,7 +19,9 @@
  (ffi-utils)
  (export define-enumeration* define-function 
 	 define-flags make-flags flags flags-name flags-alist flags-indexer flags-ref-maker flags-decode-maker
-	 let-struct)
+	 let-struct
+	 char*->bytevector cast
+	 )
  (import (chezscheme))
 
 ;; TODO: maybe we should support multiple structs?
@@ -143,16 +145,14 @@
  (define-record flags (name alist))
  
  (define (flags-indexer  flags)
-   (lambda (name . more-names)
-     (let ([names (append (list name) more-names)])
-       (let loop ([f names] [result 0])
-	 (if (null? f) result
-	   (let ([r (assq (car f) (flags-alist flags))])
-	     ;(printf "r: ~d flags: ~d f: ~d\n" r flags f)
-	     (if (not r) (assertion-violation (flags-name flags) "symbol not found" f)
-		 (loop (cdr f) (logor result (cdr r))))))))))
+  (lambda names
+    (let loop ([f names] [result 0])
+      (if (null? f) result
+	  (let ([r (assq (car f) (flags-alist flags))])
+	    (if (not r) (assertion-violation (flags-name flags) "symbol not found" f)
+		(loop (cdr f) (logor result (cdr r)))))))))
 
- (define (flags-ref-maker flags)
+(define (flags-ref-maker flags)
    (lambda (index)
      (let ([p (find (lambda (x) (equal? index (cdr x))) (flags-alist flags))])
        (if p (car p) p))))
@@ -206,5 +206,24 @@
 			 (define-ftype name-t type)
 			 ;(indirect-export base-name flags-name ref-name decode-name name-t )
 			 ))])))
+
+
+
+ (define (char*->bytevector fptr bytes)
+   (define bb (make-bytevector bytes))
+   (let f ([i 0])
+     (if (< i  bytes)
+	 (let ([c (ftype-ref char () fptr i)])
+	   (bytevector-u8-set! bb i (char->integer c))
+	   (f (fx+ i 1)))))
+   bb)
+
+
+ (define-syntax cast
+   (syntax-rules ()
+     [(_ ftype fptr)
+      (make-ftype-pointer ftype
+			  (ftype-pointer-address fptr))]))
+
 
  ); library ffi-utils
