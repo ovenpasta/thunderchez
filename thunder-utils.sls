@@ -14,7 +14,7 @@
 ;; limitations under the License.
 
 (library (thunder-utils)
-	 (export string-split string-replace)
+	 (export string-split string-replace bytevector-copy*) 
 	 (import (scheme) (srfi s14 char-sets))
 
 	 ;; POSSIBLE THAT NOT EXISTS THIS FUNCTION???
@@ -46,6 +46,14 @@
 	    (let ([cmp (if (list? x) memq eqv?)])
 	      (map (lambda (z) (if (cmp z x) y z)) (string->list s)))))
 
-
+	 ;; WHY THERE NOT EXISTS BYTEVECTOR-COPY WITH src-start and n? F*** YOU
+	 (define bytevector-copy*
+	   (case-lambda
+	    [(bv) (bytevector-copy bv)]
+	    [(bv start)
+	     (bytevector-copy* start (- (bytevector-length bv) start))]
+	    [(bv start n)
+	     (let ([dst (make-bytevector n)])
+	       (bytevector-copy! bv start dst 0 n) dst)]))
 
 );library
