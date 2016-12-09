@@ -4,8 +4,9 @@
   (export strerror errno EAGAIN EINTR
 	  mktemp mkstemp with-mktemp close
 	  wtermsig wifexited wifsignaled wexitstatus
-	  wait-for-pid)
-  (import (chezscheme))
+	  wait-for-pid file-write file-read bytes-ready)
+  (import (chezscheme)
+	  (only (thunder-utils) bytevector-copy*))
 ;;; POSIX STUFF
   (define init (load-shared-object "libc.so.6"))
 
@@ -75,4 +76,45 @@
 	  (cond [(wifexited status) (wexitstatus status)]
 		[(wifsignaled status) #f]
 		[(loop)])))))
+
+  ;; these shouldn't be needed.. use just open-fd-input-port,
+  ;; open-fd-output-port or open-fd-input/output-port and then use the scheme
+  ;; functions...
+  
+  (define (file-write fd data)
+    (define write* (foreign-procedure "write" (int u8* size_t) ssize_t))
+    (define n (bytevector-length data))
+    (let loop ([data data])
+      (let ([m (bytevector-length data)])
+	(cond
+	 [(> m 0)
+	  (let ([r (write* fd data m)])
+	    (cond
+	     [(< r 0)
+	      (if (or (= (errno) EAGAIN) (= (errno) EINTR))
+		  (loop data)
+		  (errorf 'write "error writing data: ~a: ~a" (errno) (strerror)))]
+	     [else
+	      (loop (bytevector-copy* data r))]))]
+	 [else n]))))
+
+  (define (file-read fd n)
+    (define read* (foreign-procedure "read" (int u8* size_t) ssize_t))
+    (define buf (make-bytevector n))
+    (let loop ()
+      (let ([r (read* fd buf n)])
+	(cond
+	 [(>= r 0) r]
+	 [(or (= (errno) EAGAIN) (= (errno) EINTR)) -1]
+	 [else (loop)]))))
+    (define FIONREAD #x541B)
+
+  (define (bytes-ready fd)
+    (define ioctl* (foreign-procedure "ioctl" (int int void*) int))
+    (define n* (foreign-alloc (foreign-sizeof 'int)))
+    (ioctl* fd FIONREAD n*)
+    (let ([n (foreign-ref 'int n* 0)])
+      (foreign-free n*)
+      n))
+
 ) ;;library posix
