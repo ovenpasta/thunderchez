@@ -1,12 +1,13 @@
 
 (library (c-eval)
 	(export c-eval c-eval-printf c-eval-includes)
-	(import (chezscheme) (posix))
+	(import (chezscheme)
+		(posix)
+		(only (data-structures) string-intersperse ->string))
 
 	(define c-eval-includes (make-parameter '("stdio.h")))
 	
 	(define (c-eval-printf format . values)
-	  (import (only (data-structures) string-intersperse ->string))
 	  (c-eval (string-append "printf (\"" format "\"," (string-intersperse (map ->string values) ",") ");")))
 		
 	(define (c-eval expr)
