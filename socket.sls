@@ -42,25 +42,25 @@
     (define-ftype in_addr_t unsigned-32)
     (define-ftype in_addr
       (struct (s_addr in_addr_t)))
+    
+    ;; WARNING- here the size of sin_zero should be calculated on your machine as:
+    #;(import (c-eval))
+    #;(parameterize ([c-eval-includes '("stdio.h" "sys/socket.h" "netinet/in.h")])
+    (c-eval-printf "%d" "sizeof(struct sockaddr_in) - (sizeof (sa_family_t) - sizeof(in_port_t) - sizeof(in_addr_t))"))
+    ;; in my case  (a6le) -> 20
+    
+    (define-ftype sockaddr_in
+      (struct
+       (sin_family sa_family_t)
+       (sin_port in_port_t)
+       (sin_addr in_addr)
+       (sin_zero (array 20 unsigned-8))))
+  
     (define INADDR_ANY 0)
     ]
    [else
     (error 'socket.sls "unsupported machine-type ~a" (machine-type))])
 
-  
-  ;; WARNING- here the size of sin_zero should be calculated on your machine as:
-  #;(import (c-eval))
-  #;(parameterize ([c-eval-includes '("stdio.h" "sys/socket.h" "netinet/in.h")])
-		(c-eval-printf "%d" "sizeof(struct sockaddr_in) - (sizeof (sa_family_t) - sizeof(in_port_t) - sizeof(in_addr_t))"))
-  ;; in my case  (a6le) -> 20
-  
-  (define-ftype sockaddr_in
-    (struct
-     (sin_family sa_family_t)
-     (sin_port in_port_t)
-     (sin_addr in_addr)
-     (sin_zero (array 20 unsigned-8))))
-  
   (define (socket domain type type-flags protocol)  
     (define socket* (foreign-procedure "socket" (int int int) int))
     (let ([r (socket* (socket-domain domain)
@@ -169,7 +169,7 @@
 	     [l '() (cons c l)])
     ((eof-object? c) (utf8->string (apply bytevector (reverse l))))))
 
-(substring (http-get "scheme.com" 80 "/tspl4/intro.html") 200)
+(substring (http-get "scheme.com" 80 "/tspl4/intro.html") 0 200)
 
 ;; server
 (import (socket))
