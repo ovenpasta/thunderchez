@@ -1,8 +1,8 @@
 
 (library (socket)
-  (export file-write file-read bytes-ready socket bind accept close
+  (export file-write file-read bytes-ready socket close
 	  socket-domain socket-type-flag socket-type gethostbyname
-	  connect/inet)
+	  connect/inet bind/inet listen accept)
   
   (import (except (chezscheme) bytevector-copy)
 	  (posix)
@@ -41,7 +41,9 @@
     
     (define-ftype in_addr_t unsigned-32)
     (define-ftype in_addr
-      (struct (s_addr in_addr_t)))]
+      (struct (s_addr in_addr_t)))
+    (define INADDR_ANY 0)
+    ]
    [else
     (error 'socket.sls "unsupported machine-type ~a" (machine-type))])
 
@@ -69,29 +71,6 @@
 		(errorf 'socket "failed: ~a" (strerror)))
 	  (open-fd-input/output-port r)))
 
-  
-  
-  (define (bind s name family)
-    (define strcpy* (foreign-procedure "strcpy" (void* string) void*))
-    (define sun (foreign-alloc (ftype-sizeof sockaddr_un)))
-    (define bind* (foreign-procedure "bind" (int void* socklen_t) int))
-    (ftype-set! sockaddr_un (sun_family) sun family)
-    (strcpy* (ftype-&ref sockaddr_un (sun_data) sun) name)
-    (bind* (port-file-descriptor s) sun (ftype-sizeof sockaddr_un))
-    (foreign-free sun))
-  
-  (define (accept s)
-    (define accept* (foreign-procedure "accept" (int void* void*) int))
-    ;;(define sun (foreign-alloc (ftype-sizeof sockaddr_un)))
-    ;;(define length* (foreign-alloc (ftype-sizeof socklen_t)))
-    
-    (let ([r (accept* (port-file-descriptor s) 0 0)])
-					;(foreign-free sun)
-      (when (< r 0)
-	    (errorf 'accept "failed: ~a" (strerror)))
-      r))
-
-
   ;; MMM... LINUX MAN PAGES SAYS THIS IS DEPRECATED...
   (define (gethostbyname name)
     (define ghbn* (foreign-procedure "gethostbyname" (string) void*))
@@ -117,7 +96,7 @@
     (define memcpy* (foreign-procedure "memcpy" (void* void* size_t) void*))
     (memcpy* dest src n)
     (void))
-  
+    
   (define (connect/inet socket address port)
     (define connect* (foreign-procedure "connect" (int (* sockaddr_in) socklen_t) int))
     (define server (gethostbyname address))
@@ -133,14 +112,52 @@
 			 addr (ftype-sizeof sockaddr_in))])
 	(foreign-free (ftype-pointer-address addr))
 	(when (< r 0)
-	      (errorf 'connect "failed: ~a" (strerror)))))) 
+	      (errorf 'connect/inet "failed: ~a" (strerror)))))) 
+
+  (define (bind/inet socket address port)
+    (define bind* (foreign-procedure "bind" (int (* sockaddr_in) socklen_t) int))
+    (let ([addr (make-ftype-pointer sockaddr_in
+				    (foreign-alloc (ftype-sizeof sockaddr_in)))])
+      (memset (ftype-pointer-address addr) 0 (ftype-sizeof sockaddr_in))
+      (ftype-set! sockaddr_in (sin_family) addr (socket-domain 'inet))
+      (case address
+	[any
+	 (ftype-set! in_addr (s_addr) (ftype-&ref sockaddr_in (sin_addr) addr) INADDR_ANY)]
+	[else
+	 (let ([server (gethostbyname address)])
+	   (memcpy (ftype-pointer-address (ftype-&ref sockaddr_in (sin_addr) addr))
+		   (foreign-ref 'void* (ftype-ref hostent (h_addr_list) server) 0)
+		   (ftype-ref hostent (h_length) server)))])
+      (ftype-set! sockaddr_in (sin_port) addr (htons port))
+      (let ([r (bind* (port-file-descriptor socket)
+		      addr (ftype-sizeof sockaddr_in))])
+	(foreign-free (ftype-pointer-address addr))
+	(when (< r 0)
+	      (errorf 'bind/inet "failed: ~a" (strerror))))))
   
+  (define (listen s backlog)
+    (define listen* (foreign-procedure "listen" (int int) int))
+    (let ([r (listen* (port-file-descriptor s) backlog)])
+      (when (< r 0)
+	    (errorf 'listen "failed: ~a" (strerror)))
+      r))
+  
+  (define (accept s)
+    (define accept* (foreign-procedure "accept" (int void* void*) int))
+    ;; TODO: get the client address!
+    (let ([r (accept* (port-file-descriptor s) 0 0)])
+      (when (< r 0)
+	    (errorf 'accept "failed: ~a" (strerror)))
+      (open-fd-input/output-port r)))
   )
 
 
 #|
 ;Example:
+
 (load "socket.sls")
+
+;; client
 (import (socket))
 
 (define (http-get hostname port q)
@@ -152,5 +169,17 @@
 	     [l '() (cons c l)])
     ((eof-object? c) (utf8->string (apply bytevector (reverse l))))))
 
-(substring (http-get "scheme.com" 80 "/tspl4/intro.html") 0 100)
+(substring (http-get "scheme.com" 80 "/tspl4/intro.html") 200)
+
+;; server
+(import (socket))
+(define sock (socket 'inet 'stream '() 0))
+(bind/inet sock 'any 8001)
+(listen sock 10)
+(define clisock (accept sock))
+(define (read-all sock) 
+  (do ([c (get-u8 sock) (get-u8 sock)] 
+	     [l '() (cons c l)])
+      ((eof-object? c) (utf8->string (apply bytevector (reverse l))))))
+(read-all clisock)
 |#
