@@ -82,7 +82,7 @@
 	      (dynamic-wind
 		  (lambda () (set! cli (accept sock)))
 		  (lambda ()
-		    (printf "accepted connection~n")
+		    (printf "scgi: accepted connection~n")
 		    (if (> nchildren max-children)
 			(sleep (make-time 'time-duration 0 1)))
 		    (printf "scgi: forking..~n")
@@ -122,7 +122,7 @@
 (connect/inet sock "localhost" 8086)
 (define h (scgi-headers->bytevector '(("CONTENT_LENGTH" . "10") 
 				      ("SCGI" . "1")
-				      ("REQUEST_METHOD" . "GET") 
+				      ("REQUEST_METHOD" . "POST") 
 				      ("REQUEST_URI" . "/chez"))))
 (write-netstring sock h)
 (put-bytevector sock (bytevector 1 2 3 4 5 6 7 8 9 0))
