@@ -64,45 +64,38 @@
       ((scgi-request-handler) sock h content)))
 
   (define (run-scgi addr port)
-    (define sock (socket 'inet 'stream '() 0))
     (define nchildren 0)
     (define max-children 10)
     (define waitpid (foreign-procedure "waitpid" (int void* int) int))
-    
-    (dynamic-wind
-	(lambda ()
-	  (bind/inet sock addr port)
-	  (listen sock 1000))
-	(lambda ()
-	  (do ()
-	      (#f)
-	    ;(printf "nchildren ~d~n" nchildren)
-	    (printf "scgi: waiting for connection...~n")
-	    (let ([cli #f])
-	      (dynamic-wind
-		  (lambda () (set! cli (accept sock)))
-		  (lambda ()
-		    (printf "scgi: accepted connection~n")
-		    (if (> nchildren max-children)
-			(sleep (make-time 'time-duration 0 1)))
-		    (printf "scgi: forking..~n")
-		    (let ([pid (fork)])
-		      (if (= pid 0)			
-			  (guard (e [else (display "scgi: handler error: ")
-					  (display-condition e)
-					  (newline)])
-				 (handle-scgi-connection cli)
-				 (exit))
-			  (set! nchildren (+ 1 nchildren)))))
-		  (lambda ()
-		    (close-port cli))))
-	    (do ()
-		((not (> (waitpid 0 0 (wait-flag 'nohang)) 0)))
-	      (set! nchildren (- nchildren 1)))))
-	
-	(lambda ()
-	  (close-port sock))))
-  );;library scgi
+    (call-with-port
+     (socket 'inet 'stream '() 0)
+     (lambda (sock)	
+       (bind/inet sock addr port)
+       (listen sock 1000)
+       (do ()
+	   (#f)
+	 (printf "scgi: waiting for connection...~n")
+	 (let ([cli #f])
+	   (call-with-port
+	    (accept sock)
+	    (lambda (clifd)
+	      (printf "scgi: accepted connection~n")
+	      (if (> nchildren max-children)
+		  (sleep (make-time 'time-duration 0 1)))
+	      (printf "scgi: forking..~n")
+	      (let ([pid (fork)])
+		(if (= pid 0)			
+		    (guard (e [else (display "scgi: handler error: ")
+				    (display-condition e)
+				    (newline)])
+			   (handle-scgi-connection clifd)
+			   (exit))
+		    (set! nchildren (+ 1 nchildren)))))))
+	 (do ()
+	     ((not (> (waitpid 0 0 (wait-flag 'nohang)) 0)))
+	   (set! nchildren (- nchildren 1)))))))
+     
+     );;library scgi
 
 
 
@@ -112,6 +105,27 @@
 (import (scgi))
 (run-scgi "localhost" 8088)
 ;; it will use the default scgi-request-handler
+
+;CUSTOM HANDLER:
+
+(import (chezscheme)
+	(scgi)
+	(sxml)
+	(sxml to-html))
+(parameterize
+ ([scgi-request-handler
+   (lambda (sock headers content)
+     (let ([xml (with-output-to-string
+		  (lambda ()
+		    (SXML->HTML '(html (h1 "WELCOME TO THE WEB!")))))])
+       (put-bytevector sock (string->utf8 "Status: 200 OK\r\n"))
+       (put-bytevector sock (string->utf8 "Content-Type: text/html\r\n"))
+       (put-bytevector sock (string->utf8 "\r\n"))
+       (put-bytevector sock (string->utf8 xml))))])
+       
+ (run-scgi "localhost" 8088))
+		
+
 
 ;CLIENT EXAMPLE:
 (import (netstring) 
