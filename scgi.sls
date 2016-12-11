@@ -119,7 +119,7 @@
 	(scgi))
 
 (define sock (socket 'inet 'stream '() 0))
-(connect/inet sock "localhost" 8086)
+(connect/inet sock "localhost" 8088)
 (define h (scgi-headers->bytevector '(("CONTENT_LENGTH" . "10") 
 				      ("SCGI" . "1")
 				      ("REQUEST_METHOD" . "POST") 
