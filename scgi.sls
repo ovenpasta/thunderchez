@@ -50,10 +50,11 @@
 
   (define scgi-request-handler
     (make-parameter
-     (lambda (sock headers content)
+     (lambda (response-port headers content)
        (printf "scgi: headers: ~a~n" headers)
        (printf "scgi: contents: ~a~n" content)
-       (put-bytevector sock (string->utf8 "Status: 200 OK\r\nContent-Type: text/html\r\n\r\n<html><body><center><h1><big>WELCOME TO THUNDERCHEZ!</big></h1></center></body></html>")))))
+       
+       (display "Status: 200 OK\r\nContent-Type: text/html\r\n\r\n<html><body><center><h1><big>WELCOME TO THUNDERCHEZ!</big></h1></center></body></html>" response-port))))
   
   (define (handle-scgi-connection sock)
     (define h (read-headers sock))
@@ -61,7 +62,12 @@
     (let* ([len (string->number (cdr (assq 'CONTENT_LENGTH h)))]
 	   [content (get-bytevector-n sock len)])
       (assert (= (bytevector-length content) len))
-      ((scgi-request-handler) sock h content)))
+      (let ([port (open-fd-output-port
+		   (port-file-descriptor sock)
+		   'block
+		   (make-transcoder (utf-8-codec) 'none))])
+	((scgi-request-handler) port h content)
+	(flush-output-port port))))
 
   (define (run-scgi addr port)
     (define nchildren 0)
@@ -75,22 +81,21 @@
        (do ()
 	   (#f)
 	 (printf "scgi: waiting for connection...~n")
-	 (let ([cli #f])
-	   (call-with-port
-	    (accept sock)
-	    (lambda (clifd)
-	      (printf "scgi: accepted connection~n")
-	      (if (> nchildren max-children)
-		  (sleep (make-time 'time-duration 0 1)))
-	      (printf "scgi: forking..~n")
-	      (let ([pid (fork)])
-		(if (= pid 0)			
-		    (guard (e [else (display "scgi: handler error: ")
-				    (display-condition e)
-				    (newline)])
-			   (handle-scgi-connection clifd)
-			   (exit))
-		    (set! nchildren (+ 1 nchildren)))))))
+	 (call-with-port
+	  (accept sock)
+	  (lambda (clifd)
+	    (printf "scgi: accepted connection~n")
+	    (if (> nchildren max-children)
+		(sleep (make-time 'time-duration 0 1)))
+	    (printf "scgi: forking..~n")
+	    (let ([pid (fork)])
+	      (if (= pid 0)
+		  (guard (e [else (display "scgi: handler error: ")
+				  (display-condition e)
+				  (newline)])			   
+			 (handle-scgi-connection clifd)
+			 (exit))
+		  (set! nchildren (+ 1 nchildren))))))
 	 (do ()
 	     ((not (> (waitpid 0 0 (wait-flag 'nohang)) 0)))
 	   (set! nchildren (- nchildren 1)))))))
@@ -114,18 +119,14 @@
 	(sxml to-html))
 (parameterize
  ([scgi-request-handler
-   (lambda (sock headers content)
-     (let ([xml (with-output-to-string
-		  (lambda ()
-		    (SXML->HTML '(html (h1 "WELCOME TO THE WEB!")))))])
-       (put-bytevector sock (string->utf8 "Status: 200 OK\r\n"))
-       (put-bytevector sock (string->utf8 "Content-Type: text/html\r\n"))
-       (put-bytevector sock (string->utf8 "\r\n"))
-       (put-bytevector sock (string->utf8 xml))))])
-       
+   (lambda (response-port headers content)
+     (parameterize ([current-output-port response-port])
+		   (display "Status: 200 OK\r\n")
+		   (display "Content-Type: text/html\r\n")
+		   (display "\r\n")
+		   (SXML->HTML '(html (h1 "WELCOME TO THE WEB!")))))])
+ 
  (run-scgi "localhost" 8088))
-		
-
 
 ;CLIENT EXAMPLE:
 (import (netstring) 
