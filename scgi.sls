@@ -14,7 +14,8 @@
 ;; limitations under the License.
 
 (library (scgi)
-  (export scgi-request-handler handle-scgi-connection run-scgi)
+  (export scgi-request-handler handle-scgi-connection run-scgi
+	  scgi-headers->bytevector)
   (import (chezscheme)
 	  (socket)
 	  (netstring)
@@ -113,8 +114,10 @@
 ;; it will use the default scgi-request-handler
 
 ;CLIENT EXAMPLE:
-(import (netstring))
-(import (socket))
+(import (netstring) 
+	(socket)
+	(scgi))
+
 (define sock (socket 'inet 'stream '() 0))
 (connect/inet sock "localhost" 8086)
 (define h (scgi-headers->bytevector '(("CONTENT_LENGTH" . "10") 
