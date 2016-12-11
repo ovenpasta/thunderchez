@@ -115,7 +115,13 @@
 	      (errorf 'connect/inet "failed: ~a" (strerror)))))) 
 
   (define (bind/inet socket address port)
+    (define SO_REUSEADDR 2)
+    (define SOL_SOCKET 1)
+    (define setsockopt* (foreign-procedure "setsockopt" (int int int u8* socklen_t) int))
     (define bind* (foreign-procedure "bind" (int (* sockaddr_in) socklen_t) int))
+    (define opt (make-bytevector (ftype-sizeof int)))
+    (bytevector-sint-set! opt 0 1 (native-endianness) (ftype-sizeof int))
+    (setsockopt* (port-file-descriptor socket) SOL_SOCKET SO_REUSEADDR opt (ftype-sizeof int))
     (let ([addr (make-ftype-pointer sockaddr_in
 				    (foreign-alloc (ftype-sizeof sockaddr_in)))])
       (memset (ftype-pointer-address addr) 0 (ftype-sizeof sockaddr_in))
