@@ -4,9 +4,11 @@
   (export strerror errno EAGAIN EINTR
 	  mktemp mkstemp with-mktemp close
 	  wtermsig wifexited wifsignaled wexitstatus
-	  wait-for-pid file-write file-read bytes-ready)
+	  wait-flag
+	  wait-for-pid fork dup file-write file-read bytes-ready)
   (import (chezscheme)
-	  (only (thunder-utils) bytevector-copy*))
+	  (only (thunder-utils) bytevector-copy*)
+	  (ffi-utils))
 ;;; POSIX STUFF
   (define init (load-shared-object "libc.so.6"))
 
@@ -64,19 +66,48 @@
        0))
   (define (wexitstatus x)
     (bitwise-arithmetic-shift-right (logand x #xff00) 8))
+  (meta-cond
+   [(memq (machine-type) '(a6le ta6le i3le ti3le))
+    (define-flags wait-flag (nohang 1) (untraced 2) (stopped 2) (exited 4) (continued 8)
+      (nowait #x01000000) (nothread #x20000000) (all #x40000000) (clone #x80000000))])
 
-  (define (wait-for-pid pid)
-    (define waitpid* (foreign-procedure "waitpid" (int u8* int) int))
-    (define status* (make-bytevector (foreign-sizeof 'int)))
-    (let loop ()
-      (let ([r (waitpid* pid status* 0)])
-	(when (< r 0)
-	      (errorf 'wait-for-pid "waitpid failed: ~d" (strerror)))
-	(let ([status (bytevector-sint-ref status* 0 (native-endianness) (foreign-sizeof 'int))])
-	  (cond [(wifexited status) (wexitstatus status)]
-		[(wifsignaled status) #f]
-		[(loop)])))))
+  (define wait-for-pid
+    (case-lambda
+     [(pid) (wait-for-pid pid '())]
+     [(pid options)
+      (define waitpid* (foreign-procedure "waitpid" (int u8* int) int))
+      (define status* (make-bytevector (foreign-sizeof 'int)))
+      (let loop ()
+	(let ([r (waitpid* pid status* (apply wait-flag options))])
+	  (when (< r 0)
+		(errorf 'wait-for-pid "waitpid failed: ~d" (strerror)))
+	  (let ([status (bytevector-sint-ref status* 0 (native-endianness) (foreign-sizeof 'int))])
+	    (cond [(wifexited status) (wexitstatus status)]
+		  [(wifsignaled status) #f]
+		  [(loop)]))))]))
 
+  (define (fork)
+    (define fork* (foreign-procedure "fork" () integer-32))
+     (let ([r (fork*)])
+      (if (< r 0)
+	  (errorf 'dup2 "failed: ~d" (strerror))
+	  r)))
+
+  (define dup
+    (case-lambda
+     [(filedes filedes2)
+      (define dup2* (foreign-procedure "dup2" (int int) int))
+      (let ([r (dup2* filedes filedes2)])
+	(if (< r 0)
+	    (errorf 'dup2 "failed: ~d" (strerror))
+	    r))]
+     [(filedes)
+      (define dup* (foreign-procedure "dup" (int) int))
+      (let ([r (dup* filedes)])
+	(if (< r 0)
+	    (errorf 'dup "failed: ~d" (strerror))
+	    r))]))
+  
   ;; these shouldn't be needed.. use just open-fd-input-port,
   ;; open-fd-output-port or open-fd-input/output-port and then use the scheme
   ;; functions...
