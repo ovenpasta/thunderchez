@@ -136,6 +136,6 @@
 ;; 	scgi_param SCRIPT_NAME "/chez";
 ;; }
 
-;; and point your browser to http://localhost/8088
+;; and point your browser to http://localhost:8088/chez
 
 |#
