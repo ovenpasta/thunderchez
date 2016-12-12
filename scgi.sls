@@ -89,13 +89,15 @@
 		(sleep (make-time 'time-duration 0 1)))
 	    (printf "scgi: forking..~n")
 	    (let ([pid (fork)])
-	      (if (= pid 0)
-		  (guard (e [else (display "scgi: handler error: ")
+	      (cond
+	       [(= pid 0)
+		(guard (e [else (display "scgi: handler error: ")
 				  (display-condition e)
 				  (newline)])			   
-			 (handle-scgi-connection clifd)
-			 (exit))
-		  (set! nchildren (+ 1 nchildren))))))
+		       (handle-scgi-connection clifd))
+		(exit)]
+	       [else
+		(set! nchildren (+ 1 nchildren))))))
 	 (do ()
 	     ((not (> (waitpid 0 0 (wait-flag 'nohang)) 0)))
 	   (set! nchildren (- nchildren 1)))))))
