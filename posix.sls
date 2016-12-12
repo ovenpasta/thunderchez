@@ -14,30 +14,18 @@
 ;; limitations under the License.
 
 (library (posix)
-  (export strerror errno EAGAIN EINTR
+  (export strerror errno
 	  mktemp mkstemp with-mktemp close
 	  wtermsig wifexited wifsignaled wexitstatus
 	  wait-flag
 	  wait-for-pid fork dup file-write file-read bytes-ready)
   (import (chezscheme)
 	  (only (thunder-utils) bytevector-copy*)
-	  (ffi-utils))
+	  (ffi-utils)
+	  (only (posix errno) strerror errno EAGAIN EINTR))
+  
 ;;; POSIX STUFF
   (define init (load-shared-object "libc.so.6"))
-
-  (define strerror
-    (case-lambda
-     [() (strerror (errno))]
-     [(n)
-      (define strerror* (foreign-procedure "strerror_r" (int u8* size_t) string))
-      (define buff (make-bytevector 1024))
-      (strerror* n buff 1024)]))
-
-  (define (errno)
-    (foreign-ref 'int (foreign-entry "errno") 0))
-
-  (define EAGAIN 11)
-  (define EINTR 4)
 
   (define (mkstemp template)
     (define mkstemp* (foreign-procedure "mkstemp" (u8*) int))

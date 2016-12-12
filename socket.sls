@@ -20,6 +20,7 @@
   
   (import (except (chezscheme) bytevector-copy)
 	  (posix)
+	  (only (posix errno) EAGAIN EINTR)
 	  (ffi-utils))
 
   (meta-cond
