@@ -126,7 +126,8 @@
 			 addr (ftype-sizeof sockaddr_in))])
 	(foreign-free (ftype-pointer-address addr))
 	(when (< r 0)
-	      (errorf 'connect/inet "failed: ~a" (strerror)))))) 
+	    (if (= (errno) EINTR) (connect/inet socket address port)
+		(errorf 'connect/inet "failed: ~a" (strerror)))))))
 
   (define (bind/inet socket address port)
     (define SO_REUSEADDR 2)
@@ -165,10 +166,15 @@
   (define (accept s)
     (define accept* (foreign-procedure "accept" (int void* void*) int))
     ;; TODO: get the client address!
+    
     (let ([r (accept* (port-file-descriptor s) 0 0)])
-      (when (< r 0)
-	    (errorf 'accept "failed: ~a" (strerror)))
-      (open-fd-input/output-port r)))
+      (cond
+       [(< r 0)
+	(if (= (errno) EINTR)
+	    (accept s)
+	    (errorf 'accept "failed: ~a" (strerror)))]
+       [else
+	(open-fd-input/output-port r)])))
   )
 
 
