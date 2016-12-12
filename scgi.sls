@@ -97,7 +97,7 @@
 		       (handle-scgi-connection clifd))
 		(exit)]
 	       [else
-		(set! nchildren (+ 1 nchildren))))))
+		(set! nchildren (+ 1 nchildren))]))))
 	 (do ()
 	     ((not (> (waitpid 0 0 (wait-flag 'nohang)) 0)))
 	   (set! nchildren (- nchildren 1)))))))
