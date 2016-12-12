@@ -62,7 +62,7 @@
     
     #;(import (c-eval))
     #;(parameterize ([c-eval-includes '("stdio.h" "sys/socket.h" "netinet/in.h")])
-    (c-eval-printf "%d" "sizeof(struct sockaddr_in) - sizeof (sa_family_t) - sizeof(in_port_t) - sizeof(in_addr_t)"))
+    (c-eval-printf "%d" "sizeof(((struct sockaddr_in *) NULL)->sin_zero)"))
     ;; in my case  (a6le) -> 8
     
     (define-ftype sockaddr_in
