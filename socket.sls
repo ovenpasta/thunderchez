@@ -59,17 +59,18 @@
       (struct (s_addr in_addr_t)))
     
     ;; WARNING- here the size of sin_zero should be calculated on your machine as:
+    
     #;(import (c-eval))
     #;(parameterize ([c-eval-includes '("stdio.h" "sys/socket.h" "netinet/in.h")])
-    (c-eval-printf "%d" "sizeof(struct sockaddr_in) - (sizeof (sa_family_t) - sizeof(in_port_t) - sizeof(in_addr_t))"))
-    ;; in my case  (a6le) -> 20
+    (c-eval-printf "%d" "sizeof(struct sockaddr_in) - sizeof (sa_family_t) - sizeof(in_port_t) - sizeof(in_addr_t)"))
+    ;; in my case  (a6le) -> 8
     
     (define-ftype sockaddr_in
       (struct
        (sin_family sa_family_t)
        (sin_port in_port_t)
        (sin_addr in_addr)
-       (sin_zero (array 20 unsigned-8))))
+       (sin_zero (array 8 unsigned-8))))
   
     (define INADDR_ANY 0)
     ]
