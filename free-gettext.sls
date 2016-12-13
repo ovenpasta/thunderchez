@@ -4,7 +4,9 @@
 ;; BSD-style license: http://synthcode.com/license.txt
 
 ;; Modifications for CHICKEN 4 by Thomas Chust (2010)
-
+;;
+;; Modifications for Chez Scheme by Aldo Nicolas Bruno (2016)
+;;
 ;; This is *not* gettext, nor does it use the C gettext library.
 ;;
 ;; This is a full gettext superset written in pure Scheme from reading
@@ -72,13 +74,9 @@
 ;;  (define _ (my-gettext 'getter))
 ;;  (_"Hello, World!")
 
-(require-library
- extras data-structures regex ports files posix
- srfi-1 srfi-13 srfi-69
- charconv)
-
-(module free-gettext
-  (;; standard gettext interface
+(library (free-gettext)
+  (export
+   ;; standard gettext interface
    gettext textdomain dgettext dcgettext bindtextdomain
    ngettext dngettext dcngettext
    ;; the parameter for the standard interface
@@ -91,11 +89,76 @@
    make-gettext-file
    ;; low-level parsers
    lookup-po-message lookup-mo-message)
-  (import
-   scheme chicken extras data-structures regex ports files posix
-   srfi-1 srfi-13 srfi-69
-   charconv)
+  (import (chezscheme)
+	  (data-structures)
+	  (irregex)
+	  (srfi s2 and-let)
+	  (srfi private let-opt)
+	  (srfi s26 cut)
+	  (only (srfi s1 lists) append-map any)
+	  (only (srfi s13 strings) string-trim string-trim-both
+		substring/shared string-index string-suffix? string-prefix?
+		string-concatenate-reverse)
+	  (only (thunder-utils) string-split read-string))
 
+  ;; implement string-match with irregex
+  (define (string-match regex txt)
+    (cond
+     [(irregex-match (irregex regex) txt)
+      => (lambda (m)
+	   (map (lambda (x)
+		  (irregex-match-substring m x))
+		(iota (+ 1 (irregex-match-num-submatches m)))))]
+     [else #f]))
+  (alias get-environment-variable getenv)
+  (alias arithmetic-shift bitwise-arithmetic-shift)
+  (alias hash-table-ref/default hashtable-ref)
+  (alias hash-table-set! hashtable-set!)
+  (alias hashtable-exists? hashtable-contains?)
+  
+  (define read-byte
+    (case-lambda
+     [() (get-u8 (current-input-port))]
+     [(p) (get-u8 p)]))
+  (define read-line (case-lambda
+		     [() (get-line (current-input-port))]
+		     [(port) (get-line port)]))
+  (define (string-null? x) (string=? x ""))
+  
+  (define (call-with-input-string str proc)
+    (with-input-from-string str
+      (proc (current-input-port))))
+  
+  (define (select-transcoder enc)
+    (make-transcoder
+		   (cond [(or (not enc) (string-ci=? enc "utf8") (string-ci=? enc "utf-8"))
+			  (utf-8-codec)]
+			 [(string-ci=? enc "latin1")
+			  (latin-1-codec)]
+			 [else
+			  (iconv-codec enc)])))
+
+  (define (with-input-from-encoded-file file enc thunk)
+    (call-with-port
+     (transcoded-port (open-input-file file) (select-transcoder enc))
+     (lambda (port)
+       (parameterize ([current-input-port port]) (thunk)))))
+  
+  (define (file-read-access? path)
+    (cond
+     [(guard (e [else #f]) (open-file-input-port path ))
+      => (lambda (p)
+	   (close-port p)
+	   #t)]
+     [else
+      #f]))
+    
+  (define (make-pathname . l)
+    (string-intersperse l (string (directory-separator))))
+
+  (define (print-error-message cond port desc)
+    (display desc port) (display-condition cond port) )
+  
 ;; ^^^ Non-SRFI imports:
 ;;
 ;; WITH-INPUT-FROM-ENCODED-FILE, CES-CONVERT and DETECT-FILE-ENCODING
@@ -138,19 +201,18 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; mime utils (from hato)
-
 (define (rfc822-read-headers in)
   (let more ([line (read-line in)])
     (cond
      ((or (eof-object? line) (string-null? line))
       '())
      ((let ([cont (peek-char in)])
-	(and (not (memv cont '(#\return #\newline #!eof)))
+	(and (not (or (eof-object? cont) (memv cont '(#\return #\newline))))
 	     (char-whitespace? cont)))
       (more (string-append line (read-line in))))
      ((string-match "(.*?)\\s*:\\s*(.*)" line)
       => (lambda (match)
-	   (cons (cons (string-downcase! (string-trim (cadr match)))
+	   (cons (cons (string-downcase (string-trim (cadr match)))
 		       (cddr match))
 		 (rfc822-read-headers in))))
      (else
@@ -173,9 +235,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; binary I/O utils (from SRFI-56)
 
-(define (read-binary-uint32-le . o)
-  (let* ((in (if (pair? o) (car o) (current-input-port)))
-         (b1 (read-byte in))
+(define (read-binary-uint32-le in)
+  (let* ((b1 (read-byte in))
          (b2 (read-byte in))
          (b3 (read-byte in))
          (b4 (read-byte in)))
@@ -186,9 +247,8 @@
            (arithmetic-shift b2 8)
            b1))))
 
-(define (read-binary-uint32-be . o)
-  (let* ((in (if (pair? o) (car o) (current-input-port)))
-         (b1 (read-byte in))
+(define (read-binary-uint32-be in)
+  (let* ((b1 (read-byte in))
          (b2 (read-byte in))
          (b3 (read-byte in))
          (b4 (read-byte in)))
@@ -202,21 +262,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Customize this to the appropriate value for your system:
 
-(define message-path (list (make-pathname (repository-path) "locale")))
-
+;(define message-path (list (make-pathname (repository-path) "locale")))
+(define message-path (make-parameter (list "/usr/share/locale")))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; store meta info for gettext files
 
-(define-record-type gfile
-  (%make-gfile filename locale encoding properties type plural-index)
-  gfile?
-  (filename gfile-filename)  ;; these are all immutable
-  (locale gfile-locale)
-  (encoding gfile-encoding)
-  (properties gfile-properties)
-  (type gfile-type)
-  (plural-index gfile-plural-index)
-  )
+(define-record-type (gfile %make-gfile gfile?)
+  (fields
+   (immutable filename gfile-filename)
+   (immutable locale gfile-locale)
+   (immutable encoding gfile-encoding)
+   (immutable properties gfile-properties)
+   (immutable type gfile-type)
+   (immutable plural-index gfile-plural-index)))
 
 (define (make-gettext-file filename locale)
   (let* ((file-type (if (string-suffix? ".mo" filename) 'mo 'po))
@@ -231,7 +289,7 @@
                  (else ""))))
          (encoding
           (cond ((assoc "charset" content-type) => cdr)
-                (else (or (detect-file-encoding filename locale) "utf8"))))
+                (else "utf8")))
          (plural-index
           (cond
             ((assoc "plural-forms" properties)
@@ -332,28 +390,28 @@
   ;; read from the file if it exists
   (and
    (file-read-access? file)
-   (condition-case
-       (with-input-from-encoded-file file encoding
-         (lambda ()
-           (let search ((line (read-line)))
-             (cond ((eof-object? line) #f)
-                   ((string-prefix? "msgid " line)
-                    (let ((msgid (read-str (tail-str line))))
-                      (cond ((string=? msgid msg)
-                             (let lp ((line (read-line)))
-                               (cond ((eof-object? line) #f)
-                                     ((string-prefix? "msgid_plural " line)
-                                      (read-plural (read-str (tail-str line))))
-                                     ((string-prefix? "msgstr " line)
-                                      (read-str (tail-str line)))
-                                     (else (lp (read-line))))))
-                            (else (search (read-line))))))
-                   (else (search (read-line)))))))
-     (exn ()
-          (print-error-message exn (current-error-port)
-                               "Warning: lookup-po-message")
-          ;;(print-call-chain (current-error-port))
-          #f))))
+   (guard
+    (exn [else (print-error-message exn (current-error-port)
+				    "Warning: lookup-po-message" )
+	       #f])
+    (with-input-from-encoded-file
+     file encoding
+     (lambda ()
+       (let search ((line (read-line)))
+	 (cond ((eof-object? line) #f)
+	       ((string-prefix? "msgid " line)
+		(let ((msgid (read-str (tail-str line))))
+		  (cond ((string=? msgid msg)
+			 (let lp ((line (read-line)))
+			   (cond ((eof-object? line) #f)
+				 ((string-prefix? "msgid_plural " line)
+				  (read-plural (read-str (tail-str line))))
+				 ((string-prefix? "msgstr " line)
+				  (read-str (tail-str line)))
+				 (else (lp (read-line))))))
+			(else (search (read-line))))))
+	       (else (search (read-line))))))))))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The gettext binary .mo file parser.
@@ -364,62 +422,61 @@
 (define (lookup-mo-message file msg msg2 encoding)
   (and
    (file-read-access? file)
-   (condition-case
-       (with-input-from-file file
-         (lambda ()
-           (define (search read-int)
-             (let* ((key (if msg2 (string-append msg null-str msg2) msg))
-                    (format (read-int))
-                    (count (read-int))
-                    (src-offset (read-int))
-                    (trans-offset (read-int))
-                    (hash-size (read-int))
-                    (hash-offset (read-int))
-                    (diff (- trans-offset src-offset))
-                    (end (+ src-offset (* (- count 1) 8))))
-               (define (string-at pos)
-                 (set-file-position! (current-input-port) pos)
-                 (let* ((len (read-int))
-                        (off (read-int)))
-                   (set-file-position! (current-input-port) off)
-                   (ces-convert (read-string len) encoding)))
-               (cond ;; check endpoints
-                 ((string=? key (string-at src-offset))
-                  (string-at (+ src-offset diff)))
-                 ((and (> end src-offset) (string=? key (string-at end)))
-                  (string-at (+ end diff)))
-                 (else ;; binary search
-                  (let loop ((lo 0) (hi (- count 1)))
-                    (if (>= lo hi)
-                        #f
-                        (let* ((mid (+ lo (quotient (- hi lo) 2)))
-                               (pos (+ src-offset (* mid 8)))
-                               (str (string-at pos)))
-                          (cond
-                            ((string<? key str)
-                             (if (>= mid hi) #f (loop lo mid)))
-                            ((string>? key str)
-                             (if (<= mid lo) #f (loop mid hi)))
-                            (else ;; match
-                             (string-at (+ pos diff)))))))))))
-           (let* ((b1 (read-byte))
-                  (b2 (read-byte))
-                  (b3 (read-byte))
-                  (b4 (read-byte))
-                  (magic (list b1 b2 b3 b4)))
-             (cond
-               ((equal? magic '(#xde #x12 #x04 #x95))
-                (search read-binary-uint32-le))
-               ((equal? magic '(#x95 #x04 #x12 #xde))
-                (search read-binary-uint32-be))
-               (else
-                (warning "invalid .mo file magic" magic)
-                #f)))))
-     (exn ()
-          (print-error-message exn (current-error-port)
-                               "Warning: lookup-mo-message")
-          ;;(print-call-chain (current-error-port))
-          #f))))
+   (guard
+    (exn [else (print-error-message exn (current-error-port)
+				    "Warning: lookup-mo-message")
+	       #f])
+    (call-with-port (open-file-input-port file) ;; open in binary mode
+		    (lambda (p)
+		      (define tc (select-transcoder encoding))
+		      (define (search read-int)
+			 (let* ((key (if msg2 (string-append msg null-str msg2) msg))
+				(format (read-int p))
+				(count (read-int p))
+				(src-offset (read-int p))
+				(trans-offset (read-int p))
+				(hash-size (read-int p))
+				(hash-offset (read-int p))
+				(diff (- trans-offset src-offset))
+				(end (+ src-offset (* (- count 1) 8))))
+			   (define (string-at pos)
+			     (file-position p pos)
+			     (let* ((len (read-int p))
+				    (off (read-int p)))
+			       (file-position p off)
+			       (bytevector->string (get-bytevector-n p len) tc)))
+			   (cond ;; check endpoints
+			    ((string=? key (string-at src-offset))
+			     (string-at (+ src-offset diff)))
+			    ((and (> end src-offset) (string=? key (string-at end)))
+			     (string-at (+ end diff)))
+			    (else ;; binary search
+			     (let loop ((lo 0) (hi (- count 1)))
+			       (if (>= lo hi)
+				   #f
+				   (let* ((mid (+ lo (quotient (- hi lo) 2)))
+					  (pos (+ src-offset (* mid 8)))
+					  (str (string-at pos)))
+				     (cond
+				      ((string<? key str)
+				       (if (>= mid hi) #f (loop lo mid)))
+				      ((string>? key str)
+				       (if (<= mid lo) #f (loop mid hi)))
+				      (else ;; match
+				       (string-at (+ pos diff)))))))))))
+		       (let* ((b1 (read-byte p))
+			      (b2 (read-byte p))
+			      (b3 (read-byte p))
+			      (b4 (read-byte p))
+			      (magic (list b1 b2 b3 b4)))
+			 (cond
+			  ((equal? magic '(#xde #x12 #x04 #x95))
+			   (search read-binary-uint32-le))
+			  ((equal? magic '(#x95 #x04 #x12 #xde))
+			   (search read-binary-uint32-be))
+			  (else
+			   (warning "invalid .mo file magic" magic)
+			   #f))))))))
 
 (define (lookup-message gfile msg msg2 . opt)
   (if (gfile? gfile)
@@ -468,12 +525,12 @@
                    (else (string->symbol (string c)))))
             ((#\=)
              (cond ((eqv? (peek-char) #\=) (read-char) '==)
-                   (else (warning "invalid assignment in C code") #f)))
+                   (else (warning 'C->Scheme:next-token "invalid assignment in C code") #f)))
             ((#\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9)
              (read-number c))
             ((#\n) 'n)
             ((#\space #\newline) (next-token))
-            (else (warning "invalid character in C code: ~S" c) #f)))))
+            (else (warning 'C->Scheme:next-token "invalid character in C code: ~S" c) #f)))))
   (define (C-parse str)
     (define (precedence x) ;; lower value is higher precedence
       (case x
@@ -494,7 +551,7 @@
       (define (group op left right)
         (cond
          ((or (eq? right end) (eq? right 'eof))
-          (warning "expected 2nd argument to" op)
+          (warning 'C-parse "expected 2nd argument to" op)
           `(op ,left))
          ((eq? op 'and)
           `(if (zero? ,left) 0 ,right))
@@ -513,7 +570,7 @@
               (cond
                ((eq? op end) (join left stack))
                ((eq? op 'eof)
-                (warning "unexpected #<eof>")
+                (warning 'C-parse:parse-until "unexpected #<eof>")
                 (join left stack))
                ((eq? op '?) ;; trinary ? : (right-assoc)
                 (let* ((pass (parse-until ':))
@@ -586,7 +643,7 @@
   (define (make-file-list)
     (define suffixes '(".mo" ".po"))
     (reverse
-     (fold
+     (fold-right
       (lambda (x res)
         (let ((path
                (string-append
@@ -604,7 +661,7 @@
         (cache (make-cache)))
 
     (define (search msg . opt)
-      (if (and cached? (hash-table-exists? cache msg))
+      (if (and cached? (hashtable-exists? cache msg))
           (hash-table-ref/default cache msg #f)
           (let-optionals* opt ((msg2 #f) (n #f))
             (let ((split? (number? n)))
@@ -694,7 +751,7 @@
                (dirs (append (hash-table-ref/default
                               domain-message-paths
                               domain
-                              message-path)
+                              (message-path))
                              dirs1))
                (cdir (or cdir0
                          (get-environment-variable "LC_CATEGORY")
