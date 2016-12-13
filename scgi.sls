@@ -62,10 +62,7 @@
     (let* ([len (string->number (cdr (assq 'CONTENT_LENGTH h)))]
 	   [content (get-bytevector-n sock len)])
       (assert (= (bytevector-length content) len))
-      (let ([port (open-fd-output-port
-		   (port-file-descriptor sock)
-		   'block
-		   (make-transcoder (utf-8-codec) 'none))])
+      (let ([port (transcoded-port sock (make-transcoder (utf-8-codec) 'none))])
 	((scgi-request-handler) port h content)
 	(flush-output-port port))))
 
@@ -75,7 +72,7 @@
     (define waitpid (foreign-procedure "waitpid" (int void* int) int))
     (call-with-port
      (socket 'inet 'stream '() 0)
-     (lambda (sock)	
+     (lambda (sock)
        (bind/inet sock addr port)
        (listen sock 1000)
        (do ()
