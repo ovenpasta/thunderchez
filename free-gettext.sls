@@ -313,8 +313,13 @@
 
 (define default-gettext-lookup (make-parameter #f))
 
+(define (gettext-lookup)
+  (if (default-gettext-lookup)
+      (default-gettext-lookup)
+      (errorf 'gettext-lookup "default-gettext-lookup undefined! you should call textdomain first!")))
+
 (define (gettext msgid)
-  ((default-gettext-lookup) 'get msgid))
+  ((gettext-lookup) 'get msgid))
 (define (dgettext domain msgid)
   ((make-gettext domain) 'get msgid))
 (define (dcgettext domain msgid locale)
@@ -322,7 +327,7 @@
 
 ;; plural forms
 (define (ngettext . opt)
-  (apply (default-gettext-lookup) 'nget opt))
+  (apply (gettext-lookup) 'nget opt))
 (define (dngettext domain . opt)
   (apply (make-gettext domain) 'nget opt))
 (define (dcngettext domain msgid locale . opt)
@@ -334,7 +339,7 @@
     (let ((accessor (apply make-gettext opt)))
       (default-gettext-lookup accessor)
       accessor)
-    ((default-gettext-lookup) 'domain)))
+    ((gettext-lookup) 'domain)))
 
 (define (bindtextdomain domain dirs)
   (hash-table-set! domain-message-paths domain (listify dirs)))
