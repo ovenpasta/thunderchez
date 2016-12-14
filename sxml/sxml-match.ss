@@ -11,7 +11,7 @@
   (define-syntax let/ec
     (syntax-rules ()
       [(let/ec name exp0 exp ...)
-       (call/cc (lambda (name) exp0 exp ...))]))
+       (call/1cc (lambda (name) exp0 exp ...))]))
   
   )
 
