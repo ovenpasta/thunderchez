@@ -20,6 +20,9 @@ many *-functions.ss will be created
 also sdl2.sexp will be generated.
 
 You can then execute fossil diff --tk (or equivalent) to see the new functions
+Then you should update sdl2.sls to add the new functions.
+
+For new ftypes, enums and flags you'll need to figure out by hand.
 
 This thing needs to be done once in a while when new SDL versions add new functionality. Usually you should not care :)
 
