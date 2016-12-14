@@ -65,7 +65,10 @@
      leave        ; window has lost mouse focus */
      focus-gained ; window has gained keyboard focus */
      focus-lost   ; window has lost keyboard focus */
-     close      ; The window manager requests that thewindow be closed */
+     close        ; The window manager requests that thewindow be closed */
+     ;;; these are in (>= SDL 2.0.5)
+     take-focus   ; Window is being offered a focus (should SetWindowInputFocus() on itself or a subwindow, or ignore) 
+     hit-test     ; Window had a hit test that wasn't SDL_HITTEST_NORMAL.
      ))
 
  (define-enumeration* sdl-gl-attr
