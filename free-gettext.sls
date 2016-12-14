@@ -110,19 +110,19 @@
 		  (irregex-match-substring m x))
 		(iota (+ 1 (irregex-match-num-submatches m)))))]
      [else #f]))
+  
   (alias get-environment-variable getenv)
   (alias arithmetic-shift bitwise-arithmetic-shift)
   (alias hash-table-ref/default hashtable-ref)
   (alias hash-table-set! hashtable-set!)
-  (alias hashtable-exists? hashtable-contains?)
+  (alias hash-table-exists? hashtable-contains?)
   
-  (define read-byte
-    (case-lambda
-     [() (get-u8 (current-input-port))]
-     [(p) (get-u8 p)]))
+  (define (read-byte p) (get-u8 p))
+  
   (define read-line (case-lambda
 		     [() (get-line (current-input-port))]
 		     [(port) (get-line port)]))
+
   (define (string-null? x) (string=? x ""))
   
   (define (call-with-input-string str proc)
@@ -666,7 +666,7 @@
         (cache (make-cache)))
 
     (define (search msg . opt)
-      (if (and cached? (hashtable-exists? cache msg))
+      (if (and cached? (hash-table-exists? cache msg))
           (hash-table-ref/default cache msg #f)
           (let-optionals* opt ((msg2 #f) (n #f))
             (let ((split? (number? n)))
