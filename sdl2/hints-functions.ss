@@ -1,6 +1,7 @@
 (define-sdl-func sdl-bool-t sdl-set-hint-with-priority ((name string) (value string) (priority sdl-hint-priority-t)) "SDL_SetHintWithPriority")
 (define-sdl-func sdl-bool-t sdl-set-hint ((name string) (value string)) "SDL_SetHint")
 (define-sdl-func string sdl-get-hint ((name string)) "SDL_GetHint")
+(define-sdl-func sdl-bool-t sdl-get-hint-boolean ((name string) (default_value sdl-bool-t)) "SDL_GetHintBoolean")
 (define-sdl-func void sdl-add-hint-callback ((name string) (callback sdl-hint-callback-t) (userdata void*)) "SDL_AddHintCallback")
 (define-sdl-func void sdl-del-hint-callback ((name string) (callback sdl-hint-callback-t) (userdata void*)) "SDL_DelHintCallback")
 (define-sdl-func void sdl-clear-hints () "SDL_ClearHints")

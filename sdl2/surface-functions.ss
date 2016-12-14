@@ -1,5 +1,7 @@
 (define-sdl-func (* sdl-surface-t) sdl-create-rgb-surface ((flags uint32) (width int) (height int) (depth int) (Rmask uint32) (Gmask uint32) (Bmask uint32) (Amask uint32)) "SDL_CreateRGBSurface")
+(define-sdl-func (* sdl-surface-t) sdl-create-rgb-surface-with-format ((flags uint32) (width int) (height int) (depth int) (format uint32)) "SDL_CreateRGBSurfaceWithFormat")
 (define-sdl-func (* sdl-surface-t) sdl-create-rgb-surface-from ((pixels void*) (width int) (height int) (depth int) (pitch int) (Rmask uint32) (Gmask uint32) (Bmask uint32) (Amask uint32)) "SDL_CreateRGBSurfaceFrom")
+(define-sdl-func (* sdl-surface-t) sdl-create-rgb-surface-with-format-from ((pixels void*) (width int) (height int) (depth int) (pitch int) (format uint32)) "SDL_CreateRGBSurfaceWithFormatFrom")
 (define-sdl-func void sdl-free-surface ((surface (* sdl-surface-t))) "SDL_FreeSurface")
 (define-sdl-func int sdl-set-surface-palette ((surface (* sdl-surface-t)) (palette (* sdl-palette-t))) "SDL_SetSurfacePalette")
 (define-sdl-func int sdl-lock-surface ((surface (* sdl-surface-t))) "SDL_LockSurface")

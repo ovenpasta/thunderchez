@@ -24,6 +24,8 @@
 (define-sdl-func (* sdl-texture-t) sdl-get-render-target ((renderer (* sdl-renderer-t))) "SDL_GetRenderTarget")
 (define-sdl-func int sdl-render-set-logical-size ((renderer (* sdl-renderer-t)) (w int) (h int)) "SDL_RenderSetLogicalSize")
 (define-sdl-func void sdl-render-get-logical-size ((renderer (* sdl-renderer-t)) (w (* int)) (h (* int))) "SDL_RenderGetLogicalSize")
+(define-sdl-func int sdl-render-set-integer-scale ((renderer (* sdl-renderer-t)) (enable sdl-bool-t)) "SDL_RenderSetIntegerScale")
+(define-sdl-func sdl-bool-t sdl-render-get-integer-scale ((renderer (* sdl-renderer-t))) "SDL_RenderGetIntegerScale")
 (define-sdl-func int sdl-render-set-viewport ((renderer (* sdl-renderer-t)) (rect (* sdl-rect-t))) "SDL_RenderSetViewport")
 (define-sdl-func void sdl-render-get-viewport ((renderer (* sdl-renderer-t)) (rect (* sdl-rect-t))) "SDL_RenderGetViewport")
 (define-sdl-func int sdl-render-set-clip-rect ((renderer (* sdl-renderer-t)) (rect (* sdl-rect-t))) "SDL_RenderSetClipRect")

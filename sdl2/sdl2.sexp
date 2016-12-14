@@ -1,5 +1,5 @@
 #(((tag . "function") (name . "SDL_GetPlatform") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_platform.h:171:38")
+    (location . "/usr/include/SDL2/SDL_platform.h:175:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -600,7 +600,7 @@
     (ns . 0)
     (name . "__sigset_t")
     (location . "/usr/include/bits/sigset.h:30:5")
-    (type (tag . "struct") (ns . 1701082476) (name . "") (id . 2)
+    (type (tag . "struct") (ns . 0) (name . "") (id . 2)
       (location . "/usr/include/bits/sigset.h:27:9")
       (bit-size . 1024) (bit-alignment . 64)
       (fields
@@ -640,19 +640,19 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "suseconds_t")
-    (location . "/usr/include/sys/select.h:48:23")
+    (location . "/usr/include/sys/select.h:50:23")
     (type (tag . "__suseconds_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "__fd_mask")
-    (location . "/usr/include/sys/select.h:54:18")
+    (location . "/usr/include/sys/select.h:56:18")
     (type (tag . ":long") (bit-size . 64) (bit-alignment . 64)))
   ((tag . "typedef")
     (ns . 0)
     (name . "fd_set")
-    (location . "/usr/include/sys/select.h:75:5")
+    (location . "/usr/include/sys/select.h:77:5")
     (type (tag . "struct") (ns . 0) (name . "") (id . 3)
-      (location . "/usr/include/sys/select.h:64:9")
+      (location . "/usr/include/sys/select.h:66:9")
       (bit-size . 1024) (bit-alignment . 64)
       (fields
         .
@@ -665,10 +665,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "fd_mask")
-    (location . "/usr/include/sys/select.h:82:19")
+    (location . "/usr/include/sys/select.h:84:19")
     (type (tag . "__fd_mask")))
   ((tag . "function") (name . "select") (ns . 0)
-    (location . "/usr/include/sys/select.h:106:12")
+    (location . "/usr/include/sys/select.h:108:12")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -694,7 +694,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "pselect") (ns . 0)
-    (location . "/usr/include/sys/select.h:118:12")
+    (location . "/usr/include/sys/select.h:120:12")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -895,7 +895,7 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_mutex_t")
-    (location . "/usr/include/bits/pthreadtypes.h:127:3")
+    (location . "/usr/include/bits/pthreadtypes.h:128:3")
     (type (tag . "union") (ns . 0) (name . "") (id . 8)
       (location . "/usr/include/bits/pthreadtypes.h:90:9")
       (bit-size . 320) (bit-alignment . 64)
@@ -922,9 +922,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_mutexattr_t")
-    (location . "/usr/include/bits/pthreadtypes.h:133:3")
+    (location . "/usr/include/bits/pthreadtypes.h:134:3")
     (type (tag . "union") (ns . 0) (name . "") (id . 10)
-      (location . "/usr/include/bits/pthreadtypes.h:129:9")
+      (location . "/usr/include/bits/pthreadtypes.h:130:9")
       (bit-size . 32) (bit-alignment . 32)
       (fields
         .
@@ -943,16 +943,16 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_cond_t")
-    (location . "/usr/include/bits/pthreadtypes.h:153:3")
+    (location . "/usr/include/bits/pthreadtypes.h:154:3")
     (type (tag . "union") (ns . 0) (name . "") (id . 11)
-      (location . "/usr/include/bits/pthreadtypes.h:138:9")
+      (location . "/usr/include/bits/pthreadtypes.h:139:9")
       (bit-size . 384) (bit-alignment . 64)
       (fields
         .
         #(((tag . "field") (name . "__data") (bit-offset . 0) (bit-size . 384)
             (bit-alignment . 64)
             (type (tag . "struct") (ns . 0) (name . "") (id . 12)
-              (location . "/usr/include/bits/pthreadtypes.h:140:3")
+              (location . "/usr/include/bits/pthreadtypes.h:141:3")
               (bit-size . 384) (bit-alignment . 64)
               (fields
                 .
@@ -1016,9 +1016,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_condattr_t")
-    (location . "/usr/include/bits/pthreadtypes.h:159:3")
+    (location . "/usr/include/bits/pthreadtypes.h:160:3")
     (type (tag . "union") (ns . 0) (name . "") (id . 13)
-      (location . "/usr/include/bits/pthreadtypes.h:155:9")
+      (location . "/usr/include/bits/pthreadtypes.h:156:9")
       (bit-size . 32) (bit-alignment . 32)
       (fields
         .
@@ -1037,7 +1037,7 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_key_t")
-    (location . "/usr/include/bits/pthreadtypes.h:163:22")
+    (location . "/usr/include/bits/pthreadtypes.h:164:22")
     (type
       (tag . ":unsigned-int")
       (bit-size . 32)
@@ -1045,21 +1045,21 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_once_t")
-    (location . "/usr/include/bits/pthreadtypes.h:167:13")
+    (location . "/usr/include/bits/pthreadtypes.h:168:13")
     (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_rwlock_t")
-    (location . "/usr/include/bits/pthreadtypes.h:213:3")
-    (type (tag . "union") (ns . 0) (name . "") (id . 14)
-      (location . "/usr/include/bits/pthreadtypes.h:173:9")
+    (location . "/usr/include/bits/pthreadtypes.h:222:3")
+    (type (tag . "union") (ns . 32547) (name . "") (id . 14)
+      (location . "/usr/include/bits/pthreadtypes.h:174:9")
       (bit-size . 448) (bit-alignment . 64)
       (fields
         .
         #(((tag . "field") (name . "__data") (bit-offset . 0) (bit-size . 448)
             (bit-alignment . 64)
             (type (tag . "struct") (ns . 0) (name . "") (id . 15)
-              (location . "/usr/include/bits/pthreadtypes.h:176:3")
+              (location . "/usr/include/bits/pthreadtypes.h:177:3")
               (bit-size . 448) (bit-alignment . 64)
               (fields
                 .
@@ -1111,12 +1111,21 @@
                       (tag . ":int")
                       (bit-size . 32)
                       (bit-alignment . 32)))
-                  ((tag . "field") (name . "__pad1") (bit-offset . 256) (bit-size . 64)
-                    (bit-alignment . 64)
+                  ((tag . "field") (name . "__rwelision") (bit-offset . 256)
+                    (bit-size . 8) (bit-alignment . 8)
                     (type
-                      (tag . ":unsigned-long")
-                      (bit-size . 64)
-                      (bit-alignment . 64)))
+                      (tag . ":signed-char")
+                      (bit-size . 8)
+                      (bit-alignment . 8)))
+                  ((tag . "field") (name . "__pad1") (bit-offset . 264) (bit-size . 56)
+                    (bit-alignment . 8)
+                    (type
+                      (tag . ":array")
+                      (type
+                        (tag . ":unsigned-char")
+                        (bit-size . 8)
+                        (bit-alignment . 8))
+                      (size . 7)))
                   ((tag . "field") (name . "__pad2") (bit-offset . 320) (bit-size . 64)
                     (bit-alignment . 64)
                     (type
@@ -1144,9 +1153,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_rwlockattr_t")
-    (location . "/usr/include/bits/pthreadtypes.h:219:3")
+    (location . "/usr/include/bits/pthreadtypes.h:228:3")
     (type (tag . "union") (ns . 0) (name . "") (id . 16)
-      (location . "/usr/include/bits/pthreadtypes.h:215:9")
+      (location . "/usr/include/bits/pthreadtypes.h:224:9")
       (bit-size . 64) (bit-alignment . 64)
       (fields
         .
@@ -1165,14 +1174,14 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_spinlock_t")
-    (location . "/usr/include/bits/pthreadtypes.h:225:22")
+    (location . "/usr/include/bits/pthreadtypes.h:234:22")
     (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_barrier_t")
-    (location . "/usr/include/bits/pthreadtypes.h:234:3")
-    (type (tag . "union") (ns . 0) (name . "") (id . 17)
-      (location . "/usr/include/bits/pthreadtypes.h:230:9")
+    (location . "/usr/include/bits/pthreadtypes.h:243:3")
+    (type (tag . "union") (ns . 32547) (name . "") (id . 17)
+      (location . "/usr/include/bits/pthreadtypes.h:239:9")
       (bit-size . 256) (bit-alignment . 64)
       (fields
         .
@@ -1191,9 +1200,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "pthread_barrierattr_t")
-    (location . "/usr/include/bits/pthreadtypes.h:240:3")
-    (type (tag . "union") (ns . 1852387186) (name . "") (id . 18)
-      (location . "/usr/include/bits/pthreadtypes.h:236:9")
+    (location . "/usr/include/bits/pthreadtypes.h:249:3")
+    (type (tag . "union") (ns . 0) (name . "") (id . 18)
+      (location . "/usr/include/bits/pthreadtypes.h:245:9")
       (bit-size . 32) (bit-alignment . 32)
       (fields
         .
@@ -1223,7 +1232,7 @@
     (ns . 0)
     (name . "__FILE")
     (location . "/usr/include/stdio.h:64:25")
-    (type (tag . "struct") (ns . 0) (name . "_IO_FILE") (id . 0)
+    (type (tag . "struct") (ns . 27874) (name . "_IO_FILE") (id . 0)
       (location . "/usr/include/stdio.h:44:8") (bit-size . 0)
       (bit-alignment . 0) (fields . #())))
   ((tag . "typedef")
@@ -1240,7 +1249,7 @@
             (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
           ((tag . "field") (name . "__value") (bit-offset . 32) (bit-size . 32)
             (bit-alignment . 32)
-            (type (tag . "union") (ns . 0) (name . "") (id . 21)
+            (type (tag . "union") (ns . 1852387186) (name . "") (id . 21)
               (location . "/usr/include/wchar.h:85:3") (bit-size . 32)
               (bit-alignment . 32)
               (fields
@@ -1264,7 +1273,7 @@
     (ns . 0)
     (name . "_G_fpos_t")
     (location . "/usr/include/_G_config.h:25:3")
-    (type (tag . "struct") (ns . 1852387186) (name . "") (id . 22)
+    (type (tag . "struct") (ns . 0) (name . "") (id . 22)
       (location . "/usr/include/_G_config.h:21:9")
       (bit-size . 128) (bit-alignment . 64)
       (fields
@@ -1277,7 +1286,7 @@
     (ns . 0)
     (name . "_G_fpos64_t")
     (location . "/usr/include/_G_config.h:30:3")
-    (type (tag . "struct") (ns . 32666) (name . "") (id . 23)
+    (type (tag . "struct") (ns . 0) (name . "") (id . 23)
       (location . "/usr/include/_G_config.h:26:9")
       (bit-size . 128) (bit-alignment . 64)
       (fields
@@ -1295,10 +1304,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "_IO_lock_t")
-    (location . "/usr/include/libio.h:154:14")
+    (location . "/usr/include/libio.h:150:14")
     (type (tag . ":void")))
   ((tag . "struct") (ns . 0) (name . "_IO_marker") (id . 0)
-    (location . "/usr/include/libio.h:160:8") (bit-size . 192)
+    (location . "/usr/include/libio.h:156:8") (bit-size . 192)
     (bit-alignment . 64)
     (fields
       .
@@ -1321,7 +1330,7 @@
             (bit-size . 32)
             (bit-alignment . 32))))))
   ((tag . "enum") (ns . 0) (name . "__codecvt_result") (id . 0)
-    (location . "/usr/include/libio.h:180:6")
+    (location . "/usr/include/libio.h:176:6")
     (fields
       .
       #(((tag . "field") (name . "__codecvt_ok") (value . 0))
@@ -1329,51 +1338,51 @@
         ((tag . "field") (name . "__codecvt_error") (value . 2))
         ((tag . "field") (name . "__codecvt_noconv") (value . 3)))))
   ((tag . "struct") (ns . 0) (name . "_IO_FILE_plus") (id . 0)
-    (location . "/usr/include/libio.h:318:8") (bit-size . 0)
+    (location . "/usr/include/libio.h:313:8") (bit-size . 0)
     (bit-alignment . 0) (fields . #()))
   ((tag . "extern")
     (name . "_IO_2_1_stdin_")
     (ns . 0)
-    (location . "/usr/include/libio.h:320:29")
+    (location . "/usr/include/libio.h:315:29")
     (type (tag . "struct") (ns . 1668180271) (name . "_IO_FILE_plus")
-      (id . 0) (location . "/usr/include/libio.h:318:8")
+      (id . 0) (location . "/usr/include/libio.h:313:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "extern")
     (name . "_IO_2_1_stdout_")
     (ns . 0)
-    (location . "/usr/include/libio.h:321:29")
+    (location . "/usr/include/libio.h:316:29")
     (type (tag . "struct") (ns . 0) (name . "_IO_FILE_plus") (id . 0)
-      (location . "/usr/include/libio.h:318:8") (bit-size . 0)
+      (location . "/usr/include/libio.h:313:8") (bit-size . 0)
       (bit-alignment . 0) (fields . #())))
   ((tag . "extern")
     (name . "_IO_2_1_stderr_")
     (ns . 0)
-    (location . "/usr/include/libio.h:322:29")
+    (location . "/usr/include/libio.h:317:29")
     (type (tag . "struct") (ns . 0) (name . "_IO_FILE_plus") (id . 0)
-      (location . "/usr/include/libio.h:318:8") (bit-size . 0)
+      (location . "/usr/include/libio.h:313:8") (bit-size . 0)
       (bit-alignment . 0) (fields . #())))
   ((tag . "typedef")
     (ns . 0)
     (name . "__io_read_fn")
-    (location . "/usr/include/libio.h:338:19")
+    (location . "/usr/include/libio.h:333:19")
     (type (tag . ":function")))
   ((tag . "typedef")
     (ns . 0)
     (name . "__io_write_fn")
-    (location . "/usr/include/libio.h:346:19")
+    (location . "/usr/include/libio.h:341:19")
     (type (tag . ":function")))
   ((tag . "typedef")
     (ns . 0)
     (name . "__io_seek_fn")
-    (location . "/usr/include/libio.h:355:13")
+    (location . "/usr/include/libio.h:350:13")
     (type (tag . ":function")))
   ((tag . "typedef")
     (ns . 0)
     (name . "__io_close_fn")
-    (location . "/usr/include/libio.h:358:13")
+    (location . "/usr/include/libio.h:353:13")
     (type (tag . ":function")))
   ((tag . "function") (name . "__underflow") (ns . 0)
-    (location . "/usr/include/libio.h:390:12") (variadic . #f)
+    (location . "/usr/include/libio.h:385:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1385,7 +1394,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "__uflow") (ns . 0)
-    (location . "/usr/include/libio.h:391:12") (variadic . #f)
+    (location . "/usr/include/libio.h:386:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1397,7 +1406,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "__overflow") (ns . 0)
-    (location . "/usr/include/libio.h:392:12") (variadic . #f)
+    (location . "/usr/include/libio.h:387:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1415,7 +1424,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_getc") (ns . 0)
-    (location . "/usr/include/libio.h:434:12") (variadic . #f)
+    (location . "/usr/include/libio.h:429:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1427,7 +1436,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_putc") (ns . 0)
-    (location . "/usr/include/libio.h:435:12") (variadic . #f)
+    (location . "/usr/include/libio.h:430:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1442,7 +1451,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_feof") (ns . 0)
-    (location . "/usr/include/libio.h:436:12") (variadic . #f)
+    (location . "/usr/include/libio.h:431:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1454,7 +1463,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_ferror") (ns . 0)
-    (location . "/usr/include/libio.h:437:12") (variadic . #f)
+    (location . "/usr/include/libio.h:432:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1466,7 +1475,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_peekc_locked") (ns . 0)
-    (location . "/usr/include/libio.h:439:12") (variadic . #f)
+    (location . "/usr/include/libio.h:434:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1478,7 +1487,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_flockfile") (ns . 0)
-    (location . "/usr/include/libio.h:445:13") (variadic . #f)
+    (location . "/usr/include/libio.h:440:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1487,7 +1496,7 @@
           (type (tag . ":pointer") (type (tag . "_IO_FILE"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "_IO_funlockfile") (ns . 0)
-    (location . "/usr/include/libio.h:446:13") (variadic . #f)
+    (location . "/usr/include/libio.h:441:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1496,7 +1505,7 @@
           (type (tag . ":pointer") (type (tag . "_IO_FILE"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "_IO_ftrylockfile") (ns . 0)
-    (location . "/usr/include/libio.h:447:12") (variadic . #f)
+    (location . "/usr/include/libio.h:442:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1508,7 +1517,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_vfscanf") (ns . 0)
-    (location . "/usr/include/libio.h:464:12") (variadic . #f)
+    (location . "/usr/include/libio.h:459:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1536,7 +1545,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_vfprintf") (ns . 0)
-    (location . "/usr/include/libio.h:466:12") (variadic . #f)
+    (location . "/usr/include/libio.h:461:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1559,7 +1568,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "_IO_padn") (ns . 0)
-    (location . "/usr/include/libio.h:468:20") (variadic . #f)
+    (location . "/usr/include/libio.h:463:20") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1574,7 +1583,7 @@
           (type (tag . "__ssize_t")))))
     (return-type (tag . "__ssize_t")))
   ((tag . "function") (name . "_IO_seekoff") (ns . 0)
-    (location . "/usr/include/libio.h:471:20") (variadic . #f)
+    (location . "/usr/include/libio.h:466:20") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1593,7 +1602,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "__off64_t")))
   ((tag . "function") (name . "_IO_seekpos") (ns . 0)
-    (location . "/usr/include/libio.h:472:20") (variadic . #f)
+    (location . "/usr/include/libio.h:467:20") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1609,7 +1618,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "__off64_t")))
   ((tag . "function") (name . "_IO_free_backup_area") (ns . 0)
-    (location . "/usr/include/libio.h:474:13") (variadic . #f)
+    (location . "/usr/include/libio.h:469:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1620,31 +1629,31 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "fpos_t")
-    (location . "/usr/include/stdio.h:110:19")
+    (location . "/usr/include/stdio.h:112:19")
     (type (tag . "_G_fpos_t")))
   ((tag . "extern")
     (name . "stdin")
     (ns . 0)
-    (location . "/usr/include/stdio.h:168:25")
+    (location . "/usr/include/stdio.h:170:25")
     (type
       (tag . ":pointer")
       (type (tag . "<invalid-type:Record>"))))
   ((tag . "extern")
     (name . "stdout")
     (ns . 0)
-    (location . "/usr/include/stdio.h:169:25")
+    (location . "/usr/include/stdio.h:171:25")
     (type
       (tag . ":pointer")
       (type (tag . "<invalid-type:Record>"))))
   ((tag . "extern")
     (name . "stderr")
     (ns . 0)
-    (location . "/usr/include/stdio.h:170:25")
+    (location . "/usr/include/stdio.h:172:25")
     (type
       (tag . ":pointer")
       (type (tag . "<invalid-type:Record>"))))
   ((tag . "function") (name . "remove") (ns . 0)
-    (location . "/usr/include/stdio.h:178:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:180:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1661,7 +1670,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "rename") (ns . 0)
-    (location . "/usr/include/stdio.h:180:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:182:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1683,7 +1692,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "renameat") (ns . 0)
-    (location . "/usr/include/stdio.h:185:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:187:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1711,11 +1720,11 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "tmpfile") (ns . 0)
-    (location . "/usr/include/stdio.h:195:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:197:14") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type (tag . ":pointer") (type (tag . "FILE"))))
   ((tag . "function") (name . "tmpnam") (ns . 0)
-    (location . "/usr/include/stdio.h:209:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:211:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1731,7 +1740,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "tmpnam_r") (ns . 0)
-    (location . "/usr/include/stdio.h:215:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:217:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1747,7 +1756,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "tempnam") (ns . 0)
-    (location . "/usr/include/stdio.h:227:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:229:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1768,7 +1777,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "fclose") (ns . 0)
-    (location . "/usr/include/stdio.h:237:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:239:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1780,7 +1789,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fflush") (ns . 0)
-    (location . "/usr/include/stdio.h:242:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:244:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1792,7 +1801,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fflush_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:252:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:254:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1804,7 +1813,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fopen") (ns . 0)
-    (location . "/usr/include/stdio.h:272:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:274:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1823,7 +1832,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":pointer") (type (tag . "FILE"))))
   ((tag . "function") (name . "freopen") (ns . 0)
-    (location . "/usr/include/stdio.h:278:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:280:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1842,7 +1851,7 @@
           (type (tag . ":pointer") (type (tag . "FILE"))))))
     (return-type (tag . ":pointer") (type (tag . "FILE"))))
   ((tag . "function") (name . "fdopen") (ns . 0)
-    (location . "/usr/include/stdio.h:306:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:308:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1859,7 +1868,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":pointer") (type (tag . "FILE"))))
   ((tag . "function") (name . "setbuf") (ns . 0)
-    (location . "/usr/include/stdio.h:332:13") (variadic . #f)
+    (location . "/usr/include/stdio.h:334:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1876,7 +1885,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "setlinebuf") (ns . 0)
-    (location . "/usr/include/stdio.h:347:13") (variadic . #f)
+    (location . "/usr/include/stdio.h:349:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1885,7 +1894,7 @@
           (type (tag . ":pointer") (type (tag . "FILE"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "fprintf") (ns . 0)
-    (location . "/usr/include/stdio.h:356:12") (variadic . #t)
+    (location . "/usr/include/stdio.h:358:12") (variadic . #t)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1905,7 +1914,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "printf") (ns . 0)
-    (location . "/usr/include/stdio.h:362:12") (variadic . #t)
+    (location . "/usr/include/stdio.h:364:12") (variadic . #t)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1922,7 +1931,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "sprintf") (ns . 0)
-    (location . "/usr/include/stdio.h:364:12") (variadic . #t)
+    (location . "/usr/include/stdio.h:366:12") (variadic . #t)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1944,7 +1953,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "dprintf") (ns . 0)
-    (location . "/usr/include/stdio.h:415:12") (variadic . #t)
+    (location . "/usr/include/stdio.h:417:12") (variadic . #t)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1964,7 +1973,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fscanf") (ns . 0)
-    (location . "/usr/include/stdio.h:425:12") (variadic . #t)
+    (location . "/usr/include/stdio.h:427:12") (variadic . #t)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -1984,7 +1993,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "scanf") (ns . 0)
-    (location . "/usr/include/stdio.h:431:12") (variadic . #t)
+    (location . "/usr/include/stdio.h:433:12") (variadic . #t)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2001,7 +2010,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "sscanf") (ns . 0)
-    (location . "/usr/include/stdio.h:433:12") (variadic . #t)
+    (location . "/usr/include/stdio.h:435:12") (variadic . #t)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2025,7 +2034,7 @@
   ((tag . "function") (name . "fscanf") (ns . 0)
     (location
       .
-      "/usr/include/stdio.h:443:12 <Spelling=/usr/include/stdio.h:443:24>")
+      "/usr/include/stdio.h:445:12 <Spelling=/usr/include/stdio.h:445:24>")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2047,7 +2056,7 @@
   ((tag . "function") (name . "scanf") (ns . 0)
     (location
       .
-      "/usr/include/stdio.h:446:12 <Spelling=/usr/include/stdio.h:446:24>")
+      "/usr/include/stdio.h:448:12 <Spelling=/usr/include/stdio.h:448:24>")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2066,7 +2075,7 @@
   ((tag . "function") (name . "sscanf") (ns . 0)
     (location
       .
-      "/usr/include/stdio.h:448:12 <Spelling=/usr/include/stdio.h:448:28>")
+      "/usr/include/stdio.h:450:12 <Spelling=/usr/include/stdio.h:450:28>")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2088,7 +2097,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fgetc") (ns . 0)
-    (location . "/usr/include/stdio.h:531:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:533:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2100,7 +2109,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "getc") (ns . 0)
-    (location . "/usr/include/stdio.h:532:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:534:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2112,14 +2121,14 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "getchar") (ns . 0)
-    (location . "/usr/include/stdio.h:538:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:540:12") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "getc_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:550:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:552:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2131,14 +2140,14 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "getchar_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:551:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:553:12") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fgetc_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:561:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:563:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2150,7 +2159,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fputc") (ns . 0)
-    (location . "/usr/include/stdio.h:573:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:575:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2165,7 +2174,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "putc") (ns . 0)
-    (location . "/usr/include/stdio.h:574:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:576:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2180,7 +2189,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "putchar") (ns . 0)
-    (location . "/usr/include/stdio.h:580:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:582:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2195,7 +2204,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fputc_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:594:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:596:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2210,7 +2219,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "putc_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:602:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:604:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2225,7 +2234,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "putchar_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:603:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:605:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2240,7 +2249,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "getw") (ns . 0)
-    (location . "/usr/include/stdio.h:610:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:612:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2252,7 +2261,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "putw") (ns . 0)
-    (location . "/usr/include/stdio.h:613:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:615:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2267,7 +2276,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fgets") (ns . 0)
-    (location . "/usr/include/stdio.h:622:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:624:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2286,7 +2295,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "fputs") (ns . 0)
-    (location . "/usr/include/stdio.h:689:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:691:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2303,7 +2312,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "puts") (ns . 0)
-    (location . "/usr/include/stdio.h:695:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:697:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2320,7 +2329,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "ungetc") (ns . 0)
-    (location . "/usr/include/stdio.h:702:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:704:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2335,7 +2344,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fseek") (ns . 0)
-    (location . "/usr/include/stdio.h:749:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:751:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2356,7 +2365,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "ftell") (ns . 0)
-    (location . "/usr/include/stdio.h:754:17") (variadic . #f)
+    (location . "/usr/include/stdio.h:756:17") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2368,7 +2377,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "rewind") (ns . 0)
-    (location . "/usr/include/stdio.h:759:13") (variadic . #f)
+    (location . "/usr/include/stdio.h:761:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2377,7 +2386,7 @@
           (type (tag . ":pointer") (type (tag . "FILE"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "fseeko") (ns . 0)
-    (location . "/usr/include/stdio.h:773:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:775:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2398,7 +2407,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "ftello") (ns . 0)
-    (location . "/usr/include/stdio.h:778:16") (variadic . #f)
+    (location . "/usr/include/stdio.h:780:16") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2407,7 +2416,7 @@
           (type (tag . ":pointer") (type (tag . "FILE"))))))
     (return-type (tag . "__off_t")))
   ((tag . "function") (name . "fgetpos") (ns . 0)
-    (location . "/usr/include/stdio.h:798:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:800:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2422,7 +2431,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fsetpos") (ns . 0)
-    (location . "/usr/include/stdio.h:803:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:805:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2437,7 +2446,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "clearerr") (ns . 0)
-    (location . "/usr/include/stdio.h:826:13") (variadic . #f)
+    (location . "/usr/include/stdio.h:828:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2446,18 +2455,6 @@
           (type (tag . ":pointer") (type (tag . "FILE"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "feof") (ns . 0)
-    (location . "/usr/include/stdio.h:828:12") (variadic . #f)
-    (inline . #f) (storage-class . "extern")
-    (parameters
-      .
-      #(((tag . "parameter")
-          (name . "__stream")
-          (type (tag . ":pointer") (type (tag . "FILE"))))))
-    (return-type
-      (tag . ":int")
-      (bit-size . 32)
-      (bit-alignment . 32)))
-  ((tag . "function") (name . "ferror") (ns . 0)
     (location . "/usr/include/stdio.h:830:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
@@ -2469,8 +2466,20 @@
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
+  ((tag . "function") (name . "ferror") (ns . 0)
+    (location . "/usr/include/stdio.h:832:12") (variadic . #f)
+    (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "__stream")
+          (type (tag . ":pointer") (type (tag . "FILE"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
   ((tag . "function") (name . "clearerr_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:835:13") (variadic . #f)
+    (location . "/usr/include/stdio.h:837:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2479,7 +2488,7 @@
           (type (tag . ":pointer") (type (tag . "FILE"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "feof_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:836:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:838:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2491,7 +2500,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "ferror_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:837:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:839:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2503,7 +2512,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "perror") (ns . 0)
-    (location . "/usr/include/stdio.h:846:13") (variadic . #f)
+    (location . "/usr/include/stdio.h:848:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2531,7 +2540,7 @@
         (tag . ":pointer")
         (type (tag . ":char") (bit-size . 8) (bit-alignment . 8)))))
   ((tag . "function") (name . "fileno") (ns . 0)
-    (location . "/usr/include/stdio.h:858:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:860:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2543,7 +2552,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "fileno_unlocked") (ns . 0)
-    (location . "/usr/include/stdio.h:863:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:865:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2555,7 +2564,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "popen") (ns . 0)
-    (location . "/usr/include/stdio.h:873:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:874:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2574,7 +2583,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":pointer") (type (tag . "FILE"))))
   ((tag . "function") (name . "pclose") (ns . 0)
-    (location . "/usr/include/stdio.h:879:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:880:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2586,7 +2595,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "ctermid") (ns . 0)
-    (location . "/usr/include/stdio.h:885:14") (variadic . #f)
+    (location . "/usr/include/stdio.h:886:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2602,7 +2611,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "flockfile") (ns . 0)
-    (location . "/usr/include/stdio.h:913:13") (variadic . #f)
+    (location . "/usr/include/stdio.h:914:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2611,7 +2620,7 @@
           (type (tag . ":pointer") (type (tag . "FILE"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "ftrylockfile") (ns . 0)
-    (location . "/usr/include/stdio.h:917:12") (variadic . #f)
+    (location . "/usr/include/stdio.h:918:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2623,7 +2632,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "funlockfile") (ns . 0)
-    (location . "/usr/include/stdio.h:920:13") (variadic . #f)
+    (location . "/usr/include/stdio.h:921:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2631,131 +2640,12 @@
           (name . "__stream")
           (type (tag . ":pointer") (type (tag . "FILE"))))))
     (return-type (tag . ":void")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 26)
-    (location . "/usr/include/bits/waitflags.h:50:9")
-    (fields
-      .
-      #(((tag . "field") (name . "P_ALL") (value . 0))
-        ((tag . "field") (name . "P_PID") (value . 1))
-        ((tag . "field") (name . "P_PGID") (value . 2)))))
-  ((tag . "typedef")
-    (ns . 0)
-    (name . "idtype_t")
-    (location . "/usr/include/bits/waitflags.h:55:3")
-    (type (tag . ":enum") (name . "") (id . 26)))
-  ((tag . "union") (ns . 0) (name . "wait") (id . 0)
-    (location . "/usr/include/bits/waitstatus.h:66:7")
-    (bit-size . 32) (bit-alignment . 32)
-    (fields
-      .
-      #(((tag . "field") (name . "w_status") (bit-offset . 0) (bit-size . 32)
-          (bit-alignment . 32)
-          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
-        ((tag . "field") (name . "__wait_terminated") (bit-offset . 0)
-          (bit-size . 32) (bit-alignment . 32)
-          (type (tag . "struct") (ns . 512) (name . "") (id . 27)
-            (location . "/usr/include/bits/waitstatus.h:69:5")
-            (bit-size . 32) (bit-alignment . 32)
-            (fields
-              .
-              #(((tag . "field") (name . "__w_termsig") (bit-offset . 0) (bit-size . 32)
-                  (bit-alignment . 32)
-                  (type
-                    (tag . ":bitfield")
-                    (width . 7)
-                    (type
-                      (tag . ":unsigned-int")
-                      (bit-size . 32)
-                      (bit-alignment . 32))))
-                ((tag . "field") (name . "__w_coredump") (bit-offset . 7) (bit-size . 32)
-                  (bit-alignment . 32)
-                  (type
-                    (tag . ":bitfield")
-                    (width . 1)
-                    (type
-                      (tag . ":unsigned-int")
-                      (bit-size . 32)
-                      (bit-alignment . 32))))
-                ((tag . "field") (name . "__w_retcode") (bit-offset . 8) (bit-size . 32)
-                  (bit-alignment . 32)
-                  (type
-                    (tag . ":bitfield")
-                    (width . 8)
-                    (type
-                      (tag . ":unsigned-int")
-                      (bit-size . 32)
-                      (bit-alignment . 32))))
-                ((tag . "field") (name . "") (bit-offset . 16) (bit-size . 32)
-                  (bit-alignment . 32)
-                  (type
-                    (tag . ":bitfield")
-                    (width . 16)
-                    (type
-                      (tag . ":unsigned-int")
-                      (bit-size . 32)
-                      (bit-alignment . 32))))))))
-        ((tag . "field") (name . "__wait_stopped") (bit-offset . 0) (bit-size . 32)
-          (bit-alignment . 32)
-          (type (tag . "struct") (ns . 0) (name . "") (id . 28)
-            (location . "/usr/include/bits/waitstatus.h:84:5")
-            (bit-size . 32) (bit-alignment . 32)
-            (fields
-              .
-              #(((tag . "field") (name . "__w_stopval") (bit-offset . 0) (bit-size . 32)
-                  (bit-alignment . 32)
-                  (type
-                    (tag . ":bitfield")
-                    (width . 8)
-                    (type
-                      (tag . ":unsigned-int")
-                      (bit-size . 32)
-                      (bit-alignment . 32))))
-                ((tag . "field") (name . "__w_stopsig") (bit-offset . 8) (bit-size . 32)
-                  (bit-alignment . 32)
-                  (type
-                    (tag . ":bitfield")
-                    (width . 8)
-                    (type
-                      (tag . ":unsigned-int")
-                      (bit-size . 32)
-                      (bit-alignment . 32))))
-                ((tag . "field") (name . "") (bit-offset . 16) (bit-size . 32)
-                  (bit-alignment . 32)
-                  (type
-                    (tag . ":bitfield")
-                    (width . 16)
-                    (type
-                      (tag . ":unsigned-int")
-                      (bit-size . 32)
-                      (bit-alignment . 32)))))))))))
-  ((tag . "typedef")
-    (ns . 0)
-    (name . "__WAIT_STATUS")
-    (location . "/usr/include/stdlib.h:71:5")
-    (type (tag . "union") (ns . 0) (name . "") (id . 29)
-      (location . "/usr/include/stdlib.h:67:9") (bit-size . 64)
-      (bit-alignment . 64)
-      (fields
-        .
-        #(((tag . "field") (name . "__uptr") (bit-offset . 0) (bit-size . 64)
-            (bit-alignment . 64)
-            (type
-              (tag . ":pointer")
-              (type (tag . ":union") (name . "wait") (id . 30))))
-          ((tag . "field") (name . "__iptr") (bit-offset . 0) (bit-size . 64)
-            (bit-alignment . 64)
-            (type
-              (tag . ":pointer")
-              (type
-                (tag . ":int")
-                (bit-size . 32)
-                (bit-alignment . 32))))))))
   ((tag . "typedef")
     (ns . 0)
     (name . "div_t")
-    (location . "/usr/include/stdlib.h:101:5")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 31)
-      (location . "/usr/include/stdlib.h:97:9") (bit-size . 64)
+    (location . "/usr/include/stdlib.h:62:5")
+    (type (tag . "struct") (ns . 1835099506) (name . "") (id . 26)
+      (location . "/usr/include/stdlib.h:58:9") (bit-size . 64)
       (bit-alignment . 32)
       (fields
         .
@@ -2771,9 +2661,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "ldiv_t")
-    (location . "/usr/include/stdlib.h:109:5")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 32)
-      (location . "/usr/include/stdlib.h:105:9") (bit-size . 128)
+    (location . "/usr/include/stdlib.h:70:5")
+    (type (tag . "struct") (ns . 0) (name . "") (id . 27)
+      (location . "/usr/include/stdlib.h:66:9") (bit-size . 128)
       (bit-alignment . 64)
       (fields
         .
@@ -2789,9 +2679,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "lldiv_t")
-    (location . "/usr/include/stdlib.h:121:5")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 33)
-      (location . "/usr/include/stdlib.h:117:23") (bit-size . 128)
+    (location . "/usr/include/stdlib.h:82:5")
+    (type (tag . "struct") (ns . 0) (name . "") (id . 28)
+      (location . "/usr/include/stdlib.h:78:23") (bit-size . 128)
       (bit-alignment . 64)
       (fields
         .
@@ -2808,7 +2698,7 @@
               (bit-size . 64)
               (bit-alignment . 64)))))))
   ((tag . "function") (name . "atof") (ns . 0)
-    (location . "/usr/include/stdlib.h:144:15") (variadic . #f)
+    (location . "/usr/include/stdlib.h:105:15") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2825,7 +2715,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "atoi") (ns . 0)
-    (location . "/usr/include/stdlib.h:147:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:108:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2842,7 +2732,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "atol") (ns . 0)
-    (location . "/usr/include/stdlib.h:150:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:111:17") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2859,7 +2749,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "atoll") (ns . 0)
-    (location . "/usr/include/stdlib.h:157:36") (variadic . #f)
+    (location . "/usr/include/stdlib.h:118:36") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2876,7 +2766,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "strtod") (ns . 0)
-    (location . "/usr/include/stdlib.h:164:15") (variadic . #f)
+    (location . "/usr/include/stdlib.h:125:15") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2900,7 +2790,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "strtof") (ns . 0)
-    (location . "/usr/include/stdlib.h:172:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:133:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2924,7 +2814,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "strtold") (ns . 0)
-    (location . "/usr/include/stdlib.h:175:20") (variadic . #f)
+    (location . "/usr/include/stdlib.h:136:20") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2948,7 +2838,7 @@
       (bit-size . 128)
       (bit-alignment . 128)))
   ((tag . "function") (name . "strtol") (ns . 0)
-    (location . "/usr/include/stdlib.h:183:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:144:17") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -2975,7 +2865,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "strtoul") (ns . 0)
-    (location . "/usr/include/stdlib.h:187:26") (variadic . #f)
+    (location . "/usr/include/stdlib.h:148:26") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3002,7 +2892,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "strtoq") (ns . 0)
-    (location . "/usr/include/stdlib.h:195:22") (variadic . #f)
+    (location . "/usr/include/stdlib.h:156:22") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3029,7 +2919,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "strtouq") (ns . 0)
-    (location . "/usr/include/stdlib.h:200:31") (variadic . #f)
+    (location . "/usr/include/stdlib.h:161:31") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3056,7 +2946,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "strtoll") (ns . 0)
-    (location . "/usr/include/stdlib.h:209:22") (variadic . #f)
+    (location . "/usr/include/stdlib.h:170:22") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3083,7 +2973,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "strtoull") (ns . 0)
-    (location . "/usr/include/stdlib.h:214:31") (variadic . #f)
+    (location . "/usr/include/stdlib.h:175:31") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3110,7 +3000,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "l64a") (ns . 0)
-    (location . "/usr/include/stdlib.h:305:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:266:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3124,7 +3014,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "a64l") (ns . 0)
-    (location . "/usr/include/stdlib.h:308:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:269:17") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3141,14 +3031,14 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "random") (ns . 0)
-    (location . "/usr/include/stdlib.h:321:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:282:17") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type
       (tag . ":long")
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "srandom") (ns . 0)
-    (location . "/usr/include/stdlib.h:324:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:285:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3160,7 +3050,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "setstate") (ns . 0)
-    (location . "/usr/include/stdlib.h:335:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:296:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3176,7 +3066,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "struct") (ns . 0) (name . "random_data") (id . 0)
-    (location . "/usr/include/stdlib.h:343:8") (bit-size . 384)
+    (location . "/usr/include/stdlib.h:304:8") (bit-size . 384)
     (bit-alignment . 64)
     (fields
       .
@@ -3202,7 +3092,7 @@
           (bit-alignment . 64)
           (type (tag . ":pointer") (type (tag . "int32_t")))))))
   ((tag . "function") (name . "random_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:354:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:315:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3210,7 +3100,7 @@
           (name . "__buf")
           (type
             (tag . ":pointer")
-            (type (tag . ":struct") (name . "random_data") (id . 34))))
+            (type (tag . ":struct") (name . "random_data") (id . 29))))
         ((tag . "parameter")
           (name . "__result")
           (type (tag . ":pointer") (type (tag . "int32_t"))))))
@@ -3219,7 +3109,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "srandom_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:357:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:318:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3236,13 +3126,13 @@
             (type
               (tag . ":struct")
               (name . "random_data")
-              (id . 34))))))
+              (id . 29))))))
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "setstate_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:365:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:326:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3258,20 +3148,20 @@
             (type
               (tag . ":struct")
               (name . "random_data")
-              (id . 34))))))
+              (id . 29))))))
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "rand") (ns . 0)
-    (location . "/usr/include/stdlib.h:374:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:335:12") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "srand") (ns . 0)
-    (location . "/usr/include/stdlib.h:376:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:337:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3283,7 +3173,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "rand_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:381:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:342:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3300,14 +3190,14 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "drand48") (ns . 0)
-    (location . "/usr/include/stdlib.h:389:15") (variadic . #f)
+    (location . "/usr/include/stdlib.h:350:15") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type
       (tag . ":double")
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "erand48") (ns . 0)
-    (location . "/usr/include/stdlib.h:390:15") (variadic . #f)
+    (location . "/usr/include/stdlib.h:351:15") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3325,14 +3215,14 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "lrand48") (ns . 0)
-    (location . "/usr/include/stdlib.h:393:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:354:17") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type
       (tag . ":long")
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "nrand48") (ns . 0)
-    (location . "/usr/include/stdlib.h:394:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:355:17") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3350,14 +3240,14 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "mrand48") (ns . 0)
-    (location . "/usr/include/stdlib.h:398:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:359:17") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type
       (tag . ":long")
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "jrand48") (ns . 0)
-    (location . "/usr/include/stdlib.h:399:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:360:17") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3375,7 +3265,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "srand48") (ns . 0)
-    (location . "/usr/include/stdlib.h:403:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:364:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3387,7 +3277,7 @@
             (bit-alignment . 64)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "seed48") (ns . 0)
-    (location . "/usr/include/stdlib.h:404:28") (variadic . #f)
+    (location . "/usr/include/stdlib.h:365:28") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3407,7 +3297,7 @@
         (bit-size . 16)
         (bit-alignment . 16))))
   ((tag . "function") (name . "lcong48") (ns . 0)
-    (location . "/usr/include/stdlib.h:406:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:367:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3422,7 +3312,7 @@
             (size . 7)))))
     (return-type (tag . ":void")))
   ((tag . "struct") (ns . 0) (name . "drand48_data") (id . 0)
-    (location . "/usr/include/stdlib.h:412:8") (bit-size . 192)
+    (location . "/usr/include/stdlib.h:373:8") (bit-size . 192)
     (bit-alignment . 64)
     (fields
       .
@@ -3463,7 +3353,7 @@
             (bit-size . 64)
             (bit-alignment . 64))))))
   ((tag . "function") (name . "drand48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:423:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:384:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3471,7 +3361,7 @@
           (name . "__buffer")
           (type
             (tag . ":pointer")
-            (type (tag . ":struct") (name . "drand48_data") (id . 35))))
+            (type (tag . ":struct") (name . "drand48_data") (id . 30))))
         ((tag . "parameter")
           (name . "__result")
           (type
@@ -3485,7 +3375,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "erand48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:425:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:386:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3502,7 +3392,7 @@
           (name . "__buffer")
           (type
             (tag . ":pointer")
-            (type (tag . ":struct") (name . "drand48_data") (id . 35))))
+            (type (tag . ":struct") (name . "drand48_data") (id . 30))))
         ((tag . "parameter")
           (name . "__result")
           (type
@@ -3516,7 +3406,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "lrand48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:430:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:391:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3524,7 +3414,7 @@
           (name . "__buffer")
           (type
             (tag . ":pointer")
-            (type (tag . ":struct") (name . "drand48_data") (id . 35))))
+            (type (tag . ":struct") (name . "drand48_data") (id . 30))))
         ((tag . "parameter")
           (name . "__result")
           (type
@@ -3538,7 +3428,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "nrand48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:433:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:394:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3555,7 +3445,7 @@
           (name . "__buffer")
           (type
             (tag . ":pointer")
-            (type (tag . ":struct") (name . "drand48_data") (id . 35))))
+            (type (tag . ":struct") (name . "drand48_data") (id . 30))))
         ((tag . "parameter")
           (name . "__result")
           (type
@@ -3569,7 +3459,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "mrand48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:439:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:400:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3577,7 +3467,7 @@
           (name . "__buffer")
           (type
             (tag . ":pointer")
-            (type (tag . ":struct") (name . "drand48_data") (id . 35))))
+            (type (tag . ":struct") (name . "drand48_data") (id . 30))))
         ((tag . "parameter")
           (name . "__result")
           (type
@@ -3591,7 +3481,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "jrand48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:442:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:403:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3608,7 +3498,7 @@
           (name . "__buffer")
           (type
             (tag . ":pointer")
-            (type (tag . ":struct") (name . "drand48_data") (id . 35))))
+            (type (tag . ":struct") (name . "drand48_data") (id . 30))))
         ((tag . "parameter")
           (name . "__result")
           (type
@@ -3622,7 +3512,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "srand48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:448:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:409:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3636,13 +3526,13 @@
             (type
               (tag . ":struct")
               (name . "drand48_data")
-              (id . 35))))))
+              (id . 30))))))
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "seed48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:451:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:412:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3662,13 +3552,13 @@
             (type
               (tag . ":struct")
               (name . "drand48_data")
-              (id . 35))))))
+              (id . 30))))))
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "lcong48_r") (ns . 0)
-    (location . "/usr/include/stdlib.h:454:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:415:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3688,13 +3578,13 @@
             (type
               (tag . ":struct")
               (name . "drand48_data")
-              (id . 35))))))
+              (id . 30))))))
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "free") (ns . 0)
-    (location . "/usr/include/stdlib.h:483:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:444:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3703,7 +3593,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "cfree") (ns . 0)
-    (location . "/usr/include/stdlib.h:488:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:449:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3712,11 +3602,11 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "abort") (ns . 0)
-    (location . "/usr/include/stdlib.h:515:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:476:13") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type (tag . ":void")))
   ((tag . "function") (name . "atexit") (ns . 0)
-    (location . "/usr/include/stdlib.h:519:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:480:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3728,7 +3618,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "at_quick_exit") (ns . 0)
-    (location . "/usr/include/stdlib.h:527:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:488:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3740,7 +3630,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "on_exit") (ns . 0)
-    (location . "/usr/include/stdlib.h:535:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:496:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3755,7 +3645,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "exit") (ns . 0)
-    (location . "/usr/include/stdlib.h:543:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:504:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3767,7 +3657,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "quick_exit") (ns . 0)
-    (location . "/usr/include/stdlib.h:549:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:510:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3779,7 +3669,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "_Exit") (ns . 0)
-    (location . "/usr/include/stdlib.h:557:13") (variadic . #f)
+    (location . "/usr/include/stdlib.h:518:13") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3791,7 +3681,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "getenv") (ns . 0)
-    (location . "/usr/include/stdlib.h:564:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:525:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3807,7 +3697,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "putenv") (ns . 0)
-    (location . "/usr/include/stdlib.h:578:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:539:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3824,7 +3714,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "setenv") (ns . 0)
-    (location . "/usr/include/stdlib.h:584:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:545:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3849,7 +3739,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "unsetenv") (ns . 0)
-    (location . "/usr/include/stdlib.h:588:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:549:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3866,14 +3756,14 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "clearenv") (ns . 0)
-    (location . "/usr/include/stdlib.h:595:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:556:12") (variadic . #f)
     (inline . #f) (storage-class . "extern") (parameters . #())
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "mktemp") (ns . 0)
-    (location . "/usr/include/stdlib.h:606:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:567:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3889,7 +3779,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "mkstemp") (ns . 0)
-    (location . "/usr/include/stdlib.h:620:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:580:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3906,7 +3796,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "mkstemps") (ns . 0)
-    (location . "/usr/include/stdlib.h:642:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:602:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3926,7 +3816,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "mkdtemp") (ns . 0)
-    (location . "/usr/include/stdlib.h:663:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:623:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3942,7 +3832,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "system") (ns . 0)
-    (location . "/usr/include/stdlib.h:717:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:677:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3959,7 +3849,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "realpath") (ns . 0)
-    (location . "/usr/include/stdlib.h:734:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:694:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -3982,10 +3872,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "__compar_fn_t")
-    (location . "/usr/include/stdlib.h:742:15")
+    (location . "/usr/include/stdlib.h:702:15")
     (type (tag . ":function-pointer")))
   ((tag . "function") (name . "abs") (ns . 0)
-    (location . "/usr/include/stdlib.h:775:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:735:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4000,7 +3890,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "labs") (ns . 0)
-    (location . "/usr/include/stdlib.h:776:17") (variadic . #f)
+    (location . "/usr/include/stdlib.h:736:17") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4015,7 +3905,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "llabs") (ns . 0)
-    (location . "/usr/include/stdlib.h:780:36") (variadic . #f)
+    (location . "/usr/include/stdlib.h:740:36") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4030,7 +3920,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "div") (ns . 0)
-    (location . "/usr/include/stdlib.h:789:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:749:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4045,7 +3935,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "div_t")))
   ((tag . "function") (name . "ldiv") (ns . 0)
-    (location . "/usr/include/stdlib.h:791:15") (variadic . #f)
+    (location . "/usr/include/stdlib.h:751:15") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4060,7 +3950,7 @@
             (bit-alignment . 64)))))
     (return-type (tag . "ldiv_t")))
   ((tag . "function") (name . "lldiv") (ns . 0)
-    (location . "/usr/include/stdlib.h:797:30") (variadic . #f)
+    (location . "/usr/include/stdlib.h:757:30") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4078,7 +3968,7 @@
             (bit-alignment . 64)))))
     (return-type (tag . "lldiv_t")))
   ((tag . "function") (name . "ecvt") (ns . 0)
-    (location . "/usr/include/stdlib.h:812:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:772:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4108,7 +3998,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "fcvt") (ns . 0)
-    (location . "/usr/include/stdlib.h:818:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:778:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4138,7 +4028,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "gcvt") (ns . 0)
-    (location . "/usr/include/stdlib.h:824:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:784:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4163,7 +4053,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "qecvt") (ns . 0)
-    (location . "/usr/include/stdlib.h:830:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:790:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4193,7 +4083,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "qfcvt") (ns . 0)
-    (location . "/usr/include/stdlib.h:833:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:793:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4223,7 +4113,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "qgcvt") (ns . 0)
-    (location . "/usr/include/stdlib.h:836:14") (variadic . #f)
+    (location . "/usr/include/stdlib.h:796:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4248,7 +4138,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "rpmatch") (ns . 0)
-    (location . "/usr/include/stdlib.h:888:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:848:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4265,7 +4155,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "getsubopt") (ns . 0)
-    (location . "/usr/include/stdlib.h:899:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:859:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4298,7 +4188,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "getloadavg") (ns . 0)
-    (location . "/usr/include/stdlib.h:951:12") (variadic . #f)
+    (location . "/usr/include/stdlib.h:911:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4321,7 +4211,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "strcpy") (ns . 0)
-    (location . "/usr/include/string.h:129:14") (variadic . #f)
+    (location . "/usr/include/string.h:125:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4342,7 +4232,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strcat") (ns . 0)
-    (location . "/usr/include/string.h:137:14") (variadic . #f)
+    (location . "/usr/include/string.h:133:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4363,7 +4253,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strcmp") (ns . 0)
-    (location . "/usr/include/string.h:144:12") (variadic . #f)
+    (location . "/usr/include/string.h:140:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4385,7 +4275,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "strcoll") (ns . 0)
-    (location . "/usr/include/string.h:151:12") (variadic . #f)
+    (location . "/usr/include/string.h:147:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4447,7 +4337,7 @@
               (tag . ":pointer")
               (type (tag . ":char") (bit-size . 8) (bit-alignment . 8)))
             (size . 13))))))
-  ((tag . "struct") (ns . 37) (name . "__locale_data") (id . 0)
+  ((tag . "struct") (ns . 32) (name . "__locale_data") (id . 0)
     (location . "/usr/include/xlocale.h:30:10") (bit-size . 0)
     (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
@@ -4459,14 +4349,14 @@
       (type
         (tag . ":struct")
         (name . "__locale_struct")
-        (id . 37))))
+        (id . 32))))
   ((tag . "typedef")
     (ns . 0)
     (name . "locale_t")
     (location . "/usr/include/xlocale.h:42:20")
     (type (tag . "__locale_t")))
   ((tag . "function") (name . "strcoll_l") (ns . 0)
-    (location . "/usr/include/string.h:166:12") (variadic . #f)
+    (location . "/usr/include/string.h:162:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4488,7 +4378,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "strdup") (ns . 0)
-    (location . "/usr/include/string.h:176:14") (variadic . #f)
+    (location . "/usr/include/string.h:171:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4504,7 +4394,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strchr") (ns . 0)
-    (location . "/usr/include/string.h:236:14") (variadic . #f)
+    (location . "/usr/include/string.h:231:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4523,7 +4413,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strrchr") (ns . 0)
-    (location . "/usr/include/string.h:263:14") (variadic . #f)
+    (location . "/usr/include/string.h:258:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4542,7 +4432,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strpbrk") (ns . 0)
-    (location . "/usr/include/string.h:315:14") (variadic . #f)
+    (location . "/usr/include/string.h:310:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4563,7 +4453,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strstr") (ns . 0)
-    (location . "/usr/include/string.h:342:14") (variadic . #f)
+    (location . "/usr/include/string.h:337:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4584,7 +4474,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strtok") (ns . 0)
-    (location . "/usr/include/string.h:348:14") (variadic . #f)
+    (location . "/usr/include/string.h:343:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4605,7 +4495,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "__strtok_r") (ns . 0)
-    (location . "/usr/include/string.h:354:14") (variadic . #f)
+    (location . "/usr/include/string.h:349:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4633,7 +4523,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strtok_r") (ns . 0)
-    (location . "/usr/include/string.h:359:14") (variadic . #f)
+    (location . "/usr/include/string.h:354:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4661,7 +4551,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strerror") (ns . 0)
-    (location . "/usr/include/string.h:413:14") (variadic . #f)
+    (location . "/usr/include/string.h:408:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4675,7 +4565,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strerror_l") (ns . 0)
-    (location . "/usr/include/string.h:445:14") (variadic . #f)
+    (location . "/usr/include/string.h:440:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4689,7 +4579,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "index") (ns . 0)
-    (location . "/usr/include/string.h:489:14") (variadic . #f)
+    (location . "/usr/include/string.h:484:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4708,7 +4598,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "rindex") (ns . 0)
-    (location . "/usr/include/string.h:517:14") (variadic . #f)
+    (location . "/usr/include/string.h:512:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4727,7 +4617,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "ffs") (ns . 0)
-    (location . "/usr/include/string.h:523:12") (variadic . #f)
+    (location . "/usr/include/string.h:518:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4742,7 +4632,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "strcasecmp") (ns . 0)
-    (location . "/usr/include/string.h:534:12") (variadic . #f)
+    (location . "/usr/include/string.h:529:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4764,7 +4654,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "strsep") (ns . 0)
-    (location . "/usr/include/string.h:557:14") (variadic . #f)
+    (location . "/usr/include/string.h:552:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4787,7 +4677,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "strsignal") (ns . 0)
-    (location . "/usr/include/string.h:564:14") (variadic . #f)
+    (location . "/usr/include/string.h:559:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4801,7 +4691,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "__stpcpy") (ns . 0)
-    (location . "/usr/include/string.h:567:14") (variadic . #f)
+    (location . "/usr/include/string.h:562:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -4822,7 +4712,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "stpcpy") (ns . 0)
-    (location . "/usr/include/string.h:569:14") (variadic . #f)
+    (location . "/usr/include/string.h:564:14") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -5022,7 +4912,7 @@
     (ns . 0)
     (name . "imaxdiv_t")
     (location . "/usr/include/inttypes.h:275:5")
-    (type (tag . "struct") (ns . 1634231159) (name . "") (id . 38)
+    (type (tag . "struct") (ns . 1852387186) (name . "") (id . 33)
       (location . "/usr/include/inttypes.h:271:9")
       (bit-size . 128) (bit-alignment . 64)
       (fields
@@ -5145,7 +5035,7 @@
             (bit-size . 32)
             (bit-alignment . 32)))))
     (return-type (tag . "uintmax_t")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 39)
+  ((tag . "enum") (ns . 0) (name . "") (id . 34)
     (location . "/usr/include/ctype.h:46:1")
     (fields
       .
@@ -5913,7 +5803,7 @@
   ((tag . "function") (name . "cos") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:63:1 <Spelling=/usr/include/bits/mathcalls.h:63:13>")
+      "/usr/include/bits/mathcalls.h:63:1 <Spelling=/usr/include/bits/mathcalls.h:63:17>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -5947,7 +5837,7 @@
   ((tag . "function") (name . "sin") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:65:1 <Spelling=/usr/include/bits/mathcalls.h:65:13>")
+      "/usr/include/bits/mathcalls.h:65:1 <Spelling=/usr/include/bits/mathcalls.h:65:17>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -6219,7 +6109,7 @@
   ((tag . "function") (name . "exp") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:100:1 <Spelling=/usr/include/bits/mathcalls.h:100:13>")
+      "/usr/include/bits/mathcalls.h:100:1 <Spelling=/usr/include/bits/mathcalls.h:100:17>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -6349,7 +6239,7 @@
   ((tag . "function") (name . "log") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:109:1 <Spelling=/usr/include/bits/mathcalls.h:109:13>")
+      "/usr/include/bits/mathcalls.h:109:1 <Spelling=/usr/include/bits/mathcalls.h:109:17>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -6637,7 +6527,7 @@
   ((tag . "function") (name . "pow") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:153:1 <Spelling=/usr/include/bits/mathcalls.h:153:13>")
+      "/usr/include/bits/mathcalls.h:153:1 <Spelling=/usr/include/bits/mathcalls.h:153:17>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -6979,7 +6869,7 @@
   ((tag . "function") (name . "isinf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:201:1 <Spelling=/usr/include/bits/mathcalls.h:201:19>")
+      "/usr/include/bits/mathcalls.h:204:1 <Spelling=/usr/include/bits/mathcalls.h:204:19>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -6996,7 +6886,7 @@
   ((tag . "function") (name . "finite") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:204:1 <Spelling=/usr/include/bits/mathcalls.h:204:19>")
+      "/usr/include/bits/mathcalls.h:208:1 <Spelling=/usr/include/bits/mathcalls.h:208:19>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7013,7 +6903,7 @@
   ((tag . "function") (name . "drem") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:207:1 <Spelling=/usr/include/bits/mathcalls.h:207:13>")
+      "/usr/include/bits/mathcalls.h:211:1 <Spelling=/usr/include/bits/mathcalls.h:211:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7036,7 +6926,7 @@
   ((tag . "function") (name . "__drem") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:207:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7059,7 +6949,7 @@
   ((tag . "function") (name . "significand") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:211:1 <Spelling=/usr/include/bits/mathcalls.h:211:13>")
+      "/usr/include/bits/mathcalls.h:215:1 <Spelling=/usr/include/bits/mathcalls.h:215:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7076,7 +6966,7 @@
   ((tag . "function") (name . "__significand") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:215:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7093,7 +6983,7 @@
   ((tag . "function") (name . "copysign") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:217:1 <Spelling=/usr/include/bits/mathcalls.h:217:14>")
+      "/usr/include/bits/mathcalls.h:221:1 <Spelling=/usr/include/bits/mathcalls.h:221:14>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7116,7 +7006,7 @@
   ((tag . "function") (name . "__copysign") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:217:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:221:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7139,7 +7029,7 @@
   ((tag . "function") (name . "nan") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:224:1 <Spelling=/usr/include/bits/mathcalls.h:224:14>")
+      "/usr/include/bits/mathcalls.h:228:1 <Spelling=/usr/include/bits/mathcalls.h:228:14>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7158,7 +7048,7 @@
   ((tag . "function") (name . "__nan") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:224:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:228:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7177,7 +7067,7 @@
   ((tag . "function") (name . "__isnan") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:230:1 <Spelling=/usr/include/bits/mathcalls.h:230:19>")
+      "/usr/include/bits/mathcalls.h:234:1 <Spelling=/usr/include/bits/mathcalls.h:234:19>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7194,7 +7084,7 @@
   ((tag . "function") (name . "isnan") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:234:1 <Spelling=/usr/include/bits/mathcalls.h:234:19>")
+      "/usr/include/bits/mathcalls.h:241:1 <Spelling=/usr/include/bits/mathcalls.h:241:19>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7211,7 +7101,7 @@
   ((tag . "function") (name . "j0") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:237:1 <Spelling=/usr/include/bits/mathcalls.h:237:13>")
+      "/usr/include/bits/mathcalls.h:247:1 <Spelling=/usr/include/bits/mathcalls.h:247:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7228,7 +7118,7 @@
   ((tag . "function") (name . "__j0") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:237:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:247:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7245,7 +7135,7 @@
   ((tag . "function") (name . "j1") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:238:1 <Spelling=/usr/include/bits/mathcalls.h:238:13>")
+      "/usr/include/bits/mathcalls.h:248:1 <Spelling=/usr/include/bits/mathcalls.h:248:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7262,7 +7152,7 @@
   ((tag . "function") (name . "__j1") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:238:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:248:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7279,7 +7169,7 @@
   ((tag . "function") (name . "jn") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:239:1 <Spelling=/usr/include/bits/mathcalls.h:239:13>")
+      "/usr/include/bits/mathcalls.h:249:1 <Spelling=/usr/include/bits/mathcalls.h:249:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7299,7 +7189,7 @@
   ((tag . "function") (name . "__jn") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:239:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7319,7 +7209,7 @@
   ((tag . "function") (name . "y0") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:240:1 <Spelling=/usr/include/bits/mathcalls.h:240:13>")
+      "/usr/include/bits/mathcalls.h:250:1 <Spelling=/usr/include/bits/mathcalls.h:250:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7336,7 +7226,7 @@
   ((tag . "function") (name . "__y0") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:240:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7353,7 +7243,7 @@
   ((tag . "function") (name . "y1") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:241:1 <Spelling=/usr/include/bits/mathcalls.h:241:13>")
+      "/usr/include/bits/mathcalls.h:251:1 <Spelling=/usr/include/bits/mathcalls.h:251:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7370,7 +7260,7 @@
   ((tag . "function") (name . "__y1") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:241:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7387,7 +7277,7 @@
   ((tag . "function") (name . "yn") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:242:1 <Spelling=/usr/include/bits/mathcalls.h:242:13>")
+      "/usr/include/bits/mathcalls.h:252:1 <Spelling=/usr/include/bits/mathcalls.h:252:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7407,7 +7297,7 @@
   ((tag . "function") (name . "__yn") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:242:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:252:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7427,7 +7317,7 @@
   ((tag . "function") (name . "erf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:249:1 <Spelling=/usr/include/bits/mathcalls.h:249:13>")
+      "/usr/include/bits/mathcalls.h:259:1 <Spelling=/usr/include/bits/mathcalls.h:259:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7444,7 +7334,7 @@
   ((tag . "function") (name . "__erf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:259:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7461,7 +7351,7 @@
   ((tag . "function") (name . "erfc") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:250:1 <Spelling=/usr/include/bits/mathcalls.h:250:13>")
+      "/usr/include/bits/mathcalls.h:260:1 <Spelling=/usr/include/bits/mathcalls.h:260:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7478,7 +7368,7 @@
   ((tag . "function") (name . "__erfc") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:260:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7495,7 +7385,7 @@
   ((tag . "function") (name . "lgamma") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:251:1 <Spelling=/usr/include/bits/mathcalls.h:251:13>")
+      "/usr/include/bits/mathcalls.h:261:1 <Spelling=/usr/include/bits/mathcalls.h:261:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7512,7 +7402,7 @@
   ((tag . "function") (name . "__lgamma") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:261:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7529,7 +7419,7 @@
   ((tag . "function") (name . "tgamma") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:258:1 <Spelling=/usr/include/bits/mathcalls.h:258:13>")
+      "/usr/include/bits/mathcalls.h:268:1 <Spelling=/usr/include/bits/mathcalls.h:268:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7546,7 +7436,7 @@
   ((tag . "function") (name . "__tgamma") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:258:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:268:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7563,7 +7453,7 @@
   ((tag . "function") (name . "gamma") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:264:1 <Spelling=/usr/include/bits/mathcalls.h:264:13>")
+      "/usr/include/bits/mathcalls.h:274:1 <Spelling=/usr/include/bits/mathcalls.h:274:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7580,7 +7470,7 @@
   ((tag . "function") (name . "__gamma") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:264:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:274:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7597,7 +7487,7 @@
   ((tag . "function") (name . "lgamma_r") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:271:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:281:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7622,7 +7512,7 @@
   ((tag . "function") (name . "__lgamma_r") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:271:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:281:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7647,7 +7537,7 @@
   ((tag . "function") (name . "rint") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:279:1 <Spelling=/usr/include/bits/mathcalls.h:279:13>")
+      "/usr/include/bits/mathcalls.h:289:1 <Spelling=/usr/include/bits/mathcalls.h:289:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7664,7 +7554,7 @@
   ((tag . "function") (name . "__rint") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:279:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:289:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7681,7 +7571,7 @@
   ((tag . "function") (name . "nextafter") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:282:1 <Spelling=/usr/include/bits/mathcalls.h:282:14>")
+      "/usr/include/bits/mathcalls.h:292:1 <Spelling=/usr/include/bits/mathcalls.h:292:14>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7704,7 +7594,7 @@
   ((tag . "function") (name . "__nextafter") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:282:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7727,7 +7617,7 @@
   ((tag . "function") (name . "nexttoward") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:284:1 <Spelling=/usr/include/bits/mathcalls.h:284:14>")
+      "/usr/include/bits/mathcalls.h:294:1 <Spelling=/usr/include/bits/mathcalls.h:294:14>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7750,7 +7640,7 @@
   ((tag . "function") (name . "__nexttoward") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:284:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:294:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7773,7 +7663,7 @@
   ((tag . "function") (name . "remainder") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:288:1 <Spelling=/usr/include/bits/mathcalls.h:288:13>")
+      "/usr/include/bits/mathcalls.h:305:1 <Spelling=/usr/include/bits/mathcalls.h:305:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7796,7 +7686,7 @@
   ((tag . "function") (name . "__remainder") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:288:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7819,7 +7709,7 @@
   ((tag . "function") (name . "scalbn") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:292:1 <Spelling=/usr/include/bits/mathcalls.h:292:13>")
+      "/usr/include/bits/mathcalls.h:309:1 <Spelling=/usr/include/bits/mathcalls.h:309:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7842,7 +7732,7 @@
   ((tag . "function") (name . "__scalbn") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7865,7 +7755,7 @@
   ((tag . "function") (name . "ilogb") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:296:1 <Spelling=/usr/include/bits/mathcalls.h:296:17>")
+      "/usr/include/bits/mathcalls.h:313:1 <Spelling=/usr/include/bits/mathcalls.h:313:17>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7882,7 +7772,7 @@
   ((tag . "function") (name . "__ilogb") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:296:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7899,7 +7789,7 @@
   ((tag . "function") (name . "scalbln") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:301:1 <Spelling=/usr/include/bits/mathcalls.h:301:13>")
+      "/usr/include/bits/mathcalls.h:318:1 <Spelling=/usr/include/bits/mathcalls.h:318:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7922,7 +7812,7 @@
   ((tag . "function") (name . "__scalbln") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:301:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7945,7 +7835,7 @@
   ((tag . "function") (name . "nearbyint") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:305:1 <Spelling=/usr/include/bits/mathcalls.h:305:13>")
+      "/usr/include/bits/mathcalls.h:322:1 <Spelling=/usr/include/bits/mathcalls.h:322:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7962,7 +7852,7 @@
   ((tag . "function") (name . "__nearbyint") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:322:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7979,7 +7869,7 @@
   ((tag . "function") (name . "round") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:309:1 <Spelling=/usr/include/bits/mathcalls.h:309:14>")
+      "/usr/include/bits/mathcalls.h:326:1 <Spelling=/usr/include/bits/mathcalls.h:326:14>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -7996,7 +7886,7 @@
   ((tag . "function") (name . "__round") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:326:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8013,7 +7903,7 @@
   ((tag . "function") (name . "trunc") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:313:1 <Spelling=/usr/include/bits/mathcalls.h:313:14>")
+      "/usr/include/bits/mathcalls.h:330:1 <Spelling=/usr/include/bits/mathcalls.h:330:14>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8030,7 +7920,7 @@
   ((tag . "function") (name . "__trunc") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:330:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8047,7 +7937,7 @@
   ((tag . "function") (name . "remquo") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:318:1 <Spelling=/usr/include/bits/mathcalls.h:318:13>")
+      "/usr/include/bits/mathcalls.h:335:1 <Spelling=/usr/include/bits/mathcalls.h:335:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8078,7 +7968,7 @@
   ((tag . "function") (name . "__remquo") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:335:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8109,7 +7999,7 @@
   ((tag . "function") (name . "lrint") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:325:1 <Spelling=/usr/include/bits/mathcalls.h:325:22>")
+      "/usr/include/bits/mathcalls.h:342:1 <Spelling=/usr/include/bits/mathcalls.h:342:22>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8126,7 +8016,7 @@
   ((tag . "function") (name . "__lrint") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:325:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:342:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8143,7 +8033,7 @@
   ((tag . "function") (name . "llrint") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:327:1 <Spelling=/usr/include/bits/mathcalls.h:327:27>")
+      "/usr/include/bits/mathcalls.h:344:1 <Spelling=/usr/include/bits/mathcalls.h:344:27>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8160,7 +8050,7 @@
   ((tag . "function") (name . "__llrint") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:327:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:344:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8177,7 +8067,7 @@
   ((tag . "function") (name . "lround") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:331:1 <Spelling=/usr/include/bits/mathcalls.h:331:22>")
+      "/usr/include/bits/mathcalls.h:348:1 <Spelling=/usr/include/bits/mathcalls.h:348:22>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8194,7 +8084,7 @@
   ((tag . "function") (name . "__lround") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:331:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:348:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8211,7 +8101,7 @@
   ((tag . "function") (name . "llround") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:333:1 <Spelling=/usr/include/bits/mathcalls.h:333:27>")
+      "/usr/include/bits/mathcalls.h:350:1 <Spelling=/usr/include/bits/mathcalls.h:350:27>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8228,7 +8118,7 @@
   ((tag . "function") (name . "__llround") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:333:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:350:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8245,7 +8135,7 @@
   ((tag . "function") (name . "fdim") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:337:1 <Spelling=/usr/include/bits/mathcalls.h:337:13>")
+      "/usr/include/bits/mathcalls.h:354:1 <Spelling=/usr/include/bits/mathcalls.h:354:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8268,7 +8158,7 @@
   ((tag . "function") (name . "__fdim") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:337:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:354:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8291,7 +8181,7 @@
   ((tag . "function") (name . "fmax") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:340:1 <Spelling=/usr/include/bits/mathcalls.h:340:14>")
+      "/usr/include/bits/mathcalls.h:357:1 <Spelling=/usr/include/bits/mathcalls.h:357:14>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8314,7 +8204,7 @@
   ((tag . "function") (name . "__fmax") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:340:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:357:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8337,7 +8227,7 @@
   ((tag . "function") (name . "fmin") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:343:1 <Spelling=/usr/include/bits/mathcalls.h:343:14>")
+      "/usr/include/bits/mathcalls.h:360:1 <Spelling=/usr/include/bits/mathcalls.h:360:14>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8360,7 +8250,7 @@
   ((tag . "function") (name . "__fmin") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:343:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:360:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8383,7 +8273,7 @@
   ((tag . "function") (name . "__fpclassify") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:347:1 <Spelling=/usr/include/bits/mathcalls.h:347:20>")
+      "/usr/include/bits/mathcalls.h:364:1 <Spelling=/usr/include/bits/mathcalls.h:364:20>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8400,7 +8290,7 @@
   ((tag . "function") (name . "__signbit") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:351:1 <Spelling=/usr/include/bits/mathcalls.h:351:20>")
+      "/usr/include/bits/mathcalls.h:368:1 <Spelling=/usr/include/bits/mathcalls.h:368:20>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8417,7 +8307,7 @@
   ((tag . "function") (name . "fma") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:356:1 <Spelling=/usr/include/bits/mathcalls.h:356:13>")
+      "/usr/include/bits/mathcalls.h:373:1 <Spelling=/usr/include/bits/mathcalls.h:373:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8446,7 +8336,7 @@
   ((tag . "function") (name . "__fma") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:356:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:373:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8475,7 +8365,7 @@
   ((tag . "function") (name . "scalb") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:371:1 <Spelling=/usr/include/bits/mathcalls.h:371:13>")
+      "/usr/include/bits/mathcalls.h:390:1 <Spelling=/usr/include/bits/mathcalls.h:390:13>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -8498,7 +8388,7 @@
   ((tag . "function") (name . "__scalb") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:371:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:390:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9735,7 +9625,7 @@
   ((tag . "function") (name . "isinff") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:201:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:204:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9752,7 +9642,7 @@
   ((tag . "function") (name . "finitef") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:204:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:208:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9769,7 +9659,7 @@
   ((tag . "function") (name . "dremf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:207:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9792,7 +9682,7 @@
   ((tag . "function") (name . "__dremf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:207:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9815,7 +9705,7 @@
   ((tag . "function") (name . "significandf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:215:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9832,7 +9722,7 @@
   ((tag . "function") (name . "__significandf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:215:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9849,7 +9739,7 @@
   ((tag . "function") (name . "copysignf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:217:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:221:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9872,7 +9762,7 @@
   ((tag . "function") (name . "__copysignf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:217:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:221:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9895,7 +9785,7 @@
   ((tag . "function") (name . "nanf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:224:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:228:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9914,7 +9804,7 @@
   ((tag . "function") (name . "__nanf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:224:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:228:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9933,7 +9823,7 @@
   ((tag . "function") (name . "__isnanf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:230:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:234:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9950,7 +9840,7 @@
   ((tag . "function") (name . "isnanf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:234:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:241:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9967,7 +9857,7 @@
   ((tag . "function") (name . "j0f") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:237:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:247:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -9984,7 +9874,7 @@
   ((tag . "function") (name . "__j0f") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:237:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:247:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10001,7 +9891,7 @@
   ((tag . "function") (name . "j1f") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:238:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:248:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10018,7 +9908,7 @@
   ((tag . "function") (name . "__j1f") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:238:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:248:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10035,7 +9925,7 @@
   ((tag . "function") (name . "jnf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:239:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10055,7 +9945,7 @@
   ((tag . "function") (name . "__jnf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:239:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10075,7 +9965,7 @@
   ((tag . "function") (name . "y0f") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:240:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10092,7 +9982,7 @@
   ((tag . "function") (name . "__y0f") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:240:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10109,7 +9999,7 @@
   ((tag . "function") (name . "y1f") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:241:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10126,7 +10016,7 @@
   ((tag . "function") (name . "__y1f") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:241:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10143,7 +10033,7 @@
   ((tag . "function") (name . "ynf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:242:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:252:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10163,7 +10053,7 @@
   ((tag . "function") (name . "__ynf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:242:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:252:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10183,7 +10073,7 @@
   ((tag . "function") (name . "erff") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:259:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10200,7 +10090,7 @@
   ((tag . "function") (name . "__erff") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:259:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10217,7 +10107,7 @@
   ((tag . "function") (name . "erfcf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:260:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10234,7 +10124,7 @@
   ((tag . "function") (name . "__erfcf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:260:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10251,7 +10141,7 @@
   ((tag . "function") (name . "lgammaf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:261:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10268,7 +10158,7 @@
   ((tag . "function") (name . "__lgammaf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:261:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10285,7 +10175,7 @@
   ((tag . "function") (name . "tgammaf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:258:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:268:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10302,7 +10192,7 @@
   ((tag . "function") (name . "__tgammaf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:258:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:268:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10319,7 +10209,7 @@
   ((tag . "function") (name . "gammaf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:264:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:274:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10336,7 +10226,7 @@
   ((tag . "function") (name . "__gammaf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:264:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:274:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10353,7 +10243,7 @@
   ((tag . "function") (name . "lgammaf_r") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:271:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:281:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10378,7 +10268,7 @@
   ((tag . "function") (name . "__lgammaf_r") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:271:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:281:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10403,7 +10293,7 @@
   ((tag . "function") (name . "rintf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:279:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:289:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10420,7 +10310,7 @@
   ((tag . "function") (name . "__rintf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:279:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:289:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10437,7 +10327,7 @@
   ((tag . "function") (name . "nextafterf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:282:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10460,7 +10350,7 @@
   ((tag . "function") (name . "__nextafterf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:282:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10483,7 +10373,7 @@
   ((tag . "function") (name . "nexttowardf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:284:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:294:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10506,7 +10396,7 @@
   ((tag . "function") (name . "__nexttowardf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:284:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:294:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10529,7 +10419,7 @@
   ((tag . "function") (name . "remainderf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:288:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10552,7 +10442,7 @@
   ((tag . "function") (name . "__remainderf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:288:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10575,7 +10465,7 @@
   ((tag . "function") (name . "scalbnf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10598,7 +10488,7 @@
   ((tag . "function") (name . "__scalbnf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10621,7 +10511,7 @@
   ((tag . "function") (name . "ilogbf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:296:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10638,7 +10528,7 @@
   ((tag . "function") (name . "__ilogbf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:296:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10655,7 +10545,7 @@
   ((tag . "function") (name . "scalblnf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:301:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10678,7 +10568,7 @@
   ((tag . "function") (name . "__scalblnf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:301:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10701,7 +10591,7 @@
   ((tag . "function") (name . "nearbyintf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:322:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10718,7 +10608,7 @@
   ((tag . "function") (name . "__nearbyintf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:322:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10735,7 +10625,7 @@
   ((tag . "function") (name . "roundf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:326:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10752,7 +10642,7 @@
   ((tag . "function") (name . "__roundf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:326:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10769,7 +10659,7 @@
   ((tag . "function") (name . "truncf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:330:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10786,7 +10676,7 @@
   ((tag . "function") (name . "__truncf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:330:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10803,7 +10693,7 @@
   ((tag . "function") (name . "remquof") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:335:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10834,7 +10724,7 @@
   ((tag . "function") (name . "__remquof") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:335:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10865,7 +10755,7 @@
   ((tag . "function") (name . "lrintf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:325:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:342:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10882,7 +10772,7 @@
   ((tag . "function") (name . "__lrintf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:325:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:342:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10899,7 +10789,7 @@
   ((tag . "function") (name . "llrintf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:327:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:344:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10916,7 +10806,7 @@
   ((tag . "function") (name . "__llrintf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:327:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:344:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10933,7 +10823,7 @@
   ((tag . "function") (name . "lroundf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:331:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:348:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10950,7 +10840,7 @@
   ((tag . "function") (name . "__lroundf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:331:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:348:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10967,7 +10857,7 @@
   ((tag . "function") (name . "llroundf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:333:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:350:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -10984,7 +10874,7 @@
   ((tag . "function") (name . "__llroundf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:333:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:350:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11001,7 +10891,7 @@
   ((tag . "function") (name . "fdimf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:337:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:354:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11024,7 +10914,7 @@
   ((tag . "function") (name . "__fdimf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:337:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:354:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11047,7 +10937,7 @@
   ((tag . "function") (name . "fmaxf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:340:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:357:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11070,7 +10960,7 @@
   ((tag . "function") (name . "__fmaxf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:340:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:357:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11093,7 +10983,7 @@
   ((tag . "function") (name . "fminf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:343:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:360:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11116,7 +11006,7 @@
   ((tag . "function") (name . "__fminf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:343:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:360:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11139,7 +11029,7 @@
   ((tag . "function") (name . "__fpclassifyf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:347:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:364:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11156,7 +11046,7 @@
   ((tag . "function") (name . "__signbitf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:351:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:368:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11173,7 +11063,7 @@
   ((tag . "function") (name . "fmaf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:356:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:373:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11202,7 +11092,7 @@
   ((tag . "function") (name . "__fmaf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:356:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:373:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11231,7 +11121,7 @@
   ((tag . "function") (name . "scalbf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:371:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:390:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -11254,7 +11144,7 @@
   ((tag . "function") (name . "__scalbf") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:371:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:390:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12491,7 +12381,7 @@
   ((tag . "function") (name . "isinfl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:201:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:204:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12508,7 +12398,7 @@
   ((tag . "function") (name . "finitel") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:204:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:208:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12525,7 +12415,7 @@
   ((tag . "function") (name . "dreml") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:207:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12548,7 +12438,7 @@
   ((tag . "function") (name . "__dreml") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:207:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12571,7 +12461,7 @@
   ((tag . "function") (name . "significandl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:215:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12588,7 +12478,7 @@
   ((tag . "function") (name . "__significandl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:211:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:215:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12605,7 +12495,7 @@
   ((tag . "function") (name . "copysignl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:217:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:221:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12628,7 +12518,7 @@
   ((tag . "function") (name . "__copysignl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:217:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:221:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12651,7 +12541,7 @@
   ((tag . "function") (name . "nanl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:224:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:228:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12670,7 +12560,7 @@
   ((tag . "function") (name . "__nanl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:224:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:228:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12689,7 +12579,7 @@
   ((tag . "function") (name . "__isnanl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:230:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:234:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12706,7 +12596,7 @@
   ((tag . "function") (name . "isnanl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:234:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:241:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12723,7 +12613,7 @@
   ((tag . "function") (name . "j0l") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:237:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:247:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12740,7 +12630,7 @@
   ((tag . "function") (name . "__j0l") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:237:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:247:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12757,7 +12647,7 @@
   ((tag . "function") (name . "j1l") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:238:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:248:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12774,7 +12664,7 @@
   ((tag . "function") (name . "__j1l") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:238:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:248:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12791,7 +12681,7 @@
   ((tag . "function") (name . "jnl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:239:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12811,7 +12701,7 @@
   ((tag . "function") (name . "__jnl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:239:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12831,7 +12721,7 @@
   ((tag . "function") (name . "y0l") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:240:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12848,7 +12738,7 @@
   ((tag . "function") (name . "__y0l") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:240:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12865,7 +12755,7 @@
   ((tag . "function") (name . "y1l") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:241:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12882,7 +12772,7 @@
   ((tag . "function") (name . "__y1l") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:241:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12899,7 +12789,7 @@
   ((tag . "function") (name . "ynl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:242:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:252:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12919,7 +12809,7 @@
   ((tag . "function") (name . "__ynl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:242:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:252:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12939,7 +12829,7 @@
   ((tag . "function") (name . "erfl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:259:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12956,7 +12846,7 @@
   ((tag . "function") (name . "__erfl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:249:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:259:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12973,7 +12863,7 @@
   ((tag . "function") (name . "erfcl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:260:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -12990,7 +12880,7 @@
   ((tag . "function") (name . "__erfcl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:250:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:260:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13007,7 +12897,7 @@
   ((tag . "function") (name . "lgammal") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:261:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13024,7 +12914,7 @@
   ((tag . "function") (name . "__lgammal") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:251:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:261:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13041,7 +12931,7 @@
   ((tag . "function") (name . "tgammal") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:258:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:268:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13058,7 +12948,7 @@
   ((tag . "function") (name . "__tgammal") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:258:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:268:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13075,7 +12965,7 @@
   ((tag . "function") (name . "gammal") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:264:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:274:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13092,7 +12982,7 @@
   ((tag . "function") (name . "__gammal") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:264:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:274:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13109,7 +12999,7 @@
   ((tag . "function") (name . "lgammal_r") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:271:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:281:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13134,7 +13024,7 @@
   ((tag . "function") (name . "__lgammal_r") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:271:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:281:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13159,7 +13049,7 @@
   ((tag . "function") (name . "rintl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:279:1 <Spelling=<scratch space>:2:1>")
+      "/usr/include/bits/mathcalls.h:289:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13176,7 +13066,7 @@
   ((tag . "function") (name . "__rintl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:279:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:289:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13193,7 +13083,7 @@
   ((tag . "function") (name . "nextafterl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:282:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13216,7 +13106,7 @@
   ((tag . "function") (name . "__nextafterl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:282:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13239,7 +13129,7 @@
   ((tag . "function") (name . "nexttowardl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:284:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:294:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13262,7 +13152,7 @@
   ((tag . "function") (name . "__nexttowardl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:284:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:294:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13285,7 +13175,7 @@
   ((tag . "function") (name . "remainderl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:288:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13308,7 +13198,7 @@
   ((tag . "function") (name . "__remainderl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:288:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13331,7 +13221,7 @@
   ((tag . "function") (name . "scalbnl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13354,7 +13244,7 @@
   ((tag . "function") (name . "__scalbnl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:292:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13377,7 +13267,7 @@
   ((tag . "function") (name . "ilogbl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:296:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13394,7 +13284,7 @@
   ((tag . "function") (name . "__ilogbl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:296:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13411,7 +13301,7 @@
   ((tag . "function") (name . "scalblnl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:301:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13434,7 +13324,7 @@
   ((tag . "function") (name . "__scalblnl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:301:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13457,7 +13347,7 @@
   ((tag . "function") (name . "nearbyintl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:322:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13474,7 +13364,7 @@
   ((tag . "function") (name . "__nearbyintl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:305:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:322:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13491,7 +13381,7 @@
   ((tag . "function") (name . "roundl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:326:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13508,7 +13398,7 @@
   ((tag . "function") (name . "__roundl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:309:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:326:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13525,7 +13415,7 @@
   ((tag . "function") (name . "truncl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:330:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13542,7 +13432,7 @@
   ((tag . "function") (name . "__truncl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:313:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:330:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13559,7 +13449,7 @@
   ((tag . "function") (name . "remquol") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:335:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13590,7 +13480,7 @@
   ((tag . "function") (name . "__remquol") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:318:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:335:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13621,7 +13511,7 @@
   ((tag . "function") (name . "lrintl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:325:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:342:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13638,7 +13528,7 @@
   ((tag . "function") (name . "__lrintl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:325:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:342:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13655,7 +13545,7 @@
   ((tag . "function") (name . "llrintl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:327:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:344:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13672,7 +13562,7 @@
   ((tag . "function") (name . "__llrintl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:327:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:344:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13689,7 +13579,7 @@
   ((tag . "function") (name . "lroundl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:331:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:348:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13706,7 +13596,7 @@
   ((tag . "function") (name . "__lroundl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:331:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:348:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13723,7 +13613,7 @@
   ((tag . "function") (name . "llroundl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:333:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:350:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13740,7 +13630,7 @@
   ((tag . "function") (name . "__llroundl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:333:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:350:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13757,7 +13647,7 @@
   ((tag . "function") (name . "fdiml") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:337:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:354:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13780,7 +13670,7 @@
   ((tag . "function") (name . "__fdiml") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:337:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:354:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13803,7 +13693,7 @@
   ((tag . "function") (name . "fmaxl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:340:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:357:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13826,7 +13716,7 @@
   ((tag . "function") (name . "__fmaxl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:340:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:357:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13849,7 +13739,7 @@
   ((tag . "function") (name . "fminl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:343:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:360:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13872,7 +13762,7 @@
   ((tag . "function") (name . "__fminl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:343:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:360:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13895,7 +13785,7 @@
   ((tag . "function") (name . "__fpclassifyl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:347:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:364:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13912,7 +13802,7 @@
   ((tag . "function") (name . "__signbitl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:351:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:368:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13929,7 +13819,7 @@
   ((tag . "function") (name . "fmal") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:356:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:373:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13958,7 +13848,7 @@
   ((tag . "function") (name . "__fmal") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:356:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:373:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -13987,7 +13877,7 @@
   ((tag . "function") (name . "scalbl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:371:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:390:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14010,7 +13900,7 @@
   ((tag . "function") (name . "__scalbl") (ns . 0)
     (location
       .
-      "/usr/include/bits/mathcalls.h:371:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/bits/mathcalls.h:390:1 <Spelling=<scratch space>:3:1>")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14033,10 +13923,10 @@
   ((tag . "extern")
     (name . "signgam")
     (ns . 0)
-    (location . "/usr/include/math.h:148:12")
+    (location . "/usr/include/math.h:168:12")
     (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 40)
-    (location . "/usr/include/math.h:189:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 35)
+    (location . "/usr/include/math.h:209:1")
     (fields
       .
       #(((tag . "field") (name . "FP_NAN") (value . 0))
@@ -14044,8 +13934,8 @@
         ((tag . "field") (name . "FP_ZERO") (value . 2))
         ((tag . "field") (name . "FP_SUBNORMAL") (value . 3))
         ((tag . "field") (name . "FP_NORMAL") (value . 4)))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 41)
-    (location . "/usr/include/math.h:301:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 36)
+    (location . "/usr/include/math.h:347:9")
     (fields
       .
       #(((tag . "field") (name . "_IEEE_") (value . 4294967295))
@@ -14056,15 +13946,15 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "_LIB_VERSION_TYPE")
-    (location . "/usr/include/math.h:308:3")
-    (type (tag . ":enum") (name . "") (id . 41)))
+    (location . "/usr/include/math.h:354:3")
+    (type (tag . ":enum") (name . "") (id . 36)))
   ((tag . "extern")
     (name . "_LIB_VERSION")
     (ns . 0)
-    (location . "/usr/include/math.h:313:26")
+    (location . "/usr/include/math.h:359:26")
     (type (tag . "_LIB_VERSION_TYPE")))
   ((tag . "struct") (ns . 0) (name . "exception") (id . 0)
-    (location . "/usr/include/math.h:326:8") (bit-size . 320)
+    (location . "/usr/include/math.h:372:8") (bit-size . 320)
     (bit-alignment . 64)
     (fields
       .
@@ -14095,7 +13985,7 @@
             (bit-size . 64)
             (bit-alignment . 64))))))
   ((tag . "function") (name . "matherr") (ns . 0)
-    (location . "/usr/include/math.h:339:12") (variadic . #f)
+    (location . "/usr/include/math.h:385:12") (variadic . #f)
     (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14103,49 +13993,13 @@
           (name . "__exc")
           (type
             (tag . ":pointer")
-            (type (tag . ":struct") (name . "exception") (id . 42))))))
+            (type (tag . ":struct") (name . "exception") (id . 37))))))
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
-  ((tag . "typedef")
-    (ns . 0)
-    (name . "iconv_t")
-    (location . "/usr/include/iconv.h:29:15")
-    (type (tag . ":pointer") (type (tag . ":void"))))
-  ((tag . "function") (name . "iconv_open") (ns . 0)
-    (location . "/usr/include/iconv.h:37:16") (variadic . #f)
-    (inline . #f) (storage-class . "extern")
-    (parameters
-      .
-      #(((tag . "parameter")
-          (name . "__tocode")
-          (type
-            (tag . ":pointer")
-            (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
-        ((tag . "parameter")
-          (name . "__fromcode")
-          (type
-            (tag . ":pointer")
-            (type
-              (tag . ":char")
-              (bit-size . 8)
-              (bit-alignment . 8))))))
-    (return-type (tag . "iconv_t")))
-  ((tag . "function") (name . "iconv_close") (ns . 0)
-    (location . "/usr/include/iconv.h:51:12") (variadic . #f)
-    (inline . #f) (storage-class . "extern")
-    (parameters
-      .
-      #(((tag . "parameter")
-          (name . "__cd")
-          (type (tag . "iconv_t")))))
-    (return-type
-      (tag . ":int")
-      (bit-size . 32)
-      (bit-alignment . 32)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 43)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:126:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 38)
+    (location . "/usr/include/SDL2/SDL_stdinc.h:130:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_FALSE") (value . 0))
@@ -14153,54 +14007,54 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_bool")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:130:3")
-    (type (tag . ":enum") (name . "") (id . 43)))
+    (location . "/usr/include/SDL2/SDL_stdinc.h:134:3")
+    (type (tag . ":enum") (name . "") (id . 38)))
   ((tag . "typedef")
     (ns . 0)
     (name . "Sint8")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:135:16")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:139:16")
     (type (tag . "int8_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "Uint8")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:139:17")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:143:17")
     (type (tag . "uint8_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "Sint16")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:143:17")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:147:17")
     (type (tag . "int16_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "Uint16")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:147:18")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:151:18")
     (type (tag . "uint16_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "Sint32")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:151:17")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:155:17")
     (type (tag . "int32_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "Uint32")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:155:18")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:159:18")
     (type (tag . "uint32_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "Sint64")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:160:17")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:164:17")
     (type (tag . "int64_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "Uint64")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:164:18")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:168:18")
     (type (tag . "uint64_t")))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_dummy_uint8")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:264:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:268:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
@@ -14210,7 +14064,7 @@
     (name . "SDL_dummy_sint8")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:265:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:269:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
@@ -14220,7 +14074,7 @@
     (name . "SDL_dummy_uint16")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:266:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:270:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
@@ -14230,7 +14084,7 @@
     (name . "SDL_dummy_sint16")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:267:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:271:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
@@ -14240,7 +14094,7 @@
     (name . "SDL_dummy_uint32")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:268:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:272:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
@@ -14250,7 +14104,7 @@
     (name . "SDL_dummy_sint32")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:269:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:273:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
@@ -14260,7 +14114,7 @@
     (name . "SDL_dummy_uint64")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:270:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:274:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
@@ -14270,13 +14124,13 @@
     (name . "SDL_dummy_sint64")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:271:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:275:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
       (size . 1)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 44)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:285:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 39)
+    (location . "/usr/include/SDL2/SDL_stdinc.h:289:9")
     (fields
       .
       #(((tag . "field")
@@ -14285,20 +14139,20 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_DUMMY_ENUM")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:288:3")
-    (type (tag . ":enum") (name . "") (id . 44)))
+    (location . "/usr/include/SDL2/SDL_stdinc.h:292:3")
+    (type (tag . ":enum") (name . "") (id . 39)))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_dummy_enum")
     (location
       .
-      "/usr/local/include/SDL2/SDL_stdinc.h:290:1 <Spelling=<scratch space>:3:1>")
+      "/usr/include/SDL2/SDL_stdinc.h:294:1 <Spelling=<scratch space>:3:1>")
     (type
       (tag . ":array")
       (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))
       (size . 1)))
   ((tag . "function") (name . "SDL_free") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:334:30")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:338:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14307,7 +14161,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_getenv") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:336:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:340:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14323,7 +14177,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_setenv") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:337:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:341:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14348,7 +14202,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_abs") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:341:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:345:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14363,7 +14217,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_isdigit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:348:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:352:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14378,7 +14232,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_isspace") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:349:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:353:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14393,7 +14247,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_toupper") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:350:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:354:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14408,7 +14262,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_tolower") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:351:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:355:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14423,7 +14277,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_strdup") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:401:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:405:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14439,7 +14293,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_strrev") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:402:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:406:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14455,7 +14309,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_strupr") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:403:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:407:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14471,7 +14325,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_strlwr") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:404:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:408:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14487,7 +14341,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_strchr") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:405:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:409:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14506,7 +14360,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_strrchr") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:406:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:410:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14525,7 +14379,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_strstr") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:407:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:411:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14546,7 +14400,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_itoa") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:409:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:413:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14568,7 +14422,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_uitoa") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:410:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:414:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14593,7 +14447,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_ltoa") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:411:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:415:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14615,7 +14469,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_ultoa") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:412:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:416:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14640,7 +14494,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_lltoa") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:413:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:417:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14662,7 +14516,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_ulltoa") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:414:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:418:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14684,7 +14538,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_atoi") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:416:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:420:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14701,7 +14555,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_atof") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:417:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:421:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14718,7 +14572,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_strtol") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:418:30")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:422:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14745,7 +14599,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_strtoul") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:419:39")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:423:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14772,7 +14626,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_strtoll") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:420:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:424:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14796,7 +14650,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "Sint64")))
   ((tag . "function") (name . "SDL_strtoull") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:421:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:425:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14820,7 +14674,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "Uint64")))
   ((tag . "function") (name . "SDL_strtod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:422:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:426:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14844,7 +14698,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_strcmp") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:424:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:428:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14866,7 +14720,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_strcasecmp") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:426:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:430:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14888,7 +14742,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_sscanf") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:429:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:433:29")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14910,7 +14764,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_vsscanf") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:430:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:434:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14932,7 +14786,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_acos") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:440:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:444:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14947,7 +14801,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_asin") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:441:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:445:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14962,7 +14816,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_atan") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:442:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:446:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14977,7 +14831,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_atan2") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:443:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:447:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -14998,7 +14852,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_ceil") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:444:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:448:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15013,7 +14867,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_copysign") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:445:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:449:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15034,7 +14888,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_cos") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:446:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:450:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15049,7 +14903,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_cosf") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:447:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:451:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15064,7 +14918,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_fabs") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:448:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:452:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15079,7 +14933,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_floor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:449:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:453:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15094,7 +14948,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_log") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:450:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:454:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15109,7 +14963,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_pow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:451:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:455:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15130,7 +14984,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_scalbn") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:452:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:456:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15151,7 +15005,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_sin") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:453:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:457:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15166,7 +15020,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_sinf") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:454:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:458:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15181,7 +15035,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_sqrt") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:455:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:459:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15196,7 +15050,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_sqrtf") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:456:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:460:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15211,7 +15065,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_tan") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:457:32")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:461:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15226,7 +15080,7 @@
       (bit-size . 64)
       (bit-alignment . 64)))
   ((tag . "function") (name . "SDL_tanf") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:458:31")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:462:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15241,19 +15095,20 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "struct") (ns . 0) (name . "_SDL_iconv_t") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:467:16")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:471:16")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_iconv_t")
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:467:30")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:471:30")
     (type
       (tag . ":pointer")
-      (type (tag . "struct") (ns . 0) (name . "_SDL_iconv_t") (id . 0)
-        (location . "/usr/local/include/SDL2/SDL_stdinc.h:467:16")
+      (type (tag . "struct") (ns . 1852387186) (name . "_SDL_iconv_t")
+        (id . 0)
+        (location . "/usr/include/SDL2/SDL_stdinc.h:471:16")
         (bit-size . 0) (bit-alignment . 0) (fields . #()))))
   ((tag . "function") (name . "SDL_iconv_open") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:468:37")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:472:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15272,7 +15127,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . "SDL_iconv_t")))
   ((tag . "function") (name . "SDL_iconv_close") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_stdinc.h:470:29")
+    (location . "/usr/include/SDL2/SDL_stdinc.h:474:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15284,7 +15139,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_main") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_main.h:110:22")
+    (location . "/usr/include/SDL2/SDL_main.h:110:22")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15306,11 +15161,11 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetMainReady") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_main.h:125:30")
+    (location . "/usr/include/SDL2/SDL_main.h:125:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 46)
-    (location . "/usr/local/include/SDL2/SDL_assert.h:100:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 41)
+    (location . "/usr/include/SDL2/SDL_assert.h:100:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_ASSERTION_RETRY") (value . 0))
@@ -15325,10 +15180,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AssertState")
-    (location . "/usr/local/include/SDL2/SDL_assert.h:107:3")
-    (type (tag . ":enum") (name . "") (id . 46)))
+    (location . "/usr/include/SDL2/SDL_assert.h:107:3")
+    (type (tag . ":enum") (name . "") (id . 41)))
   ((tag . "struct") (ns . 0) (name . "SDL_AssertData") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_assert.h:109:16")
+    (location . "/usr/include/SDL2/SDL_assert.h:109:16")
     (bit-size . 384) (bit-alignment . 64)
     (fields
       .
@@ -15366,17 +15221,17 @@
             (type
               (tag . ":struct")
               (name . "SDL_AssertData")
-              (id . 47)))))))
+              (id . 42)))))))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AssertData")
-    (location . "/usr/local/include/SDL2/SDL_assert.h:118:3")
+    (location . "/usr/include/SDL2/SDL_assert.h:118:3")
     (type
       (tag . ":struct")
       (name . "SDL_AssertData")
-      (id . 47)))
+      (id . 42)))
   ((tag . "function") (name . "SDL_ReportAssertion") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_assert.h:123:41")
+    (location . "/usr/include/SDL2/SDL_assert.h:123:41")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15403,10 +15258,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AssertionHandler")
-    (location . "/usr/local/include/SDL2/SDL_assert.h:186:35")
+    (location . "/usr/include/SDL2/SDL_assert.h:186:35")
     (type (tag . ":function-pointer")))
   ((tag . "function") (name . "SDL_SetAssertionHandler") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_assert.h:209:30")
+    (location . "/usr/include/SDL2/SDL_assert.h:209:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15418,12 +15273,12 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetDefaultAssertionHandler") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_assert.h:223:46")
+    (location . "/usr/include/SDL2/SDL_assert.h:223:46")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type (tag . "SDL_AssertionHandler")))
   ((tag . "function") (name . "SDL_GetAssertionHandler") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_assert.h:240:46")
+    (location . "/usr/include/SDL2/SDL_assert.h:240:46")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15434,23 +15289,23 @@
             (type (tag . ":pointer") (type (tag . ":void")))))))
     (return-type (tag . "SDL_AssertionHandler")))
   ((tag . "function") (name . "SDL_GetAssertionReport") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_assert.h:264:48")
+    (location . "/usr/include/SDL2/SDL_assert.h:264:48")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_AssertData"))))
   ((tag . "function") (name . "SDL_ResetAssertionReport") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_assert.h:273:30")
+    (location . "/usr/include/SDL2/SDL_assert.h:273:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_SpinLock")
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:89:13")
+    (location . "/usr/include/SDL2/SDL_atomic.h:89:13")
     (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_AtomicTryLock") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:98:34")
+    (location . "/usr/include/SDL2/SDL_atomic.h:98:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15459,7 +15314,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_SpinLock"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_AtomicLock") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:105:30")
+    (location . "/usr/include/SDL2/SDL_atomic.h:105:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15468,7 +15323,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_SpinLock"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_AtomicUnlock") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:112:30")
+    (location . "/usr/include/SDL2/SDL_atomic.h:112:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15479,9 +15334,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_atomic_t")
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:189:31")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 48)
-      (location . "/usr/local/include/SDL2/SDL_atomic.h:189:9")
+    (location . "/usr/include/SDL2/SDL_atomic.h:189:31")
+    (type (tag . "struct") (ns . 0) (name . "") (id . 43)
+      (location . "/usr/include/SDL2/SDL_atomic.h:189:9")
       (bit-size . 32) (bit-alignment . 32)
       (fields
         .
@@ -15492,7 +15347,7 @@
               (bit-size . 32)
               (bit-alignment . 32)))))))
   ((tag . "function") (name . "SDL_AtomicCAS") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:198:34")
+    (location . "/usr/include/SDL2/SDL_atomic.h:198:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15510,7 +15365,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_AtomicSet") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:205:29")
+    (location . "/usr/include/SDL2/SDL_atomic.h:205:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15528,7 +15383,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_AtomicGet") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:210:29")
+    (location . "/usr/include/SDL2/SDL_atomic.h:210:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15540,7 +15395,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_AtomicAdd") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:219:29")
+    (location . "/usr/include/SDL2/SDL_atomic.h:219:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15558,7 +15413,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_AtomicCASPtr") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:245:34")
+    (location . "/usr/include/SDL2/SDL_atomic.h:245:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15575,7 +15430,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_AtomicSetPtr") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:252:31")
+    (location . "/usr/include/SDL2/SDL_atomic.h:252:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15589,7 +15444,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":pointer") (type (tag . ":void"))))
   ((tag . "function") (name . "SDL_AtomicGetPtr") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_atomic.h:257:31")
+    (location . "/usr/include/SDL2/SDL_atomic.h:257:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15600,7 +15455,7 @@
             (type (tag . ":pointer") (type (tag . ":void")))))))
     (return-type (tag . ":pointer") (type (tag . ":void"))))
   ((tag . "function") (name . "SDL_SetError") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_error.h:41:29")
+    (location . "/usr/include/SDL2/SDL_error.h:41:29")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15617,18 +15472,18 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetError") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_error.h:42:37")
+    (location . "/usr/include/SDL2/SDL_error.h:42:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_ClearError") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_error.h:43:30")
+    (location . "/usr/include/SDL2/SDL_error.h:43:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 49)
-    (location . "/usr/local/include/SDL2/SDL_error.h:55:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 44)
+    (location . "/usr/include/SDL2/SDL_error.h:55:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_ENOMEM") (value . 0))
@@ -15640,10 +15495,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_errorcode")
-    (location . "/usr/local/include/SDL2/SDL_error.h:63:3")
-    (type (tag . ":enum") (name . "") (id . 49)))
+    (location . "/usr/include/SDL2/SDL_error.h:63:3")
+    (type (tag . ":enum") (name . "") (id . 44)))
   ((tag . "function") (name . "SDL_Error") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_error.h:65:29")
+    (location . "/usr/include/SDL2/SDL_error.h:65:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15655,7 +15510,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_Swap16") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_endian.h:78:1")
+    (location . "/usr/include/SDL2/SDL_endian.h:78:1")
     (variadic . #f) (inline . #t) (storage-class . "static")
     (parameters
       .
@@ -15664,7 +15519,7 @@
           (type (tag . "Uint16")))))
     (return-type (tag . "Uint16")))
   ((tag . "function") (name . "SDL_Swap32") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_endian.h:116:1")
+    (location . "/usr/include/SDL2/SDL_endian.h:116:1")
     (variadic . #f) (inline . #t) (storage-class . "static")
     (parameters
       .
@@ -15673,7 +15528,7 @@
           (type (tag . "Uint32")))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_Swap64") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_endian.h:168:1")
+    (location . "/usr/include/SDL2/SDL_endian.h:168:1")
     (variadic . #f) (inline . #t) (storage-class . "static")
     (parameters
       .
@@ -15682,7 +15537,7 @@
           (type (tag . "Uint64")))))
     (return-type (tag . "Uint64")))
   ((tag . "function") (name . "SDL_SwapFloat") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_endian.h:192:1")
+    (location . "/usr/include/SDL2/SDL_endian.h:192:1")
     (variadic . #f) (inline . #t) (storage-class . "static")
     (parameters
       .
@@ -15697,22 +15552,22 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "struct") (ns . 0) (name . "SDL_mutex") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:58:8")
+    (location . "/usr/include/SDL2/SDL_mutex.h:58:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_mutex")
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:59:26")
+    (location . "/usr/include/SDL2/SDL_mutex.h:59:26")
     (type (tag . "struct") (ns . 0) (name . "SDL_mutex") (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_mutex.h:58:8")
+      (location . "/usr/include/SDL2/SDL_mutex.h:58:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "function") (name . "SDL_CreateMutex") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:64:36")
+    (location . "/usr/include/SDL2/SDL_mutex.h:64:36")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type (tag . ":pointer") (type (tag . "SDL_mutex"))))
   ((tag . "function") (name . "SDL_LockMutex") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:72:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:72:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15724,7 +15579,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_TryLockMutex") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:79:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:79:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15736,7 +15591,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_UnlockMutex") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:90:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:90:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15748,7 +15603,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_DestroyMutex") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:95:30")
+    (location . "/usr/include/SDL2/SDL_mutex.h:95:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15757,17 +15612,17 @@
           (type (tag . ":pointer") (type (tag . "SDL_mutex"))))))
     (return-type (tag . ":void")))
   ((tag . "struct") (ns . 0) (name . "SDL_semaphore") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:106:8")
+    (location . "/usr/include/SDL2/SDL_mutex.h:106:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_sem")
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:107:30")
+    (location . "/usr/include/SDL2/SDL_mutex.h:107:30")
     (type (tag . "struct") (ns . 0) (name . "SDL_semaphore") (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_mutex.h:106:8")
+      (location . "/usr/include/SDL2/SDL_mutex.h:106:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "function") (name . "SDL_CreateSemaphore") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:112:34")
+    (location . "/usr/include/SDL2/SDL_mutex.h:112:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15776,7 +15631,7 @@
           (type (tag . "Uint32")))))
     (return-type (tag . ":pointer") (type (tag . "SDL_sem"))))
   ((tag . "function") (name . "SDL_DestroySemaphore") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:117:30")
+    (location . "/usr/include/SDL2/SDL_mutex.h:117:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15785,7 +15640,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_sem"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SemWait") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:124:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:124:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15797,7 +15652,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SemTryWait") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:132:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:132:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15809,7 +15664,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SemWaitTimeout") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:143:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:143:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15824,7 +15679,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SemPost") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:150:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:150:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15836,7 +15691,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SemValue") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:155:32")
+    (location . "/usr/include/SDL2/SDL_mutex.h:155:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15845,23 +15700,22 @@
           (type (tag . ":pointer") (type (tag . "SDL_sem"))))))
     (return-type (tag . "Uint32")))
   ((tag . "struct") (ns . 0) (name . "SDL_cond") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:166:8")
+    (location . "/usr/include/SDL2/SDL_mutex.h:166:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_cond")
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:167:25")
-    (type (tag . "struct") (ns . 976631345) (name . "SDL_cond")
-      (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_mutex.h:166:8")
+    (location . "/usr/include/SDL2/SDL_mutex.h:167:25")
+    (type (tag . "struct") (ns . 1852387186) (name . "SDL_cond")
+      (id . 0) (location . "/usr/include/SDL2/SDL_mutex.h:166:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "function") (name . "SDL_CreateCond") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:197:35")
+    (location . "/usr/include/SDL2/SDL_mutex.h:197:35")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type (tag . ":pointer") (type (tag . "SDL_cond"))))
   ((tag . "function") (name . "SDL_DestroyCond") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:202:30")
+    (location . "/usr/include/SDL2/SDL_mutex.h:202:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15870,7 +15724,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_cond"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_CondSignal") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:209:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:209:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15882,7 +15736,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_CondBroadcast") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:216:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:216:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15894,7 +15748,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_CondWait") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:227:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:227:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15909,7 +15763,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_CondWaitTimeout") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mutex.h:237:29")
+    (location . "/usr/include/SDL2/SDL_mutex.h:237:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15927,19 +15781,19 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "struct") (ns . 0) (name . "SDL_Thread") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:45:8")
+    (location . "/usr/include/SDL2/SDL_thread.h:45:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Thread")
-    (location . "/usr/local/include/SDL2/SDL_thread.h:46:27")
-    (type (tag . "struct") (ns . 0) (name . "SDL_Thread") (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_thread.h:45:8")
+    (location . "/usr/include/SDL2/SDL_thread.h:46:27")
+    (type (tag . "struct") (ns . 1919439967) (name . "SDL_Thread")
+      (id . 0) (location . "/usr/include/SDL2/SDL_thread.h:45:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_threadID")
-    (location . "/usr/local/include/SDL2/SDL_thread.h:49:23")
+    (location . "/usr/include/SDL2/SDL_thread.h:49:23")
     (type
       (tag . ":unsigned-long")
       (bit-size . 64)
@@ -15947,13 +15801,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TLSID")
-    (location . "/usr/local/include/SDL2/SDL_thread.h:52:22")
+    (location . "/usr/include/SDL2/SDL_thread.h:52:22")
     (type
       (tag . ":unsigned-int")
       (bit-size . 32)
       (bit-alignment . 32)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 54)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:59:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 49)
+    (location . "/usr/include/SDL2/SDL_thread.h:59:9")
     (fields
       .
       #(((tag . "field")
@@ -15968,15 +15822,15 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_ThreadPriority")
-    (location . "/usr/local/include/SDL2/SDL_thread.h:63:3")
-    (type (tag . ":enum") (name . "") (id . 54)))
+    (location . "/usr/include/SDL2/SDL_thread.h:63:3")
+    (type (tag . ":enum") (name . "") (id . 49)))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_ThreadFunction")
-    (location . "/usr/local/include/SDL2/SDL_thread.h:69:24")
+    (location . "/usr/include/SDL2/SDL_thread.h:69:24")
     (type (tag . ":function-pointer")))
   ((tag . "function") (name . "SDL_CreateThread") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:142:1")
+    (location . "/usr/include/SDL2/SDL_thread.h:142:1")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -15995,7 +15849,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Thread"))))
   ((tag . "function") (name . "SDL_GetThreadName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:153:37")
+    (location . "/usr/include/SDL2/SDL_thread.h:153:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16006,11 +15860,11 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_ThreadID") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:158:38")
+    (location . "/usr/include/SDL2/SDL_thread.h:158:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_threadID")))
   ((tag . "function") (name . "SDL_GetThreadID") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:165:38")
+    (location . "/usr/include/SDL2/SDL_thread.h:165:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16019,7 +15873,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Thread"))))))
     (return-type (tag . "SDL_threadID")))
   ((tag . "function") (name . "SDL_SetThreadPriority") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:170:29")
+    (location . "/usr/include/SDL2/SDL_thread.h:170:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16031,7 +15885,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_WaitThread") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:190:30")
+    (location . "/usr/include/SDL2/SDL_thread.h:190:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16048,7 +15902,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_DetachThread") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:218:30")
+    (location . "/usr/include/SDL2/SDL_thread.h:218:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16057,11 +15911,11 @@
           (type (tag . ":pointer") (type (tag . "SDL_Thread"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_TLSCreate") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:250:35")
+    (location . "/usr/include/SDL2/SDL_thread.h:250:35")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_TLSID")))
   ((tag . "function") (name . "SDL_TLSGet") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:262:32")
+    (location . "/usr/include/SDL2/SDL_thread.h:262:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16070,7 +15924,7 @@
           (type (tag . "SDL_TLSID")))))
     (return-type (tag . ":pointer") (type (tag . ":void"))))
   ((tag . "function") (name . "SDL_TLSSet") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_thread.h:276:29")
+    (location . "/usr/include/SDL2/SDL_thread.h:276:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16088,7 +15942,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RWFromFile") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:153:36")
+    (location . "/usr/include/SDL2/SDL_rwops.h:153:36")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16107,7 +15961,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":pointer") (type (tag . "SDL_RWops"))))
   ((tag . "function") (name . "SDL_RWFromFP") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:157:36")
+    (location . "/usr/include/SDL2/SDL_rwops.h:157:36")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16119,7 +15973,7 @@
           (type (tag . "SDL_bool")))))
     (return-type (tag . ":pointer") (type (tag . "SDL_RWops"))))
   ((tag . "function") (name . "SDL_RWFromMem") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:164:36")
+    (location . "/usr/include/SDL2/SDL_rwops.h:164:36")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16134,7 +15988,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":pointer") (type (tag . "SDL_RWops"))))
   ((tag . "function") (name . "SDL_RWFromConstMem") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:165:36")
+    (location . "/usr/include/SDL2/SDL_rwops.h:165:36")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16149,12 +16003,12 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":pointer") (type (tag . "SDL_RWops"))))
   ((tag . "function") (name . "SDL_AllocRW") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:171:36")
+    (location . "/usr/include/SDL2/SDL_rwops.h:171:36")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type (tag . ":pointer") (type (tag . "SDL_RWops"))))
   ((tag . "function") (name . "SDL_FreeRW") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:172:30")
+    (location . "/usr/include/SDL2/SDL_rwops.h:172:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16163,7 +16017,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_ReadU8") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:199:31")
+    (location . "/usr/include/SDL2/SDL_rwops.h:199:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16172,7 +16026,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
     (return-type (tag . "Uint8")))
   ((tag . "function") (name . "SDL_ReadLE16") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:200:32")
+    (location . "/usr/include/SDL2/SDL_rwops.h:200:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16181,7 +16035,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
     (return-type (tag . "Uint16")))
   ((tag . "function") (name . "SDL_ReadBE16") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:201:32")
+    (location . "/usr/include/SDL2/SDL_rwops.h:201:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16190,7 +16044,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
     (return-type (tag . "Uint16")))
   ((tag . "function") (name . "SDL_ReadLE32") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:202:32")
+    (location . "/usr/include/SDL2/SDL_rwops.h:202:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16199,7 +16053,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_ReadBE32") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:203:32")
+    (location . "/usr/include/SDL2/SDL_rwops.h:203:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16208,7 +16062,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_ReadLE64") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:204:32")
+    (location . "/usr/include/SDL2/SDL_rwops.h:204:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16217,7 +16071,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
     (return-type (tag . "Uint64")))
   ((tag . "function") (name . "SDL_ReadBE64") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rwops.h:205:32")
+    (location . "/usr/include/SDL2/SDL_rwops.h:205:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16228,15 +16082,15 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AudioFormat")
-    (location . "/usr/local/include/SDL2/SDL_audio.h:64:16")
+    (location . "/usr/include/SDL2/SDL_audio.h:64:16")
     (type (tag . "Uint16")))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AudioCallback")
-    (location . "/usr/local/include/SDL2/SDL_audio.h:162:25")
+    (location . "/usr/include/SDL2/SDL_audio.h:162:25")
     (type (tag . ":function-pointer")))
   ((tag . "struct") (ns . 0) (name . "SDL_AudioSpec") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:168:16")
+    (location . "/usr/include/SDL2/SDL_audio.h:168:16")
     (bit-size . 256) (bit-alignment . 64)
     (fields
       .
@@ -16263,18 +16117,18 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AudioSpec")
-    (location . "/usr/local/include/SDL2/SDL_audio.h:179:3")
-    (type (tag . ":struct") (name . "SDL_AudioSpec") (id . 55)))
+    (location . "/usr/include/SDL2/SDL_audio.h:179:3")
+    (type (tag . ":struct") (name . "SDL_AudioSpec") (id . 50)))
   ((tag . "struct") (ns . 0) (name . "SDL_AudioCVT") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:182:8")
+    (location . "/usr/include/SDL2/SDL_audio.h:182:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AudioFilter")
-    (location . "/usr/local/include/SDL2/SDL_audio.h:183:25")
+    (location . "/usr/include/SDL2/SDL_audio.h:183:25")
     (type (tag . ":function-pointer")))
   ((tag . "struct") (ns . 0) (name . "SDL_AudioCVT") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:200:16")
+    (location . "/usr/include/SDL2/SDL_audio.h:200:16")
     (bit-size . 1024) (bit-alignment . 8)
     (fields
       .
@@ -16324,10 +16178,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AudioCVT")
-    (location . "/usr/local/include/SDL2/SDL_audio.h:213:23")
-    (type (tag . ":struct") (name . "SDL_AudioCVT") (id . 56)))
+    (location . "/usr/include/SDL2/SDL_audio.h:213:23")
+    (type (tag . ":struct") (name . "SDL_AudioCVT") (id . 51)))
   ((tag . "function") (name . "SDL_GetNumAudioDrivers") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:225:29")
+    (location . "/usr/include/SDL2/SDL_audio.h:225:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -16335,7 +16189,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetAudioDriver") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:226:37")
+    (location . "/usr/include/SDL2/SDL_audio.h:226:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16349,7 +16203,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_AudioInit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:237:29")
+    (location . "/usr/include/SDL2/SDL_audio.h:237:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16366,18 +16220,18 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_AudioQuit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:238:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:238:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetCurrentAudioDriver") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:245:37")
+    (location . "/usr/include/SDL2/SDL_audio.h:245:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_OpenAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:291:29")
+    (location . "/usr/include/SDL2/SDL_audio.h:292:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16394,10 +16248,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AudioDeviceID")
-    (location . "/usr/local/include/SDL2/SDL_audio.h:303:16")
+    (location . "/usr/include/SDL2/SDL_audio.h:304:16")
     (type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_GetNumAudioDevices") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:317:29")
+    (location . "/usr/include/SDL2/SDL_audio.h:318:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16412,7 +16266,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetAudioDeviceName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:332:37")
+    (location . "/usr/include/SDL2/SDL_audio.h:333:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16429,7 +16283,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_OpenAudioDevice") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:349:43")
+    (location . "/usr/include/SDL2/SDL_audio.h:350:43")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16454,8 +16308,8 @@
             (bit-size . 32)
             (bit-alignment . 32)))))
     (return-type (tag . "SDL_AudioDeviceID")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 57)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:368:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 52)
+    (location . "/usr/include/SDL2/SDL_audio.h:369:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_AUDIO_STOPPED") (value . 0))
@@ -16464,14 +16318,14 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AudioStatus")
-    (location . "/usr/local/include/SDL2/SDL_audio.h:373:3")
-    (type (tag . ":enum") (name . "") (id . 57)))
+    (location . "/usr/include/SDL2/SDL_audio.h:374:3")
+    (type (tag . ":enum") (name . "") (id . 52)))
   ((tag . "function") (name . "SDL_GetAudioStatus") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:374:41")
+    (location . "/usr/include/SDL2/SDL_audio.h:375:41")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_AudioStatus")))
   ((tag . "function") (name . "SDL_GetAudioDeviceStatus") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:377:1")
+    (location . "/usr/include/SDL2/SDL_audio.h:378:1")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16480,7 +16334,7 @@
           (type (tag . "SDL_AudioDeviceID")))))
     (return-type (tag . "SDL_AudioStatus")))
   ((tag . "function") (name . "SDL_PauseAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:390:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:391:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16492,7 +16346,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_PauseAudioDevice") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:391:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:392:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16507,7 +16361,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LoadWAV_RW") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:414:40")
+    (location . "/usr/include/SDL2/SDL_audio.h:415:40")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16532,7 +16386,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_AudioSpec"))))
   ((tag . "function") (name . "SDL_FreeWAV") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:430:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:431:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16541,7 +16395,7 @@
           (type (tag . ":pointer") (type (tag . "Uint8"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_BuildAudioCVT") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:441:29")
+    (location . "/usr/include/SDL2/SDL_audio.h:442:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16574,7 +16428,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_ConvertAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:459:29")
+    (location . "/usr/include/SDL2/SDL_audio.h:460:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16586,7 +16440,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_MixAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:469:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:470:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16605,7 +16459,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_MixAudioFormat") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:477:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:478:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16627,7 +16481,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_QueueAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:517:29")
+    (location . "/usr/include/SDL2/SDL_audio.h:522:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16644,8 +16498,23 @@
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
+  ((tag . "function") (name . "SDL_DequeueAudio") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_audio.h:568:32")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "dev")
+          (type (tag . "SDL_AudioDeviceID")))
+        ((tag . "parameter")
+          (name . "data")
+          (type (tag . ":pointer") (type (tag . ":void"))))
+        ((tag . "parameter")
+          (name . "len")
+          (type (tag . "Uint32")))))
+    (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_GetQueuedAudioSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:544:32")
+    (location . "/usr/include/SDL2/SDL_audio.h:604:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16654,7 +16523,7 @@
           (type (tag . "SDL_AudioDeviceID")))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_ClearQueuedAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:573:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:640:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16663,11 +16532,11 @@
           (type (tag . "SDL_AudioDeviceID")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LockAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:585:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:652:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LockAudioDevice") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:586:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:653:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16676,11 +16545,11 @@
           (type (tag . "SDL_AudioDeviceID")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_UnlockAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:587:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:654:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_UnlockAudioDevice") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:588:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:655:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16689,11 +16558,11 @@
           (type (tag . "SDL_AudioDeviceID")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_CloseAudio") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:594:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:661:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_CloseAudioDevice") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_audio.h:595:30")
+    (location . "/usr/include/SDL2/SDL_audio.h:662:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16702,7 +16571,7 @@
           (type (tag . "SDL_AudioDeviceID")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetClipboardText") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_clipboard.h:46:29")
+    (location . "/usr/include/SDL2/SDL_clipboard.h:46:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -16719,18 +16588,18 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetClipboardText") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_clipboard.h:53:32")
+    (location . "/usr/include/SDL2/SDL_clipboard.h:53:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_HasClipboardText") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_clipboard.h:60:34")
+    (location . "/usr/include/SDL2/SDL_clipboard.h:60:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_GetCPUCount") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:82:29")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:82:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -16738,7 +16607,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetCPUCacheLineSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:90:29")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:90:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -16746,59 +16615,59 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HasRDTSC") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:95:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:95:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasAltiVec") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:100:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:100:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasMMX") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:105:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:105:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_Has3DNow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:110:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:110:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasSSE") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:115:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:115:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasSSE2") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:120:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:120:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasSSE3") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:125:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:125:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasSSE41") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:130:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:130:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasSSE42") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:135:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:135:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasAVX") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:140:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:140:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasAVX2") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:145:34")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:145:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_GetSystemRAM") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_cpuinfo.h:150:29")
+    (location . "/usr/include/SDL2/SDL_cpuinfo.h:150:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 58)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:50:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 53)
+    (location . "/usr/include/SDL2/SDL_pixels.h:51:1")
     (fields
       .
       #(((tag . "field")
@@ -16837,8 +16706,8 @@
         ((tag . "field")
           (name . "SDL_PIXELTYPE_ARRAYF32")
           (value . 11)))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 59)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:67:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 54)
+    (location . "/usr/include/SDL2/SDL_pixels.h:68:1")
     (fields
       .
       #(((tag . "field")
@@ -16850,8 +16719,8 @@
         ((tag . "field")
           (name . "SDL_BITMAPORDER_1234")
           (value . 2)))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 60)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:75:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 55)
+    (location . "/usr/include/SDL2/SDL_pixels.h:76:1")
     (fields
       .
       #(((tag . "field")
@@ -16881,8 +16750,8 @@
         ((tag . "field")
           (name . "SDL_PACKEDORDER_BGRA")
           (value . 8)))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 61)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:91:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 56)
+    (location . "/usr/include/SDL2/SDL_pixels.h:92:1")
     (fields
       .
       #(((tag . "field") (name . "SDL_ARRAYORDER_NONE") (value . 0))
@@ -16894,8 +16763,8 @@
         ((tag . "field")
           (name . "SDL_ARRAYORDER_ABGR")
           (value . 6)))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 62)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:103:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 57)
+    (location . "/usr/include/SDL2/SDL_pixels.h:104:1")
     (fields
       .
       #(((tag . "field")
@@ -16925,8 +16794,8 @@
         ((tag . "field")
           (name . "SDL_PACKEDLAYOUT_1010102")
           (value . 8)))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 63)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:170:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 58)
+    (location . "/usr/include/SDL2/SDL_pixels.h:171:1")
     (fields
       .
       #(((tag . "field")
@@ -17023,6 +16892,18 @@
           (name . "SDL_PIXELFORMAT_ARGB2101010")
           (value . 372711428))
         ((tag . "field")
+          (name . "SDL_PIXELFORMAT_RGBA32")
+          (value . 376840196))
+        ((tag . "field")
+          (name . "SDL_PIXELFORMAT_ARGB32")
+          (value . 377888772))
+        ((tag . "field")
+          (name . "SDL_PIXELFORMAT_BGRA32")
+          (value . 372645892))
+        ((tag . "field")
+          (name . "SDL_PIXELFORMAT_ABGR32")
+          (value . 373694468))
+        ((tag . "field")
           (name . "SDL_PIXELFORMAT_YV12")
           (value . 842094169))
         ((tag . "field")
@@ -17044,7 +16925,7 @@
           (name . "SDL_PIXELFORMAT_NV21")
           (value . 825382478)))))
   ((tag . "struct") (ns . 0) (name . "SDL_Color") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:279:16")
+    (location . "/usr/include/SDL2/SDL_pixels.h:293:16")
     (bit-size . 32) (bit-alignment . 8)
     (fields
       .
@@ -17060,10 +16941,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Color")
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:285:3")
-    (type (tag . ":struct") (name . "SDL_Color") (id . 64)))
+    (location . "/usr/include/SDL2/SDL_pixels.h:299:3")
+    (type (tag . ":struct") (name . "SDL_Color") (id . 59)))
   ((tag . "struct") (ns . 0) (name . "SDL_Palette") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:288:16")
+    (location . "/usr/include/SDL2/SDL_pixels.h:302:16")
     (bit-size . 192) (bit-alignment . 64)
     (fields
       .
@@ -17084,10 +16965,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Palette")
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:294:3")
-    (type (tag . ":struct") (name . "SDL_Palette") (id . 65)))
+    (location . "/usr/include/SDL2/SDL_pixels.h:308:3")
+    (type (tag . ":struct") (name . "SDL_Palette") (id . 60)))
   ((tag . "struct") (ns . 0) (name . "SDL_PixelFormat") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:299:16")
+    (location . "/usr/include/SDL2/SDL_pixels.h:313:16")
     (bit-size . 448) (bit-alignment . 64)
     (fields
       .
@@ -17137,17 +17018,17 @@
             (type
               (tag . ":struct")
               (name . "SDL_PixelFormat")
-              (id . 66)))))))
+              (id . 61)))))))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_PixelFormat")
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:320:3")
+    (location . "/usr/include/SDL2/SDL_pixels.h:334:3")
     (type
       (tag . ":struct")
       (name . "SDL_PixelFormat")
-      (id . 66)))
+      (id . 61)))
   ((tag . "function") (name . "SDL_GetPixelFormatName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:325:37")
+    (location . "/usr/include/SDL2/SDL_pixels.h:339:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17158,7 +17039,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_PixelFormatEnumToMasks") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:334:34")
+    (location . "/usr/include/SDL2/SDL_pixels.h:348:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17184,7 +17065,7 @@
           (type (tag . ":pointer") (type (tag . "Uint32"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_MasksToPixelFormatEnum") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:349:32")
+    (location . "/usr/include/SDL2/SDL_pixels.h:363:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17205,7 +17086,7 @@
           (type (tag . "Uint32")))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_AllocFormat") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:358:43")
+    (location . "/usr/include/SDL2/SDL_pixels.h:372:43")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17216,7 +17097,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_PixelFormat"))))
   ((tag . "function") (name . "SDL_FreeFormat") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:363:30")
+    (location . "/usr/include/SDL2/SDL_pixels.h:377:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17227,7 +17108,7 @@
             (type (tag . "SDL_PixelFormat"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_AllocPalette") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:375:38")
+    (location . "/usr/include/SDL2/SDL_pixels.h:389:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17241,7 +17122,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Palette"))))
   ((tag . "function") (name . "SDL_SetPixelFormatPalette") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:380:29")
+    (location . "/usr/include/SDL2/SDL_pixels.h:394:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17256,7 +17137,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetPaletteColors") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:393:29")
+    (location . "/usr/include/SDL2/SDL_pixels.h:407:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17280,7 +17161,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_FreePalette") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:402:30")
+    (location . "/usr/include/SDL2/SDL_pixels.h:416:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17289,7 +17170,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Palette"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_MapRGB") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:409:32")
+    (location . "/usr/include/SDL2/SDL_pixels.h:423:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17301,7 +17182,7 @@
         ((tag . "parameter") (name . "b") (type (tag . "Uint8")))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_MapRGBA") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:417:32")
+    (location . "/usr/include/SDL2/SDL_pixels.h:431:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17314,7 +17195,7 @@
         ((tag . "parameter") (name . "a") (type (tag . "Uint8")))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_GetRGB") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:426:30")
+    (location . "/usr/include/SDL2/SDL_pixels.h:440:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17335,7 +17216,7 @@
           (type (tag . ":pointer") (type (tag . "Uint8"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetRGBA") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:435:30")
+    (location . "/usr/include/SDL2/SDL_pixels.h:449:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17359,7 +17240,7 @@
           (type (tag . ":pointer") (type (tag . "Uint8"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_CalculateGammaRamp") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_pixels.h:443:30")
+    (location . "/usr/include/SDL2/SDL_pixels.h:457:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17374,7 +17255,7 @@
           (type (tag . ":pointer") (type (tag . "Uint16"))))))
     (return-type (tag . ":void")))
   ((tag . "struct") (ns . 0) (name . "SDL_Point") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:48:16")
+    (location . "/usr/include/SDL2/SDL_rect.h:48:16")
     (bit-size . 64) (bit-alignment . 32)
     (fields
       .
@@ -17390,10 +17271,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Point")
-    (location . "/usr/local/include/SDL2/SDL_rect.h:52:3")
-    (type (tag . ":struct") (name . "SDL_Point") (id . 67)))
+    (location . "/usr/include/SDL2/SDL_rect.h:52:3")
+    (type (tag . ":struct") (name . "SDL_Point") (id . 62)))
   ((tag . "struct") (ns . 0) (name . "SDL_Rect") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:64:16")
+    (location . "/usr/include/SDL2/SDL_rect.h:64:16")
     (bit-size . 128) (bit-alignment . 32)
     (fields
       .
@@ -17415,10 +17296,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Rect")
-    (location . "/usr/local/include/SDL2/SDL_rect.h:68:3")
-    (type (tag . ":struct") (name . "SDL_Rect") (id . 68)))
+    (location . "/usr/include/SDL2/SDL_rect.h:68:3")
+    (type (tag . ":struct") (name . "SDL_Rect") (id . 63)))
   ((tag . "function") (name . "SDL_PointInRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:73:27")
+    (location . "/usr/include/SDL2/SDL_rect.h:73:27")
     (variadic . #f) (inline . #t) (storage-class . "static")
     (parameters
       .
@@ -17430,7 +17311,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_RectEmpty") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:82:27")
+    (location . "/usr/include/SDL2/SDL_rect.h:82:27")
     (variadic . #f) (inline . #t) (storage-class . "static")
     (parameters
       .
@@ -17439,7 +17320,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_RectEquals") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:90:27")
+    (location . "/usr/include/SDL2/SDL_rect.h:90:27")
     (variadic . #f) (inline . #t) (storage-class . "static")
     (parameters
       .
@@ -17451,7 +17332,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasIntersection") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:101:34")
+    (location . "/usr/include/SDL2/SDL_rect.h:101:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17463,7 +17344,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_IntersectRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:109:34")
+    (location . "/usr/include/SDL2/SDL_rect.h:109:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17478,7 +17359,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_UnionRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:116:30")
+    (location . "/usr/include/SDL2/SDL_rect.h:116:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17493,7 +17374,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_EnclosePoints") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:125:34")
+    (location . "/usr/include/SDL2/SDL_rect.h:125:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17511,7 +17392,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_IntersectRectAndLine") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_rect.h:135:34")
+    (location . "/usr/include/SDL2/SDL_rect.h:135:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17542,8 +17423,8 @@
               (bit-size . 32)
               (bit-alignment . 32))))))
     (return-type (tag . "SDL_bool")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 69)
-    (location . "/usr/local/include/SDL2/SDL_blendmode.h:40:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 64)
+    (location . "/usr/include/SDL2/SDL_blendmode.h:40:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_BLENDMODE_NONE") (value . 0))
@@ -17555,10 +17436,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_BlendMode")
-    (location . "/usr/local/include/SDL2/SDL_blendmode.h:53:3")
-    (type (tag . ":enum") (name . "") (id . 69)))
+    (location . "/usr/include/SDL2/SDL_blendmode.h:53:3")
+    (type (tag . ":enum") (name . "") (id . 64)))
   ((tag . "struct") (ns . 0) (name . "SDL_Surface") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:69:16")
+    (location . "/usr/include/SDL2/SDL_surface.h:69:16")
     (bit-size . 768) (bit-alignment . 64)
     (fields
       .
@@ -17595,7 +17476,7 @@
           (type
             (tag . ":pointer")
             (type (tag . "struct") (ns . 0) (name . "SDL_BlitMap") (id . 0)
-              (location . "/usr/local/include/SDL2/SDL_surface.h:88:12")
+              (location . "/usr/include/SDL2/SDL_surface.h:88:12")
               (bit-size . 0) (bit-alignment . 0) (fields . #()))))
         ((tag . "field") (name . "refcount") (bit-offset . 704) (bit-size . 32)
           (bit-alignment . 32)
@@ -17603,21 +17484,21 @@
             (tag . ":int")
             (bit-size . 32)
             (bit-alignment . 32))))))
-  ((tag . "struct") (ns . 71) (name . "SDL_BlitMap") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:88:12")
+  ((tag . "struct") (ns . 66) (name . "SDL_BlitMap") (id . 0)
+    (location . "/usr/include/SDL2/SDL_surface.h:88:12")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Surface")
-    (location . "/usr/local/include/SDL2/SDL_surface.h:92:3")
-    (type (tag . ":struct") (name . "SDL_Surface") (id . 71)))
+    (location . "/usr/include/SDL2/SDL_surface.h:92:3")
+    (type (tag . ":struct") (name . "SDL_Surface") (id . 66)))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_blit")
-    (location . "/usr/local/include/SDL2/SDL_surface.h:97:15")
+    (location . "/usr/include/SDL2/SDL_surface.h:97:15")
     (type (tag . ":function-pointer")))
   ((tag . "function") (name . "SDL_CreateRGBSurface") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:118:38")
+    (location . "/usr/include/SDL2/SDL_surface.h:118:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17648,8 +17529,31 @@
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "SDL_CreateRGBSurfaceWithFormat") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_surface.h:121:38")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "flags")
+          (type (tag . "Uint32")))
+        ((tag . "parameter")
+          (name . "width")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "height")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "depth")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "format")
+          (type (tag . "Uint32")))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
   ((tag . "function") (name . "SDL_CreateRGBSurfaceFrom") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:121:38")
+    (location . "/usr/include/SDL2/SDL_surface.h:123:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17683,8 +17587,34 @@
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "SDL_CreateRGBSurfaceWithFormatFrom") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_surface.h:132:38")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "pixels")
+          (type (tag . ":pointer") (type (tag . ":void"))))
+        ((tag . "parameter")
+          (name . "width")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "height")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "depth")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "pitch")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "format")
+          (type (tag . "Uint32")))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
   ((tag . "function") (name . "SDL_FreeSurface") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:130:30")
+    (location . "/usr/include/SDL2/SDL_surface.h:134:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17693,7 +17623,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Surface"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetSurfacePalette") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:139:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:143:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17708,7 +17638,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_LockSurface") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:161:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:165:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17720,7 +17650,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_UnlockSurface") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:163:30")
+    (location . "/usr/include/SDL2/SDL_surface.h:167:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17729,7 +17659,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Surface"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LoadBMP_RW") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:174:38")
+    (location . "/usr/include/SDL2/SDL_surface.h:178:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17746,7 +17676,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Surface"))))
   ((tag . "function") (name . "SDL_SaveBMP_RW") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:191:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:201:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17767,7 +17697,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetSurfaceRLE") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:210:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:220:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17785,7 +17715,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetColorKey") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:224:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:234:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17803,7 +17733,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetColorKey") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:237:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:247:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17818,7 +17748,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetSurfaceColorMod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:252:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:262:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17833,7 +17763,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetSurfaceColorMod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:268:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:278:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17854,7 +17784,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetSurfaceAlphaMod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:282:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:292:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17869,7 +17799,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetSurfaceAlphaMod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:295:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:305:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17884,7 +17814,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetSurfaceBlendMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:308:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:318:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17899,7 +17829,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetSurfaceBlendMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:321:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:331:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17914,7 +17844,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetClipRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:337:34")
+    (location . "/usr/include/SDL2/SDL_surface.h:347:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17926,7 +17856,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_GetClipRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:346:30")
+    (location . "/usr/include/SDL2/SDL_surface.h:356:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17938,7 +17868,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_ConvertSurface") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:359:38")
+    (location . "/usr/include/SDL2/SDL_surface.h:369:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17955,7 +17885,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Surface"))))
   ((tag . "function") (name . "SDL_ConvertSurfaceFormat") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:361:38")
+    (location . "/usr/include/SDL2/SDL_surface.h:371:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -17972,7 +17902,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Surface"))))
   ((tag . "function") (name . "SDL_ConvertPixels") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:369:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:379:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18008,7 +17938,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_FillRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:385:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:395:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18026,7 +17956,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_FillRects") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:387:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:397:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18047,7 +17977,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_UpperBlit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:453:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:463:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18068,7 +17998,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_LowerBlit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:461:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:471:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18089,7 +18019,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SoftStretch") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:471:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:481:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18110,7 +18040,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_UpperBlitScaled") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:482:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:492:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18131,7 +18061,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_LowerBlitScaled") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_surface.h:490:29")
+    (location . "/usr/include/SDL2/SDL_surface.h:500:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18154,9 +18084,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_DisplayMode")
-    (location . "/usr/local/include/SDL2/SDL_video.h:60:3")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 72)
-      (location . "/usr/local/include/SDL2/SDL_video.h:53:9")
+    (location . "/usr/include/SDL2/SDL_video.h:60:3")
+    (type (tag . "struct") (ns . 0) (name . "") (id . 67)
+      (location . "/usr/include/SDL2/SDL_video.h:53:9")
       (bit-size . 192) (bit-alignment . 64)
       (fields
         .
@@ -18175,18 +18105,17 @@
             (bit-alignment . 64)
             (type (tag . ":pointer") (type (tag . ":void"))))))))
   ((tag . "struct") (ns . 0) (name . "SDL_Window") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:89:16")
+    (location . "/usr/include/SDL2/SDL_video.h:90:16")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Window")
-    (location . "/usr/local/include/SDL2/SDL_video.h:89:27")
-    (type (tag . "struct") (ns . 32666) (name . "SDL_Window")
-      (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_video.h:89:16")
+    (location . "/usr/include/SDL2/SDL_video.h:90:27")
+    (type (tag . "struct") (ns . 0) (name . "SDL_Window") (id . 0)
+      (location . "/usr/include/SDL2/SDL_video.h:90:16")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
-  ((tag . "enum") (ns . 0) (name . "") (id . 74)
-    (location . "/usr/local/include/SDL2/SDL_video.h:96:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 69)
+    (location . "/usr/include/SDL2/SDL_video.h:97:9")
     (fields
       .
       #(((tag . "field")
@@ -18227,14 +18156,29 @@
           (value . 8192))
         ((tag . "field")
           (name . "SDL_WINDOW_MOUSE_CAPTURE")
-          (value . 16384)))))
+          (value . 16384))
+        ((tag . "field")
+          (name . "SDL_WINDOW_ALWAYS_ON_TOP")
+          (value . 32768))
+        ((tag . "field")
+          (name . "SDL_WINDOW_SKIP_TASKBAR")
+          (value . 65536))
+        ((tag . "field")
+          (name . "SDL_WINDOW_UTILITY")
+          (value . 131072))
+        ((tag . "field")
+          (name . "SDL_WINDOW_TOOLTIP")
+          (value . 262144))
+        ((tag . "field")
+          (name . "SDL_WINDOW_POPUP_MENU")
+          (value . 524288)))))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_WindowFlags")
-    (location . "/usr/local/include/SDL2/SDL_video.h:113:3")
-    (type (tag . ":enum") (name . "") (id . 74)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 75)
-    (location . "/usr/local/include/SDL2/SDL_video.h:136:9")
+    (location . "/usr/include/SDL2/SDL_video.h:120:3")
+    (type (tag . ":enum") (name . "") (id . 69)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 70)
+    (location . "/usr/include/SDL2/SDL_video.h:143:9")
     (fields
       .
       #(((tag . "field")
@@ -18281,19 +18225,25 @@
           (value . 13))
         ((tag . "field")
           (name . "SDL_WINDOWEVENT_CLOSE")
-          (value . 14)))))
+          (value . 14))
+        ((tag . "field")
+          (name . "SDL_WINDOWEVENT_TAKE_FOCUS")
+          (value . 15))
+        ((tag . "field")
+          (name . "SDL_WINDOWEVENT_HIT_TEST")
+          (value . 16)))))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_WindowEventID")
-    (location . "/usr/local/include/SDL2/SDL_video.h:159:3")
-    (type (tag . ":enum") (name . "") (id . 75)))
+    (location . "/usr/include/SDL2/SDL_video.h:167:3")
+    (type (tag . ":enum") (name . "") (id . 70)))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GLContext")
-    (location . "/usr/local/include/SDL2/SDL_video.h:164:15")
+    (location . "/usr/include/SDL2/SDL_video.h:172:15")
     (type (tag . ":pointer") (type (tag . ":void"))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 76)
-    (location . "/usr/local/include/SDL2/SDL_video.h:169:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 71)
+    (location . "/usr/include/SDL2/SDL_video.h:177:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_GL_RED_SIZE") (value . 0))
@@ -18354,10 +18304,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GLattr")
-    (location . "/usr/local/include/SDL2/SDL_video.h:196:3")
-    (type (tag . ":enum") (name . "") (id . 76)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 77)
-    (location . "/usr/local/include/SDL2/SDL_video.h:198:9")
+    (location . "/usr/include/SDL2/SDL_video.h:204:3")
+    (type (tag . ":enum") (name . "") (id . 71)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 72)
+    (location . "/usr/include/SDL2/SDL_video.h:206:9")
     (fields
       .
       #(((tag . "field")
@@ -18372,10 +18322,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GLprofile")
-    (location . "/usr/local/include/SDL2/SDL_video.h:203:3")
-    (type (tag . ":enum") (name . "") (id . 77)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 78)
-    (location . "/usr/local/include/SDL2/SDL_video.h:205:9")
+    (location . "/usr/include/SDL2/SDL_video.h:211:3")
+    (type (tag . ":enum") (name . "") (id . 72)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 73)
+    (location . "/usr/include/SDL2/SDL_video.h:213:9")
     (fields
       .
       #(((tag . "field")
@@ -18393,10 +18343,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GLcontextFlag")
-    (location . "/usr/local/include/SDL2/SDL_video.h:211:3")
-    (type (tag . ":enum") (name . "") (id . 78)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 79)
-    (location . "/usr/local/include/SDL2/SDL_video.h:213:9")
+    (location . "/usr/include/SDL2/SDL_video.h:219:3")
+    (type (tag . ":enum") (name . "") (id . 73)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 74)
+    (location . "/usr/include/SDL2/SDL_video.h:221:9")
     (fields
       .
       #(((tag . "field")
@@ -18408,10 +18358,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GLcontextReleaseFlag")
-    (location . "/usr/local/include/SDL2/SDL_video.h:217:3")
-    (type (tag . ":enum") (name . "") (id . 79)))
+    (location . "/usr/include/SDL2/SDL_video.h:225:3")
+    (type (tag . ":enum") (name . "") (id . 74)))
   ((tag . "function") (name . "SDL_GetNumVideoDrivers") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:227:29")
+    (location . "/usr/include/SDL2/SDL_video.h:235:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -18419,7 +18369,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetVideoDriver") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:237:37")
+    (location . "/usr/include/SDL2/SDL_video.h:245:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18433,7 +18383,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_VideoInit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:253:29")
+    (location . "/usr/include/SDL2/SDL_video.h:261:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18450,18 +18400,18 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_VideoQuit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:262:30")
+    (location . "/usr/include/SDL2/SDL_video.h:270:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetCurrentVideoDriver") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:273:37")
+    (location . "/usr/include/SDL2/SDL_video.h:281:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GetNumVideoDisplays") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:280:29")
+    (location . "/usr/include/SDL2/SDL_video.h:288:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -18469,7 +18419,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetDisplayName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:289:38")
+    (location . "/usr/include/SDL2/SDL_video.h:297:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18483,7 +18433,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GetDisplayBounds") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:299:29")
+    (location . "/usr/include/SDL2/SDL_video.h:307:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18498,7 +18448,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetDisplayDPI") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:311:29")
+    (location . "/usr/include/SDL2/SDL_video.h:319:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18533,8 +18483,23 @@
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
+  ((tag . "function") (name . "SDL_GetDisplayUsableBounds") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_video.h:338:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "displayIndex")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "rect")
+          (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetNumDisplayModes") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:318:29")
+    (location . "/usr/include/SDL2/SDL_video.h:345:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18549,7 +18514,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetDisplayMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:331:29")
+    (location . "/usr/include/SDL2/SDL_video.h:358:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18569,7 +18534,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetDesktopDisplayMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:337:29")
+    (location . "/usr/include/SDL2/SDL_video.h:364:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18586,7 +18551,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetCurrentDisplayMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:342:29")
+    (location . "/usr/include/SDL2/SDL_video.h:369:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18603,7 +18568,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetClosestDisplayMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:366:43")
+    (location . "/usr/include/SDL2/SDL_video.h:393:43")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18622,7 +18587,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_DisplayMode"))))
   ((tag . "function") (name . "SDL_GetWindowDisplayIndex") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:374:29")
+    (location . "/usr/include/SDL2/SDL_video.h:401:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18634,7 +18599,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetWindowDisplayMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:390:29")
+    (location . "/usr/include/SDL2/SDL_video.h:417:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18651,7 +18616,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetWindowDisplayMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:401:29")
+    (location . "/usr/include/SDL2/SDL_video.h:428:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18668,7 +18633,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetWindowPixelFormat") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:407:32")
+    (location . "/usr/include/SDL2/SDL_video.h:434:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18677,7 +18642,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_CreateWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:436:38")
+    (location . "/usr/include/SDL2/SDL_video.h:463:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18705,7 +18670,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Window"))))
   ((tag . "function") (name . "SDL_CreateWindowFrom") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:449:38")
+    (location . "/usr/include/SDL2/SDL_video.h:476:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18716,7 +18681,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Window"))))
   ((tag . "function") (name . "SDL_GetWindowID") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:454:32")
+    (location . "/usr/include/SDL2/SDL_video.h:481:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18725,7 +18690,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_GetWindowFromID") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:459:38")
+    (location . "/usr/include/SDL2/SDL_video.h:486:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18736,7 +18701,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Window"))))
   ((tag . "function") (name . "SDL_GetWindowFlags") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:464:32")
+    (location . "/usr/include/SDL2/SDL_video.h:491:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18745,7 +18710,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_SetWindowTitle") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:471:30")
+    (location . "/usr/include/SDL2/SDL_video.h:498:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18762,7 +18727,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetWindowTitle") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:479:37")
+    (location . "/usr/include/SDL2/SDL_video.h:506:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18773,7 +18738,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_SetWindowIcon") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:487:30")
+    (location . "/usr/include/SDL2/SDL_video.h:514:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18785,7 +18750,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Surface"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetWindowData") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:503:31")
+    (location . "/usr/include/SDL2/SDL_video.h:530:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18802,7 +18767,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":pointer") (type (tag . ":void"))))
   ((tag . "function") (name . "SDL_GetWindowData") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:517:31")
+    (location . "/usr/include/SDL2/SDL_video.h:544:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18819,7 +18784,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":pointer") (type (tag . ":void"))))
   ((tag . "function") (name . "SDL_SetWindowPosition") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:533:30")
+    (location . "/usr/include/SDL2/SDL_video.h:560:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18837,7 +18802,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetWindowPosition") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:547:30")
+    (location . "/usr/include/SDL2/SDL_video.h:574:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18859,7 +18824,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetWindowSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:567:30")
+    (location . "/usr/include/SDL2/SDL_video.h:594:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18877,7 +18842,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetWindowSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:586:30")
+    (location . "/usr/include/SDL2/SDL_video.h:613:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18898,8 +18863,43 @@
               (bit-size . 32)
               (bit-alignment . 32))))))
     (return-type (tag . ":void")))
+  ((tag . "function") (name . "SDL_GetWindowBordersSize") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_video.h:631:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "window")
+          (type (tag . ":pointer") (type (tag . "SDL_Window"))))
+        ((tag . "parameter")
+          (name . "top")
+          (type
+            (tag . ":pointer")
+            (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))))
+        ((tag . "parameter")
+          (name . "left")
+          (type
+            (tag . ":pointer")
+            (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))))
+        ((tag . "parameter")
+          (name . "bottom")
+          (type
+            (tag . ":pointer")
+            (type (tag . ":int") (bit-size . 32) (bit-alignment . 32))))
+        ((tag . "parameter")
+          (name . "right")
+          (type
+            (tag . ":pointer")
+            (type
+              (tag . ":int")
+              (bit-size . 32)
+              (bit-alignment . 32))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetWindowMinimumSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:602:30")
+    (location . "/usr/include/SDL2/SDL_video.h:648:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18917,7 +18917,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetWindowMinimumSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:615:30")
+    (location . "/usr/include/SDL2/SDL_video.h:661:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18939,7 +18939,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetWindowMaximumSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:631:30")
+    (location . "/usr/include/SDL2/SDL_video.h:677:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18957,7 +18957,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetWindowMaximumSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:644:30")
+    (location . "/usr/include/SDL2/SDL_video.h:690:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18979,7 +18979,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetWindowBordered") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:661:30")
+    (location . "/usr/include/SDL2/SDL_video.h:707:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -18990,8 +18990,20 @@
           (name . "bordered")
           (type (tag . "SDL_bool")))))
     (return-type (tag . ":void")))
+  ((tag . "function") (name . "SDL_SetWindowResizable") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_video.h:724:30")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "window")
+          (type (tag . ":pointer") (type (tag . "SDL_Window"))))
+        ((tag . "parameter")
+          (name . "resizable")
+          (type (tag . "SDL_bool")))))
+    (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_ShowWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:669:30")
+    (location . "/usr/include/SDL2/SDL_video.h:732:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19000,7 +19012,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_HideWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:676:30")
+    (location . "/usr/include/SDL2/SDL_video.h:739:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19009,7 +19021,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_RaiseWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:681:30")
+    (location . "/usr/include/SDL2/SDL_video.h:744:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19018,7 +19030,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_MaximizeWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:688:30")
+    (location . "/usr/include/SDL2/SDL_video.h:751:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19027,7 +19039,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_MinimizeWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:695:30")
+    (location . "/usr/include/SDL2/SDL_video.h:758:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19036,7 +19048,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_RestoreWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:703:30")
+    (location . "/usr/include/SDL2/SDL_video.h:766:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19045,7 +19057,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetWindowFullscreen") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:713:29")
+    (location . "/usr/include/SDL2/SDL_video.h:776:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19060,7 +19072,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetWindowSurface") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:729:39")
+    (location . "/usr/include/SDL2/SDL_video.h:792:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19071,7 +19083,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Surface"))))
   ((tag . "function") (name . "SDL_UpdateWindowSurface") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:739:29")
+    (location . "/usr/include/SDL2/SDL_video.h:802:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19083,7 +19095,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_UpdateWindowSurfaceRects") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:749:29")
+    (location . "/usr/include/SDL2/SDL_video.h:812:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19104,7 +19116,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetWindowGrab") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:764:30")
+    (location . "/usr/include/SDL2/SDL_video.h:827:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19116,7 +19128,7 @@
           (type (tag . "SDL_bool")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetWindowGrab") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:774:34")
+    (location . "/usr/include/SDL2/SDL_video.h:837:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19125,14 +19137,14 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_GetGrabbedWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:783:38")
+    (location . "/usr/include/SDL2/SDL_video.h:846:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Window"))))
   ((tag . "function") (name . "SDL_SetWindowBrightness") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:793:29")
+    (location . "/usr/include/SDL2/SDL_video.h:856:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19150,7 +19162,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetWindowBrightness") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:802:31")
+    (location . "/usr/include/SDL2/SDL_video.h:865:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19161,8 +19173,73 @@
       (tag . ":float")
       (bit-size . 32)
       (bit-alignment . 32)))
+  ((tag . "function") (name . "SDL_SetWindowOpacity") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_video.h:878:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "window")
+          (type (tag . ":pointer") (type (tag . "SDL_Window"))))
+        ((tag . "parameter")
+          (name . "opacity")
+          (type
+            (tag . ":float")
+            (bit-size . 32)
+            (bit-alignment . 32)))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "SDL_GetWindowOpacity") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_video.h:893:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "window")
+          (type (tag . ":pointer") (type (tag . "SDL_Window"))))
+        ((tag . "parameter")
+          (name . "out_opacity")
+          (type
+            (tag . ":pointer")
+            (type
+              (tag . ":float")
+              (bit-size . 32)
+              (bit-alignment . 32))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "SDL_SetWindowModalFor") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_video.h:903:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "modal_window")
+          (type (tag . ":pointer") (type (tag . "SDL_Window"))))
+        ((tag . "parameter")
+          (name . "parent_window")
+          (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "SDL_SetWindowInputFocus") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_video.h:917:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "window")
+          (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetWindowGammaRamp") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:822:29")
+    (location . "/usr/include/SDL2/SDL_video.h:937:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19183,7 +19260,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetWindowGammaRamp") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:842:29")
+    (location . "/usr/include/SDL2/SDL_video.h:957:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19203,8 +19280,8 @@
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 80)
-    (location . "/usr/local/include/SDL2/SDL_video.h:852:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 75)
+    (location . "/usr/include/SDL2/SDL_video.h:967:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_HITTEST_NORMAL") (value . 0))
@@ -19238,15 +19315,15 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HitTestResult")
-    (location . "/usr/local/include/SDL2/SDL_video.h:864:3")
-    (type (tag . ":enum") (name . "") (id . 80)))
+    (location . "/usr/include/SDL2/SDL_video.h:979:3")
+    (type (tag . ":enum") (name . "") (id . 75)))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HitTest")
-    (location . "/usr/local/include/SDL2/SDL_video.h:871:37")
+    (location . "/usr/include/SDL2/SDL_video.h:986:37")
     (type (tag . ":function-pointer")))
   ((tag . "function") (name . "SDL_SetWindowHitTest") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:912:29")
+    (location . "/usr/include/SDL2/SDL_video.h:1027:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19264,7 +19341,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_DestroyWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:919:30")
+    (location . "/usr/include/SDL2/SDL_video.h:1034:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19273,19 +19350,19 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_IsScreenSaverEnabled") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:928:34")
+    (location . "/usr/include/SDL2/SDL_video.h:1043:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_EnableScreenSaver") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:936:30")
+    (location . "/usr/include/SDL2/SDL_video.h:1051:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_DisableScreenSaver") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:944:30")
+    (location . "/usr/include/SDL2/SDL_video.h:1059:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GL_LoadLibrary") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:970:29")
+    (location . "/usr/include/SDL2/SDL_video.h:1085:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19302,7 +19379,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GL_GetProcAddress") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:975:31")
+    (location . "/usr/include/SDL2/SDL_video.h:1090:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19316,11 +19393,11 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":pointer") (type (tag . ":void"))))
   ((tag . "function") (name . "SDL_GL_UnloadLibrary") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:982:30")
+    (location . "/usr/include/SDL2/SDL_video.h:1097:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GL_ExtensionSupported") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:988:34")
+    (location . "/usr/include/SDL2/SDL_video.h:1103:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19334,11 +19411,11 @@
               (bit-alignment . 8))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_GL_ResetAttributes") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:994:30")
+    (location . "/usr/include/SDL2/SDL_video.h:1109:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GL_SetAttribute") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:999:29")
+    (location . "/usr/include/SDL2/SDL_video.h:1114:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19356,7 +19433,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GL_GetAttribute") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1004:29")
+    (location . "/usr/include/SDL2/SDL_video.h:1119:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19376,7 +19453,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GL_CreateContext") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1012:39")
+    (location . "/usr/include/SDL2/SDL_video.h:1127:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19385,7 +19462,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . "SDL_GLContext")))
   ((tag . "function") (name . "SDL_GL_MakeCurrent") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1020:29")
+    (location . "/usr/include/SDL2/SDL_video.h:1135:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19400,18 +19477,18 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GL_GetCurrentWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1026:37")
+    (location . "/usr/include/SDL2/SDL_video.h:1141:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Window"))))
   ((tag . "function") (name . "SDL_GL_GetCurrentContext") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1031:39")
+    (location . "/usr/include/SDL2/SDL_video.h:1146:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_GLContext")))
   ((tag . "function") (name . "SDL_GL_GetDrawableSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1049:30")
+    (location . "/usr/include/SDL2/SDL_video.h:1164:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19433,7 +19510,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GL_SetSwapInterval") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1064:29")
+    (location . "/usr/include/SDL2/SDL_video.h:1179:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19448,7 +19525,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GL_GetSwapInterval") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1077:29")
+    (location . "/usr/include/SDL2/SDL_video.h:1192:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -19456,7 +19533,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GL_SwapWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1083:30")
+    (location . "/usr/include/SDL2/SDL_video.h:1198:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19465,7 +19542,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GL_DeleteContext") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_video.h:1090:30")
+    (location . "/usr/include/SDL2/SDL_video.h:1205:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -19473,8 +19550,8 @@
           (name . "context")
           (type (tag . "SDL_GLContext")))))
     (return-type (tag . ":void")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 81)
-    (location . "/usr/local/include/SDL2/SDL_scancode.h:43:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 76)
+    (location . "/usr/include/SDL2/SDL_scancode.h:43:9")
     (fields
       .
       #(((tag . "field")
@@ -19990,15 +20067,15 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Scancode")
-    (location . "/usr/local/include/SDL2/SDL_scancode.h:397:3")
-    (type (tag . ":enum") (name . "") (id . 81)))
+    (location . "/usr/include/SDL2/SDL_scancode.h:397:3")
+    (type (tag . ":enum") (name . "") (id . 76)))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Keycode")
-    (location . "/usr/local/include/SDL2/SDL_keycode.h:42:16")
+    (location . "/usr/include/SDL2/SDL_keycode.h:42:16")
     (type (tag . "Sint32")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 82)
-    (location . "/usr/local/include/SDL2/SDL_keycode.h:47:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 77)
+    (location . "/usr/include/SDL2/SDL_keycode.h:47:1")
     (fields
       .
       #(((tag . "field") (name . "SDLK_UNKNOWN") (value . 0))
@@ -20415,8 +20492,8 @@
         ((tag . "field")
           (name . "SDLK_SLEEP")
           (value . 1073742106)))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 83)
-    (location . "/usr/local/include/SDL2/SDL_keycode.h:317:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 78)
+    (location . "/usr/include/SDL2/SDL_keycode.h:317:9")
     (fields
       .
       #(((tag . "field") (name . "KMOD_NONE") (value . 0))
@@ -20437,10 +20514,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Keymod")
-    (location . "/usr/local/include/SDL2/SDL_keycode.h:332:3")
-    (type (tag . ":enum") (name . "") (id . 83)))
+    (location . "/usr/include/SDL2/SDL_keycode.h:332:3")
+    (type (tag . ":enum") (name . "") (id . 78)))
   ((tag . "struct") (ns . 0) (name . "SDL_Keysym") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:47:16")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:47:16")
     (bit-size . 128) (bit-alignment . 32)
     (fields
       .
@@ -20455,17 +20532,17 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Keysym")
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:53:3")
-    (type (tag . ":struct") (name . "SDL_Keysym") (id . 84)))
+    (location . "/usr/include/SDL2/SDL_keyboard.h:53:3")
+    (type (tag . ":struct") (name . "SDL_Keysym") (id . 79)))
   ((tag . "function") (name . "SDL_GetKeyboardFocus") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:60:38")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:60:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Window"))))
   ((tag . "function") (name . "SDL_GetKeyboardState") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:77:38")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:77:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20479,11 +20556,11 @@
               (bit-alignment . 32))))))
     (return-type (tag . ":pointer") (type (tag . "Uint8"))))
   ((tag . "function") (name . "SDL_GetModState") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:82:36")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:82:36")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_Keymod")))
   ((tag . "function") (name . "SDL_SetModState") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:89:30")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:89:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20492,7 +20569,7 @@
           (type (tag . "SDL_Keymod")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetKeyFromScancode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:99:37")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:99:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20501,7 +20578,7 @@
           (type (tag . "SDL_Scancode")))))
     (return-type (tag . "SDL_Keycode")))
   ((tag . "function") (name . "SDL_GetScancodeFromKey") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:109:38")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:109:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20510,7 +20587,7 @@
           (type (tag . "SDL_Keycode")))))
     (return-type (tag . "SDL_Scancode")))
   ((tag . "function") (name . "SDL_GetScancodeName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:120:37")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:120:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20521,7 +20598,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GetScancodeFromName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:129:38")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:129:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20535,7 +20612,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . "SDL_Scancode")))
   ((tag . "function") (name . "SDL_GetKeyName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:141:37")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:141:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20546,7 +20623,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GetKeyFromName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:150:37")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:150:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20560,19 +20637,19 @@
               (bit-alignment . 8))))))
     (return-type (tag . "SDL_Keycode")))
   ((tag . "function") (name . "SDL_StartTextInput") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:160:30")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:160:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_IsTextInputActive") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:168:34")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:168:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_StopTextInput") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:177:30")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:177:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetTextInputRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:185:30")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:185:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20581,11 +20658,11 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_HasScreenKeyboardSupport") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:196:34")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:196:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_IsScreenKeyboardShown") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_keyboard.h:207:34")
+    (location . "/usr/include/SDL2/SDL_keyboard.h:207:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20594,18 +20671,17 @@
           (type (tag . ":pointer") (type (tag . "SDL_Window"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "struct") (ns . 0) (name . "SDL_Cursor") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:41:16")
+    (location . "/usr/include/SDL2/SDL_mouse.h:41:16")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Cursor")
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:41:27")
-    (type (tag . "struct") (ns . 32666) (name . "SDL_Cursor")
-      (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_mouse.h:41:16")
+    (location . "/usr/include/SDL2/SDL_mouse.h:41:27")
+    (type (tag . "struct") (ns . 32547) (name . "SDL_Cursor")
+      (id . 0) (location . "/usr/include/SDL2/SDL_mouse.h:41:16")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
-  ((tag . "enum") (ns . 0) (name . "") (id . 86)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:46:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 81)
+    (location . "/usr/include/SDL2/SDL_mouse.h:46:9")
     (fields
       .
       #(((tag . "field")
@@ -20650,10 +20726,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_SystemCursor")
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:61:3")
-    (type (tag . ":enum") (name . "") (id . 86)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 87)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:66:9")
+    (location . "/usr/include/SDL2/SDL_mouse.h:61:3")
+    (type (tag . ":enum") (name . "") (id . 81)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 82)
+    (location . "/usr/include/SDL2/SDL_mouse.h:66:9")
     (fields
       .
       #(((tag . "field")
@@ -20665,17 +20741,17 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MouseWheelDirection")
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:70:3")
-    (type (tag . ":enum") (name . "") (id . 87)))
+    (location . "/usr/include/SDL2/SDL_mouse.h:70:3")
+    (type (tag . ":enum") (name . "") (id . 82)))
   ((tag . "function") (name . "SDL_GetMouseFocus") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:77:38")
+    (location . "/usr/include/SDL2/SDL_mouse.h:77:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Window"))))
   ((tag . "function") (name . "SDL_GetMouseState") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:87:32")
+    (location . "/usr/include/SDL2/SDL_mouse.h:87:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20694,7 +20770,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_GetGlobalMouseState") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:112:32")
+    (location . "/usr/include/SDL2/SDL_mouse.h:112:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20713,7 +20789,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_GetRelativeMouseState") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:121:32")
+    (location . "/usr/include/SDL2/SDL_mouse.h:121:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20732,7 +20808,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_WarpMouseInWindow") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:132:30")
+    (location . "/usr/include/SDL2/SDL_mouse.h:132:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20750,7 +20826,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_WarpMouseGlobal") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:144:29")
+    (location . "/usr/include/SDL2/SDL_mouse.h:144:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20768,7 +20844,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetRelativeMouseMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:162:29")
+    (location . "/usr/include/SDL2/SDL_mouse.h:162:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20780,7 +20856,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_CaptureMouse") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:193:29")
+    (location . "/usr/include/SDL2/SDL_mouse.h:193:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20792,11 +20868,11 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetRelativeMouseMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:200:34")
+    (location . "/usr/include/SDL2/SDL_mouse.h:200:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_CreateCursor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:220:37")
+    (location . "/usr/include/SDL2/SDL_mouse.h:220:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20825,7 +20901,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Cursor"))))
   ((tag . "function") (name . "SDL_CreateColorCursor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:230:37")
+    (location . "/usr/include/SDL2/SDL_mouse.h:230:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20845,7 +20921,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Cursor"))))
   ((tag . "function") (name . "SDL_CreateSystemCursor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:239:37")
+    (location . "/usr/include/SDL2/SDL_mouse.h:239:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20856,7 +20932,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Cursor"))))
   ((tag . "function") (name . "SDL_SetCursor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:244:30")
+    (location . "/usr/include/SDL2/SDL_mouse.h:244:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20865,21 +20941,21 @@
           (type (tag . ":pointer") (type (tag . "SDL_Cursor"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetCursor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:249:37")
+    (location . "/usr/include/SDL2/SDL_mouse.h:249:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Cursor"))))
   ((tag . "function") (name . "SDL_GetDefaultCursor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:254:37")
+    (location . "/usr/include/SDL2/SDL_mouse.h:254:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Cursor"))))
   ((tag . "function") (name . "SDL_FreeCursor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:261:30")
+    (location . "/usr/include/SDL2/SDL_mouse.h:263:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20888,7 +20964,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Cursor"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_ShowCursor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_mouse.h:271:29")
+    (location . "/usr/include/SDL2/SDL_mouse.h:273:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20903,21 +20979,22 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "struct") (ns . 0) (name . "_SDL_Joystick") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:64:8")
+    (location . "/usr/include/SDL2/SDL_joystick.h:64:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Joystick")
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:65:30")
-    (type (tag . "struct") (ns . 0) (name . "_SDL_Joystick") (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_joystick.h:64:8")
+    (location . "/usr/include/SDL2/SDL_joystick.h:65:30")
+    (type (tag . "struct") (ns . 32547) (name . "_SDL_Joystick")
+      (id . 0)
+      (location . "/usr/include/SDL2/SDL_joystick.h:64:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_JoystickGUID")
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:70:3")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 89)
-      (location . "/usr/local/include/SDL2/SDL_joystick.h:68:9")
+    (location . "/usr/include/SDL2/SDL_joystick.h:70:3")
+    (type (tag . "struct") (ns . 0) (name . "") (id . 84)
+      (location . "/usr/include/SDL2/SDL_joystick.h:68:9")
       (bit-size . 128) (bit-alignment . 8)
       (fields
         .
@@ -20930,10 +21007,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_JoystickID")
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:72:16")
+    (location . "/usr/include/SDL2/SDL_joystick.h:72:16")
     (type (tag . "Sint32")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 90)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:74:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 85)
+    (location . "/usr/include/SDL2/SDL_joystick.h:74:9")
     (fields
       .
       #(((tag . "field")
@@ -20960,10 +21037,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_JoystickPowerLevel")
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:83:3")
-    (type (tag . ":enum") (name . "") (id . 90)))
+    (location . "/usr/include/SDL2/SDL_joystick.h:83:3")
+    (type (tag . ":enum") (name . "") (id . 85)))
   ((tag . "function") (name . "SDL_NumJoysticks") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:89:29")
+    (location . "/usr/include/SDL2/SDL_joystick.h:89:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -20971,7 +21048,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_JoystickNameForIndex") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:96:37")
+    (location . "/usr/include/SDL2/SDL_joystick.h:96:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20985,7 +21062,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_JoystickOpen") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:107:39")
+    (location . "/usr/include/SDL2/SDL_joystick.h:107:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -20999,7 +21076,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Joystick"))))
   ((tag . "function") (name . "SDL_JoystickFromInstanceID") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:112:39")
+    (location . "/usr/include/SDL2/SDL_joystick.h:112:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21010,7 +21087,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Joystick"))))
   ((tag . "function") (name . "SDL_JoystickName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:118:37")
+    (location . "/usr/include/SDL2/SDL_joystick.h:118:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21021,7 +21098,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_JoystickGetDeviceGUID") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:123:42")
+    (location . "/usr/include/SDL2/SDL_joystick.h:123:42")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21033,7 +21110,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "SDL_JoystickGUID")))
   ((tag . "function") (name . "SDL_JoystickGetGUID") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:128:42")
+    (location . "/usr/include/SDL2/SDL_joystick.h:128:42")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21042,7 +21119,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Joystick"))))))
     (return-type (tag . "SDL_JoystickGUID")))
   ((tag . "function") (name . "SDL_JoystickGetGUIDString") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:134:30")
+    (location . "/usr/include/SDL2/SDL_joystick.h:134:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21062,7 +21139,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_JoystickGetGUIDFromString") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:139:42")
+    (location . "/usr/include/SDL2/SDL_joystick.h:139:42")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21076,7 +21153,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . "SDL_JoystickGUID")))
   ((tag . "function") (name . "SDL_JoystickGetAttached") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:144:34")
+    (location . "/usr/include/SDL2/SDL_joystick.h:144:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21085,7 +21162,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Joystick"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_JoystickInstanceID") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:149:40")
+    (location . "/usr/include/SDL2/SDL_joystick.h:149:40")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21094,7 +21171,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Joystick"))))))
     (return-type (tag . "SDL_JoystickID")))
   ((tag . "function") (name . "SDL_JoystickNumAxes") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:154:29")
+    (location . "/usr/include/SDL2/SDL_joystick.h:154:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21106,7 +21183,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_JoystickNumBalls") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:162:29")
+    (location . "/usr/include/SDL2/SDL_joystick.h:162:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21118,7 +21195,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_JoystickNumHats") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:167:29")
+    (location . "/usr/include/SDL2/SDL_joystick.h:167:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21130,7 +21207,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_JoystickNumButtons") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:172:29")
+    (location . "/usr/include/SDL2/SDL_joystick.h:172:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21142,11 +21219,11 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_JoystickUpdate") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:180:30")
+    (location . "/usr/include/SDL2/SDL_joystick.h:180:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_JoystickEventState") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:191:29")
+    (location . "/usr/include/SDL2/SDL_joystick.h:191:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21161,7 +21238,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_JoystickGetAxis") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:200:32")
+    (location . "/usr/include/SDL2/SDL_joystick.h:200:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21176,7 +21253,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "Sint16")))
   ((tag . "function") (name . "SDL_JoystickGetHat") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:234:31")
+    (location . "/usr/include/SDL2/SDL_joystick.h:234:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21191,7 +21268,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "Uint8")))
   ((tag . "function") (name . "SDL_JoystickGetBall") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:244:29")
+    (location . "/usr/include/SDL2/SDL_joystick.h:244:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21219,7 +21296,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_JoystickGetButton") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:252:31")
+    (location . "/usr/include/SDL2/SDL_joystick.h:252:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21234,7 +21311,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "Uint8")))
   ((tag . "function") (name . "SDL_JoystickClose") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:258:30")
+    (location . "/usr/include/SDL2/SDL_joystick.h:258:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21243,7 +21320,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Joystick"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_JoystickCurrentPowerLevel") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_joystick.h:263:48")
+    (location . "/usr/include/SDL2/SDL_joystick.h:263:48")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21252,26 +21329,18 @@
           (type (tag . ":pointer") (type (tag . "SDL_Joystick"))))))
     (return-type (tag . "SDL_JoystickPowerLevel")))
   ((tag . "struct") (ns . 0) (name . "_SDL_GameController") (id . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:55:8")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:55:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GameController")
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:56:36")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:56:36")
     (type (tag . "struct") (ns . 0) (name . "_SDL_GameController")
       (id . 0)
-      (location
-        .
-        "/usr/local/include/SDL2/SDL_gamecontroller.h:55:8")
+      (location . "/usr/include/SDL2/SDL_gamecontroller.h:55:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
-  ((tag . "enum") (ns . 0) (name . "") (id . 92)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:59:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 87)
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:59:9")
     (fields
       .
       #(((tag . "field")
@@ -21289,14 +21358,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GameControllerBindType")
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:65:3")
-    (type (tag . ":enum") (name . "") (id . 92)))
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:65:3")
+    (type (tag . ":enum") (name . "") (id . 87)))
   ((tag . "struct") (ns . 0) (name . "SDL_GameControllerButtonBind") (id . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:70:16")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:70:16")
     (bit-size . 96) (bit-alignment . 32)
     (fields
       .
@@ -21305,10 +21370,8 @@
           (type (tag . "SDL_GameControllerBindType")))
         ((tag . "field") (name . "value") (bit-offset . 32) (bit-size . 64)
           (bit-alignment . 32)
-          (type (tag . "union") (ns . 0) (name . "") (id . 93)
-            (location
-              .
-              "/usr/local/include/SDL2/SDL_gamecontroller.h:73:5")
+          (type (tag . "union") (ns . 1162893652) (name . "") (id . 88)
+            (location . "/usr/include/SDL2/SDL_gamecontroller.h:73:5")
             (bit-size . 64) (bit-alignment . 32)
             (fields
               .
@@ -21326,10 +21389,10 @@
                     (bit-alignment . 32)))
                 ((tag . "field") (name . "hat") (bit-offset . 0) (bit-size . 64)
                   (bit-alignment . 32)
-                  (type (tag . "struct") (ns . 0) (name . "") (id . 94)
+                  (type (tag . "struct") (ns . 0) (name . "") (id . 89)
                     (location
                       .
-                      "/usr/local/include/SDL2/SDL_gamecontroller.h:77:9")
+                      "/usr/include/SDL2/SDL_gamecontroller.h:77:9")
                     (bit-size . 64) (bit-alignment . 32)
                     (fields
                       .
@@ -21348,17 +21411,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GameControllerButtonBind")
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:83:3")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:83:3")
     (type
       (tag . ":struct")
       (name . "SDL_GameControllerButtonBind")
-      (id . 95)))
+      (id . 90)))
   ((tag . "function") (name . "SDL_GameControllerAddMappingsFromRW") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:120:29")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:120:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21376,9 +21435,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GameControllerAddMapping") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:134:29")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:134:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21395,9 +21452,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GameControllerMappingForGUID") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:141:32")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:141:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21408,9 +21463,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GameControllerMapping") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:148:32")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:148:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21423,9 +21476,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_IsGameController") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:153:34")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:153:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21437,9 +21488,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_GameControllerNameForIndex") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:161:37")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:161:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21453,9 +21502,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GameControllerOpen") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:172:45")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:172:45")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21469,9 +21516,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_GameController"))))
   ((tag . "function") (name . "SDL_GameControllerFromInstanceID") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:177:45")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:177:45")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21482,9 +21527,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_GameController"))))
   ((tag . "function") (name . "SDL_GameControllerName") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:182:37")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:182:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21497,9 +21540,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GameControllerGetAttached") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:188:34")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:188:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21510,9 +21551,7 @@
             (type (tag . "SDL_GameController"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_GameControllerGetJoystick") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:193:39")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:193:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21525,9 +21564,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Joystick"))))
   ((tag . "function") (name . "SDL_GameControllerEventState") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:204:29")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:204:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21542,15 +21579,11 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GameControllerUpdate") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:212:30")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:212:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 96)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:218:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 91)
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:218:9")
     (fields
       .
       #(((tag . "field")
@@ -21580,14 +21613,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GameControllerAxis")
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:228:3")
-    (type (tag . ":enum") (name . "") (id . 96)))
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:228:3")
+    (type (tag . ":enum") (name . "") (id . 91)))
   ((tag . "function") (name . "SDL_GameControllerGetAxisFromString") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:233:48")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:233:48")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21601,9 +21630,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . "SDL_GameControllerAxis")))
   ((tag . "function") (name . "SDL_GameControllerGetStringForAxis") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:238:37")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:238:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21614,9 +21641,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GameControllerGetBindForAxis") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:244:1")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:244:1")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21630,9 +21655,7 @@
           (type (tag . "SDL_GameControllerAxis")))))
     (return-type (tag . "SDL_GameControllerButtonBind")))
   ((tag . "function") (name . "SDL_GameControllerGetAxis") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:256:1")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:256:1")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21645,10 +21668,8 @@
           (name . "axis")
           (type (tag . "SDL_GameControllerAxis")))))
     (return-type (tag . "Sint16")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 97)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:262:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 92)
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:262:9")
     (fields
       .
       #(((tag . "field")
@@ -21705,14 +21726,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GameControllerButton")
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:281:3")
-    (type (tag . ":enum") (name . "") (id . 97)))
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:281:3")
+    (type (tag . ":enum") (name . "") (id . 92)))
   ((tag . "function") (name . "SDL_GameControllerGetButtonFromString") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:286:50")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:286:50")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21726,9 +21743,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . "SDL_GameControllerButton")))
   ((tag . "function") (name . "SDL_GameControllerGetStringForButton") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:291:37")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:291:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21739,9 +21754,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GameControllerGetBindForButton") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:297:1")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:297:1")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21755,9 +21768,7 @@
           (type (tag . "SDL_GameControllerButton")))))
     (return-type (tag . "SDL_GameControllerButtonBind")))
   ((tag . "function") (name . "SDL_GameControllerGetButton") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:306:31")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:306:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21771,9 +21782,7 @@
           (type (tag . "SDL_GameControllerButton")))))
     (return-type (tag . "Uint8")))
   ((tag . "function") (name . "SDL_GameControllerClose") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_gamecontroller.h:312:30")
+    (location . "/usr/include/SDL2/SDL_gamecontroller.h:312:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21786,15 +21795,15 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TouchID")
-    (location . "/usr/local/include/SDL2/SDL_touch.h:41:16")
+    (location . "/usr/include/SDL2/SDL_touch.h:41:16")
     (type (tag . "Sint64")))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_FingerID")
-    (location . "/usr/local/include/SDL2/SDL_touch.h:42:16")
+    (location . "/usr/include/SDL2/SDL_touch.h:42:16")
     (type (tag . "Sint64")))
   ((tag . "struct") (ns . 0) (name . "SDL_Finger") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_touch.h:44:16")
+    (location . "/usr/include/SDL2/SDL_touch.h:44:16")
     (bit-size . 192) (bit-alignment . 64)
     (fields
       .
@@ -21821,10 +21830,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Finger")
-    (location . "/usr/local/include/SDL2/SDL_touch.h:50:3")
-    (type (tag . ":struct") (name . "SDL_Finger") (id . 98)))
+    (location . "/usr/include/SDL2/SDL_touch.h:50:3")
+    (type (tag . ":struct") (name . "SDL_Finger") (id . 93)))
   ((tag . "function") (name . "SDL_GetNumTouchDevices") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_touch.h:61:29")
+    (location . "/usr/include/SDL2/SDL_touch.h:61:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -21832,7 +21841,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetTouchDevice") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_touch.h:66:37")
+    (location . "/usr/include/SDL2/SDL_touch.h:66:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21844,7 +21853,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "SDL_TouchID")))
   ((tag . "function") (name . "SDL_GetNumTouchFingers") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_touch.h:71:29")
+    (location . "/usr/include/SDL2/SDL_touch.h:71:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21856,7 +21865,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetTouchFinger") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_touch.h:76:38")
+    (location . "/usr/include/SDL2/SDL_touch.h:76:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21875,10 +21884,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_GestureID")
-    (location . "/usr/local/include/SDL2/SDL_gesture.h:44:16")
+    (location . "/usr/include/SDL2/SDL_gesture.h:44:16")
     (type (tag . "Sint64")))
   ((tag . "function") (name . "SDL_RecordGesture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_gesture.h:53:29")
+    (location . "/usr/include/SDL2/SDL_gesture.h:53:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21890,7 +21899,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SaveAllDollarTemplates") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_gesture.h:61:29")
+    (location . "/usr/include/SDL2/SDL_gesture.h:61:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21902,7 +21911,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SaveDollarTemplate") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_gesture.h:68:29")
+    (location . "/usr/include/SDL2/SDL_gesture.h:68:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21917,7 +21926,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_LoadDollarTemplates") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_gesture.h:76:29")
+    (location . "/usr/include/SDL2/SDL_gesture.h:76:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -21931,8 +21940,8 @@
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 99)
-    (location . "/usr/local/include/SDL2/SDL_events.h:55:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 94)
+    (location . "/usr/include/SDL2/SDL_events.h:55:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_FIRSTEVENT") (value . 0))
@@ -22015,6 +22024,9 @@
           (name . "SDL_CLIPBOARDUPDATE")
           (value . 2304))
         ((tag . "field") (name . "SDL_DROPFILE") (value . 4096))
+        ((tag . "field") (name . "SDL_DROPTEXT") (value . 4097))
+        ((tag . "field") (name . "SDL_DROPBEGIN") (value . 4098))
+        ((tag . "field") (name . "SDL_DROPCOMPLETE") (value . 4099))
         ((tag . "field")
           (name . "SDL_AUDIODEVICEADDED")
           (value . 4352))
@@ -22034,10 +22046,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_EventType")
-    (location . "/usr/local/include/SDL2/SDL_events.h:157:3")
-    (type (tag . ":enum") (name . "") (id . 99)))
+    (location . "/usr/include/SDL2/SDL_events.h:160:3")
+    (type (tag . ":enum") (name . "") (id . 94)))
   ((tag . "struct") (ns . 0) (name . "SDL_CommonEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:162:16")
+    (location . "/usr/include/SDL2/SDL_events.h:165:16")
     (bit-size . 64) (bit-alignment . 32)
     (fields
       .
@@ -22048,13 +22060,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_CommonEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:166:3")
+    (location . "/usr/include/SDL2/SDL_events.h:169:3")
     (type
       (tag . ":struct")
       (name . "SDL_CommonEvent")
-      (id . 100)))
+      (id . 95)))
   ((tag . "struct") (ns . 0) (name . "SDL_WindowEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:171:16")
+    (location . "/usr/include/SDL2/SDL_events.h:174:16")
     (bit-size . 192) (bit-alignment . 32)
     (fields
       .
@@ -22079,13 +22091,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_WindowEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:182:3")
+    (location . "/usr/include/SDL2/SDL_events.h:185:3")
     (type
       (tag . ":struct")
       (name . "SDL_WindowEvent")
-      (id . 101)))
+      (id . 96)))
   ((tag . "struct") (ns . 0) (name . "SDL_KeyboardEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:187:16")
+    (location . "/usr/include/SDL2/SDL_events.h:190:16")
     (bit-size . 256) (bit-alignment . 32)
     (fields
       .
@@ -22108,13 +22120,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_KeyboardEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:197:3")
+    (location . "/usr/include/SDL2/SDL_events.h:200:3")
     (type
       (tag . ":struct")
       (name . "SDL_KeyboardEvent")
-      (id . 102)))
+      (id . 97)))
   ((tag . "struct") (ns . 0) (name . "SDL_TextEditingEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:203:16")
+    (location . "/usr/include/SDL2/SDL_events.h:206:16")
     (bit-size . 416) (bit-alignment . 32)
     (fields
       .
@@ -22137,13 +22149,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TextEditingEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:211:3")
+    (location . "/usr/include/SDL2/SDL_events.h:214:3")
     (type
       (tag . ":struct")
       (name . "SDL_TextEditingEvent")
-      (id . 103)))
+      (id . 98)))
   ((tag . "struct") (ns . 0) (name . "SDL_TextInputEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:218:16")
+    (location . "/usr/include/SDL2/SDL_events.h:221:16")
     (bit-size . 352) (bit-alignment . 32)
     (fields
       .
@@ -22162,13 +22174,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TextInputEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:224:3")
+    (location . "/usr/include/SDL2/SDL_events.h:227:3")
     (type
       (tag . ":struct")
       (name . "SDL_TextInputEvent")
-      (id . 104)))
+      (id . 99)))
   ((tag . "struct") (ns . 0) (name . "SDL_MouseMotionEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:229:16")
+    (location . "/usr/include/SDL2/SDL_events.h:232:16")
     (bit-size . 288) (bit-alignment . 32)
     (fields
       .
@@ -22195,13 +22207,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MouseMotionEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:240:3")
+    (location . "/usr/include/SDL2/SDL_events.h:243:3")
     (type
       (tag . ":struct")
       (name . "SDL_MouseMotionEvent")
-      (id . 105)))
+      (id . 100)))
   ((tag . "struct") (ns . 0) (name . "SDL_MouseButtonEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:245:16")
+    (location . "/usr/include/SDL2/SDL_events.h:248:16")
     (bit-size . 224) (bit-alignment . 32)
     (fields
       .
@@ -22230,13 +22242,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MouseButtonEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:257:3")
+    (location . "/usr/include/SDL2/SDL_events.h:260:3")
     (type
       (tag . ":struct")
       (name . "SDL_MouseButtonEvent")
-      (id . 106)))
+      (id . 101)))
   ((tag . "struct") (ns . 0) (name . "SDL_MouseWheelEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:262:16")
+    (location . "/usr/include/SDL2/SDL_events.h:265:16")
     (bit-size . 224) (bit-alignment . 32)
     (fields
       .
@@ -22259,13 +22271,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MouseWheelEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:271:3")
+    (location . "/usr/include/SDL2/SDL_events.h:274:3")
     (type
       (tag . ":struct")
       (name . "SDL_MouseWheelEvent")
-      (id . 107)))
+      (id . 102)))
   ((tag . "struct") (ns . 0) (name . "SDL_JoyAxisEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:276:16")
+    (location . "/usr/include/SDL2/SDL_events.h:279:16")
     (bit-size . 160) (bit-alignment . 32)
     (fields
       .
@@ -22290,13 +22302,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_JoyAxisEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:287:3")
+    (location . "/usr/include/SDL2/SDL_events.h:290:3")
     (type
       (tag . ":struct")
       (name . "SDL_JoyAxisEvent")
-      (id . 108)))
+      (id . 103)))
   ((tag . "struct") (ns . 0) (name . "SDL_JoyBallEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:292:16")
+    (location . "/usr/include/SDL2/SDL_events.h:295:16")
     (bit-size . 160) (bit-alignment . 32)
     (fields
       .
@@ -22321,13 +22333,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_JoyBallEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:303:3")
+    (location . "/usr/include/SDL2/SDL_events.h:306:3")
     (type
       (tag . ":struct")
       (name . "SDL_JoyBallEvent")
-      (id . 109)))
+      (id . 104)))
   ((tag . "struct") (ns . 0) (name . "SDL_JoyHatEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:308:16")
+    (location . "/usr/include/SDL2/SDL_events.h:311:16")
     (bit-size . 128) (bit-alignment . 32)
     (fields
       .
@@ -22348,13 +22360,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_JoyHatEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:323:3")
+    (location . "/usr/include/SDL2/SDL_events.h:326:3")
     (type
       (tag . ":struct")
       (name . "SDL_JoyHatEvent")
-      (id . 110)))
+      (id . 105)))
   ((tag . "struct") (ns . 0) (name . "SDL_JoyButtonEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:328:16")
+    (location . "/usr/include/SDL2/SDL_events.h:331:16")
     (bit-size . 128) (bit-alignment . 32)
     (fields
       .
@@ -22375,13 +22387,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_JoyButtonEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:337:3")
+    (location . "/usr/include/SDL2/SDL_events.h:340:3")
     (type
       (tag . ":struct")
       (name . "SDL_JoyButtonEvent")
-      (id . 111)))
+      (id . 106)))
   ((tag . "struct") (ns . 0) (name . "SDL_JoyDeviceEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:342:16")
+    (location . "/usr/include/SDL2/SDL_events.h:345:16")
     (bit-size . 96) (bit-alignment . 32)
     (fields
       .
@@ -22394,13 +22406,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_JoyDeviceEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:347:3")
+    (location . "/usr/include/SDL2/SDL_events.h:350:3")
     (type
       (tag . ":struct")
       (name . "SDL_JoyDeviceEvent")
-      (id . 112)))
+      (id . 107)))
   ((tag . "struct") (ns . 0) (name . "SDL_ControllerAxisEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:353:16")
+    (location . "/usr/include/SDL2/SDL_events.h:356:16")
     (bit-size . 160) (bit-alignment . 32)
     (fields
       .
@@ -22425,13 +22437,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_ControllerAxisEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:364:3")
+    (location . "/usr/include/SDL2/SDL_events.h:367:3")
     (type
       (tag . ":struct")
       (name . "SDL_ControllerAxisEvent")
-      (id . 113)))
+      (id . 108)))
   ((tag . "struct") (ns . 0) (name . "SDL_ControllerButtonEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:370:16")
+    (location . "/usr/include/SDL2/SDL_events.h:373:16")
     (bit-size . 128) (bit-alignment . 32)
     (fields
       .
@@ -22452,13 +22464,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_ControllerButtonEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:379:3")
+    (location . "/usr/include/SDL2/SDL_events.h:382:3")
     (type
       (tag . ":struct")
       (name . "SDL_ControllerButtonEvent")
-      (id . 114)))
+      (id . 109)))
   ((tag . "struct") (ns . 0) (name . "SDL_ControllerDeviceEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:385:16")
+    (location . "/usr/include/SDL2/SDL_events.h:388:16")
     (bit-size . 96) (bit-alignment . 32)
     (fields
       .
@@ -22471,13 +22483,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_ControllerDeviceEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:390:3")
+    (location . "/usr/include/SDL2/SDL_events.h:393:3")
     (type
       (tag . ":struct")
       (name . "SDL_ControllerDeviceEvent")
-      (id . 115)))
+      (id . 110)))
   ((tag . "struct") (ns . 0) (name . "SDL_AudioDeviceEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:395:16")
+    (location . "/usr/include/SDL2/SDL_events.h:398:16")
     (bit-size . 128) (bit-alignment . 32)
     (fields
       .
@@ -22498,13 +22510,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_AudioDeviceEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:404:3")
+    (location . "/usr/include/SDL2/SDL_events.h:407:3")
     (type
       (tag . ":struct")
       (name . "SDL_AudioDeviceEvent")
-      (id . 116)))
+      (id . 111)))
   ((tag . "struct") (ns . 0) (name . "SDL_TouchFingerEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:410:16")
+    (location . "/usr/include/SDL2/SDL_events.h:413:16")
     (bit-size . 384) (bit-alignment . 64)
     (fields
       .
@@ -22549,13 +22561,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TouchFingerEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:421:3")
+    (location . "/usr/include/SDL2/SDL_events.h:424:3")
     (type
       (tag . ":struct")
       (name . "SDL_TouchFingerEvent")
-      (id . 117)))
+      (id . 112)))
   ((tag . "struct") (ns . 0) (name . "SDL_MultiGestureEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:427:16")
+    (location . "/usr/include/SDL2/SDL_events.h:430:16")
     (bit-size . 320) (bit-alignment . 64)
     (fields
       .
@@ -22596,13 +22608,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MultiGestureEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:438:3")
+    (location . "/usr/include/SDL2/SDL_events.h:441:3")
     (type
       (tag . ":struct")
       (name . "SDL_MultiGestureEvent")
-      (id . 118)))
+      (id . 113)))
   ((tag . "struct") (ns . 0) (name . "SDL_DollarGestureEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:444:16")
+    (location . "/usr/include/SDL2/SDL_events.h:447:16")
     (bit-size . 320) (bit-alignment . 64)
     (fields
       .
@@ -22637,14 +22649,14 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_DollarGestureEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:454:3")
+    (location . "/usr/include/SDL2/SDL_events.h:457:3")
     (type
       (tag . ":struct")
       (name . "SDL_DollarGestureEvent")
-      (id . 119)))
+      (id . 114)))
   ((tag . "struct") (ns . 0) (name . "SDL_DropEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:462:16")
-    (bit-size . 128) (bit-alignment . 64)
+    (location . "/usr/include/SDL2/SDL_events.h:465:16")
+    (bit-size . 192) (bit-alignment . 64)
     (fields
       .
       #(((tag . "field") (name . "type") (bit-offset . 0) (bit-size . 32)
@@ -22655,20 +22667,19 @@
           (bit-alignment . 64)
           (type
             (tag . ":pointer")
-            (type
-              (tag . ":char")
-              (bit-size . 8)
-              (bit-alignment . 8)))))))
+            (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
+        ((tag . "field") (name . "windowID") (bit-offset . 128) (bit-size . 32)
+          (bit-alignment . 32) (type (tag . "Uint32"))))))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_DropEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:467:3")
+    (location . "/usr/include/SDL2/SDL_events.h:471:3")
     (type
       (tag . ":struct")
       (name . "SDL_DropEvent")
-      (id . 120)))
+      (id . 115)))
   ((tag . "struct") (ns . 0) (name . "SDL_QuitEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:473:16")
+    (location . "/usr/include/SDL2/SDL_events.h:477:16")
     (bit-size . 64) (bit-alignment . 32)
     (fields
       .
@@ -22679,13 +22690,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_QuitEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:477:3")
+    (location . "/usr/include/SDL2/SDL_events.h:481:3")
     (type
       (tag . ":struct")
       (name . "SDL_QuitEvent")
-      (id . 121)))
+      (id . 116)))
   ((tag . "struct") (ns . 0) (name . "SDL_OSEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:482:16")
+    (location . "/usr/include/SDL2/SDL_events.h:486:16")
     (bit-size . 64) (bit-alignment . 32)
     (fields
       .
@@ -22696,10 +22707,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_OSEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:486:3")
-    (type (tag . ":struct") (name . "SDL_OSEvent") (id . 122)))
+    (location . "/usr/include/SDL2/SDL_events.h:490:3")
+    (type (tag . ":struct") (name . "SDL_OSEvent") (id . 117)))
   ((tag . "struct") (ns . 0) (name . "SDL_UserEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:491:16")
+    (location . "/usr/include/SDL2/SDL_events.h:495:16")
     (bit-size . 256) (bit-alignment . 64)
     (fields
       .
@@ -22720,23 +22731,23 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_UserEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:499:3")
+    (location . "/usr/include/SDL2/SDL_events.h:503:3")
     (type
       (tag . ":struct")
       (name . "SDL_UserEvent")
-      (id . 123)))
+      (id . 118)))
   ((tag . "struct") (ns . 0) (name . "SDL_SysWMmsg") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:502:8")
+    (location . "/usr/include/SDL2/SDL_events.h:506:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_SysWMmsg")
-    (location . "/usr/local/include/SDL2/SDL_events.h:503:29")
-    (type (tag . "struct") (ns . 0) (name . "SDL_SysWMmsg") (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_events.h:502:8")
+    (location . "/usr/include/SDL2/SDL_events.h:507:29")
+    (type (tag . "struct") (ns . 32512) (name . "SDL_SysWMmsg")
+      (id . 0) (location . "/usr/include/SDL2/SDL_events.h:506:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "struct") (ns . 0) (name . "SDL_SysWMEvent") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:511:16")
+    (location . "/usr/include/SDL2/SDL_events.h:515:16")
     (bit-size . 128) (bit-alignment . 64)
     (fields
       .
@@ -22750,13 +22761,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_SysWMEvent")
-    (location . "/usr/local/include/SDL2/SDL_events.h:516:3")
+    (location . "/usr/include/SDL2/SDL_events.h:520:3")
     (type
       (tag . ":struct")
       (name . "SDL_SysWMEvent")
-      (id . 125)))
+      (id . 120)))
   ((tag . "union") (ns . 0) (name . "SDL_Event") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:521:15")
+    (location . "/usr/include/SDL2/SDL_events.h:525:15")
     (bit-size . 448) (bit-alignment . 64)
     (fields
       .
@@ -22812,7 +22823,7 @@
         ((tag . "field") (name . "dgesture") (bit-offset . 0) (bit-size . 320)
           (bit-alignment . 64)
           (type (tag . "SDL_DollarGestureEvent")))
-        ((tag . "field") (name . "drop") (bit-offset . 0) (bit-size . 128)
+        ((tag . "field") (name . "drop") (bit-offset . 0) (bit-size . 192)
           (bit-alignment . 64) (type (tag . "SDL_DropEvent")))
         ((tag . "field") (name . "padding") (bit-offset . 0) (bit-size . 448)
           (bit-alignment . 8)
@@ -22823,14 +22834,14 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Event")
-    (location . "/usr/local/include/SDL2/SDL_events.h:557:3")
-    (type (tag . ":union") (name . "SDL_Event") (id . 126)))
+    (location . "/usr/include/SDL2/SDL_events.h:561:3")
+    (type (tag . ":union") (name . "SDL_Event") (id . 121)))
   ((tag . "function") (name . "SDL_PumpEvents") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:569:30")
+    (location . "/usr/include/SDL2/SDL_events.h:573:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 127)
-    (location . "/usr/local/include/SDL2/SDL_events.h:572:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 122)
+    (location . "/usr/include/SDL2/SDL_events.h:576:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_ADDEVENT") (value . 0))
@@ -22839,10 +22850,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_eventaction")
-    (location . "/usr/local/include/SDL2/SDL_events.h:577:3")
-    (type (tag . ":enum") (name . "") (id . 127)))
+    (location . "/usr/include/SDL2/SDL_events.h:581:3")
+    (type (tag . ":enum") (name . "") (id . 122)))
   ((tag . "function") (name . "SDL_PeepEvents") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:597:29")
+    (location . "/usr/include/SDL2/SDL_events.h:601:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22866,7 +22877,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HasEvent") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:605:34")
+    (location . "/usr/include/SDL2/SDL_events.h:609:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22875,7 +22886,7 @@
           (type (tag . "Uint32")))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_HasEvents") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:606:34")
+    (location . "/usr/include/SDL2/SDL_events.h:610:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22887,7 +22898,7 @@
           (type (tag . "Uint32")))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_FlushEvent") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:614:30")
+    (location . "/usr/include/SDL2/SDL_events.h:618:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22896,7 +22907,7 @@
           (type (tag . "Uint32")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_FlushEvents") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:615:30")
+    (location . "/usr/include/SDL2/SDL_events.h:619:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22908,7 +22919,7 @@
           (type (tag . "Uint32")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_PollEvent") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:625:29")
+    (location . "/usr/include/SDL2/SDL_events.h:629:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22920,7 +22931,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_WaitEvent") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:635:29")
+    (location . "/usr/include/SDL2/SDL_events.h:639:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22932,7 +22943,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_WaitEventTimeout") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:647:29")
+    (location . "/usr/include/SDL2/SDL_events.h:651:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22950,7 +22961,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_PushEvent") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:656:29")
+    (location . "/usr/include/SDL2/SDL_events.h:660:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22964,10 +22975,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_EventFilter")
-    (location . "/usr/local/include/SDL2/SDL_events.h:658:24")
+    (location . "/usr/include/SDL2/SDL_events.h:662:24")
     (type (tag . ":function-pointer")))
   ((tag . "function") (name . "SDL_SetEventFilter") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:685:30")
+    (location . "/usr/include/SDL2/SDL_events.h:689:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22979,7 +22990,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetEventFilter") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:692:34")
+    (location . "/usr/include/SDL2/SDL_events.h:696:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -22993,7 +23004,7 @@
             (type (tag . ":pointer") (type (tag . ":void")))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_AddEventWatch") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:698:30")
+    (location . "/usr/include/SDL2/SDL_events.h:702:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23005,7 +23016,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_DelEventWatch") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:704:30")
+    (location . "/usr/include/SDL2/SDL_events.h:708:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23017,7 +23028,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_FilterEvents") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:711:30")
+    (location . "/usr/include/SDL2/SDL_events.h:715:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23029,7 +23040,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_EventState") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:729:31")
+    (location . "/usr/include/SDL2/SDL_events.h:733:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23044,7 +23055,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . "Uint8")))
   ((tag . "function") (name . "SDL_RegisterEvents") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_events.h:740:32")
+    (location . "/usr/include/SDL2/SDL_events.h:744:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23056,18 +23067,14 @@
             (bit-alignment . 32)))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_GetBasePath") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_filesystem.h:63:31")
+    (location . "/usr/include/SDL2/SDL_filesystem.h:63:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GetPrefPath") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_filesystem.h:126:31")
+    (location . "/usr/include/SDL2/SDL_filesystem.h:126:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23088,18 +23095,17 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "struct") (ns . 0) (name . "_SDL_Haptic") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:129:8")
+    (location . "/usr/include/SDL2/SDL_haptic.h:129:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Haptic")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:130:28")
-    (type (tag . "struct") (ns . 959590714) (name . "_SDL_Haptic")
-      (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_haptic.h:129:8")
+    (location . "/usr/include/SDL2/SDL_haptic.h:130:28")
+    (type (tag . "struct") (ns . 0) (name . "_SDL_Haptic") (id . 0)
+      (location . "/usr/include/SDL2/SDL_haptic.h:129:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "struct") (ns . 0) (name . "SDL_HapticDirection") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:437:16")
+    (location . "/usr/include/SDL2/SDL_haptic.h:437:16")
     (bit-size . 128) (bit-alignment . 32)
     (fields
       .
@@ -23114,13 +23120,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HapticDirection")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:441:3")
+    (location . "/usr/include/SDL2/SDL_haptic.h:441:3")
     (type
       (tag . ":struct")
       (name . "SDL_HapticDirection")
-      (id . 129)))
+      (id . 124)))
   ((tag . "struct") (ns . 0) (name . "SDL_HapticConstant") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:455:16")
+    (location . "/usr/include/SDL2/SDL_haptic.h:455:16")
     (bit-size . 320) (bit-alignment . 32)
     (fields
       .
@@ -23149,13 +23155,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HapticConstant")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:477:3")
+    (location . "/usr/include/SDL2/SDL_haptic.h:477:3")
     (type
       (tag . ":struct")
       (name . "SDL_HapticConstant")
-      (id . 130)))
+      (id . 125)))
   ((tag . "struct") (ns . 0) (name . "SDL_HapticPeriodic") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:536:16")
+    (location . "/usr/include/SDL2/SDL_haptic.h:536:16")
     (bit-size . 384) (bit-alignment . 32)
     (fields
       .
@@ -23190,13 +23196,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HapticPeriodic")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:563:3")
+    (location . "/usr/include/SDL2/SDL_haptic.h:563:3")
     (type
       (tag . ":struct")
       (name . "SDL_HapticPeriodic")
-      (id . 131)))
+      (id . 126)))
   ((tag . "struct") (ns . 0) (name . "SDL_HapticCondition") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:589:16")
+    (location . "/usr/include/SDL2/SDL_haptic.h:589:16")
     (bit-size . 544) (bit-alignment . 32)
     (fields
       .
@@ -23236,13 +23242,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HapticCondition")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:611:3")
+    (location . "/usr/include/SDL2/SDL_haptic.h:611:3")
     (type
       (tag . ":struct")
       (name . "SDL_HapticCondition")
-      (id . 132)))
+      (id . 127)))
   ((tag . "struct") (ns . 0) (name . "SDL_HapticRamp") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:626:16")
+    (location . "/usr/include/SDL2/SDL_haptic.h:626:16")
     (bit-size . 352) (bit-alignment . 32)
     (fields
       .
@@ -23273,13 +23279,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HapticRamp")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:649:3")
+    (location . "/usr/include/SDL2/SDL_haptic.h:649:3")
     (type
       (tag . ":struct")
       (name . "SDL_HapticRamp")
-      (id . 133)))
+      (id . 128)))
   ((tag . "struct") (ns . 0) (name . "SDL_HapticLeftRight") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:663:16")
+    (location . "/usr/include/SDL2/SDL_haptic.h:663:16")
     (bit-size . 96) (bit-alignment . 32)
     (fields
       .
@@ -23296,13 +23302,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HapticLeftRight")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:674:3")
+    (location . "/usr/include/SDL2/SDL_haptic.h:674:3")
     (type
       (tag . ":struct")
       (name . "SDL_HapticLeftRight")
-      (id . 134)))
+      (id . 129)))
   ((tag . "struct") (ns . 0) (name . "SDL_HapticCustom") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:689:16")
+    (location . "/usr/include/SDL2/SDL_haptic.h:689:16")
     (bit-size . 448) (bit-alignment . 64)
     (fields
       .
@@ -23338,13 +23344,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HapticCustom")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:714:3")
+    (location . "/usr/include/SDL2/SDL_haptic.h:714:3")
     (type
       (tag . ":struct")
       (name . "SDL_HapticCustom")
-      (id . 135)))
+      (id . 130)))
   ((tag . "union") (ns . 0) (name . "SDL_HapticEffect") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:785:15")
+    (location . "/usr/include/SDL2/SDL_haptic.h:785:15")
     (bit-size . 576) (bit-alignment . 64)
     (fields
       .
@@ -23365,13 +23371,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HapticEffect")
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:795:3")
+    (location . "/usr/include/SDL2/SDL_haptic.h:795:3")
     (type
       (tag . ":union")
       (name . "SDL_HapticEffect")
-      (id . 136)))
+      (id . 131)))
   ((tag . "function") (name . "SDL_NumHaptics") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:804:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:804:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -23379,7 +23385,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticName") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:817:37")
+    (location . "/usr/include/SDL2/SDL_haptic.h:817:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23393,7 +23399,7 @@
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_HapticOpen") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:841:37")
+    (location . "/usr/include/SDL2/SDL_haptic.h:841:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23407,7 +23413,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Haptic"))))
   ((tag . "function") (name . "SDL_HapticOpened") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:852:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:852:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23422,7 +23428,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticIndex") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:863:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:863:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23434,7 +23440,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_MouseIsHaptic") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:872:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:872:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -23442,14 +23448,14 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticOpenFromMouse") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:882:37")
+    (location . "/usr/include/SDL2/SDL_haptic.h:882:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . "SDL_Haptic"))))
   ((tag . "function") (name . "SDL_JoystickIsHaptic") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:893:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:893:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23461,7 +23467,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticOpenFromJoystick") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:912:37")
+    (location . "/usr/include/SDL2/SDL_haptic.h:912:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23472,7 +23478,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Haptic"))))
   ((tag . "function") (name . "SDL_HapticClose") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:920:30")
+    (location . "/usr/include/SDL2/SDL_haptic.h:920:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23481,7 +23487,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Haptic"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_HapticNumEffects") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:936:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:936:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23493,7 +23499,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticNumEffectsPlaying") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:952:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:952:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23505,7 +23511,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticQuery") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:970:38")
+    (location . "/usr/include/SDL2/SDL_haptic.h:970:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23517,7 +23523,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticNumAxes") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:978:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:978:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23529,7 +23535,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticEffectSupported") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:990:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:990:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23546,7 +23552,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticNewEffect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1005:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1005:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23563,7 +23569,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticUpdateEffect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1025:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1025:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23583,7 +23589,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticRunEffect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1047:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1047:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23601,7 +23607,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticStopEffect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1061:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1061:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23619,7 +23625,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticDestroyEffect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1075:30")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1075:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23634,7 +23640,7 @@
             (bit-alignment . 32)))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_HapticGetEffectStatus") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1090:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1090:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23652,7 +23658,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticSetGain") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1109:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1109:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23670,7 +23676,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticSetAutocenter") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1125:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1125:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23688,7 +23694,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticPause") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1142:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1142:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23700,7 +23706,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticUnpause") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1154:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1154:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23712,7 +23718,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticStopAll") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1162:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1162:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23724,7 +23730,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticRumbleSupported") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1174:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1174:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23736,7 +23742,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticRumbleInit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1187:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1187:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23748,7 +23754,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticRumblePlay") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1201:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1201:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23769,7 +23775,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_HapticRumbleStop") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_haptic.h:1213:29")
+    (location . "/usr/include/SDL2/SDL_haptic.h:1213:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23780,8 +23786,8 @@
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 137)
-    (location . "/usr/local/include/SDL2/SDL_hints.h:636:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 132)
+    (location . "/usr/include/SDL2/SDL_hints.h:713:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_HINT_DEFAULT") (value . 0))
@@ -23792,10 +23798,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HintPriority")
-    (location . "/usr/local/include/SDL2/SDL_hints.h:641:3")
-    (type (tag . ":enum") (name . "") (id . 137)))
+    (location . "/usr/include/SDL2/SDL_hints.h:718:3")
+    (type (tag . ":enum") (name . "") (id . 132)))
   ((tag . "function") (name . "SDL_SetHintWithPriority") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_hints.h:653:34")
+    (location . "/usr/include/SDL2/SDL_hints.h:730:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23814,7 +23820,7 @@
           (type (tag . "SDL_HintPriority")))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_SetHint") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_hints.h:662:34")
+    (location . "/usr/include/SDL2/SDL_hints.h:739:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23833,7 +23839,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_GetHint") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_hints.h:670:38")
+    (location . "/usr/include/SDL2/SDL_hints.h:747:38")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23848,13 +23854,27 @@
     (return-type
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
+  ((tag . "function") (name . "SDL_GetHintBoolean") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_hints.h:754:34")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "name")
+          (type
+            (tag . ":pointer")
+            (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
+        ((tag . "parameter")
+          (name . "default_value")
+          (type (tag . "SDL_bool")))))
+    (return-type (tag . "SDL_bool")))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_HintCallback")
-    (location . "/usr/local/include/SDL2/SDL_hints.h:679:16")
+    (location . "/usr/include/SDL2/SDL_hints.h:763:16")
     (type (tag . ":function-pointer")))
   ((tag . "function") (name . "SDL_AddHintCallback") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_hints.h:680:30")
+    (location . "/usr/include/SDL2/SDL_hints.h:764:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23871,7 +23891,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_DelHintCallback") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_hints.h:691:30")
+    (location . "/usr/include/SDL2/SDL_hints.h:775:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23888,11 +23908,11 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_ClearHints") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_hints.h:700:30")
+    (location . "/usr/include/SDL2/SDL_hints.h:784:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LoadObject") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_loadso.h:58:31")
+    (location . "/usr/include/SDL2/SDL_loadso.h:58:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23906,7 +23926,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":pointer") (type (tag . ":void"))))
   ((tag . "function") (name . "SDL_LoadFunction") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_loadso.h:65:31")
+    (location . "/usr/include/SDL2/SDL_loadso.h:65:31")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23923,7 +23943,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":pointer") (type (tag . ":void"))))
   ((tag . "function") (name . "SDL_UnloadObject") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_loadso.h:71:30")
+    (location . "/usr/include/SDL2/SDL_loadso.h:71:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -23931,8 +23951,8 @@
           (name . "handle")
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 138)
-    (location . "/usr/local/include/SDL2/SDL_log.h:64:1")
+  ((tag . "enum") (ns . 0) (name . "") (id . 133)
+    (location . "/usr/include/SDL2/SDL_log.h:64:1")
     (fields
       .
       #(((tag . "field")
@@ -23995,8 +24015,8 @@
         ((tag . "field")
           (name . "SDL_LOG_CATEGORY_CUSTOM")
           (value . 19)))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 139)
-    (location . "/usr/local/include/SDL2/SDL_log.h:102:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 134)
+    (location . "/usr/include/SDL2/SDL_log.h:102:9")
     (fields
       .
       #(((tag . "field")
@@ -24023,10 +24043,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_LogPriority")
-    (location . "/usr/local/include/SDL2/SDL_log.h:111:3")
-    (type (tag . ":enum") (name . "") (id . 139)))
+    (location . "/usr/include/SDL2/SDL_log.h:111:3")
+    (type (tag . ":enum") (name . "") (id . 134)))
   ((tag . "function") (name . "SDL_LogSetAllPriority") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:117:30")
+    (location . "/usr/include/SDL2/SDL_log.h:117:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24035,7 +24055,7 @@
           (type (tag . "SDL_LogPriority")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogSetPriority") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:122:30")
+    (location . "/usr/include/SDL2/SDL_log.h:122:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24047,7 +24067,7 @@
           (type (tag . "SDL_LogPriority")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogGetPriority") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:128:41")
+    (location . "/usr/include/SDL2/SDL_log.h:128:41")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24059,11 +24079,11 @@
             (bit-alignment . 32)))))
     (return-type (tag . "SDL_LogPriority")))
   ((tag . "function") (name . "SDL_LogResetPriorities") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:135:30")
+    (location . "/usr/include/SDL2/SDL_log.h:135:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_Log") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:140:30")
+    (location . "/usr/include/SDL2/SDL_log.h:140:30")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24077,7 +24097,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogVerbose") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:145:30")
+    (location . "/usr/include/SDL2/SDL_log.h:145:30")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24094,7 +24114,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogDebug") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:150:30")
+    (location . "/usr/include/SDL2/SDL_log.h:150:30")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24111,7 +24131,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogInfo") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:155:30")
+    (location . "/usr/include/SDL2/SDL_log.h:155:30")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24128,7 +24148,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogWarn") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:160:30")
+    (location . "/usr/include/SDL2/SDL_log.h:160:30")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24145,7 +24165,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogError") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:165:30")
+    (location . "/usr/include/SDL2/SDL_log.h:165:30")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24162,7 +24182,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogCritical") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:170:30")
+    (location . "/usr/include/SDL2/SDL_log.h:170:30")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24179,7 +24199,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogMessage") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:175:30")
+    (location . "/usr/include/SDL2/SDL_log.h:175:30")
     (variadic . #t) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24199,7 +24219,7 @@
               (bit-alignment . 8))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogMessageV") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:182:30")
+    (location . "/usr/include/SDL2/SDL_log.h:182:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24221,10 +24241,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_LogOutputFunction")
-    (location . "/usr/local/include/SDL2/SDL_log.h:189:16")
+    (location . "/usr/include/SDL2/SDL_log.h:189:16")
     (type (tag . ":function-pointer")))
   ((tag . "function") (name . "SDL_LogGetOutputFunction") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:194:30")
+    (location . "/usr/include/SDL2/SDL_log.h:194:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24240,7 +24260,7 @@
             (type (tag . ":pointer") (type (tag . ":void")))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_LogSetOutputFunction") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_log.h:200:30")
+    (location . "/usr/include/SDL2/SDL_log.h:200:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24251,8 +24271,8 @@
           (name . "userdata")
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . ":void")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 140)
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:37:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 135)
+    (location . "/usr/include/SDL2/SDL_messagebox.h:37:9")
     (fields
       .
       #(((tag . "field")
@@ -24267,10 +24287,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MessageBoxFlags")
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:42:3")
-    (type (tag . ":enum") (name . "") (id . 140)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 141)
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:47:9")
+    (location . "/usr/include/SDL2/SDL_messagebox.h:42:3")
+    (type (tag . ":enum") (name . "") (id . 135)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 136)
+    (location . "/usr/include/SDL2/SDL_messagebox.h:47:9")
     (fields
       .
       #(((tag . "field")
@@ -24282,14 +24302,14 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MessageBoxButtonFlags")
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:51:3")
-    (type (tag . ":enum") (name . "") (id . 141)))
+    (location . "/usr/include/SDL2/SDL_messagebox.h:51:3")
+    (type (tag . ":enum") (name . "") (id . 136)))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MessageBoxButtonData")
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:61:3")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 142)
-      (location . "/usr/local/include/SDL2/SDL_messagebox.h:56:9")
+    (location . "/usr/include/SDL2/SDL_messagebox.h:61:3")
+    (type (tag . "struct") (ns . 1668180271) (name . "") (id . 137)
+      (location . "/usr/include/SDL2/SDL_messagebox.h:56:9")
       (bit-size . 128) (bit-alignment . 64)
       (fields
         .
@@ -24309,9 +24329,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MessageBoxColor")
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:69:3")
-    (type (tag . "struct") (ns . 1668246575) (name . "") (id . 143)
-      (location . "/usr/local/include/SDL2/SDL_messagebox.h:66:9")
+    (location . "/usr/include/SDL2/SDL_messagebox.h:69:3")
+    (type (tag . "struct") (ns . 0) (name . "") (id . 138)
+      (location . "/usr/include/SDL2/SDL_messagebox.h:66:9")
       (bit-size . 24) (bit-alignment . 8)
       (fields
         .
@@ -24322,8 +24342,8 @@
           ((tag . "field") (name . "b") (bit-offset . 16)
             (bit-size . 8) (bit-alignment . 8)
             (type (tag . "Uint8")))))))
-  ((tag . "enum") (ns . 0) (name . "") (id . 144)
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:71:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 139)
+    (location . "/usr/include/SDL2/SDL_messagebox.h:71:9")
     (fields
       .
       #(((tag . "field")
@@ -24347,14 +24367,14 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MessageBoxColorType")
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:79:3")
-    (type (tag . ":enum") (name . "") (id . 144)))
+    (location . "/usr/include/SDL2/SDL_messagebox.h:79:3")
+    (type (tag . ":enum") (name . "") (id . 139)))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MessageBoxColorScheme")
-    (location . "/usr/local/include/SDL2/SDL_messagebox.h:87:3")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 145)
-      (location . "/usr/local/include/SDL2/SDL_messagebox.h:84:9")
+    (location . "/usr/include/SDL2/SDL_messagebox.h:87:3")
+    (type (tag . "struct") (ns . 1852387186) (name . "") (id . 140)
+      (location . "/usr/include/SDL2/SDL_messagebox.h:84:9")
       (bit-size . 120) (bit-alignment . 8)
       (fields
         .
@@ -24367,11 +24387,9 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_MessageBoxData")
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_messagebox.h:103:3")
-    (type (tag . "struct") (ns . 0) (name . "") (id . 146)
-      (location . "/usr/local/include/SDL2/SDL_messagebox.h:92:9")
+    (location . "/usr/include/SDL2/SDL_messagebox.h:103:3")
+    (type (tag . "struct") (ns . 0) (name . "") (id . 141)
+      (location . "/usr/include/SDL2/SDL_messagebox.h:92:9")
       (bit-size . 448) (bit-alignment . 64)
       (fields
         .
@@ -24404,9 +24422,7 @@
               (tag . ":pointer")
               (type (tag . "SDL_MessageBoxColorScheme"))))))))
   ((tag . "function") (name . "SDL_ShowMessageBox") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_messagebox.h:119:29")
+    (location . "/usr/include/SDL2/SDL_messagebox.h:119:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24428,9 +24444,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_ShowSimpleMessageBox") (ns . 0)
-    (location
-      .
-      "/usr/local/include/SDL2/SDL_messagebox.h:133:29")
+    (location . "/usr/include/SDL2/SDL_messagebox.h:133:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24454,8 +24468,8 @@
       (tag . ":int")
       (bit-size . 32)
       (bit-alignment . 32)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 147)
-    (location . "/usr/local/include/SDL2/SDL_power.h:42:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 142)
+    (location . "/usr/include/SDL2/SDL_power.h:42:9")
     (fields
       .
       #(((tag . "field")
@@ -24476,10 +24490,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_PowerState")
-    (location . "/usr/local/include/SDL2/SDL_power.h:49:3")
-    (type (tag . ":enum") (name . "") (id . 147)))
+    (location . "/usr/include/SDL2/SDL_power.h:49:3")
+    (type (tag . ":enum") (name . "") (id . 142)))
   ((tag . "function") (name . "SDL_GetPowerInfo") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_power.h:65:40")
+    (location . "/usr/include/SDL2/SDL_power.h:65:40")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24497,8 +24511,8 @@
               (bit-size . 32)
               (bit-alignment . 32))))))
     (return-type (tag . "SDL_PowerState")))
-  ((tag . "enum") (ns . 0) (name . "") (id . 148)
-    (location . "/usr/local/include/SDL2/SDL_render.h:64:9")
+  ((tag . "enum") (ns . 0) (name . "") (id . 143)
+    (location . "/usr/include/SDL2/SDL_render.h:64:9")
     (fields
       .
       #(((tag . "field")
@@ -24516,10 +24530,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_RendererFlags")
-    (location . "/usr/local/include/SDL2/SDL_render.h:73:3")
-    (type (tag . ":enum") (name . "") (id . 148)))
+    (location . "/usr/include/SDL2/SDL_render.h:73:3")
+    (type (tag . ":enum") (name . "") (id . 143)))
   ((tag . "struct") (ns . 0) (name . "SDL_RendererInfo") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:78:16")
+    (location . "/usr/include/SDL2/SDL_render.h:78:16")
     (bit-size . 704) (bit-alignment . 64)
     (fields
       .
@@ -24548,13 +24562,13 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_RendererInfo")
-    (location . "/usr/local/include/SDL2/SDL_render.h:86:3")
+    (location . "/usr/include/SDL2/SDL_render.h:86:3")
     (type
       (tag . ":struct")
       (name . "SDL_RendererInfo")
-      (id . 149)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 150)
-    (location . "/usr/local/include/SDL2/SDL_render.h:91:9")
+      (id . 144)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 145)
+    (location . "/usr/include/SDL2/SDL_render.h:91:9")
     (fields
       .
       #(((tag . "field")
@@ -24569,10 +24583,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TextureAccess")
-    (location . "/usr/local/include/SDL2/SDL_render.h:96:3")
-    (type (tag . ":enum") (name . "") (id . 150)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 151)
-    (location . "/usr/local/include/SDL2/SDL_render.h:101:9")
+    (location . "/usr/include/SDL2/SDL_render.h:96:3")
+    (type (tag . ":enum") (name . "") (id . 145)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 146)
+    (location . "/usr/include/SDL2/SDL_render.h:101:9")
     (fields
       .
       #(((tag . "field")
@@ -24587,10 +24601,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TextureModulate")
-    (location . "/usr/local/include/SDL2/SDL_render.h:106:3")
-    (type (tag . ":enum") (name . "") (id . 151)))
-  ((tag . "enum") (ns . 0) (name . "") (id . 152)
-    (location . "/usr/local/include/SDL2/SDL_render.h:111:9")
+    (location . "/usr/include/SDL2/SDL_render.h:106:3")
+    (type (tag . ":enum") (name . "") (id . 146)))
+  ((tag . "enum") (ns . 0) (name . "") (id . 147)
+    (location . "/usr/include/SDL2/SDL_render.h:111:9")
     (fields
       .
       #(((tag . "field") (name . "SDL_FLIP_NONE") (value . 0))
@@ -24601,32 +24615,30 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_RendererFlip")
-    (location . "/usr/local/include/SDL2/SDL_render.h:116:3")
-    (type (tag . ":enum") (name . "") (id . 152)))
+    (location . "/usr/include/SDL2/SDL_render.h:116:3")
+    (type (tag . ":enum") (name . "") (id . 147)))
   ((tag . "struct") (ns . 0) (name . "SDL_Renderer") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:121:8")
+    (location . "/usr/include/SDL2/SDL_render.h:121:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Renderer")
-    (location . "/usr/local/include/SDL2/SDL_render.h:122:29")
-    (type (tag . "struct") (ns . 1852133983) (name . "SDL_Renderer")
-      (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_render.h:121:8")
+    (location . "/usr/include/SDL2/SDL_render.h:122:29")
+    (type (tag . "struct") (ns . 0) (name . "SDL_Renderer") (id . 0)
+      (location . "/usr/include/SDL2/SDL_render.h:121:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "struct") (ns . 0) (name . "SDL_Texture") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:127:8")
+    (location . "/usr/include/SDL2/SDL_render.h:127:8")
     (bit-size . 0) (bit-alignment . 0) (fields . #()))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_Texture")
-    (location . "/usr/local/include/SDL2/SDL_render.h:128:28")
-    (type (tag . "struct") (ns . 32666) (name . "SDL_Texture")
-      (id . 0)
-      (location . "/usr/local/include/SDL2/SDL_render.h:127:8")
+    (location . "/usr/include/SDL2/SDL_render.h:128:28")
+    (type (tag . "struct") (ns . 32547) (name . "SDL_Texture")
+      (id . 0) (location . "/usr/include/SDL2/SDL_render.h:127:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "function") (name . "SDL_GetNumRenderDrivers") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:144:29")
+    (location . "/usr/include/SDL2/SDL_render.h:144:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -24634,7 +24646,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetRenderDriverInfo") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:158:29")
+    (location . "/usr/include/SDL2/SDL_render.h:158:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24651,7 +24663,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_CreateWindowAndRenderer") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:172:29")
+    (location . "/usr/include/SDL2/SDL_render.h:172:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24679,7 +24691,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_CreateRenderer") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:191:40")
+    (location . "/usr/include/SDL2/SDL_render.h:191:40")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24696,7 +24708,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Renderer"))))
   ((tag . "function") (name . "SDL_CreateSoftwareRenderer") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:204:40")
+    (location . "/usr/include/SDL2/SDL_render.h:204:40")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24707,7 +24719,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Renderer"))))
   ((tag . "function") (name . "SDL_GetRenderer") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:209:40")
+    (location . "/usr/include/SDL2/SDL_render.h:209:40")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24718,7 +24730,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Renderer"))))
   ((tag . "function") (name . "SDL_GetRendererInfo") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:214:29")
+    (location . "/usr/include/SDL2/SDL_render.h:214:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24735,7 +24747,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetRendererOutputSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:220:29")
+    (location . "/usr/include/SDL2/SDL_render.h:220:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24760,7 +24772,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_CreateTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:240:39")
+    (location . "/usr/include/SDL2/SDL_render.h:240:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24786,7 +24798,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Texture"))))
   ((tag . "function") (name . "SDL_CreateTextureFromSurface") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:258:39")
+    (location . "/usr/include/SDL2/SDL_render.h:258:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24800,7 +24812,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Texture"))))
   ((tag . "function") (name . "SDL_QueryTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:273:29")
+    (location . "/usr/include/SDL2/SDL_render.h:273:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24833,7 +24845,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetTextureColorMod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:290:29")
+    (location . "/usr/include/SDL2/SDL_render.h:290:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24848,7 +24860,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetTextureColorMod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:306:29")
+    (location . "/usr/include/SDL2/SDL_render.h:306:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24869,7 +24881,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetTextureAlphaMod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:321:29")
+    (location . "/usr/include/SDL2/SDL_render.h:321:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24884,7 +24896,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetTextureAlphaMod") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:334:29")
+    (location . "/usr/include/SDL2/SDL_render.h:334:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24899,7 +24911,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetTextureBlendMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:351:29")
+    (location . "/usr/include/SDL2/SDL_render.h:351:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24914,7 +24926,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetTextureBlendMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:364:29")
+    (location . "/usr/include/SDL2/SDL_render.h:364:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24929,7 +24941,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_UpdateTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:380:29")
+    (location . "/usr/include/SDL2/SDL_render.h:380:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24953,7 +24965,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_UpdateYUVTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:403:29")
+    (location . "/usr/include/SDL2/SDL_render.h:403:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -24989,7 +25001,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_LockTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:424:29")
+    (location . "/usr/include/SDL2/SDL_render.h:424:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25017,7 +25029,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_UnlockTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:433:30")
+    (location . "/usr/include/SDL2/SDL_render.h:433:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25026,7 +25038,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Texture"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_RenderTargetSupported") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:442:34")
+    (location . "/usr/include/SDL2/SDL_render.h:442:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25035,7 +25047,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_SetRenderTarget") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:454:29")
+    (location . "/usr/include/SDL2/SDL_render.h:454:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25050,7 +25062,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetRenderTarget") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:464:39")
+    (location . "/usr/include/SDL2/SDL_render.h:464:39")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25061,7 +25073,7 @@
       (tag . ":pointer")
       (type (tag . "SDL_Texture"))))
   ((tag . "function") (name . "SDL_RenderSetLogicalSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:489:29")
+    (location . "/usr/include/SDL2/SDL_render.h:489:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25082,7 +25094,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderGetLogicalSize") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:500:30")
+    (location . "/usr/include/SDL2/SDL_render.h:500:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25103,8 +25115,32 @@
               (bit-size . 32)
               (bit-alignment . 32))))))
     (return-type (tag . ":void")))
+  ((tag . "function") (name . "SDL_RenderSetIntegerScale") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_render.h:514:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "renderer")
+          (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))
+        ((tag . "parameter")
+          (name . "enable")
+          (type (tag . "SDL_bool")))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "SDL_RenderGetIntegerScale") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_render.h:524:34")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "renderer")
+          (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))))
+    (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_RenderSetViewport") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:517:29")
+    (location . "/usr/include/SDL2/SDL_render.h:541:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25119,7 +25155,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderGetViewport") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:525:30")
+    (location . "/usr/include/SDL2/SDL_render.h:549:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25131,7 +25167,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_RenderSetClipRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:539:29")
+    (location . "/usr/include/SDL2/SDL_render.h:563:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25146,7 +25182,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderGetClipRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:551:30")
+    (location . "/usr/include/SDL2/SDL_render.h:575:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25158,7 +25194,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Rect"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_RenderIsClipEnabled") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:561:34")
+    (location . "/usr/include/SDL2/SDL_render.h:585:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25167,7 +25203,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))))
     (return-type (tag . "SDL_bool")))
   ((tag . "function") (name . "SDL_RenderSetScale") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:582:29")
+    (location . "/usr/include/SDL2/SDL_render.h:606:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25191,7 +25227,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderGetScale") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:594:30")
+    (location . "/usr/include/SDL2/SDL_render.h:618:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25216,7 +25252,7 @@
               (bit-alignment . 32))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_SetRenderDrawColor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:609:29")
+    (location . "/usr/include/SDL2/SDL_render.h:633:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25232,7 +25268,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetRenderDrawColor") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:625:29")
+    (location . "/usr/include/SDL2/SDL_render.h:649:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25256,7 +25292,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_SetRenderDrawBlendMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:642:29")
+    (location . "/usr/include/SDL2/SDL_render.h:666:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25271,7 +25307,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetRenderDrawBlendMode") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:655:29")
+    (location . "/usr/include/SDL2/SDL_render.h:679:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25286,7 +25322,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderClear") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:665:29")
+    (location . "/usr/include/SDL2/SDL_render.h:690:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25298,7 +25334,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderDrawPoint") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:676:29")
+    (location . "/usr/include/SDL2/SDL_render.h:701:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25319,7 +25355,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderDrawPoints") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:688:29")
+    (location . "/usr/include/SDL2/SDL_render.h:713:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25340,7 +25376,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderDrawLine") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:703:29")
+    (location . "/usr/include/SDL2/SDL_render.h:728:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25367,7 +25403,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderDrawLines") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:715:29")
+    (location . "/usr/include/SDL2/SDL_render.h:740:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25388,7 +25424,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderDrawRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:727:29")
+    (location . "/usr/include/SDL2/SDL_render.h:752:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25403,7 +25439,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderDrawRects") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:739:29")
+    (location . "/usr/include/SDL2/SDL_render.h:764:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25424,7 +25460,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderFillRect") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:752:29")
+    (location . "/usr/include/SDL2/SDL_render.h:777:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25439,7 +25475,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderFillRects") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:764:29")
+    (location . "/usr/include/SDL2/SDL_render.h:789:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25460,7 +25496,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderCopy") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:780:29")
+    (location . "/usr/include/SDL2/SDL_render.h:805:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25481,7 +25517,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderCopyEx") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:800:29")
+    (location . "/usr/include/SDL2/SDL_render.h:825:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25514,7 +25550,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderReadPixels") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:823:29")
+    (location . "/usr/include/SDL2/SDL_render.h:848:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25541,7 +25577,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_RenderPresent") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:831:30")
+    (location . "/usr/include/SDL2/SDL_render.h:856:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25550,7 +25586,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_DestroyTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:839:30")
+    (location . "/usr/include/SDL2/SDL_render.h:864:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25559,7 +25595,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Texture"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_DestroyRenderer") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:847:30")
+    (location . "/usr/include/SDL2/SDL_render.h:872:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25568,7 +25604,7 @@
           (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GL_BindTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:860:29")
+    (location . "/usr/include/SDL2/SDL_render.h:885:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25596,7 +25632,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GL_UnbindTexture") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_render.h:869:29")
+    (location . "/usr/include/SDL2/SDL_render.h:894:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25608,19 +25644,19 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_GetTicks") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_timer.h:45:32")
+    (location . "/usr/include/SDL2/SDL_timer.h:45:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_GetPerformanceCounter") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_timer.h:61:32")
+    (location . "/usr/include/SDL2/SDL_timer.h:61:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "Uint64")))
   ((tag . "function") (name . "SDL_GetPerformanceFrequency") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_timer.h:66:32")
+    (location . "/usr/include/SDL2/SDL_timer.h:66:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . "Uint64")))
   ((tag . "function") (name . "SDL_Delay") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_timer.h:71:30")
+    (location . "/usr/include/SDL2/SDL_timer.h:71:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25631,15 +25667,15 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TimerCallback")
-    (location . "/usr/local/include/SDL2/SDL_timer.h:81:27")
+    (location . "/usr/include/SDL2/SDL_timer.h:81:27")
     (type (tag . ":function-pointer")))
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_TimerID")
-    (location . "/usr/local/include/SDL2/SDL_timer.h:86:13")
+    (location . "/usr/include/SDL2/SDL_timer.h:86:13")
     (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_AddTimer") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_timer.h:93:37")
+    (location . "/usr/include/SDL2/SDL_timer.h:93:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25654,7 +25690,7 @@
           (type (tag . ":pointer") (type (tag . ":void"))))))
     (return-type (tag . "SDL_TimerID")))
   ((tag . "function") (name . "SDL_RemoveTimer") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_timer.h:104:34")
+    (location . "/usr/include/SDL2/SDL_timer.h:104:34")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25663,7 +25699,7 @@
           (type (tag . "SDL_TimerID")))))
     (return-type (tag . "SDL_bool")))
   ((tag . "struct") (ns . 0) (name . "SDL_version") (id . 0)
-    (location . "/usr/local/include/SDL2/SDL_version.h:51:16")
+    (location . "/usr/include/SDL2/SDL_version.h:51:16")
     (bit-size . 24) (bit-alignment . 8)
     (fields
       .
@@ -25677,10 +25713,10 @@
   ((tag . "typedef")
     (ns . 0)
     (name . "SDL_version")
-    (location . "/usr/local/include/SDL2/SDL_version.h:56:3")
-    (type (tag . ":struct") (name . "SDL_version") (id . 155)))
+    (location . "/usr/include/SDL2/SDL_version.h:56:3")
+    (type (tag . ":struct") (name . "SDL_version") (id . 150)))
   ((tag . "function") (name . "SDL_GetVersion") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_version.h:133:30")
+    (location . "/usr/include/SDL2/SDL_version.h:133:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25689,14 +25725,14 @@
           (type (tag . ":pointer") (type (tag . "SDL_version"))))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_GetRevision") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_version.h:142:37")
+    (location . "/usr/include/SDL2/SDL_version.h:142:37")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
       (tag . ":pointer")
       (type (tag . ":char") (bit-size . 8) (bit-alignment . 8))))
   ((tag . "function") (name . "SDL_GetRevisionNumber") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL_version.h:151:29")
+    (location . "/usr/include/SDL2/SDL_version.h:151:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #())
     (return-type
@@ -25704,8 +25740,8 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_Init") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL.h:92:29")
-    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (location . "/usr/include/SDL2/SDL.h:92:29") (variadic . #f)
+    (inline . #f) (storage-class . "extern")
     (parameters
       .
       #(((tag . "parameter")
@@ -25716,7 +25752,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_InitSubSystem") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL.h:103:29")
+    (location . "/usr/include/SDL2/SDL.h:103:29")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25728,7 +25764,7 @@
       (bit-size . 32)
       (bit-alignment . 32)))
   ((tag . "function") (name . "SDL_QuitSubSystem") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL.h:108:30")
+    (location . "/usr/include/SDL2/SDL.h:108:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25737,7 +25773,7 @@
           (type (tag . "Uint32")))))
     (return-type (tag . ":void")))
   ((tag . "function") (name . "SDL_WasInit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL.h:116:32")
+    (location . "/usr/include/SDL2/SDL.h:116:32")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters
       .
@@ -25746,6 +25782,6 @@
           (type (tag . "Uint32")))))
     (return-type (tag . "Uint32")))
   ((tag . "function") (name . "SDL_Quit") (ns . 0)
-    (location . "/usr/local/include/SDL2/SDL.h:122:30")
+    (location . "/usr/include/SDL2/SDL.h:122:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
     (parameters . #()) (return-type (tag . ":void"))))

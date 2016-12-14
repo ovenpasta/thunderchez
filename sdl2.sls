@@ -35,6 +35,7 @@
 	 sdl-set-hint-with-priority
 	 sdl-set-hint
 	 sdl-get-hint
+	 sdl-get-hint-boolean
 	 sdl-add-hint-callback
 	 sdl-del-hint-callback
 	 sdl-clear-hints
@@ -247,6 +248,8 @@
 	 sdl-get-render-target
 	 sdl-render-set-logical-size
 	 sdl-render-get-logical-size
+	 sdl-render-set-integer-scale
+	 sdl-render-get-integer-scale 
 	 sdl-render-set-viewport
 	 sdl-render-get-viewport
 	 sdl-render-set-clip-rect
@@ -392,6 +395,7 @@
 	 sdl-get-current-video-driver
 	 sdl-get-num-video-displays
 	 sdl-get-display-name
+	 sdl-get-display-usable-bounds
 	 sdl-get-display-bounds
 	 sdl-get-num-display-modes
 	 sdl-get-display-mode
@@ -416,11 +420,13 @@
 	 sdl-get-window-position
 	 sdl-set-window-size
 	 sdl-get-window-size
+	 sdl-get-window-borders-size 
 	 sdl-set-window-minimum-size
 	 sdl-get-window-minimum-size
 	 sdl-set-window-maximum-size
 	 sdl-get-window-maximum-size
 	 sdl-set-window-bordered
+	 sdl-set-window-resizable
 	 sdl-show-window
 	 sdl-hide-window
 	 sdl-raise-window
@@ -435,6 +441,10 @@
 	 sdl-get-window-grab
 	 sdl-set-window-brightness
 	 sdl-get-window-brightness
+	 sdl-set-window-opacity
+	 sdl-get-window-opacity
+	 sdl-set-window-modal-for
+	 sdl-set-window-input-focus
 	 sdl-set-window-gamma-ramp
 	 sdl-get-window-gamma-ramp
 	 sdl-destroy-window
@@ -530,7 +540,9 @@
 	 sdl-thread-priority
 	 
 	 sdl-create-rgb-surface
+	 sdl-create-rgb-surface-with-format
 	 sdl-create-rgb-surface-from
+	 sdl-create-rgb-surface-with-format-from
 	 sdl-free-surface
 	 sdl-set-surface-palette
 	 sdl-lock-surface

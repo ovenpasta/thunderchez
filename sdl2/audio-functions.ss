@@ -18,6 +18,7 @@
 (define-sdl-func void sdl-mix-audio ((dst (* uint8)) (src (* uint8)) (len uint32) (volume int)) "SDL_MixAudio")
 (define-sdl-func void sdl-mix-audio-format ((dst (* uint8)) (src (* uint8)) (format sdl-audio-format-t) (len uint32) (volume int)) "SDL_MixAudioFormat")
 (define-sdl-func int sdl-queue-audio ((dev sdl-audio-device-id-t) (data void*) (len uint32)) "SDL_QueueAudio")
+(define-sdl-func uint32 sdl-dequeue-audio ((dev sdl-audio-device-id-t) (data void*) (len uint32)) "SDL_DequeueAudio")
 (define-sdl-func uint32 sdl-get-queued-audio-size ((dev sdl-audio-device-id-t)) "SDL_GetQueuedAudioSize")
 (define-sdl-func void sdl-clear-queued-audio ((dev sdl-audio-device-id-t)) "SDL_ClearQueuedAudio")
 (define-sdl-func void sdl-lock-audio () "SDL_LockAudio")

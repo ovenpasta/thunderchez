@@ -1,0 +1,30 @@
+
+
+Chez Scheme SDL2 bindings
+
+These bindings are generated with the help of c2ffi
+
+You can find it here: https://github.com/rpav/c2ffi 
+
+First we use c2ffi to parse the headers and generate the json description:
+
+c2ffi /usr/include/SDL2/SDL.h > sdl2.json
+Optionally SDL2_net (in my case there was not a linux package so I installed from source:)
+
+c2ffi /usr/local/include/SDL2/SDL_net.h  > sdl2-net.json
+
+Then the scheme bindings are generated with the command:
+scheme --script parse-sdl-json.ss
+
+many *-functions.ss will be created
+also sdl2.sexp will be generated.
+
+You can then execute fossil diff --tk (or equivalent) to see the new functions
+
+This thing needs to be done once in a while when new SDL versions add new functionality. Usually you should not care :)
+
+For any questions just contact me
+ovenpasta@pizzahack.eu
+
+have fun!
+Aldo
