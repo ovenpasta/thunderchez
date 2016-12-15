@@ -13,12 +13,14 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 
+ (define-ftype unsigned-8* (* unsigned-8))
  (define-ftype unsigned-char unsigned-8)
+
  (define-ftype cairo-bool-t int)
  (define-ftype cairo-t (struct))
 
  (define-ftype cairo-surface-t (struct))
-
+ (define-ftype cairo-surface-t* (* cairo-surface-t))
  (define-ftype cairo-device-t void*)
 
  (define-ftype cairo-matrix-t
@@ -134,15 +136,26 @@
 
  (define-ftype-allocator cairo-glyph-create cairo-glyph-t)
 
+(define-ftype cairo-glyph-t* (* cairo-glyph-t))
+(define-ftype-allocator cairo-glyph*-create cairo-glyph-t*)
+
  (define-ftype cairo-text-cluster-t
    (struct [num-bytes int] [num-glyphs int]))
 
  (define-ftype-allocator cairo-text-cluster-create cairo-text-cluster-t)
 
+ (define-ftype cairo-text-cluster-t* (* cairo-text-cluster-t))
+ (define-ftype-allocator cairo-text-cluster*-create cairo-text-cluster-t*)
+ 
  (define-enumeration* cairo-text-cluster-flag
    (none backward))
 
  (define-ftype cairo-text-cluster-flags-t int)
+
+ (define-ftype-allocator cairo-text-cluster-flags-create cairo-text-cluster-flags-t)
+
+ (define-ftype-allocator cairo-int-create int)
+ (define-ftype-allocator cairo-void*-create void*)
 
  (define-ftype cairo-text-extents-t
    (struct
@@ -258,10 +271,16 @@
      (* cairo-rectangle-int-t))
     cairo-status-t))
 
+ (define-ftype cairo-raster-source-acquire-func-t*
+   (* cairo-raster-source-acquire-func-t))
+
  (define-ftype cairo-raster-source-release-func-t
    (function
     ((* cairo-pattern-t) void* (* cairo-surface-t))
     cairo-status-t))
+
+ (define-ftype cairo-raster-source-release-func-t*
+  (* cairo-raster-source-release-func-t))
 
  (define-ftype cairo-raster-source-snapshot-func-t
    (function ((* cairo-pattern-t) void*) cairo-status-t))
@@ -289,4 +308,5 @@
    (in out part))
 
  (define-ftype cairo-pdf-version-t int)
+ (define-ftype cairo-pdf-version-t* (* cairo-pdf-version-t))
  (define-ftype cairo-pdf-version-t-const cairo-pdf-version-t)

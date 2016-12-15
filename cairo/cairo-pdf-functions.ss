@@ -1,6 +1,6 @@
 (define-cairo-func (* cairo-surface-t) cairo-pdf-surface-create ((filename string) (width_in_points double) (height_in_points double)) "cairo_pdf_surface_create")
 (define-cairo-func (* cairo-surface-t) cairo-pdf-surface-create-for-stream ((write_func (* cairo-write-func-t)) (closure void*) (width_in_points double) (height_in_points double)) "cairo_pdf_surface_create_for_stream")
 (define-cairo-func void cairo-pdf-surface-restrict-to-version ((surface (* cairo-surface-t)) (version cairo-pdf-version-t)) "cairo_pdf_surface_restrict_to_version")
-(define-cairo-func void cairo-pdf-get-versions ((versions (* cairo-pdf-version-t)) (num_versions (* int))) "cairo_pdf_get_versions")
+(define-cairo-func void cairo-pdf-get-versions ((versions (* cairo-pdf-version-t*)) (num_versions (* int))) "cairo_pdf_get_versions")
 (define-cairo-func string cairo-pdf-version-to-string ((version cairo-pdf-version-t)) "cairo_pdf_version_to_string")
 (define-cairo-func void cairo-pdf-surface-set-size ((surface (* cairo-surface-t)) (width_in_points double) (height_in_points double)) "cairo_pdf_surface_set_size")

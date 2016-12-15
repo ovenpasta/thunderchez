@@ -193,10 +193,12 @@
   cairo-set-source-color
   color-r color-g color-b color-a
   make-color color?
-
+  
+  unsigned-8*
   cairo-bool-t
   cairo-t
   cairo-surface-t
+  cairo-surface-t*
   cairo-device-t
   cairo-matrix-t
   cairo-pattern-t
@@ -219,7 +221,9 @@
   cairo-scaled-font-t
   cairo-font-face-t
   cairo-glyph-t
+  cairo-glyph-t*
   cairo-text-cluster-t
+  cairo-text-cluster-t*
   cairo-text-cluster-flags-t
   cairo-text-extents-t
   cairo-font-extents-t
@@ -242,7 +246,9 @@
   cairo-surface-observer-callback-t
   cairo-surface-type-t
   cairo-raster-source-acquire-func-t
+  cairo-raster-source-acquire-func-t*
   cairo-raster-source-release-func-t
+  cairo-raster-source-release-func-t*
   cairo-raster-source-snapshot-func-t
   cairo-raster-source-copy-func-t
   cairo-raster-source-finish-func-t
@@ -252,6 +258,7 @@
   cairo-region-t
   cairo-region-overlap-t
   cairo-pdf-version-t
+  cairo-pdf-version-t*
 					;enums
   cairo-status-enum
   cairo-format
@@ -279,19 +286,21 @@
   cairo-rectangle-create
   cairo-rectangle-list-create
   cairo-glyph-create
+  cairo-glyph*-create
   cairo-text-cluster-create
+  cairo-text-cluster*-create
   cairo-text-extents-create
+  cairo-text-cluster-flags-create
   cairo-font-extents-create
   cairo-path-create
   double-array-create 
   double-array-create-from-vector
-
   cairo-matrix-create
-
+  cairo-int-create
+  cairo-void*-create
   cairo-guardian
   cairo-free-garbage
   cairo-guard-pointer
-
   with-cairo
   let-struct
   )
@@ -299,7 +308,7 @@
  
  (include "cairo/ffi-utils.ss")
 
- (define (cairo-library-init . t) (load-shared-object (if (null? t) "libcairo.so.2.11502.0" (car t))))
+ (define (cairo-library-init . t) (load-shared-object (if (null? t) "libcairo.so.2" (car t))))
 
  (include "cairo/types.ss")
 
@@ -308,30 +317,32 @@
    (cairo-free-garbage) 
    (cairo-guardian obj)
    obj)
-
+ (include "cairo/cairo-functions.ss")
  (define (cairo-free-garbage)
    (let loop ([p (cairo-guardian)])
      (when p
 	   (when (ftype-pointer? p)
-		 (printf "cairo-free-garbage: freeing memory at ~x\n" p)
+		 ;(printf "cairo-free-garbage: freeing memory at ~x\n" p)
 		 ;;[(ftype-pointer? usb-device*-array p)
 		 (cond 
 		  [(ftype-pointer? cairo-t p) (cairo-destroy p)]
 		  [(ftype-pointer? cairo-surface-t p) (cairo-surface-destroy p)]
 		  [(ftype-pointer? cairo-pattern-t p) (cairo-pattern-destroy p)]
-		  [(ftype-pointer? cairo-region-t p) (cairo-region-destroy p)]
+		  [(ftype-pointer? cairo-region-t p) (void)]; (cairo-region-destroy p)]
 		  [(ftype-pointer? cairo-rectangle-list-t p) (cairo-rectangle-list-destroy p)]
 		  [(ftype-pointer? cairo-font-options-t p) (cairo-font-options-destroy p)]
 		  [(ftype-pointer? cairo-font-face-t p) (cairo-font-face-destroy p)]
-		  ;[(ftype-pointer? cairo-scaled-font-t p) (cairo-scaled-font-destroy p)]
+		  [(ftype-pointer? cairo-scaled-font-t p) (cairo-scaled-font-destroy p)]
 		  [(ftype-pointer? cairo-path-t p) (cairo-path-destroy p)]
 		  [(ftype-pointer? cairo-device-t p) (cairo-device-destroy p)]
+		  [(ftype-pointer? cairo-glyph-t p) (cairo-glyph-free p)]
+		  [(ftype-pointer? cairo-text-cluster-t p) (cairo-text-cluster-free p)]
 		  [else
 		   (foreign-free (ftype-pointer-address p))]
 		  ))
-	   (loop (cairo-guardian)))))		
+	   (loop (cairo-guardian)))))
 
-(include "cairo/cairo-functions.ss")
+
 
 (include "cairo/cairo-pdf-functions.ss")
 

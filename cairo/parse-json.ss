@@ -50,7 +50,10 @@
 
 (define (add-* x)
   (string-append x "*"))
- 
+
+(define (symbol-append . symbols)
+  (apply string-append (map symbol->string symbols)))
+
 (define (decode-type t)
   (if t
       (let-json-object t (tag type)
@@ -71,7 +74,7 @@
 					 (void 'void*)
 					 (else
 					  (if (and (pair? pt ) (eq? (car pt) '*))
-					      pt ;; DOUBLE STAR SEEMS NOT SUPPORTED ON CHEZ
+					      `(* ,(symbol-append (cadr pt) '*)) ;; DOUBLE STAR SEEMS NOT SUPPORTED ON CHEZ
 					      `(* ,pt))
 					  #;(string->symbol 
 					   (add-*

@@ -67,7 +67,7 @@
 		 (let* ([function-fptr  (make-ftype-pointer function-ftype c-name)]
 			[function       (ftype-ref function-ftype () function-fptr)]
 			[arg-name arg-convert] ...)
-		   (printf "calling ffi ~d ~n" c-name)
+		   ;(printf "calling ffi ~d ~n" c-name)
 		   (let ([result (function arg-name ...)])
 		     
 		     #,(case (syntax->datum #'ret-type)
