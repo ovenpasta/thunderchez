@@ -66,30 +66,32 @@
 	  (get-string-n port n)
 	  (get-string-all port))]))
 
-  (define (print-stack-trace k depth)
+  (define (print-stack-trace depth)
     (printf "stack-trace:\n")
-    (let loop ((cur (inspect/object k))
-	       (i 0))
-      (if (and (< i depth)
-	       (> (cur 'depth) 1))
-	  (let* ([name (cond [((cur 'code) 'name) => (lambda (x) x)]
-			     [else "*"])]
-		 [source ((cur 'code) 'source)]
-		 [source-txt (if source
-				 (let ([ss (with-output-to-string
-					     (lambda ()
-					       (source 'write (current-output-port))))])
-				   (if (> (string-length ss) 50)
-				       (string-truncate! ss 50)
-				       ss))
-				 "*")])
-	    (call-with-values
-		(lambda () (cur 'source-path))
-	      (case-lambda
-		[() (printf "[no source] [~a]: ~a\n" name source-txt)]
-		[(fn bfp) (printf "~a char ~a [~a]: ~a\n" fn bfp name source-txt)]
-		[(fn line char) (printf "~a:~a:~a [~a]: ~a\n" fn line char name source-txt)]))
-	    (loop (cur 'link) (+ i 1)))))
+    (call/cc 
+     (lambda (k)
+       (let loop ((cur (inspect/object k))
+		  (i 0))
+	 (if (and (< i depth)
+		  (> (cur 'depth) 1))
+	     (let* ([name (cond [((cur 'code) 'name) => (lambda (x) x)]
+				[else "*"])]
+		    [source ((cur 'code) 'source)]
+		    [source-txt (if source
+				    (let ([ss (with-output-to-string
+						(lambda ()
+						  (source 'write (current-output-port))))])
+					  (if (> (string-length ss) 50)
+					      (string-truncate! ss 50)
+					      ss))
+				    "*")])
+	       (call-with-values
+		   (lambda () (cur 'source-path))
+		 (case-lambda
+		  [() (printf "[no source] [~a]: ~a\n" name source-txt)]
+		  [(fn bfp) (printf "~a char ~a [~a]: ~a\n" fn bfp name source-txt)]
+		  [(fn line char) (printf "~a:~a:~a [~a]: ~a\n" fn line char name source-txt)]))
+	       (loop (cur 'link) (+ i 1)))))))
     (printf "stack-trace end.\n"))
 
   );library
