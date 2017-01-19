@@ -218,9 +218,9 @@
                                    (foreign-alloc (ftype-sizeof sqlite3:database**)))]
           [f (foreign-procedure "sqlite3_open" (string void*) int)]
           [e (f path (ftype-pointer-address ptr))])
-     (if (< e 0)
-         (abort-sqlite3-error 'open-database #f path)
-         (make-database (ftype-&ref sqlite3:database** (*) ptr) #f))))
+     (if (= e 0)
+         (make-database (ftype-&ref sqlite3:database** (*) ptr) #f)
+	 ((abort-sqlite3-error 'open-database #f path) e))))
 
  (define (check-database context db)
    (assert (and context (database? db))))
