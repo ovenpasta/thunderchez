@@ -23,7 +23,7 @@
 	
 	(define (c-eval-printf format . values)
 	  (c-eval (string-append "printf (\"" format "\"," (string-intersperse (map ->string values) ",") ");")))
-		
+	
 	(define (c-eval expr)
 	  (with-mktemp
 	   "/tmp/c-eval-XXXXXX"

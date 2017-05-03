@@ -5,7 +5,7 @@
 ;; license must also be included.
 
 #!r6rs
-(library (srfi s2 and-let)  
+(library (srfi s2 and-let)
   (export 
     and-let*)
   (import 

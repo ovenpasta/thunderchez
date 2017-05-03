@@ -510,3 +510,49 @@
 		       (cons quoted-char (loop (inc to) new-to)))
 		      (cons quoted-char (loop (inc to) new-to))))))))))
 ))
+
+;; from https://sourceforge.net/p/sisc/mailman/message/2909294/
+
+(define-syntax lookup-def 
+  (syntax-rules (warn:)
+    ((lookup-def key alist)
+     (let ((nkey key) (nalist alist)) ; evaluate them only once
+       (let ((res (assq nkey nalist)))
+	 (if res
+	     (let ((res (cdr res)))
+	       (cond
+		((not (pair? res)) res)
+		((null? (cdr res)) (car res))
+		(else res)))
+	     (error "Failed to find " nkey " in " nalist)))))
+    ((lookup-def key alist default-exp)
+     (let ((res (assq key alist)))
+       (if res
+	   (let ((res (cdr res)))
+	     (cond
+	      ((not (pair? res)) res)
+	      ((null? (cdr res)) (car res))
+	      (else res)))
+	   default-exp)))
+    ((lookup-def key alist warn: default-exp)
+     (let ((nkey key) (nalist alist)) ; evaluate them only once
+       (let ((res (assq nkey nalist)))
+	 (if res
+	     (let ((res (cdr res)))
+	       (cond
+		((not (pair? res)) res)
+		((null? (cdr res)) (car res))
+		(else res)))
+	     (begin
+	       (cerr "Failed to find " nkey " in " nalist #\newline)
+	       default-exp)))))
+    ))
+
+(define OS:file-length (lambda (path) (call-with-input-file path (lambda (p) (file-length p)))))
+
+(define string->integer
+  (case-lambda
+    [(str)
+     (string->number str)]
+    [(str start end)
+     (string->number (substring str start end))]))

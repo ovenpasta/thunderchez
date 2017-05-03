@@ -44,16 +44,19 @@
 (define argv (command-line-arguments))
 
 (define sock (nn-socket AF_SP NN_REQ))
-(define eid (nn-connect sock (car argv)))
+(define eid (cond [(null? argv)
+		   (nn-connect sock "tcp://localhost:9888")]
+		  [else
+		   (nn-connect sock (car argv))]))
 
 (call/cc 
  (lambda (return)
    (let loop ()
      (guard 
       (e (else (printf "error in remote-repl: on ~d: ~d with irritants ~d~n" 
-							 (if (who-condition? e) (condition-who e) 'unknown)
-							 (if (message-condition? e) (condition-message e) "")
-							 (if (irritants-condition? e) (condition-irritants e) ""))))
+		       (if (who-condition? e) (condition-who e) 'unknown)
+		       (if (message-condition? e) (condition-message e) "")
+		       (if (irritants-condition? e) (condition-irritants e) ""))))
       (printf "> ")
       (nn-send sock (string->utf8 
 		     (call-with-string-output-port

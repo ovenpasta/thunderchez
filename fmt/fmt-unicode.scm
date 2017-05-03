@@ -8,7 +8,7 @@
 ;; this better
 
 (define low-non-spacing-chars
-  (u8vector
+  (bytevector
 #xff #xff #xff #xff #xff #xff #xff #xff #xff #xff #xff #xff #xff #xff    0    0
    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
@@ -90,8 +90,8 @@
        (let* ((i (- ci #x0300))
               (byte (quotient i 8))
               (off (remainder i 8)))
-         (if (zero? (bitwise-and (u8vector-ref low-non-spacing-chars byte)
-                                 (arithmetic-shift 1 off)))
+         (if (zero? (bitwise-and (bytevector-u8-ref low-non-spacing-chars byte)
+                                 (bitwise-arithmetic-shift 1 off)))
              1
              0)))
       ((<= #x302A ci #x302F) 0)

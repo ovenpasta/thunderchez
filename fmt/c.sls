@@ -33,9 +33,10 @@
 
  (import (chezscheme) 
 	 (fmt fmt)
+	 (srfi private include)
 	 (only (srfi s1 lists) every)
 	 (only (srfi s13 strings) substring/shared string-index string-index-right))
 
- (include "fmt-c.scm")
+ (include/resolve ("fmt") "fmt-c.scm")
 
  )

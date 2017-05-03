@@ -10,8 +10,9 @@
   js-expr js-function js-var js-comment js-array js-object js=== js>>>)
  
  (import (chezscheme)
-	 (fmt fmt) (fmt c))
+	 (fmt fmt) (fmt c)
+	 (srfi private include))
  
- (include "fmt-js.scm")
+ (include ("fmt") "fmt-js.scm")
  
  )
