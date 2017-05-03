@@ -15,7 +15,9 @@
 
 (library (thunder-utils)
   (export string-split string-replace bytevector-copy* read-string
-	  print-stack-trace) 
+	  print-stack-trace
+	  sub-bytevector  sub-bytevector=?)
+  
   (import (scheme) (srfi s14 char-sets))
 
   ;; POSSIBLE THAT NOT EXISTS THIS FUNCTION???
@@ -52,7 +54,7 @@
     (case-lambda
      [(bv) (bytevector-copy bv)]
      [(bv start)
-      (bytevector-copy* start (- (bytevector-length bv) start))]
+      (bytevector-copy* bv start (- (bytevector-length bv) start))]
      [(bv start n)
       (let ([dst (make-bytevector n)])
 	(bytevector-copy! bv start dst 0 n) dst)]))
@@ -93,6 +95,21 @@
 		  [(fn line char) (printf "~a:~a:~a [~a]: ~a\n" fn line char name source-txt)]))
 	       (loop (cur 'link) (+ i 1)))))))
     (printf "stack-trace end.\n"))
+
+
+  (define sub-bytevector
+    (case-lambda
+      [(b start)
+       (sub-bytevector b start (bytevector-length b))]
+      [(b start end)
+       (let* ([n (- end start)]
+	      [x (make-bytevector n)])
+	 (bytevector-copy! b start x 0 n)
+	 x)]))
+
+  (define (sub-bytevector=? b1 start1 b2 start2 len)
+    (bytevector=? (sub-bytevector b1 start1 (+ start1 len))
+		  (sub-bytevector b2 start2 (+ start2 len))))
 
   );library
 
