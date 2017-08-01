@@ -16,7 +16,8 @@
 (library (thunder-utils)
   (export string-split string-replace bytevector-copy* read-string
 	  print-stack-trace
-	  sub-bytevector  sub-bytevector=?)
+	  sub-bytevector  sub-bytevector=?
+	  load-bytevector save-bytevector)
   
   (import (scheme) (srfi s14 char-sets))
 
@@ -110,6 +111,14 @@
   (define (sub-bytevector=? b1 start1 b2 start2 len)
     (bytevector=? (sub-bytevector b1 start1 (+ start1 len))
 		  (sub-bytevector b2 start2 (+ start2 len))))
+
+  (define (load-bytevector path)
+    (call-with-port (open-file-input-port path)
+		    (lambda (p) (get-bytevector-all p))))
+  
+  (define (save-bytevector path data)
+    (call-with-port (open-file-output-port path)
+		    (lambda (p) (put-bytevector p data))))
 
   );library
 
