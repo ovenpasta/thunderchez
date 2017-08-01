@@ -302,8 +302,8 @@
 		      finalize-statements?
 		      (sqlite3-next-stmt x))])
 	   (if stmt
-	       (or (sqlite3_finalize (statement-addr x))
-		   (loop (sqlite3-next-stmt (statement-database x))))
+	       (or (sqlite3_finalize (statement-ptr stmt))
+		   (loop (sqlite3-next-stmt (statement-database stmt))))
 	       (let ([f (foreign-procedure "sqlite3_close" (sqlite3:database*) int)])
 		 (f (database-addr x)))))
 	 => (abort-sqlite3-error 'finalize! x x)])]
@@ -437,8 +437,8 @@
             => (abort-sqlite3-error 'bind! (statement-database stmt) stmt i v)])]
     [(or (and (fixnum? v) v) (and (boolean? v) (if v 1 0)))
      => (lambda (v)
-          (cond [((foreign-procedure "sqlite3_bind_int"
-                                     (sqlite3:statement* int int) int)
+          (cond [((foreign-procedure "sqlite3_bind_int64"
+                                     (sqlite3:statement* int integer-64) int)
                   (statement-addr stmt) (fx+ i 1) v)
                  => (abort-sqlite3-error 'bind! (statement-database stmt) stmt i v)]))]
     [(real? v)
