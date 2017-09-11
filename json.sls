@@ -27,14 +27,14 @@
    (cond
     [(>= pos (string-length data))
      (error 'parse-json-str "error unexpected end of string")]
-    [(char=? (string-ref data pos) #\")
+    [(and (char=? (string-ref data pos) #\") (not escaping))
      (values (list->string (reverse out)) pos)]
     [else
      (let ([char (string-ref data pos)])
        (cond 
 	[escaping
 	 (let* ([special '((#\/ . #\/) (#\b . #\backspace) (#\n . #\newline) 
-			   (#\r . #\return) (#\t . #\tab))]
+			   (#\r . #\return) (#\t . #\tab) (#\\ . #\\) (#\" . #\"))]
 		[q (assq char special)])
 	   (cond 
 	    [q (parse-json-str (+ 1 pos) data #f (cons (cdr q) out))]
