@@ -441,15 +441,17 @@
                                      (sqlite3:statement* int integer-64) int)
                   (statement-addr stmt) (fx+ i 1) v)
                  => (abort-sqlite3-error 'bind! (statement-database stmt) stmt i v)]))]
-    [(real? v)
+    [(flonum? v)
      (cond [((foreign-procedure "sqlite3_bind_double"
                                 (sqlite3:statement* int double) int)
              (statement-addr stmt) (fx+ i 1) (exact->inexact v))
             => (abort-sqlite3-error 'bind! (statement-database stmt) stmt i v)])]
-    [(string? v)
+    [(or (string? v) (number? v))
      (let ([f (foreign-procedure "sqlite3_bind_text"
                                  (sqlite3:statement* int u8* int void*) int)]
-           [s (string->utf8 v)])
+           [s (if (string? v)
+		  (string->utf8 v)
+		  (number->string v))])
        (cond [(f (statement-addr stmt) (fx+ i 1) s (bytevector-length s) SQLITE_TRANSIENT)
               => (abort-sqlite3-error 'bind! (statement-database stmt) stmt i v)]))]
     [(sql-null? v)
@@ -574,10 +576,11 @@
  (define (column-data stmt i)
    (case (column-type stmt i)
      [(integer)
-      (if (and-let* ([type (column-declared-type stmt i)])
-                    (string-contains-ci type "bool"))
-          (sqlite3_column_boolean (statement-addr stmt) i)
-          (sqlite3_column_int64 (statement-addr stmt) i))]
+      (cond [(and-let* ([type (column-declared-type stmt i)])
+	       (string-contains-ci type "bool"))
+	     (sqlite3_column_boolean (statement-addr stmt) i)]
+	    [else
+	     (sqlite3_column_int64 (statement-addr stmt) i)])]
      [(float)
       (sqlite3_column_double (statement-addr stmt) i)]
      [(text)
