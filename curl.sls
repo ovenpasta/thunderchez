@@ -287,7 +287,6 @@
 					;    match */
      CURLE_SSL_INVALIDCERTSTATUS   ; /* 91 - invalid certificate status */
      CURLE_HTTP2_STREAM   ;          /* 92 - stream error in HTTP/2 framing layer
-     */
      CURL_LAST))
 					;/* never use! */))
 
