@@ -20,8 +20,9 @@
           (prefix (only (scheme) error) scheme:)
           (srfi s13 strings)
 	  (sxml tree-trans)
+	  (srfi private include)
 	  (only (thunder-utils) string-split))
-   (include "utils.ss")
-   (include "SXML-to-HTML.scm")
-   (include "SXML-to-HTML-ext.scm"))
+   (include/resolve ("sxml") "utils.ss")
+   (include/resolve ("sxml") "SXML-to-HTML.scm")
+   (include/resolve ("sxml") "SXML-to-HTML-ext.scm"))
 		

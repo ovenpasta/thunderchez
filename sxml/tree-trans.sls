@@ -11,7 +11,8 @@
                   string-downcase string-titlecase string-hash string-copy! string-fill!
                   fold-right error filter)
           (prefix (only (scheme) error) scheme:)
-          (srfi s13 strings))
-   (include "utils.ss")
-   (include "SXML-tree-trans.scm"))
+          (srfi s13 strings)
+	  (srfi private include))
+   (include/resolve ("sxml") "utils.ss")
+   (include/resolve ("sxml") "SXML-tree-trans.scm"))
 		
