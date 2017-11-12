@@ -45,7 +45,9 @@
   database-memory-used
   database-memory-highwater
   enable-shared-cache!
-  enable-load-extension!)
+  enable-load-extension!
+
+  sqlite3-trace)
 
  (import
   (chezscheme)
@@ -803,6 +805,13 @@
        => (abort-sqlite3-error 'enable-load-extension! db)]
       [else
        enable?])]))
+
+ (define (sqlite3-trace db func data)
+   (check-database 'sqlite3-trace db)
+   (let ([f (foreign-procedure "sqlite3_trace" (sqlite3:database* void* void*) void)])
+     (f (database-addr db) func data)))
+ 
+ (foreign-procedure "sqlite3_trace" ( void* void*) void)
 
  (record-writer
   (type-descriptor database)
