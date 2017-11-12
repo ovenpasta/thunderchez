@@ -16,9 +16,10 @@
 #!chezscheme
 (library 
  (json)
- (export parse-json-str read-file let-json-object string->json)
+ (export parse-json-str read-file let-json-object string->json json->string)
  (import (srfi s14 char-sets)
-	 (scheme))
+	 (scheme)
+	 (only (data-structures) string-intersperse string-translate*))
 
  (include "lalr/associators.ss")
  (include "lalr/lalr.ss")
@@ -189,6 +190,46 @@
 	#`(let #,(map (lambda (t) #`(#,t 
 				     (let ([v (assq (quote #,t) object)])
 				       (if v (cdr v) v))))#'(tag ...))
-	    body ...)]))))
+	    body ...)])))
+
+
+ (define (json->string json)
+   (define special '((#\backspace . #\b) (#\newline . #\n) (#\alarm . #\a) 
+		     (#\return . #\r) (#\tab #\t) (#\\ . #\\) (#\" . #\")))
+   (cond [(and (pair? json) (eq? (car json) 'dict))
+	  (string-append 
+	   "{\n"
+	   (string-intersperse
+	    (map (lambda (pair)
+		   (let ([k (car pair)]
+			 [v (cdr pair)])
+		     (string-append "  " (json->string k)
+				    " : " (json->string v))))
+		 (cdr json))
+	    ",\n")
+	   "\n}\n")]
+	 [(list? json)
+	  (string-append  "["
+			  (string-intersperse (map json->string json) ",")
+			  "]\n")]
+	 [(number? json)
+	  (number->string json)]
+	 [(string? json)
+	  (string-append "\""
+			 (list->string (fold-right
+					(lambda (x acc)
+					  (let ([q (assq x special)])
+					    (if q (cons #\\ (cons (cdr q) acc))
+						(cons x acc))))
+					'()
+					(string->list json)))
+			 "\"" )]
+   
+	 [(symbol? json)
+	  (json->string (symbol->string json))]
+	 [else
+	  (json->string "")]))
+ 
+ )
 
 ;;#!eof
