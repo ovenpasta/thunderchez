@@ -43,7 +43,7 @@
   
   ;; POSSIBLE THAT THIS NOT EXIST?
   ;; if x is a character: (eqv?  s[i] x) => s[i] = y
-  ;; if x is a list:      (memq s[i] x) => s[i] = y
+  ;; if x is a list:      (memv s[i] x) => s[i] = y
 
   (define (string-replace s x y)
     (list->string  
