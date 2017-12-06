@@ -21,8 +21,7 @@
   
   (import (scheme) (srfi s14 char-sets))
 
-  ;; POSSIBLE THAT NOT EXISTS THIS FUNCTION???
-  ;; s is a string , c is a character-set
+  ;; s is a string , c is a character-set or a list of chars
   ;; null strings are discarded from result by default unless #f is specified as third argument
   (define string-split
     (case-lambda
@@ -34,7 +33,8 @@
 	(if (null? l) 
 	    (if (and (null? t) discard-null?)
 		res (append res (list (list->string t))))
-	    (if (char-set-contains? c (car l))
+	    (if (or (and (char-set? c) (char-set-contains? c (car l)))
+		    (and (pair? c) (memv (car l) c)))
 		(begin 
 		  (unless (and (null? t) discard-null?)
 			  (set! res (append res (list (list->string t)))))
@@ -119,6 +119,17 @@
   (define (save-bytevector path data)
     (call-with-port (open-file-output-port path)
 		    (lambda (p) (put-bytevector p data))))
+
+  
+  (define-syntax (nest stx)
+    (syntax-case stx ()
+      ((nest outer ... inner)
+       (fold-right (lambda (o i)
+		     (with-syntax (((outer ...) o)
+				   (inner i))
+		       #'(outer ... inner)))
+		   #'inner (syntax->list #'(outer ...))))))
+
 
   );library
 
