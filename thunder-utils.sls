@@ -47,7 +47,7 @@
 
   (define (string-replace s x y)
     (list->string  
-     (let ([cmp (if (list? x) memq eqv?)])
+     (let ([cmp (if (list? x) memv eqv?)])
        (map (lambda (z) (if (cmp z x) y z)) (string->list s)))))
 
   ;; WHY THERE NOT EXISTS BYTEVECTOR-COPY WITH src-start and n? F*** YOU
