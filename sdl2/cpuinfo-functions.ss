@@ -11,4 +11,5 @@
 (define-sdl-func sdl-bool-t sdl-has-ss-e42 () "SDL_HasSSE42")
 (define-sdl-func sdl-bool-t sdl-has-avx () "SDL_HasAVX")
 (define-sdl-func sdl-bool-t sdl-has-av-x2 () "SDL_HasAVX2")
+(define-sdl-func sdl-bool-t sdl-has-neon () "SDL_HasNEON")
 (define-sdl-func int sdl-get-system-ram () "SDL_GetSystemRAM")

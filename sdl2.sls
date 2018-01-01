@@ -713,7 +713,6 @@
  
  (include "sdl2/ffi.ss")
  (include "sdl2/base-types.ss")
- 
  (include "sdl2/guardian.ss")
 
  (include "sdl2/error-types.ss")
@@ -815,8 +814,8 @@
  (include "sdl2/main-functions.ss") 
 
  (include "sdl2/sdl-functions.ss")
+ 
 
  (include "sdl2/init.ss")
 
- (include "sdl2/extras.ss")
-)
+ (include "sdl2/extras.ss"))

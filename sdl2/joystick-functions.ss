@@ -1,12 +1,23 @@
+(define-sdl-func void sdl-lock-joysticks () "SDL_LockJoysticks")
+(define-sdl-func void sdl-unlock-joysticks () "SDL_UnlockJoysticks")
 (define-sdl-func int sdl-num-joysticks () "SDL_NumJoysticks")
 (define-sdl-func string sdl-joystick-name-for-index ((device_index int)) "SDL_JoystickNameForIndex")
+;;blacklisted probably because it uses a struct as value.
+(define sdl-joystick-get-device-guid #f)
+(define-sdl-func uint16 sdl-joystick-get-device-vendor ((device_index int)) "SDL_JoystickGetDeviceVendor")
+(define-sdl-func uint16 sdl-joystick-get-device-product ((device_index int)) "SDL_JoystickGetDeviceProduct")
+(define-sdl-func uint16 sdl-joystick-get-device-product-version ((device_index int)) "SDL_JoystickGetDeviceProductVersion")
+(define-sdl-func sdl-joystick-type-t sdl-joystick-get-device-type ((device_index int)) "SDL_JoystickGetDeviceType")
+(define-sdl-func sdl-joystick-id-t sdl-joystick-get-device-instance-id ((device_index int)) "SDL_JoystickGetDeviceInstanceID")
 (define-sdl-func (* sdl-joystick-t) sdl-joystick-open ((device_index int)) "SDL_JoystickOpen")
 (define-sdl-func (* sdl-joystick-t) sdl-joystick-from-instance-id ((joyid sdl-joystick-id-t)) "SDL_JoystickFromInstanceID")
 (define-sdl-func string sdl-joystick-name ((joystick (* sdl-joystick-t))) "SDL_JoystickName")
 ;;blacklisted probably because it uses a struct as value.
-(define sdl-joystick-get-device-guid #f)
-;;blacklisted probably because it uses a struct as value.
 (define sdl-joystick-get-guid #f)
+(define-sdl-func uint16 sdl-joystick-get-vendor ((joystick (* sdl-joystick-t))) "SDL_JoystickGetVendor")
+(define-sdl-func uint16 sdl-joystick-get-product ((joystick (* sdl-joystick-t))) "SDL_JoystickGetProduct")
+(define-sdl-func uint16 sdl-joystick-get-product-version ((joystick (* sdl-joystick-t))) "SDL_JoystickGetProductVersion")
+(define-sdl-func sdl-joystick-type-t sdl-joystick-get-type ((joystick (* sdl-joystick-t))) "SDL_JoystickGetType")
 ;;blacklisted probably because it uses a struct as value.
 (define sdl-joystick-get-guid-string #f)
 ;;blacklisted probably because it uses a struct as value.
@@ -21,6 +32,7 @@
 (define-sdl-func void sdl-joystick-update () "SDL_JoystickUpdate")
 (define-sdl-func int sdl-joystick-event-state ((state int)) "SDL_JoystickEventState")
 (define-sdl-func sint16 sdl-joystick-get-axis ((joystick (* sdl-joystick-t)) (axis int)) "SDL_JoystickGetAxis")
+(define-sdl-func sdl-bool-t sdl-joystick-get-axis-initial-state ((joystick (* sdl-joystick-t)) (axis int) (state (* sint16))) "SDL_JoystickGetAxisInitialState")
 (define-sdl-func uint8 sdl-joystick-get-hat ((joystick (* sdl-joystick-t)) (hat int)) "SDL_JoystickGetHat")
 (define-sdl-func int sdl-joystick-get-ball ((joystick (* sdl-joystick-t)) (ball int) (dx (* int)) (dy (* int))) "SDL_JoystickGetBall")
 (define-sdl-func uint8 sdl-joystick-get-button ((joystick (* sdl-joystick-t)) (button int)) "SDL_JoystickGetButton")

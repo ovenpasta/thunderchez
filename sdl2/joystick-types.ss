@@ -15,7 +15,7 @@
 
  (define-ftype sdl-joystick-t (struct))
  (define-ftype sdl-joystick-guid-t (struct (data (array 16 uint8))))
-
+ (define-ftype sdl-joystick-type-t uint32)
 (define sdl-joystick-power-level-unknown -1)
 (define-enumeration* sdl-joystick-power-level
   (empty  low medium full wired max))

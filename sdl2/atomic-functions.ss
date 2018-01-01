@@ -1,6 +1,8 @@
 (define-sdl-func sdl-bool-t sdl-atomic-try-lock ((lock (* sdl-spin-lock-t))) "SDL_AtomicTryLock")
 (define-sdl-func void sdl-atomic-lock ((lock (* sdl-spin-lock-t))) "SDL_AtomicLock")
 (define-sdl-func void sdl-atomic-unlock ((lock (* sdl-spin-lock-t))) "SDL_AtomicUnlock")
+(define-sdl-func void sdl-memory-barrier-release-function () "SDL_MemoryBarrierReleaseFunction")
+(define-sdl-func void sdl-memory-barrier-acquire-function () "SDL_MemoryBarrierAcquireFunction")
 (define-sdl-func sdl-bool-t sdl-atomic-cas ((a (* sdl-atomic-t)) (oldval int) (newval int)) "SDL_AtomicCAS")
 (define-sdl-func int sdl-atomic-set ((a (* sdl-atomic-t)) (v int)) "SDL_AtomicSet")
 (define-sdl-func int sdl-atomic-get ((a (* sdl-atomic-t))) "SDL_AtomicGet")

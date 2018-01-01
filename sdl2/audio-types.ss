@@ -30,4 +30,4 @@
     (callback sdl-audio-callback-t)
     (userdata void*)))
  (define-ftype sdl-audio-cvt-t (struct))
-
+(define-ftype sdl-audio-stream-t (struct))
