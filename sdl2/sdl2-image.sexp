@@ -974,7 +974,7 @@
       .
       #(((tag . "field") (name . "") (bit-offset . 0) (bit-size . 64)
           (bit-alignment . 64)
-          (type (tag . "union") (ns . 21877) (name . "") (id . 7)
+          (type (tag . "union") (ns . 22057) (name . "") (id . 7)
             (location
               .
               "/usr/include/bits/thread-shared-types.h:153:17")
@@ -1116,7 +1116,7 @@
     (ns . 0)
     (name . "pthread_condattr_t")
     (location . "/usr/include/bits/pthreadtypes.h:45:3")
-    (type (tag . "union") (ns . 21877) (name . "") (id . 12)
+    (type (tag . "union") (ns . 22057) (name . "") (id . 12)
       (location . "/usr/include/bits/pthreadtypes.h:41:9")
       (bit-size . 32) (bit-alignment . 32)
       (fields
@@ -1226,7 +1226,7 @@
     (ns . 0)
     (name . "pthread_rwlock_t")
     (location . "/usr/include/bits/pthreadtypes.h:91:3")
-    (type (tag . "union") (ns . 21877) (name . "") (id . 18)
+    (type (tag . "union") (ns . 0) (name . "") (id . 18)
       (location . "/usr/include/bits/pthreadtypes.h:86:9")
       (bit-size . 448) (bit-alignment . 64)
       (fields
@@ -1253,7 +1253,7 @@
     (ns . 0)
     (name . "pthread_rwlockattr_t")
     (location . "/usr/include/bits/pthreadtypes.h:97:3")
-    (type (tag . "union") (ns . 0) (name . "") (id . 20)
+    (type (tag . "union") (ns . 22057) (name . "") (id . 20)
       (location . "/usr/include/bits/pthreadtypes.h:93:9")
       (bit-size . 64) (bit-alignment . 64)
       (fields
@@ -1595,14 +1595,14 @@
     (name . "_IO_2_1_stdout_")
     (ns . 0)
     (location . "/usr/include/libio.h:316:29")
-    (type (tag . "struct") (ns . 21877) (name . "_IO_FILE_plus")
+    (type (tag . "struct") (ns . 22057) (name . "_IO_FILE_plus")
       (id . 0) (location . "/usr/include/libio.h:313:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "extern")
     (name . "_IO_2_1_stderr_")
     (ns . 0)
     (location . "/usr/include/libio.h:317:29")
-    (type (tag . "struct") (ns . 21877) (name . "_IO_FILE_plus")
+    (type (tag . "struct") (ns . 22057) (name . "_IO_FILE_plus")
       (id . 0) (location . "/usr/include/libio.h:313:8")
       (bit-size . 0) (bit-alignment . 0) (fields . #())))
   ((tag . "typedef")
@@ -7761,7 +7761,7 @@
     (ns . 0)
     (name . "imaxdiv_t")
     (location . "/usr/include/inttypes.h:275:5")
-    (type (tag . "struct") (ns . 21877) (name . "") (id . 40)
+    (type (tag . "struct") (ns . 22057) (name . "") (id . 40)
       (location . "/usr/include/inttypes.h:271:9")
       (bit-size . 128) (bit-alignment . 64)
       (fields
@@ -18808,7 +18808,7 @@
     (ns . 0)
     (name . "SDL_atomic_t")
     (location . "/usr/include/SDL2/SDL_atomic.h:195:31")
-    (type (tag . "struct") (ns . 21877) (name . "") (id . 50)
+    (type (tag . "struct") (ns . 22057) (name . "") (id . 50)
       (location . "/usr/include/SDL2/SDL_atomic.h:195:9")
       (bit-size . 32) (bit-alignment . 32)
       (fields
@@ -19433,7 +19433,7 @@
           (bit-alignment . 32) (type (tag . "Uint32")))
         ((tag . "field") (name . "hidden") (bit-offset . 384) (bit-size . 192)
           (bit-alignment . 64)
-          (type (tag . "union") (ns . 21877) (name . "") (id . 57)
+          (type (tag . "union") (ns . 22057) (name . "") (id . 57)
             (location . "/usr/include/SDL2/SDL_rwops.h:94:5")
             (bit-size . 192) (bit-alignment . 64)
             (fields
@@ -27291,7 +27291,7 @@
           (bit-alignment . 64)
           (type
             (tag . ":pointer")
-            (type (tag . "struct") (ns . 21877) (name . "SDL_BlitMap")
+            (type (tag . "struct") (ns . 22057) (name . "SDL_BlitMap")
               (id . 0)
               (location . "/usr/include/SDL2/SDL_surface.h:88:12")
               (bit-size . 0) (bit-alignment . 0) (fields . #()))))
@@ -27913,7 +27913,7 @@
     (ns . 0)
     (name . "SDL_DisplayMode")
     (location . "/usr/include/SDL2/SDL_video.h:60:3")
-    (type (tag . "struct") (ns . 21877) (name . "") (id . 82)
+    (type (tag . "struct") (ns . 22057) (name . "") (id . 82)
       (location . "/usr/include/SDL2/SDL_video.h:53:9")
       (bit-size . 192) (bit-alignment . 64)
       (fields
@@ -30856,7 +30856,7 @@
     (ns . 0)
     (name . "SDL_JoystickGUID")
     (location . "/usr/include/SDL2/SDL_joystick.h:72:3")
-    (type (tag . "struct") (ns . 32767) (name . "") (id . 100)
+    (type (tag . "struct") (ns . 0) (name . "") (id . 100)
       (location . "/usr/include/SDL2/SDL_joystick.h:70:9")
       (bit-size . 128) (bit-alignment . 8)
       (fields
@@ -31391,7 +31391,7 @@
           (type (tag . "SDL_GameControllerBindType")))
         ((tag . "field") (name . "value") (bit-offset . 32) (bit-size . 64)
           (bit-alignment . 32)
-          (type (tag . "union") (ns . 8051) (name . "") (id . 105)
+          (type (tag . "union") (ns . 22057) (name . "") (id . 105)
             (location . "/usr/include/SDL2/SDL_gamecontroller.h:75:5")
             (bit-size . 64) (bit-alignment . 32)
             (fields
@@ -31410,7 +31410,7 @@
                     (bit-alignment . 32)))
                 ((tag . "field") (name . "hat") (bit-offset . 0) (bit-size . 64)
                   (bit-alignment . 32)
-                  (type (tag . "struct") (ns . 11697) (name . "") (id . 106)
+                  (type (tag . "struct") (ns . 22057) (name . "") (id . 106)
                     (location
                       .
                       "/usr/include/SDL2/SDL_gamecontroller.h:79:9")
@@ -35996,4 +35996,554 @@
   ((tag . "function") (name . "SDL_Quit") (ns . 0)
     (location . "/usr/include/SDL2/SDL.h:123:30")
     (variadic . #f) (inline . #f) (storage-class . "extern")
-    (parameters . #()) (return-type (tag . ":void"))))
+    (parameters . #()) (return-type (tag . ":void")))
+  ((tag . "function") (name . "IMG_Linked_Version") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:56:45")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters . #())
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_version"))))
+  ((tag . "enum") (ns . 0) (name . "") (id . 171)
+    (location . "/usr/include/SDL2/SDL_image.h:58:9")
+    (fields
+      .
+      #(((tag . "field") (name . "IMG_INIT_JPG") (value . 1))
+        ((tag . "field") (name . "IMG_INIT_PNG") (value . 2))
+        ((tag . "field") (name . "IMG_INIT_TIF") (value . 4))
+        ((tag . "field") (name . "IMG_INIT_WEBP") (value . 8)))))
+  ((tag . "typedef")
+    (ns . 0)
+    (name . "IMG_InitFlags")
+    (location . "/usr/include/SDL2/SDL_image.h:64:3")
+    (type (tag . ":enum") (name . "") (id . 171)))
+  ((tag . "function") (name . "IMG_Init") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:70:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "flags")
+          (type
+            (tag . ":int")
+            (bit-size . 32)
+            (bit-alignment . 32)))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_Quit") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:73:30")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters . #()) (return-type (tag . ":void")))
+  ((tag . "function") (name . "IMG_LoadTyped_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:83:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))
+        ((tag . "parameter")
+          (name . "freesrc")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "type")
+          (type
+            (tag . ":pointer")
+            (type
+              (tag . ":char")
+              (bit-size . 8)
+              (bit-alignment . 8))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_Load") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:85:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "file")
+          (type
+            (tag . ":pointer")
+            (type
+              (tag . ":char")
+              (bit-size . 8)
+              (bit-alignment . 8))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_Load_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:86:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))
+        ((tag . "parameter")
+          (name . "freesrc")
+          (type
+            (tag . ":int")
+            (bit-size . 32)
+            (bit-alignment . 32)))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadTexture") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:91:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "renderer")
+          (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))
+        ((tag . "parameter")
+          (name . "file")
+          (type
+            (tag . ":pointer")
+            (type
+              (tag . ":char")
+              (bit-size . 8)
+              (bit-alignment . 8))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Texture"))))
+  ((tag . "function") (name . "IMG_LoadTexture_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:92:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "renderer")
+          (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))
+        ((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))
+        ((tag . "parameter")
+          (name . "freesrc")
+          (type
+            (tag . ":int")
+            (bit-size . 32)
+            (bit-alignment . 32)))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Texture"))))
+  ((tag . "function") (name . "IMG_LoadTextureTyped_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:93:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "renderer")
+          (type (tag . ":pointer") (type (tag . "SDL_Renderer"))))
+        ((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))
+        ((tag . "parameter")
+          (name . "freesrc")
+          (type (tag . ":int") (bit-size . 32) (bit-alignment . 32)))
+        ((tag . "parameter")
+          (name . "type")
+          (type
+            (tag . ":pointer")
+            (type
+              (tag . ":char")
+              (bit-size . 8)
+              (bit-alignment . 8))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Texture"))))
+  ((tag . "function") (name . "IMG_isICO") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:97:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isCUR") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:98:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isBMP") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:99:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isGIF") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:100:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isJPG") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:101:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isLBM") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:102:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isPCX") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:103:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isPNG") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:104:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isPNM") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:105:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isTIF") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:106:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isXCF") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:107:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isXPM") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:108:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isXV") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:109:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_isWEBP") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:110:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_LoadICO_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:113:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadCUR_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:114:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadBMP_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:115:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadGIF_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:116:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadJPG_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:117:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadLBM_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:118:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadPCX_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:119:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadPNG_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:120:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadPNM_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:121:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadTGA_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:122:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadTIF_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:123:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadXCF_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:124:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadXPM_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:125:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadXV_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:126:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_LoadWEBP_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:127:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "src")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_ReadXPMFromArray") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:129:39")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "xpm")
+          (type
+            (tag . ":pointer")
+            (type
+              (tag . ":pointer")
+              (type
+                (tag . ":char")
+                (bit-size . 8)
+                (bit-alignment . 8)))))))
+    (return-type
+      (tag . ":pointer")
+      (type (tag . "SDL_Surface"))))
+  ((tag . "function") (name . "IMG_SavePNG") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:132:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "surface")
+          (type (tag . ":pointer") (type (tag . "SDL_Surface"))))
+        ((tag . "parameter")
+          (name . "file")
+          (type
+            (tag . ":pointer")
+            (type
+              (tag . ":char")
+              (bit-size . 8)
+              (bit-alignment . 8))))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32)))
+  ((tag . "function") (name . "IMG_SavePNG_RW") (ns . 0)
+    (location . "/usr/include/SDL2/SDL_image.h:133:29")
+    (variadic . #f) (inline . #f) (storage-class . "extern")
+    (parameters
+      .
+      #(((tag . "parameter")
+          (name . "surface")
+          (type (tag . ":pointer") (type (tag . "SDL_Surface"))))
+        ((tag . "parameter")
+          (name . "dst")
+          (type (tag . ":pointer") (type (tag . "SDL_RWops"))))
+        ((tag . "parameter")
+          (name . "freedst")
+          (type
+            (tag . ":int")
+            (bit-size . 32)
+            (bit-alignment . 32)))))
+    (return-type
+      (tag . ":int")
+      (bit-size . 32)
+      (bit-alignment . 32))))

@@ -8,6 +8,7 @@
  (define-ftype sint32 integer-32)
  (define-ftype sint64 integer-64)
  (define-ftype uint64 integer-64)
+ (define-ftype size-t uint32)
  (define-ftype va-list void*)
  (define-ftype int% int)
  (define-ftype file (struct))

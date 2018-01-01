@@ -19,6 +19,7 @@
 (define-sdl-func int sdl-get-surface-blend-mode ((surface (* sdl-surface-t)) (blendMode (* sdl-blend-mode-t))) "SDL_GetSurfaceBlendMode")
 (define-sdl-func sdl-bool-t sdl-set-clip-rect ((surface (* sdl-surface-t)) (rect (* sdl-rect-t))) "SDL_SetClipRect")
 (define-sdl-func void sdl-get-clip-rect ((surface (* sdl-surface-t)) (rect (* sdl-rect-t))) "SDL_GetClipRect")
+(define-sdl-func (* sdl-surface-t) sdl-duplicate-surface ((surface (* sdl-surface-t))) "SDL_DuplicateSurface")
 (define-sdl-func (* sdl-surface-t) sdl-convert-surface ((src (* sdl-surface-t)) (fmt (* sdl-pixel-format-t)) (flags uint32)) "SDL_ConvertSurface")
 (define-sdl-func (* sdl-surface-t) sdl-convert-surface-format ((src (* sdl-surface-t)) (pixel_format uint32) (flags uint32)) "SDL_ConvertSurfaceFormat")
 (define-sdl-func int sdl-convert-pixels ((width int) (height int) (src_format uint32) (src void*) (src_pitch int) (dst_format uint32) (dst void*) (dst_pitch int)) "SDL_ConvertPixels")

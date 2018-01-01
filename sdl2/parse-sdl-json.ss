@@ -12,7 +12,7 @@
 ;; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
-
+(library-directories "~/thunderchez")
 (import (scheme)
 	(json))
 
@@ -113,7 +113,8 @@
 				(and (equal? "sdl" m) (string-contains location "SDL.h")))
 			    (equal? tag "function")
 			    (or (string-prefix? "SDL_" name)
-				(string-prefix? "SDLNet_" name)))
+				(string-prefix? "SDLNet_" name)
+				(string-prefix? "IMG_" name)))
 		       (cond
 			[(memq (string->symbol (anti-camel name)) blacklist)
 			 (printf ";;blacklisted probably because it uses a struct as value.\n(define ~d #f)\n" (anti-camel name))]
@@ -166,3 +167,17 @@
 		 sdlnet-json))
 	      'truncate)) '("net"))
 
+(define sdlimage-json-text (read-file "sdl2-image.json"))
+(define sdlimage-json (string->json sdlimage-json-text))
+
+(with-output-to-file "sdl2-image.sexp" (lambda () (pretty-print sdlimage-json))
+		     'truncate)
+
+(for-each (lambda (m)
+	    (with-output-to-file (string-append m "-functions.ss")
+	      (lambda ()
+		  (vector-for-each
+		   (lambda (x)
+		     (parse-json-function x m))
+		   sdlimage-json))
+	      'truncate)) '("image"))
