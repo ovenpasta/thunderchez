@@ -114,7 +114,9 @@
 			    (equal? tag "function")
 			    (or (string-prefix? "SDL_" name)
 				(string-prefix? "SDLNet_" name)
-				(string-prefix? "IMG_" name)))
+				(string-prefix? "IMG_" name)
+				(string-prefix? "STTF_" name)
+				(string-prefix? "TTF_" name)))
 		       (cond
 			[(memq (string->symbol (anti-camel name)) blacklist)
 			 (printf ";;blacklisted probably because it uses a struct as value.\n(define ~d #f)\n" (anti-camel name))]
@@ -181,3 +183,34 @@
 		     (parse-json-function x m))
 		   sdlimage-json))
 	      'truncate)) '("image"))
+
+
+(define sdlttfs-json-text (read-file "ttf-shim.json"))
+(define sdlttfs-json (string->json sdlttfs-json-text))
+
+(with-output-to-file "ttf-shim.sexp" (lambda () (pretty-print sdlttfs-json))
+		     'truncate)
+
+(for-each (lambda (m)
+	    (with-output-to-file (string-append m "-functions.ss")
+	      (lambda ()
+		  (vector-for-each
+		   (lambda (x)
+		     (parse-json-function x m))
+		   sdlttfs-json))
+	      'truncate)) '("sttf"))
+
+(define sdlttf-json-text (read-file "sdl2-ttf.json"))
+(define sdlttf-json (string->json sdlttf-json-text))
+
+(with-output-to-file "sdl2-ttf-real.sexp" (lambda () (pretty-print sdlttf-json))
+		     'truncate)
+
+(for-each (lambda (m)
+	    (with-output-to-file (string-append m "-functions.ss")
+	      (lambda ()
+		  (vector-for-each
+		   (lambda (x)
+		     (parse-json-function x m))
+		   sdlttf-json))
+	      'truncate)) '("ttf"))
