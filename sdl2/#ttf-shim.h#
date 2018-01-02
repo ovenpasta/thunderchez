@@ -1,5 +1,0 @@
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL.h>
-
-extern DECLSPEC SDL_Surface * SDLCALL TTF_RenderText_Blended_Wrapped_S(TTF_Font *font, const char *text, SDL_Color *fg, Uint32 wraplength);
-
