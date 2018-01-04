@@ -214,3 +214,21 @@
 		     (parse-json-function x m))
 		   sdlttf-json))
 	      'truncate)) '("ttf"))
+
+;;;;TODO Seriously this should be one function because this
+;;;;is a pain in the butt
+
+(define sdlmixer-json-text (read-file "sdl2-mixer.json"))
+(define sdlmixer-json (string->json sdlmixer-json-text))
+
+(with-output-to-file "sdl2-mixer.sexp" (lambda () (pretty-print sdlmixer-json))
+		     'truncate)
+
+(for-each (lambda (m)
+	    (with-output-to-file (string-append m "-functions.ss")
+	      (lambda ()
+		  (vector-for-each
+		   (lambda (x)
+		     (parse-json-function x m))
+		   sdlmixer-json))
+	      'truncate)) '("mix"))
