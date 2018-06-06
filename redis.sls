@@ -1,8 +1,7 @@
 
 (library
     (redis)
-  (export return-redis-closure redis-init
-  )
+  (export return-redis-closure redis-init)
 
   (import (chezscheme)
           (only (srfi s1 lists) take drop first)
