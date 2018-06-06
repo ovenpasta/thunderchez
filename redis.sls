@@ -1,3 +1,4 @@
+;; Created and maintained by Jack Lucas <silverbeard@protonmail.com>
 
 (library
     (redis)

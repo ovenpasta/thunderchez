@@ -1,3 +1,6 @@
+#| Created and Maintained by Jack Lucas <silverbeard@protonmail.com>
+see standalone repo at https://github.com/silverbeard00/siredis for license
+|#
 
 (define-record-type redsock
   (fields name ip port send (mutable receive)))
@@ -5,7 +8,7 @@
 (define (red-mk-socket addr port)
   (let ((s (socket 'inet 'stream '() 0)))
     (connect/inet s addr port)
-    (make-redsock "Test" addr port s 0)))
+    (make-redsock "Redis" addr port s 0)))
 
 (define (red-snd redsock command)
   (let ((active-sock (redsock-send redsock)))
@@ -113,4 +116,18 @@
     (lambda cmd
       (red-operate internal-socket cmd))))
 
+
+#|Examples of creating shorthand for redis commands|#
+
+(define (red-set key value)
+  `(set ,key ,value))
+
+(define (red-get key)
+  `(get ,key))
+
+(define (red-append key value)
+  `(append ,key ,value))
+
+(define (red-getset key value)
+  `(get-set ,key ,value))
 

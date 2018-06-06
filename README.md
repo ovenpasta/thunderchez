@@ -55,7 +55,11 @@ Based partially on chicken [sqlite3 egg](http://wiki.call-cc.org/eggref/4/sqlite
 
 [Library website](http://www.libsdl.org)
   
-	(import (sdl2))	
+	(import (sdl2))
+	;Optional sdl2 addons
+	(import (sdl2 ttf))
+	(import (sdl2 image))
+	(import (sdl2 mixer))	
 
 ## Cairo
 [Library website](http://www.cairographics.org)
@@ -89,4 +93,9 @@ Uses [lalr](./lalr/lalr.ss)
   * [pubsub](./nanomsg/pubsub)
   * [bus](./nanomsg/bus)
   * [survey](./nanomsg/survey)
+
+## Redis
+[Library website](http://redis.io)
+	(import (redis))
+
 
