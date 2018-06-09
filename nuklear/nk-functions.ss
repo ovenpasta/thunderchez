@@ -1,6 +1,7 @@
-(define-nk-func int nk-init-fixed ((arg-0 (* nk-context-t)) (memory void*) (size nk-size-t) (arg-3 (* nk-user-font-t))) "nk_init_fixed")
-(define-nk-func int nk-init ((arg-0 (* nk-context-t)) (arg-1 (* nk-allocator-t)) (arg-2 (* nk-user-font-t))) "nk_init")
-(define-nk-func int nk-init-custom ((arg-0 (* nk-context-t)) (cmds (* nk-buffer-t)) (pool (* nk-buffer-t)) (arg-3 (* nk-user-font-t))) "nk_init_custom")
+(define-nk-func (& nk-context-t)  nk-init-fixed ((arg-0 (* nk-context-t)) (memory void*) (size nk-size-t) (arg-3 (* nk-user-font-t))) "nk_init_fixed")
+(define-nk-func (& nk-context-t)  nk-init ((arg-0 (* nk-context-t)) (arg-1 (* nk-allocator-t)) (arg-2 (* nk-user-font-t))) "nk_init")
+(define-nk-func (& nk-context-t)  nk-init-custom ((arg-0 (* nk-context-t)) (cmds (* nk-buffer-t)) (pool (* nk-buffer-t)) (arg-3 (* nk-user-font-t))) "nk_init_custom")
+
 (define-nk-func void nk-clear ((arg-0 (* nk-context-t))) "nk_clear")
 (define-nk-func void nk-free ((arg-0 (* nk-context-t))) "nk_free")
 (define-nk-func void nk-input-begin ((arg-0 (* nk-context-t))) "nk_input_begin")

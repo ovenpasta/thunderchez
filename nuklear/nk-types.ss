@@ -48,6 +48,7 @@
 (define-ftype nk-style-button-t (struct))
 (define-ftype nk-plugin-filter-t void*)
 (define-ftype nk-text-edit-t void*)
+
 (define-ftype nk-style-item-t void*)
 (define-ftype nk-memory-status-t (struct))
 (define-ftype nk-str-t (struct))

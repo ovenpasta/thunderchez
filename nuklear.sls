@@ -7,6 +7,8 @@
     (nuklear)
   (export
    define-ftype-allocator define-nk-func
+   nk-context-t
+   nk-context-p
    nk-init-fixed
    nk-init
    nk-init-custom
