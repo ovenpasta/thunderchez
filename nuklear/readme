@@ -1,0 +1,1 @@
+clang -shared -fPIC src.c -std=c99 -pedantic -O2 -o libnuklear.so -linkflags
