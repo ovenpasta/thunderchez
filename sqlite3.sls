@@ -12,6 +12,7 @@
                                         ;define-function
   set-busy-handler!
                                         ;make-busy-timeout
+  sqlite3-busy-timeout
   interrupt!
   auto-committing?
   change-count
@@ -47,7 +48,8 @@
   enable-shared-cache!
   enable-load-extension!
 
-  sqlite3-trace)
+  sqlite3-trace
+  sqlite3-config-log)
 
  (import
   (chezscheme)
@@ -126,6 +128,8 @@
  (define (sqlite3:type-ref index)
    (list-ref (enum-set->list sqlite3:type-enum) index))
 
+ 
+
  ;; Auxiliary types
 
  (define-ftype sqlite3:context void*)
@@ -153,16 +157,8 @@
  (define-record-type statement
    (fields
     (mutable ptr)
-    (mutable database)))
-
-                                        ;(record-writer
-                                        ; (type-descriptor statement)
-                                        ; (lambda (r p wr)
-                                        ;   (wr
-                                        ;    (if (statement-ptr r)
-                                        ;        (format "#<sqlite3:statement sql=~s>" (source-sql r))
-                                        ;        "#<sqlite3:statement zombie>")
-                                        ;    p)))
+    (mutable database)
+    (mutable sql)))
 
                                         ;(define-check+error-type statement)
 
@@ -237,6 +233,10 @@
    (check-database 'set-busy-handler! db)
    (database-busy-handler-set! db handler))
 
+ (define (sqlite3-busy-timeout db ms)
+   (let ([f (foreign-procedure "sqlite3_busy_timeout" (sqlite3:database* int) int)])
+     (f (database-addr db) ms)))
+ 
  (define (database-addr db)
    (ftype-pointer-address (database-ptr db)))
 
@@ -286,7 +286,7 @@
    (let* ([f (foreign-procedure "sqlite3_next_stmt" (sqlite3:database*) sqlite3:statement*)]
           [stmt* (f (database-addr db))])
      (make-statement (make-ftype-pointer sqlite3:statement* stmt*)
-                     db)))
+                     db "")))
 
  (define finalize!
    (case-lambda
@@ -370,10 +370,10 @@
             [nByte (bytevector-length zSql)]
             [e (sqlite3_prepare_v2 (database-addr db) zSql nByte (ftype-pointer-address ptr) #f)])
        (cond [(equal? e 0)
-              (make-statement (ftype-&ref sqlite3:statement** (*) ptr) db)]
+              (make-statement (ftype-&ref sqlite3:statement** (*) ptr) db sql)]
              [else
               (case (number->sqlite3:status e)
-                [(busy)
+                #;[(busy)
                  (let ([h (database-busy-handler db)])
                    (cond
                     [(and h (h db retries))
@@ -810,8 +810,11 @@
    (check-database 'sqlite3-trace db)
    (let ([f (foreign-procedure "sqlite3_trace" (sqlite3:database* void* void*) void)])
      (f (database-addr db) func data)))
- 
- (foreign-procedure "sqlite3_trace" ( void* void*) void)
+
+ (define (sqlite3-config-log func data)
+   ;(check-database 'sqlite3-config-log db)
+   (let ([f (foreign-procedure "sqlite3_config" (int void* void*) void)])
+     (f 16 func data)))
 
  (record-writer
   (type-descriptor database)
@@ -821,6 +824,15 @@
          "#<sqlite3:database>"
          "#<sqlite3:database zombie>")
      p)))
+ (record-writer
+  (type-descriptor statement)
+  (lambda (r p wr)
+    (wr
+     (if (statement-ptr r)
+         (format "#<sqlite3:statement sql=~s>" (statement-sql r))
+         "#<sqlite3:statement zombie>")
+     p)))
+
 
  ) ; library sqlite3
 

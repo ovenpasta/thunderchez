@@ -33,14 +33,7 @@ Based on [surfage](https://github.com/dharmatech/surfage/) with minor changes
 Based on [matchable egg](http://wiki.call-cc.org/eggref/4/matchable)
 
 	(import (matchable))
-
-
-## irregex
-Based on [ashinn irregex](http://synthcode.com/scheme/irregex)
-
-    (import (irregex))
-
-
+  
 ## Sqlite3
 Based partially on chicken [sqlite3 egg](http://wiki.call-cc.org/eggref/4/sqlite3) but slightly different. Needs some testing.
 

@@ -127,7 +127,7 @@
 ; you can use also (flags-alist <flags-name>-flags) to get the alist of flags
 ; and (flags-name <flags-name>-flags) to get the name
 
-;EXAMPLE: (define-flag colors (red 1) (blue 2) (green 4))
+;EXAMPLE: (define-flags colors (red 1) (blue 2) (green 4))
 ;> color-flags -> #[#{flags ew79exa0q5qi23j9k1faa8-51} color ((red . 1) (blue . 2) (green . 4))]
 ;> (color 'blue) -> 2
 ;> (color 'red 'blue) -> 3

@@ -164,7 +164,9 @@
       . ,(lambda (trigger . value) (cons '@ value)))
     (*default* . ,(lambda (tag . elems) (entag* tag elems)))
     (*text* . ,(lambda (trigger str) 
-		 (if (string? str) (string->goodHTML str) str)))
+		 (cond [(string? str) (string->goodHTML str)]
+			[(bytevector? str) (utf8->string str)]
+			[else str])))
     (n_		; a non-breaking space
      . ,(lambda (tag . elems)
 	  (cons "&nbsp;" elems)))))

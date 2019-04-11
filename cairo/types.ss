@@ -67,10 +67,10 @@
  (define cairo-format-invalid -1)
 
  (define-ftype cairo-write-func-t
-   (function (void* void* unsigned-int) cairo-status-t))
+   (function (ptr (* unsigned-8) unsigned-int) cairo-status-t))
 
  (define-ftype cairo-read-func-t
-   (function (void* void* unsigned-int) cairo-status-t))
+   (function (ptr (* unsigned-8) unsigned-int) cairo-status-t))
 
  (define-ftype cairo-rectangle-int-t
    (struct [x int] [y int] [width int] [height int]))

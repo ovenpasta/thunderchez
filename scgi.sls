@@ -15,7 +15,8 @@
 
 (library (scgi)
   (export scgi-request-handler handle-scgi-connection run-scgi
-	  scgi-headers->bytevector)
+	  scgi-headers->bytevector
+	  scgi-before-fork-hook)
   (import (chezscheme)
 	  (socket)
 	  (netstring)
@@ -47,6 +48,8 @@
 			(bytevector->u8-list (string->utf8 value)) '(0)
 			acc)))
 	    '() l )))
+  
+  (define scgi-before-fork-hook (make-parameter values))
 
   (define scgi-request-handler
     (make-parameter
@@ -62,9 +65,11 @@
     (let* ([len (string->number (cdr (assq 'CONTENT_LENGTH h)))]
 	   [content (get-bytevector-n sock len)])
       (assert (= (bytevector-length content) len))
-      (let ([port (transcoded-port sock (make-transcoder (utf-8-codec) 'none))])
+      ;;(let ([port (transcoded-port sock (make-transcoder (utf-8-codec) 'none))])
+      (let ([port sock])
 	((scgi-request-handler) port h content)
-	(flush-output-port port))))
+	#;(flush-output-port port)
+	#;(close-port port))))
 
   (define (run-scgi addr port)
     (define nchildren 0)
@@ -77,6 +82,7 @@
        (listen sock 1000)
        (do ()
 	   (#f)
+	 (printf "scgi: active children: ~d~n" nchildren)
 	 (printf "scgi: waiting for connection...~n")
 	 (call-with-port
 	  (accept sock)
@@ -84,6 +90,7 @@
 	    (printf "scgi: accepted connection~n")
 	    (if (> nchildren max-children)
 		(sleep (make-time 'time-duration 0 1)))
+	    ((scgi-before-fork-hook))
 	    (printf "scgi: forking..~n")
 	    (let ([pid (fork)])
 	      (cond

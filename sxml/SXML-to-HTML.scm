@@ -65,8 +65,10 @@
         . ,(lambda (attr-key . value) (enattr attr-key value))))
       . ,(lambda (trigger . value) (cons '@ value)))
      (*default* . ,(lambda (tag . elems) (entag tag elems)))
-     (*text* . ,(lambda (trigger str) 
-		  (if (string? str) (string->goodHTML str) str)))
+     (*text* . ,(lambda (trigger str)
+		  (cond [(string? str) (string->goodHTML str)]
+			[(bytevector? str) (utf8->string str)]
+			[else str])))
  
                 ; Handle a nontraditional but convenient top-level element:
                 ; (html:begin title <html-body>) element

@@ -17,9 +17,13 @@
   (export string-split string-replace bytevector-copy* read-string
 	  print-stack-trace
 	  sub-bytevector  sub-bytevector=?
-	  load-bytevector save-bytevector)
+	  load-bytevector save-bytevector
+	  define/optional lambda/optional /optional
+	  define/keys lambda/keys /keys decode-keys)
   
-  (import (scheme) (srfi s14 char-sets))
+  (import (scheme) (srfi s14 char-sets)
+	  (only (srfi s1 lists) take drop)
+	  (srfi private auxiliary-keyword))
 
   ;; s is a string , c is a character-set or a list of chars
   ;; null strings are discarded from result by default unless #f is specified as third argument
@@ -120,7 +124,7 @@
     (call-with-port (open-file-output-port path)
 		    (lambda (p) (put-bytevector p data))))
 
-  
+  ;; from https://fare.livejournal.com/189741.html
   (define-syntax (nest stx)
     (syntax-case stx ()
       ((nest outer ... inner)
@@ -130,6 +134,112 @@
 		       #'(outer ... inner)))
 		   #'inner (syntax->list #'(outer ...))))))
 
+  (define-auxiliary-keywords /optional /keys)
 
+  (define-syntax define/optional
+    (lambda (stx)
+      (syntax-case stx (/optional)
+	[(_ (name params ... (/optional opts ...)) body ...)
+	 (let ([opts-list
+		(map (lambda (opt)
+		       (let ([x (syntax->datum opt)])
+			 (if (list? x)
+			     (list (datum->syntax (car (syntax->list opt)) (car x))
+				   (datum->syntax (car (syntax->list opt)) (cadr x) ))
+			     (list opt #f))))
+		     (syntax->list #'(opts ...)))])
+	   #`(define name
+	       (case-lambda
+		 #,@(map (lambda (i)
+			   #`[(params ... #,@(take (map car opts-list) i))
+			      (name params ...
+				    #,@(take (map car opts-list) i)
+				    #,@(drop (map cadr opts-list) i))])
+			 (iota  (length opts-list)))
+		 [(params ... #,@(map car opts-list))
+		  body ...])))])))
+
+  
+  (define-syntax lambda/optional
+    (lambda (stx)
+      (syntax-case stx (/optional)
+	[(_ (params ... (/optional opts ...)) body ...)
+	 (let ([opts-list
+		(map (lambda (opt)
+		       (let ([x (syntax->datum opt)])
+			 (if (list? x)
+			     (list (datum->syntax (car (syntax->list opt)) (car x))
+				   (datum->syntax (car (syntax->list opt)) (cadr x) ))
+			     (list opt #f))))
+		     (syntax->list #'(opts ...)))])
+	   #`(letrec ([func 
+		       (case-lambda
+			 #,@(map (lambda (i)
+				   #`[(params ... #,@(take (map car opts-list) i))
+				      (func params ...
+					    #,@(take (map car opts-list) i)
+					    #,@(drop (map cadr opts-list) i))])
+				 (iota  (length opts-list)))
+			 [(params ... #,@(map car opts-list))
+			  body ...])])
+	       func))])))
+
+  (define (decode-keys func-name names keys)
+    (for-each (lambda (k)
+		(unless (assq (car k) names)
+		  (errorf func-name "unknown keyword argument ~d" k)))
+	      keys)
+    (apply values (map (lambda (name)
+			 (let ([p (assq (if (pair? name) (car name) name) keys)])
+			   (if p
+			       (if (pair? (cdr p))
+				   (cadr p)
+				   (cdr p))
+			       (if (pair? name)
+				   (if (pair? (cdr name))
+				       (cadr name)
+				       (cdr name))
+				   #f))))
+		       names)))
+  
+  (define-syntax define/keys 
+    (lambda (stx)
+      (syntax-case stx (/keys)
+	[(_ (name params ... (/keys keys ...)) body ...)
+	 (let ([keys-list
+		(map (lambda (key)
+		       (let ([x (syntax->datum key)])
+			 (if (list? x)
+			     (list (datum->syntax (car (syntax->list key)) (car x))
+				   (datum->syntax (car (syntax->list key)) (cadr x) ))
+			     (list key #f))))
+		     (syntax->list #'(keys ...)))])
+ 	   #`(define name
+	       (lambda (params ... . keys*)
+		 (import (only (data-structures) chop))
+		 (import (only (thunder-utils) decode-keys))
+		 (let-values ([(#,@(map car keys-list))
+			       (decode-keys 'name '#,keys-list (chop keys* 2))])
+		   body ...))))])))
+
+  
+  (define-syntax lambda/keys 
+    (lambda (stx)
+      (syntax-case stx (/keys)
+	[(_ (params ... (/keys keys ...)) body ...)
+	 (let ([keys-list
+		(map (lambda (key)
+		       (let ([x (syntax->datum key)])
+			 (if (list? x)
+			     (list (datum->syntax (car (syntax->list key)) (car x))
+				   (datum->syntax (car (syntax->list key)) (cadr x) ))
+			     (list key #f))))
+		     (syntax->list #'(keys ...)))])
+ 	   #`(lambda (params ... . keys*)
+	       (import (only (data-structures) chop))
+	       (import (only (thunder-utils) decode-keys))
+	       (let-values ([(#,@(map car keys-list))
+			     (decode-keys 'func '#,keys-list (chop keys* 2))])
+		 body ...)))])))
   );library
 
