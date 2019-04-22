@@ -93,8 +93,8 @@
 	   (only (thunder-utils) string-replace string-split) 
 	   (only (srfi s13 strings) string-delete string-suffix? string-prefix?)
 	   (srfi s14 char-sets))
-   (include "mix-functions.ss")
-   (include "mix-types.ss")
+   (include "mixer-functions.ss")
+   (include "mixer-types.ss")
    (define (sdl-mixer-library-init . l)
      (load-shared-object (if (null? l) "libSDL2_mixer.so" l))))
 
