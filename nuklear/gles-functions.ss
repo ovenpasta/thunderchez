@@ -1,0 +1,7 @@
+(define-nk-func void* nk-sdl-device-create ((arg-0 void*)) "nk_sdl_device_create")
+(define-nk-func void* nk-sdl-device-destroy ((arg-0 void*)) "nk-sdl-device-destroy")
+(define-nk-func void* nk-sdl-render ((AA int) (max_vertex_buffer int) (max_element_buffer int)) "nk-sdl-render")
+(define-nk-func void* nk-sdl-clipbard-copy ((usr (* nk-handle-t)) (text string) (len int)) "nk_sdl_clipbard_copy")
+(define-nk-func (* nk-context-t)  nk-sdl-init ((win (* sdl-window-t))) "nk_sdl_init")
+(define-nk-func int nk-sdl-handle-event ((evt (* sdl-event-t))) "nk_sdl_handle_event")
+(define-nk-func void* nk-sdl-shutdown ((arg-0 void*)) "nk_sdl_shutdown")
